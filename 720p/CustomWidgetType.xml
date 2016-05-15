@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1122">
+	<defaultcontrol always="true">450</defaultcontrol>
+	<coordinates>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<onload>SetProperty(MenuItemType,MainMenu)</onload>
+	<onunload>ClearProperty(UsrSelectBtn)</onunload>
+	<onunload>ClearProperty(MenuItemType)</onunload>
+	<onunload>ClearProperty(UsrSelectPath,home)</onunload>
+	<controls>
+		<control type="group">
+			<depth>DepthSideBlade</depth>
+			<animation effect="slide" start="400,0" end="0,0" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="400,0" time="300" tween="quadratic" easing="out">WindowClose</animation>
+			<control type="image">
+				<left>400r</left>
+				<top>0</top>
+				<width>420</width>
+				<height>720</height>
+				<texture border="15,0,0,0" flipx="true">HomeBladeSub.png</texture>
+			</control>
+			<control type="button">
+				<description>Close Window button</description>
+				<left>380r</left>
+				<top>0</top>
+				<width>64</width>
+				<height>32</height>
+				<label>-</label>
+				<font>-</font>
+				<onclick>PreviousMenu</onclick>
+				<texturefocus>DialogCloseButton-focus.png</texturefocus>
+				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<onleft>450</onleft>
+				<onright>450</onright>
+				<onup>450</onup>
+				<ondown>450</ondown>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
+			<control type="label">
+				<left>380r</left>
+				<top>35</top>
+				<width>360</width>
+				<height>40</height>
+				<font>font13_title</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$LOCALIZE[31224]</label>
+			</control>
+			<control type="list" id="450">
+				<left>390r</left>
+				<top>140</top>
+				<width>450</width>
+				<height>440</height>
+				<onup>450</onup>
+				<onleft>Dialog.Close(1122)</onleft>
+				<onright>450</onright>
+				<ondown>450</ondown>
+				<pagecontrol>-</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="40">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>370</width>
+						<height>40</height>
+						<texture border="5">button-nofocus.png</texture>
+					</control>
+					<control type="label">
+						<left>10</left>
+						<top>0</top>
+						<width>350</width>
+						<height>40</height>
+						<font>font12_title</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>selected</selectedcolor>
+						<info>ListItem.Label</info>
+					</control>
+				</itemlayout>
+				<focusedlayout height="40">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>370</width>
+						<height>40</height>
+						<visible>!Control.HasFocus(450)</visible>
+						<texture border="3">button-nofocus.png</texture>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>370</width>
+						<height>40</height>
+						<visible>Control.HasFocus(450)</visible>
+						<texture border="3">button-focus.png</texture>
+					</control>
+					<control type="label">
+						<left>10</left>
+						<top>0</top>
+						<width>350</width>
+						<height>40</height>
+						<font>font12_title</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>selected</selectedcolor>
+						<info>ListItem.Label</info>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<description>Up One Level</description>
+						<label>[COLOR=selected]$LOCALIZE[31225][/COLOR]</label>
+						<onclick>SetProperty(MenuItemType,MainMenu)</onclick>
+						<visible>!String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+					</item>
+					<item>
+						<description>Clear Setting</description>
+						<label>$LOCALIZE[31221]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Widget)</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName)</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+					</item>
+					<item>
+						<description>Playlist Movies</description>
+						<label>$VAR[MenuPlaylistName] [COLOR=selected]$LOCALIZE[559][/COLOR]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,VideoPlayList)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$VAR[MenuPlaylistName])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<include>MenuMoviePlayListCheck</include>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+					</item>
+					<item>
+						<description>Playlist Music</description>
+						<label>$VAR[MenuPlaylistName] [COLOR=selected]$LOCALIZE[559][/COLOR]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,MusicPlayList)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$VAR[MenuPlaylistName])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<include>MenuMusicPlayListCheck</include>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+					</item>
+					<item>
+						<description>Movies</description>
+						<label>$LOCALIZE[342] $LOCALIZE[33061]</label>
+						<onclick>SetProperty(MenuItemType,MoviesMenu)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>Library.HasContent(Movies)</visible>
+					</item>
+					<item>
+						<description>TVShows</description>
+						<label>$LOCALIZE[31072] $LOCALIZE[33061]</label>
+						<onclick>SetProperty(MenuItemType,TVShowsMenu)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>Library.HasContent(TVShows)</visible>
+					</item>
+					<item>
+						<description>Music</description>
+						<label>$LOCALIZE[2] $LOCALIZE[33061]</label>
+						<onclick>SetProperty(MenuItemType,MusicMenu)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+					</item>
+					<item>
+						<description>Concerts</description>
+						<label>$LOCALIZE[31155] $LOCALIZE[33061]</label>
+						<onclick>SetProperty(MenuItemType,ConcertsMenu)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>Library.HasContent(MusicVideos)</visible>
+					</item>
+					<item>
+						<description>Recent Movies</description>
+						<label>$LOCALIZE[31150]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,RecentMovies)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31150])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MoviesMenu)</visible>
+					</item>
+					<item>
+						<description>Random Movies</description>
+						<label>$LOCALIZE[31226]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,RandomMovies)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31226])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MoviesMenu)</visible>
+					</item>
+					<item>
+						<description>Suggested Movies</description>
+						<label>$LOCALIZE[31227]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,SuggestedMovies)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31227])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MoviesMenu)</visible>
+					</item>
+					<item>
+						<description>UnWatched Movies</description>
+						<label>$LOCALIZE[16101] $LOCALIZE[342]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,UnWatchedMovies)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[16101] $LOCALIZE[20342])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MoviesMenu)</visible>
+					</item>
+					<item>
+						<description>Similar Movies</description>
+						<label>$LOCALIZE[31228]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,SimilarMovies)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31228])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MoviesMenu)</visible>
+					</item>
+					<item>
+						<description>Genre Movies</description>
+						<label>$LOCALIZE[31230]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,GenreMovies)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31230])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MoviesMenu)</visible>
+					</item>
+					<item>
+						<description>Recent Episodes</description>
+						<label>$LOCALIZE[31228]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,RecentEpisodes)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31228])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
+					</item>
+					<item>
+						<description>Landscape Recent Episodes</description>
+						<label>$LOCALIZE[31228] $LOCALIZE[31231]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,ThumbRecentEpisodes)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31228])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
+					</item>
+					<item>
+						<description>Random Episodes</description>
+						<label>$LOCALIZE[31232]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,RandomEpisodes)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31232])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
+					</item>
+					<item>
+						<description>Landscape Random Episodes</description>
+						<label>$LOCALIZE[31232] $LOCALIZE[31231]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,ThumbRandomEpisodes)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31232])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
+					</item>
+					<item>
+						<description>Suggested Episodes</description>
+						<label>$LOCALIZE[31172]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,SuggestedEpisodes)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31172])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
+						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
+					</item>
+					<item>
+						<description>Landscape Suggested Episodes</description>
+						<label>$LOCALIZE[31172] $LOCALIZE[31231]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,ThumbSuggestedEpisodes)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31172])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
+						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
+					</item>
+					<item>
+						<description>Next Up</description>
+						<label>$LOCALIZE[31233]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,NextUpEpisodes)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31233])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
+					</item>
+					<item>
+						<description>Next Aired</description>
+						<label>$LOCALIZE[31234]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,NextAired)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31234])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>!Skin.HasSetting(DisableTVNextAired)</visible>
+						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
+					</item>
+					<item>
+						<description>Similar TVShows</description>
+						<label>$LOCALIZE[31235]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,SimilarEpisodes)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31235])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
+					</item>
+					<item>
+						<description>Genre TVShows</description>
+						<label>$LOCALIZE[31236]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,GenreEpisodes)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31236])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
+					</item>
+					<item>
+						<description>Recent Albums</description>
+						<label>$LOCALIZE[31154]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,RecentAlbums)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31154])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MusicMenu)</visible>
+					</item>
+					<item>
+						<description>Random Albums</description>
+						<label>$LOCALIZE[31237]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,RandomAlbums)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31237])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MusicMenu)</visible>
+					</item>
+					<item>
+						<description>Recent Played Songs</description>
+						<label>$LOCALIZE[31238]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,PlayedAlbums)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31238])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MusicMenu)</visible>
+					</item>
+					<item>
+						<description>Suggested Albums</description>
+						<label>$LOCALIZE[31239]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,SuggestedAlbums)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31239])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MusicMenu)</visible>
+					</item>
+					<item>
+						<description>Recent Concerts</description>
+						<label>$LOCALIZE[31153]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,RecentConcerts)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31153])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),ConcertsMenu)</visible>
+					</item>
+					<item>
+						<description>Random Concerts</description>
+						<label>$LOCALIZE[31240]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,RandomConcerts)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31240])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),ConcertsMenu)</visible>
+					</item>
+					<item>
+						<description>Suggested Concerts</description>
+						<label>$LOCALIZE[31174]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,SuggestedConcerts)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31174])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
+						<visible>String.IsEqual(Window.Property(MenuItemType),ConcertsMenu)</visible>
+					</item>
+					<item>
+						<description>Weather</description>
+						<label>$LOCALIZE[8]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,Weather)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[8])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>!String.IsEmpty(Weather.Plugin)</visible>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+					</item>
+					<item>
+						<description>Favourites</description>
+						<label>$LOCALIZE[10134]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,Favourites)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[1036])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+					</item>
+					<item>
+						<description>Media Favourites</description>
+						<label>$LOCALIZE[31241]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,MediaFavourites)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31241])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+					</item>
+					<item>
+						<description>Android Apps</description>
+						<label>$LOCALIZE[31162]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,AndroidApps)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$LOCALIZE[31162])</onclick>
+						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))">Skin.Reset(HomeWidget.1.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))">Skin.Reset(HomeWidget.2.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))">Skin.Reset(HomeWidget.3.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))">Skin.Reset(HomeWidget.4.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))">Skin.Reset(HomeWidget.5.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))">Skin.Reset(HomeWidget.6.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))">Skin.Reset(HomeWidget.7.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))">Skin.Reset(HomeWidget.8.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))">Skin.Reset(HomeWidget.9.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))">Skin.Reset(HomeWidget.10.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
+						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>System.Platform.Android</visible>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+					</item>
+					<item>
+						<description>User Widget Number 1</description>
+						<label fallback="31081">$INFO[Skin.String(HomeWidget.1.Name)]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,$INFO[Skin.String(HomeWidget.1.Type)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$INFO[Skin.String(HomeWidget.1.Name)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath,$INFO[Skin.String(HomeWidget.1.Path)])</onclick>
+						<onclick>Skin.SetString(HomeWidget.1.Lock,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>!String.IsEmpty(Skin.String(HomeWidget.1.Type))</visible>
+						<visible>String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.1.Lock))| String.IsEmpty(Skin.String(HomeWidget.1.Lock))</visible>
+					</item>
+					<item>
+						<description>User Widget Number 2</description>
+						<label fallback="31082">$INFO[Skin.String(HomeWidget.2.Name)]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,$INFO[Skin.String(HomeWidget.2.Type)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$INFO[Skin.String(HomeWidget.2.Name)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath,$INFO[Skin.String(HomeWidget.2.Path)])</onclick>
+						<onclick>Skin.SetString(HomeWidget.2.Lock,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>!String.IsEmpty(Skin.String(HomeWidget.2.Type))</visible>
+						<visible>String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.2.Lock))| String.IsEmpty(Skin.String(HomeWidget.2.Lock))</visible>
+					</item>
+					<item>
+						<description>User Widget Number 3</description>
+						<label fallback="31083">$INFO[Skin.String(HomeWidget.3.Name)]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,$INFO[Skin.String(HomeWidget.3.Type)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$INFO[Skin.String(HomeWidget.3.Name)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath,$INFO[Skin.String(HomeWidget.3.Path)])</onclick>
+						<onclick>Skin.SetString(HomeWidget.3.Lock,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>!String.IsEmpty(Skin.String(HomeWidget.3.Type))</visible>
+						<visible>String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.3.Lock))| String.IsEmpty(Skin.String(HomeWidget.3.Lock))</visible>
+					</item>
+					<item>
+						<description>User Widget Number 4</description>
+						<label fallback="31084">$INFO[Skin.String(HomeWidget.4.Name)]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,$INFO[Skin.String(HomeWidget.4.Type)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$INFO[Skin.String(HomeWidget.4.Name)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath,$INFO[Skin.String(HomeWidget.4.Path)])</onclick>
+						<onclick>Skin.SetString(HomeWidget.4.Lock,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>!String.IsEmpty(Skin.String(HomeWidget.4.Type))</visible>
+						<visible>String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.4.Lock))| String.IsEmpty(Skin.String(HomeWidget.4.Lock))</visible>
+					</item>
+					<item>
+						<description>User Widget Number 5</description>
+						<label fallback="31085">$INFO[Skin.String(HomeWidget.5.Name)]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,$INFO[Skin.String(HomeWidget.5.Type)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$INFO[Skin.String(HomeWidget.5.Name)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath,$INFO[Skin.String(HomeWidget.5.Path)])</onclick>
+						<onclick>Skin.SetString(HomeWidget.5.Lock,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>!String.IsEmpty(Skin.String(HomeWidget.5.Type))</visible>
+						<visible>String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.5.Lock))| String.IsEmpty(Skin.String(HomeWidget.5.Lock))</visible>
+					</item>
+					<item>
+						<description>User Widget Number 6</description>
+						<label fallback="31086">$INFO[Skin.String(HomeWidget.6.Name)]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,$INFO[Skin.String(HomeWidget.6.Type)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$INFO[Skin.String(HomeWidget.6.Name)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath,$INFO[Skin.String(HomeWidget.6.Path)])</onclick>
+						<onclick>Skin.SetString(HomeWidget.6.Lock,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>!String.IsEmpty(Skin.String(HomeWidget.6.Type))</visible>
+						<visible>String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.6.Lock))| String.IsEmpty(Skin.String(HomeWidget.6.Lock))</visible>
+					</item>
+					<item>
+						<description>User Widget Number 7</description>
+						<label fallback="31087">$INFO[Skin.String(HomeWidget.7.Name)]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,$INFO[Skin.String(HomeWidget.7.Type)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$INFO[Skin.String(HomeWidget.7.Name)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath,$INFO[Skin.String(HomeWidget.7.Path)])</onclick>
+						<onclick>Skin.SetString(HomeWidget.7.Lock,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>!String.IsEmpty(Skin.String(HomeWidget.7.Type))</visible>
+						<visible>String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.7.Lock))| String.IsEmpty(Skin.String(HomeWidget.7.Lock))</visible>
+					</item>
+					<item>
+						<description>User Widget Number 8</description>
+						<label fallback="31088">$INFO[Skin.String(HomeWidget.8.Name)]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,$INFO[Skin.String(HomeWidget.8.Type)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$INFO[Skin.String(HomeWidget.8.Name)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath,$INFO[Skin.String(HomeWidget.8.Path)])</onclick>
+						<onclick>Skin.SetString(HomeWidget.8.Lock,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>!String.IsEmpty(Skin.String(HomeWidget.8.Type))</visible>
+						<visible>String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.8.Lock))| String.IsEmpty(Skin.String(HomeWidget.8.Lock))</visible>
+					</item>
+					<item>
+						<description>User Widget Number 9</description>
+						<label fallback="31089">$INFO[Skin.String(HomeWidget.9.Name)]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,$INFO[Skin.String(HomeWidget.9.Type)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$INFO[Skin.String(HomeWidget.9.Name)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath,$INFO[Skin.String(HomeWidget.9.Path)])</onclick>
+						<onclick>Skin.SetString(HomeWidget.9.Lock,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>!String.IsEmpty(Skin.String(HomeWidget.9.Type))</visible>
+						<visible>String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.9.Lock))| String.IsEmpty(Skin.String(HomeWidget.9.Lock))</visible>
+					</item>
+					<item>
+						<description>User Widget Number 10</description>
+						<label fallback="31090">$INFO[Skin.String(HomeWidget.10.Name)]</label>
+						<onclick>Dialog.Close(1122)</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Widget,$INFO[Skin.String(HomeWidget.10.Type)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName,$INFO[Skin.String(HomeWidget.10.Name)])</onclick>
+						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath,$INFO[Skin.String(HomeWidget.10.Path)])</onclick>
+						<onclick>Skin.SetString(HomeWidget.10.Lock,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+						<visible>String.IsEqual(Window.Property(MenuItemType),MainMenu)</visible>
+						<visible>!String.IsEmpty(Skin.String(HomeWidget.10.Type))</visible>
+						<visible>String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.10.Lock))| String.IsEmpty(Skin.String(HomeWidget.10.Lock))</visible>
+					</item>
+				</content>
+			</control>
+			<control type="label">
+				<description>Page label</description>
+				<right>30</right>
+				<top>670</top>
+				<width>350</width>
+				<height>30</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font12</font>
+				<textcolor>grey</textcolor>
+				<label>([COLOR=blue]$INFO[Container(450).NumItems][/COLOR]) ##$LOCALIZE[31025] - ##$LOCALIZE[31024] ([COLOR=blue]$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages][/COLOR])</label>
+			</control>
+		</control>
+	</controls>
+</window>

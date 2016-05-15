@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1102">
+	<onload>ActivateWindow(1104)</onload>
+	<visible>Skin.HasSetting(EnableOverHeatAdvice)</visible>
+	<visible>[substring(System.TemperatureUnits,C,right) + IntegerGreaterThan(System.CPUTemperature,75)]|[substring(System.TemperatureUnits,F,right) + IntegerGreaterThan(System.CPUTemperature,167)]</visible>
+	<controls></controls>
+</window>

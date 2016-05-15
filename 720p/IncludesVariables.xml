@@ -1,0 +1,1488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+	<variable name="SetDefaultBackground" type="text">
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Weather)">special://skin/backgrounds/weather.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Pictures)">special://skin/backgrounds/pictures.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Videos)">special://skin/backgrounds/videos.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Movies)">special://skin/backgrounds/videos.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),TVShows)">special://skin/backgrounds/videos.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Concerts)">special://skin/backgrounds/musicvideos.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),LiveTV)">special://skin/backgrounds/tv.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Music)">special://skin/backgrounds/music.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Programs)">special://skin/backgrounds/programs.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),AddOns)">special://skin/backgrounds/addons.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Streaming)">special://skin/backgrounds/musicvideos.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Settings)">special://skin/backgrounds/settings.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),VideoPlayList)">special://skin/backgrounds/playlist.jpg</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),MusicPlayList)">special://skin/backgrounds/musicvideos.jpg</value>
+		<value>$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</value>
+	</variable>
+	<variable name="MultiImageTimerString" type="text">
+		<value condition="String.IsEmpty(Skin.String(MultiImageTimer)) | String.IsEqual(Skin.String(MultiImageTimer),8)">[COLOR=selected]$LOCALIZE[31390][/COLOR]</value>
+		<value>[COLOR=selected]$INFO[Skin.String(MultiImageTimer)][/COLOR] $LOCALIZE[31218]</value>
+	</variable>
+	<variable name="WeatherIconName">
+		<value condition="String.IsEmpty(Skin.String(resource.images.weathericons.path))">$LOCALIZE[31213]</value>
+		<value condition="!String.IsEmpty(Skin.String(resource.images.weathericons.path))">$INFO[Skin.String(resource.images.weathericons.name)]</value>
+	</variable>
+	<variable name="WeatherIconPath">
+		<value condition="String.IsEmpty(Skin.String(resource.images.weathericons.path))">resource://resource.images.weathericons.default/</value>
+		<value condition="!String.IsEmpty(Skin.String(resource.images.weathericons.path))">$INFO[Skin.String(resource.images.weathericons.path)]</value>
+	</variable>
+	<variable name="WeatherFanartName">
+		<value condition="String.IsEmpty(Skin.String(resource.images.weatherfanart.name))">$LOCALIZE[31213]</value>
+		<value condition="!String.IsEmpty(Skin.String(resource.images.weatherfanart.name))">$INFO[Skin.String(resource.images.weatherfanart.name)]</value>
+	</variable>
+	<variable name="WeatherFanartPath">
+		<value condition="String.IsEmpty(Skin.String(resource.images.weatherfanart.path))">special://skin/backgrounds/weather.jpg</value>
+		<value condition="!String.IsEmpty(Skin.String(resource.images.weatherfanart.path)) + Skin.HasSetting(resource.images.weatherfanart.multi)">$INFO[Skin.String(resource.images.weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>
+		<value condition="!String.IsEmpty(Skin.String(resource.images.weatherfanart.path)) + !Skin.HasSetting(resource.images.weatherfanart.multi)">$INFO[Skin.String(resource.images.weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode),,.jpg]</value>
+	</variable>
+	<variable name="StickyMenuLabel" type="text">
+		<value condition="Skin.String(StickyMenuSelect.Label)">$INFO[Skin.String(StickyMenuSelect.Label)]</value>
+		<value>$LOCALIZE[31163]</value>
+	</variable>
+	<variable name="MenuItemOneLabel" type="text">
+		<value condition="Skin.HasSetting(UseStickyHomeMenu)">$LOCALIZE[31163]</value>
+		<value>$INFO[Skin.String(HomeMenu.1.Label)]</value>
+	</variable>
+	<variable name="SubMenuItemBackground" type="text">
+		<value condition="Container(9000).Hasfocus(1) + !String.IsEmpty(Skin.String(HomeMenu.1.Fanart))">$INFO[Skin.String(HomeMenu.1.Fanart)]</value>
+		<value condition="Container(9000).Hasfocus(2) + !String.IsEmpty(Skin.String(HomeMenu.2.Fanart))">$INFO[Skin.String(HomeMenu.2.Fanart)]</value>
+		<value condition="Container(9000).Hasfocus(3) + !String.IsEmpty(Skin.String(HomeMenu.3.Fanart))">$INFO[Skin.String(HomeMenu.3.Fanart)]</value>
+		<value condition="Container(9000).Hasfocus(4) + !String.IsEmpty(Skin.String(HomeMenu.4.Fanart))">$INFO[Skin.String(HomeMenu.4.Fanart)]</value>
+		<value condition="Container(9000).Hasfocus(5) + !String.IsEmpty(Skin.String(HomeMenu.5.Fanart))">$INFO[Skin.String(HomeMenu.5.Fanart)]</value>
+		<value condition="Container(9000).Hasfocus(6) + !String.IsEmpty(Skin.String(HomeMenu.6.Fanart))">$INFO[Skin.String(HomeMenu.6.Fanart)]</value>
+		<value condition="Container(9000).Hasfocus(7) + !String.IsEmpty(Skin.String(HomeMenu.7.Fanart))">$INFO[Skin.String(HomeMenu.7.Fanart)]</value>
+		<value condition="Container(9000).Hasfocus(8) + !String.IsEmpty(Skin.String(HomeMenu.8.Fanart))">$INFO[Skin.String(HomeMenu.8.Fanart)]</value>
+		<value condition="Container(9000).Hasfocus(9) + !String.IsEmpty(Skin.String(HomeMenu.9.Fanart))">$INFO[Skin.String(HomeMenu.9.Fanart)]</value>
+		<value condition="Container(9000).Hasfocus(10) + !String.IsEmpty(Skin.String(HomeMenu.10.Fanart))">$INFO[Skin.String(HomeMenu.10.Fanart)]</value>
+		<!--value condition="Container(9000).Hasfocus(11)">special://skin/backgrounds/media-overlay.jpg</value-->
+		<value condition="Container(9000).Hasfocus(12) + !String.IsEmpty(Skin.String(SettingsMenu.Fanart))">$INFO[Skin.String(SettingsMenu.Fanart)]</value>
+		<value>$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</value>
+	</variable>
+	<variable name="SubSetOneName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetOneUser))">$INFO[Skin.String(SubSetOneUser)]</value>
+		<value>$LOCALIZE[3]</value>
+	</variable>
+	<variable name="SubSetTwoName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetTwoUser))">$INFO[Skin.String(SubSetTwoUser)]</value>
+		<value>$LOCALIZE[20342]</value>
+	</variable>
+	<variable name="SubSetThreeName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetThreeUser))">$INFO[Skin.String(SubSetThreeUser)]</value>
+		<value>$LOCALIZE[31072]</value>
+	</variable>
+	<variable name="SubSetFourName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFourUser))">$INFO[Skin.String(SubSetFourUser)]</value>
+		<value>$LOCALIZE[1211]</value>
+	</variable>
+	<variable name="SubSetFiveName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFiveUser))">$INFO[Skin.String(SubSetFiveUser)]</value>
+		<value>$LOCALIZE[31155]</value>
+	</variable>
+	<variable name="SubSetSixName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSixUser))">$INFO[Skin.String(SubSetSixUser)]</value>
+		<value>$LOCALIZE[31952]</value>
+	</variable>
+	<variable name="SubSetSevenName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSevenUser))">$INFO[Skin.String(SubSetSevenUser)]</value>
+		<value>$LOCALIZE[13000]</value>
+	</variable>
+	<variable name="SubSetEightName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetEightUser))">$INFO[Skin.String(SubSetEightUser)]</value>
+		<value>$LOCALIZE[1213]</value>
+	</variable>
+	<variable name="SubSetNineName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetNineUser))">$INFO[Skin.String(SubSetNineUser)]</value>
+		<value>$LOCALIZE[31071]</value>
+	</variable>
+	<variable name="SubSetTenName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetTenUser))">$INFO[Skin.String(SubSetTenUser)]</value>
+		<value>$LOCALIZE[31081]</value>
+	</variable>
+	<variable name="SubSetElevenName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetElevenUser))">$INFO[Skin.String(SubSetElevenUser)]</value>
+		<value>$LOCALIZE[31082]</value>
+	</variable>
+	<variable name="SubSetOneItemOne" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetOne.1.Label))">$INFO[Skin.String(SubSetOne.1.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetOne.1.Path),Hidden)">$LOCALIZE[342]</value>
+	</variable>
+	<variable name="SubSetOneItemTwo" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetOne.2.Label))">$INFO[Skin.String(SubSetOne.2.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetOne.2.Path),Hidden)">$LOCALIZE[31072]</value>
+	</variable>
+	<variable name="SubSetOneItemThree" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetOne.3.Label))">$INFO[Skin.String(SubSetOne.3.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetOne.3.Path),Hidden)">$LOCALIZE[31155]</value>
+	</variable>
+	<variable name="SubSetOneItemFour" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetOne.4.Label))">$INFO[Skin.String(SubSetOne.4.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetOne.4.Path),Hidden)">$LOCALIZE[744]</value>
+	</variable>
+	<variable name="SubSetOneItemFive" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetOne.5.Label))">$INFO[Skin.String(SubSetOne.5.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetOne.5.Path),Hidden)">$LOCALIZE[14022]</value>
+	</variable>
+	<variable name="SubSetOneItemSix" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetOne.6.Label))">$INFO[Skin.String(SubSetOne.6.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetOne.6.Path),Hidden)">$LOCALIZE[31071]</value>
+	</variable>
+	<variable name="SubSetTwoItemOne" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetTwo.1.Label))">$INFO[Skin.String(SubSetTwo.1.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetTwo.1.Path),Hidden)">$LOCALIZE[31328]</value>
+	</variable>
+	<variable name="SubSetTwoItemTwo" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetTwo.2.Label))">$INFO[Skin.String(SubSetTwo.2.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetTwo.2.Path),Hidden)">$LOCALIZE[20434]</value>
+	</variable>
+	<variable name="SubSetTwoItemThree" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetTwo.3.Label))">$INFO[Skin.String(SubSetTwo.3.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetTwo.3.Path),Hidden)">$LOCALIZE[369]</value>
+	</variable>
+	<variable name="SubSetTwoItemFour" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetTwo.4.Label))">$INFO[Skin.String(SubSetTwo.4.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetTwo.4.Path),Hidden)">$LOCALIZE[135]</value>
+	</variable>
+	<variable name="SubSetTwoItemFive" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetTwo.5.Label))">$INFO[Skin.String(SubSetTwo.5.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetTwo.5.Path),Hidden)">$LOCALIZE[20459]</value>
+	</variable>
+	<variable name="SubSetTwoItemSix" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetTwo.6.Label))">$INFO[Skin.String(SubSetTwo.6.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetTwo.6.Path),Hidden)">$LOCALIZE[559]</value>
+	</variable>
+	<variable name="SubSetThreeItemOne" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetThree.1.Label))">$INFO[Skin.String(SubSetThree.1.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetThree.1.Path),Hidden)">$LOCALIZE[31156]</value>
+	</variable>
+	<variable name="SubSetThreeItemTwo" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetThree.2.Label))">$INFO[Skin.String(SubSetThree.2.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetThree.2.Path),Hidden)">$LOCALIZE[31328]</value>
+	</variable>
+	<variable name="SubSetThreeItemThree" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetThree.3.Label))">$INFO[Skin.String(SubSetThree.3.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetThree.3.Path),Hidden)">$LOCALIZE[369]</value>
+	</variable>
+	<variable name="SubSetThreeItemFour" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetThree.4.Label))">$INFO[Skin.String(SubSetThree.4.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetThree.4.Path),Hidden)">$LOCALIZE[135]</value>
+	</variable>
+	<variable name="SubSetThreeItemFive" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetThree.5.Label))">$INFO[Skin.String(SubSetThree.5.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetThree.5.Path),Hidden)">$LOCALIZE[20459]</value>
+	</variable>
+	<variable name="SubSetThreeItemSix" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetThree.6.Label))">$INFO[Skin.String(SubSetThree.6.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetThree.6.Path),Hidden)">$LOCALIZE[344]</value>
+	</variable>
+	<variable name="SubSetFourItemOne" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFour.1.Label))">$INFO[Skin.String(SubSetFour.1.Label)]</value>
+		<value condition="!Skin.String(SubSetFour.1.Path,Hidden)">$LOCALIZE[133]</value>
+	</variable>
+	<variable name="SubSetFourItemTwo" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFour.2.Label))">$INFO[Skin.String(SubSetFour.2.Label)]</value>
+		<value condition="!Skin.String(SubSetFour.2.Path,Hidden)">$LOCALIZE[132]</value>
+	</variable>
+	<variable name="SubSetFourItemThree" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFour.3.Label))">$INFO[Skin.String(SubSetFour.3.Label)]</value>
+		<value condition="!Skin.String(SubSetFour.3.Path,Hidden)">$LOCALIZE[31157]</value>
+	</variable>
+	<variable name="SubSetFourItemFour" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFour.4.Label))">$INFO[Skin.String(SubSetFour.4.Label)]</value>
+		<value condition="!Skin.String(SubSetFour.4.Path,Hidden)">$LOCALIZE[744]</value>
+	</variable>
+	<variable name="SubSetFourItemFive" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFour.5.Label))">$INFO[Skin.String(SubSetFour.5.Label)]</value>
+		<value condition="!Skin.String(SubSetFour.5.Path,Hidden)">$LOCALIZE[14022]</value>
+	</variable>
+	<variable name="SubSetFourItemSix" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFour.6.Label))">$INFO[Skin.String(SubSetFour.6.Label)]</value>
+		<value condition="!Skin.String(SubSetFour.6.Path,Hidden)">$LOCALIZE[31071]</value>
+	</variable>
+	<variable name="SubSetFiveItemOne" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFive.1.Label))">$INFO[Skin.String(SubSetFive.1.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetFive.1.Path),Hidden)">$LOCALIZE[31156]</value>
+	</variable>
+	<variable name="SubSetFiveItemTwo" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFive.2.Label))">$INFO[Skin.String(SubSetFive.2.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetFive.2.Path),Hidden)">$LOCALIZE[369]</value>
+	</variable>
+	<variable name="SubSetFiveItemThree" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFive.3.Label))">$INFO[Skin.String(SubSetFive.3.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetFive.4.Path),Hidden)">$LOCALIZE[135]</value>
+	</variable>
+	<variable name="SubSetFiveItemFour" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFive.4.Label))">$INFO[Skin.String(SubSetFive.4.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetFive.4.Path),Hidden)">$LOCALIZE[652]</value>
+	</variable>
+	<variable name="SubSetFiveItemFive" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetFive.5.Label))">$INFO[Skin.String(SubSetFive.5.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetFive.5.Path),Hidden)">$LOCALIZE[20459]</value>
+	</variable>
+	<variable name="SubSetSixItemOne" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSix.1.Label))">$INFO[Skin.String(SubSetSix.1.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSix.1.Path),Hidden)">$LOCALIZE[19019]</value>
+	</variable>
+	<variable name="SubSetSixItemTwo" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSix.2.Label))">$INFO[Skin.String(SubSetSix.2.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSix.2.Path),Hidden)">$LOCALIZE[22020]</value>
+	</variable>
+	<variable name="SubSetSixItemThree" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSix.3.Label))">$INFO[Skin.String(SubSetSix.3.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSix.3.Path),Hidden)">$LOCALIZE[19163]</value>
+	</variable>
+	<variable name="SubSetSixItemFour" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSix.4.Label))">$INFO[Skin.String(SubSetSix.4.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSix.4.Path),Hidden)">$LOCALIZE[19138]</value>
+	</variable>
+	<variable name="SubSetSixItemFive" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSix.5.Label))">$INFO[Skin.String(SubSetSix.5.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSix.5.Path),Hidden)">$LOCALIZE[19040]</value>
+	</variable>
+	<variable name="SubSetSixItemSix" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSix.6.Label))">$INFO[Skin.String(SubSetSix.6.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSix.6.Path),Hidden)">$LOCALIZE[137]</value>
+	</variable>
+	<variable name="SubSetSevenItemOne" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSeven.1.Label))">$INFO[Skin.String(SubSetSeven.1.Label)]</value>
+		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.Platform.Android">$LOCALIZE[31158]</value>
+		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(script.raspbmc.settings)">$LOCALIZE[31160]</value>
+		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(os.openelec.settings)">$LOCALIZE[31159]</value>
+		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(service.openelec.settings)">$LOCALIZE[31159]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSeven.1.Path),Hidden)">$LOCALIZE[31105]</value>
+	</variable>
+	<variable name="SubSetSevenItemTwo" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSeven.2.Label))">$INFO[Skin.String(SubSetSeven.2.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSeven.2.Path),Hidden)">$LOCALIZE[31161]</value>
+	</variable>
+	<variable name="SubSetSevenItemThree" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSeven.3.Label))">$INFO[Skin.String(SubSetSeven.3.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSeven.3.Path),Hidden)">$LOCALIZE[31071]</value>
+	</variable>
+	<variable name="SubSetSevenItemFour" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSeven.4.Label))">$INFO[Skin.String(SubSetSeven.4.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSeven.4.Path),Hidden)">$LOCALIZE[13200]</value>
+	</variable>
+	<variable name="SubSetSevenItemFive" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSeven.5.Label))">$INFO[Skin.String(SubSetSeven.5.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSeven.5.Path),Hidden)">$LOCALIZE[19033]</value>
+	</variable>
+	<variable name="SubSetSevenItemSix" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetSeven.6.Label))">$INFO[Skin.String(SubSetSeven.6.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetSeven.6.Path),Hidden)">$LOCALIZE[14111]</value>
+	</variable>
+	<variable name="SubSetEightItemOne" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetEight.1.Label))">$INFO[Skin.String(SubSetEight.1.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetEight.1.Path),Hidden)">$LOCALIZE[31071]</value>
+	</variable>
+	<variable name="SubSetNineItemOne" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetNine.1.Label))">$INFO[Skin.String(SubSetNine.1.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetNine.1.Path),Hidden)">$LOCALIZE[13280]</value>
+	</variable>
+	<variable name="SubSetNineItemTwo" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetNine.2.Label))">$INFO[Skin.String(SubSetNine.2.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetNine.2.Path),Hidden)">$LOCALIZE[2]</value>
+	</variable>
+	<variable name="SubSetNineItemThree" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SubSetNine.3.Label))">$INFO[Skin.String(SubSetNine.3.Label)]</value>
+		<value condition="!String.IsEqual(Skin.String(SubSetNine.3.Path),Hidden)">$LOCALIZE[31162]</value>
+	</variable>
+	<variable name="UsrDefItemOneSubLabel" type="text">
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(HomeMenu.1.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemTwoSubLabel" type="text">
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(HomeMenu.2.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemThreeSubLabel" type="text">
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(HomeMenu.3.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemFourSubLabel" type="text">
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(HomeMenu.4.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemFiveSubLabel" type="text">
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(HomeMenu.5.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemSixSubLabel" type="text">
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(HomeMenu.6.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemSevenSubLabel" type="text">
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(HomeMenu.7.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemEightSubLabel" type="text">
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(HomeMenu.8.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemNineSubLabel" type="text">
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(HomeMenu.9.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemTenSubLabel" type="text">
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value condition="Skin.String(HomeMenu.10.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefSettingsSubLabel" type="text">
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetOne)">$VAR[SubSetOneName]</value>
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetTwo)">$VAR[SubSetTwoName]</value>
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetThree)">$VAR[SubSetThreeName]</value>
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetFour)">$VAR[SubSetFourName]</value>
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetFive)">$VAR[SubSetFiveName]</value>
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetSix)">$VAR[SubSetSixName]</value>
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetNine)">$VAR[SubSetNineName]</value>
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetEight)">$VAR[SubSetEightName]</value>
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetTen)">$VAR[SubSetTenName]</value>
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetEleven)">$VAR[SubSetElevenName]</value>
+		<value condition="Skin.String(SettingsMenu.Sub,SubSetSeven)">$VAR[SubSetSevenName]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemOneAddOnLabel" type="text">
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(HomeMenu.1.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemTwoAddOnLabel" type="text">
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(HomeMenu.2.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemThreeAddOnLabel" type="text">
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(HomeMenu.3.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemFourAddOnLabel" type="text">
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(HomeMenu.4.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemFiveAddOnLabel" type="text">
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(HomeMenu.5.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemSixAddOnLabel" type="text">
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(HomeMenu.6.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemSevenAddOnLabel" type="text">
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(HomeMenu.7.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemEightAddOnLabel" type="text">
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(HomeMenu.8.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemNineAddOnLabel" type="text">
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(HomeMenu.9.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefItemTenAddOnLabel" type="text">
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(HomeMenu.10.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="UsrDefSettingsAddOnLabel" type="text">
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.12.Label))">$INFO[Skin.String(UserSelectAddon.12.Label)]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetOne)">$LOCALIZE[31081]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetTwo)">$LOCALIZE[31082]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetThree)">$LOCALIZE[31083]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetFour)">$LOCALIZE[31084]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetFive)">$LOCALIZE[31085]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetSix)">$LOCALIZE[31086]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetSeven)">$LOCALIZE[31087]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetEight)">$LOCALIZE[31088]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetNine)">$LOCALIZE[31089]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,AddonSetTen)">$LOCALIZE[31090]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,SuggestedMovies)">$LOCALIZE[31171]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,SuggestedTVShows)">$LOCALIZE[31172]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,SuggestedMusic)">$LOCALIZE[31173]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,SuggestedConcerts)">$LOCALIZE[31174]</value>
+		<value condition="Skin.String(SettingsMenu.Addon,Favourites)">$LOCALIZE[1036]</value>
+		<value>$LOCALIZE[31170]</value>
+	</variable>
+	<variable name="MenuOneWidgetName" type="text">
+		<value condition="String.IsEqual(Skin.String(HomeMenu.1.WidgetName),AutoPreSet)">[COLOR=grey2]$VAR[MenuItemOneLabel][/COLOR]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeMenu.1.WidgetName))">[COLOR=grey2]$INFO[Skin.String(HomeMenu.1.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="MenuTwoWidgetName" type="text">
+		<value condition="String.IsEqual(Skin.String(HomeMenu.2.WidgetName),AutoPreSet)">[COLOR=grey2]$INFO[Skin.String(HomeMenu.2.Label)][/COLOR]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeMenu.2.WidgetName))">[COLOR=grey2]$INFO[Skin.String(HomeMenu.2.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="MenuThreeWidgetName" type="text">
+		<value condition="String.IsEqual(Skin.String(HomeMenu.3.WidgetName),AutoPreSet)">[COLOR=grey2]$INFO[Skin.String(HomeMenu.3.Label)][/COLOR]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeMenu.3.WidgetName))">[COLOR=grey2]$INFO[Skin.String(HomeMenu.3.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="MenuFourWidgetName" type="text">
+		<value condition="String.IsEqual(Skin.String(HomeMenu.4.WidgetName),AutoPreSet)">[COLOR=grey2]$INFO[Skin.String(HomeMenu.4.Label)][/COLOR]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeMenu.4.WidgetName))">[COLOR=grey2]$INFO[Skin.String(HomeMenu.4.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="MenuFiveWidgetName" type="text">
+		<value condition="String.IsEqual(Skin.String(HomeMenu.5.WidgetName),AutoPreSet)">[COLOR=grey2]$INFO[Skin.String(HomeMenu.5.Label)][/COLOR]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeMenu.5.WidgetName))">[COLOR=grey2]$INFO[Skin.String(HomeMenu.5.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="MenuSixWidgetName" type="text">
+		<value condition="String.IsEqual(Skin.String(HomeMenu.6.WidgetName),AutoPreSet)">[COLOR=grey2]$INFO[Skin.String(HomeMenu.6.Label)][/COLOR]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeMenu.6.WidgetName))">[COLOR=grey2]$INFO[Skin.String(HomeMenu.6.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="MenuSevenWidgetName" type="text">
+		<value condition="String.IsEqual(Skin.String(HomeMenu.7.WidgetName),AutoPreSet)">[COLOR=grey2]$INFO[Skin.String(HomeMenu.7.Label)][/COLOR]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeMenu.7.WidgetName))">[COLOR=grey2]$INFO[Skin.String(HomeMenu.7.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="MenuEightWidgetName" type="text">
+		<value condition="String.IsEqual(Skin.String(HomeMenu.8.WidgetName),AutoPreSet)">[COLOR=grey2]$INFO[Skin.String(HomeMenu.8.Label)][/COLOR]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeMenu.8.WidgetName))">[COLOR=grey2]$INFO[Skin.String(HomeMenu.8.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="MenuNineWidgetName" type="text">
+		<value condition="String.IsEqual(Skin.String(HomeMenu.9.WidgetName),AutoPreSet)">[COLOR=grey2]$INFO[Skin.String(HomeMenu.9.Label)][/COLOR]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeMenu.9.WidgetName))">[COLOR=grey2]$INFO[Skin.String(HomeMenu.9.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="MenuTenWidgetName" type="text">
+		<value condition="String.IsEqual(Skin.String(HomeMenu.10.WidgetName),AutoPreSet)">[COLOR=grey2]$INFO[Skin.String(HomeMenu.10.Label)][/COLOR]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeMenu.10.WidgetName))">[COLOR=grey2]$INFO[Skin.String(HomeMenu.10.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="SettingsMenuWidgetName" type="text">
+		<value condition="!String.IsEmpty(Skin.String(SettingsMenu.WidgetName))">[COLOR=grey2]$INFO[Skin.String(SettingsMenu.WidgetName)][/COLOR]</value>
+		<value>[COLOR=grey2]$LOCALIZE[31170][/COLOR]</value>
+	</variable>
+	<variable name="UsrWidgetOneName" type="text">
+		<value condition="String.IsEmpty(Skin.String(HomeWidget.1.Lock))">$LOCALIZE[31074]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.7)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.8)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.9)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.10)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,StickyMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,StickyMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,StickyMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,StickyMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,StickyMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.1.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
+	</variable>
+	<variable name="UsrWidgetTwoName" type="text">
+		<value condition="String.IsEmpty(Skin.String(HomeWidget.2.Lock))">$LOCALIZE[31074]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,HomeMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,HomeMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,HomeMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,HomeMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,HomeMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,HomeMenu.7)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,HomeMenu.8)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,HomeMenu.9)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,HomeMenu.10)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,StickyMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,StickyMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,StickyMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,StickyMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,StickyMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.2.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
+	</variable>
+	<variable name="UsrWidgetThreeName" type="text">
+		<value condition="String.IsEmpty(Skin.String(HomeWidget.3.Lock))">$LOCALIZE[31074]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,HomeMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,HomeMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,HomeMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,HomeMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,HomeMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,HomeMenu.7)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,HomeMenu.8)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,HomeMenu.9)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,HomeMenu.10)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,StickyMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,StickyMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,StickyMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,StickyMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,StickyMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.3.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
+	</variable>
+	<variable name="UsrWidgetFourName" type="text">
+		<value condition="String.IsEmpty(Skin.String(HomeWidget.4.Lock))">$LOCALIZE[31074]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,HomeMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,HomeMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,HomeMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,HomeMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,HomeMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,HomeMenu.7)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,HomeMenu.8)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,HomeMenu.9)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,HomeMenu.10)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,StickyMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,StickyMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,StickyMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,StickyMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,StickyMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.4.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
+	</variable>
+	<variable name="UsrWidgetFiveName" type="text">
+		<value condition="String.IsEmpty(Skin.String(HomeWidget.5.Lock))">$LOCALIZE[31074]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,HomeMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,HomeMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,HomeMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,HomeMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,HomeMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,HomeMenu.7)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,HomeMenu.8)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,HomeMenu.9)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,HomeMenu.10)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,StickyMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,StickyMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,StickyMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,StickyMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,StickyMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.5.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
+	</variable>
+	<variable name="UsrWidgetSixName" type="text">
+		<value condition="String.IsEmpty(Skin.String(HomeWidget.6.Lock))">$LOCALIZE[31074]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,HomeMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,HomeMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,HomeMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,HomeMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,HomeMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,HomeMenu.7)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,HomeMenu.8)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,HomeMenu.9)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,HomeMenu.10)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,StickyMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,StickyMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,StickyMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,StickyMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,StickyMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.6.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
+	</variable>
+	<variable name="UsrWidgetSevenName" type="text">
+		<value condition="String.IsEmpty(Skin.String(HomeWidget.7.Lock))">$LOCALIZE[31074]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,HomeMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,HomeMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,HomeMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,HomeMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,HomeMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,HomeMenu.7)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,HomeMenu.8)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,HomeMenu.9)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,HomeMenu.10)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,StickyMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,StickyMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,StickyMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,StickyMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,StickyMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.7.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
+	</variable>
+	<variable name="UsrWidgetEightName" type="text">
+		<value condition="String.IsEmpty(Skin.String(HomeWidget.8.Lock))">$LOCALIZE[31074]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,HomeMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,HomeMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,HomeMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,HomeMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,HomeMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,HomeMenu.7)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,HomeMenu.8)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,HomeMenu.9)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,HomeMenu.10)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,StickyMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,StickyMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,StickyMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,StickyMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,StickyMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.8.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
+	</variable>
+	<variable name="UsrWidgetNineName" type="text">
+		<value condition="String.IsEmpty(Skin.String(HomeWidget.9.Lock))">$LOCALIZE[31074]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,HomeMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,HomeMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,HomeMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,HomeMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,HomeMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,HomeMenu.7)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,HomeMenu.8)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,HomeMenu.9)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,HomeMenu.10)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,StickyMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,StickyMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,StickyMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,StickyMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,StickyMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.9.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
+	</variable>
+	<variable name="UsrWidgetTenName" type="text">
+		<value condition="String.IsEmpty(Skin.String(HomeWidget.10.Lock))">$LOCALIZE[31074]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,HomeMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,HomeMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,HomeMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,HomeMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,HomeMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,HomeMenu.7)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,HomeMenu.8)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,HomeMenu.9)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,HomeMenu.10)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,StickyMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.1.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,StickyMenu.2)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.2.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,StickyMenu.3)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.3.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,StickyMenu.4)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.4.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,StickyMenu.5)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.5.Label)]</value>
+		<value condition="Skin.String(HomeWidget.10.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
+	</variable>
+	<variable name="WidgetOneContent" type="text">
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.1.Path))">$INFO[Skin.String(HomeWidget.1.Path)]</value>
+		<value>$LOCALIZE[31075]</value>
+	</variable>
+	<variable name="WidgetTwoContent" type="text">
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.2.Path))">$INFO[Skin.String(HomeWidget.2.Path)]</value>
+		<value>$LOCALIZE[31075]</value>
+	</variable>
+	<variable name="WidgetThreeContent" type="text">
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.3.Path))">$INFO[Skin.String(HomeWidget.3.Path)]</value>
+		<value>$LOCALIZE[31075]</value>
+	</variable>
+	<variable name="WidgetFourContent" type="text">
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.4.Path))">$INFO[Skin.String(HomeWidget.4.Path)]</value>
+		<value>$LOCALIZE[31075]</value>
+	</variable>
+	<variable name="WidgetFiveContent" type="text">
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.5.Path))">$INFO[Skin.String(HomeWidget.5.Path)]</value>
+		<value>$LOCALIZE[31075]</value>
+	</variable>
+	<variable name="WidgetSixContent" type="text">
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.6.Path))">$INFO[Skin.String(HomeWidget.6.Path)]</value>
+		<value>$LOCALIZE[31075]</value>
+	</variable>
+	<variable name="WidgetSevenLabel" type="text">
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.7.Path))">$INFO[Skin.String(HomeWidget.7.Path)]</value>
+		<value>$LOCALIZE[31075]</value>
+	</variable>
+	<variable name="WidgetEightContent" type="text">
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.8.Path))">$INFO[Skin.String(HomeWidget.8.Path)]</value>
+		<value>$LOCALIZE[31075]</value>
+	</variable>
+	<variable name="WidgetNineContent" type="text">
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.9.Path))">$INFO[Skin.String(HomeWidget.9.Path)]</value>
+		<value>$LOCALIZE[31075]</value>
+	</variable>
+	<variable name="WidgetTenContent" type="text">
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.10.Path))">$INFO[Skin.String(HomeWidget.10.Path)]</value>
+		<value>$LOCALIZE[31075]</value>
+	</variable>
+	<variable name="WidgetOneTarget" type="text">
+		<value condition="Skin.String(HomeWidget.1.Target,tvshow)">$LOCALIZE[31072]</value>
+		<value condition="Skin.String(HomeWidget.1.Target,episode)">$LOCALIZE[20360]</value>
+		<value condition="Skin.String(HomeWidget.1.Target,music)">$LOCALIZE[2]</value>
+		<value condition="Skin.String(HomeWidget.1.Target,addons)">$LOCALIZE[31071]</value>
+		<value>$LOCALIZE[157]</value>
+	</variable>
+	<variable name="WidgetTwoTarget" type="text">
+		<value condition="Skin.String(HomeWidget.2.Target,tvshow)">$LOCALIZE[31072]</value>
+		<value condition="Skin.String(HomeWidget.2.Target,episode)">$LOCALIZE[20360]</value>
+		<value condition="Skin.String(HomeWidget.2.Target,music)">$LOCALIZE[2]</value>
+		<value condition="Skin.String(HomeWidget.2.Target,addons)">$LOCALIZE[31071]</value>
+		<value>$LOCALIZE[157]</value>
+	</variable>
+	<variable name="WidgetThreeTarget" type="text">
+		<value condition="Skin.String(HomeWidget.3.Target,tvshow)">$LOCALIZE[31072]</value>
+		<value condition="Skin.String(HomeWidget.3.Target,episode)">$LOCALIZE[20360]</value>
+		<value condition="Skin.String(HomeWidget.3.Target,music)">$LOCALIZE[2]</value>
+		<value condition="Skin.String(HomeWidget.3.Target,addons)">$LOCALIZE[31071]</value>
+		<value>$LOCALIZE[157]</value>
+	</variable>
+	<variable name="WidgetFourTarget" type="text">
+		<value condition="Skin.String(HomeWidget.4.Target,tvshow)">$LOCALIZE[31072]</value>
+		<value condition="Skin.String(HomeWidget.4.Target,episode)">$LOCALIZE[20360]</value>
+		<value condition="Skin.String(HomeWidget.4.Target,music)">$LOCALIZE[2]</value>
+		<value condition="Skin.String(HomeWidget.4.Target,addons)">$LOCALIZE[31071]</value>
+		<value>$LOCALIZE[157]</value>
+	</variable>
+	<variable name="WidgetFiveTarget" type="text">
+		<value condition="Skin.String(HomeWidget.5.Target,tvshow)">$LOCALIZE[31072]</value>
+		<value condition="Skin.String(HomeWidget.5.Target,episode)">$LOCALIZE[20360]</value>
+		<value condition="Skin.String(HomeWidget.5.Target,music)">$LOCALIZE[2]</value>
+		<value condition="Skin.String(HomeWidget.5.Target,addons)">$LOCALIZE[31071]</value>
+		<value>$LOCALIZE[157]</value>
+	</variable>
+	<variable name="WidgetSixTarget" type="text">
+		<value condition="Skin.String(HomeWidget.6.Target,tvshow)">$LOCALIZE[31072]</value>
+		<value condition="Skin.String(HomeWidget.6.Target,episode)">$LOCALIZE[20360]</value>
+		<value condition="Skin.String(HomeWidget.6.Target,music)">$LOCALIZE[2]</value>
+		<value condition="Skin.String(HomeWidget.6.Target,addons)">$LOCALIZE[31071]</value>
+		<value>$LOCALIZE[157]</value>
+	</variable>
+	<variable name="WidgetSevenTarget" type="text">
+		<value condition="Skin.String(HomeWidget.7.Target,tvshow)">$LOCALIZE[31072]</value>
+		<value condition="Skin.String(HomeWidget.7.Target,episode)">$LOCALIZE[20360]</value>
+		<value condition="Skin.String(HomeWidget.7.Target,music)">$LOCALIZE[2]</value>
+		<value condition="Skin.String(HomeWidget.7.Target,addons)">$LOCALIZE[31071]</value>
+		<value>$LOCALIZE[157]</value>
+	</variable>
+	<variable name="WidgetEightTarget" type="text">
+		<value condition="Skin.String(HomeWidget.8.Target,tvshow)">$LOCALIZE[31072]</value>
+		<value condition="Skin.String(HomeWidget.8.Target,episode)">$LOCALIZE[20360]</value>
+		<value condition="Skin.String(HomeWidget.8.Target,music)">$LOCALIZE[2]</value>
+		<value condition="Skin.String(HomeWidget.8.Target,addons)">$LOCALIZE[31071]</value>
+		<value>$LOCALIZE[157]</value>
+	</variable>
+	<variable name="WidgetNineTarget" type="text">
+		<value condition="Skin.String(HomeWidget.9.Target,tvshow)">$LOCALIZE[31072]</value>
+		<value condition="Skin.String(HomeWidget.9.Target,episode)">$LOCALIZE[20360]</value>
+		<value condition="Skin.String(HomeWidget.9.Target,music)">$LOCALIZE[2]</value>
+		<value condition="Skin.String(HomeWidget.9.Target,addons)">$LOCALIZE[31071]</value>
+		<value>$LOCALIZE[157]</value>
+	</variable>
+	<variable name="WidgetTenTarget" type="text">
+		<value condition="Skin.String(HomeWidget.10.Target,tvshow)">$LOCALIZE[31072]</value>
+		<value condition="Skin.String(HomeWidget.10.Target,episode)">$LOCALIZE[20360]</value>
+		<value condition="Skin.String(HomeWidget.10.Target,music)">$LOCALIZE[2]</value>
+		<value condition="Skin.String(HomeWidget.10.Target,addons)">$LOCALIZE[31071]</value>
+		<value>$LOCALIZE[157]</value>
+	</variable>
+	<variable name="WidgetOneDisplay" type="text">
+		<value condition="Skin.String(HomeWidget.1.Display,poster) + Skin.String(HomeWidget.1.Target,tvshow)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.1.Display,poster) + Skin.String(HomeWidget.1.Target,episode)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.1.Display,poster) + !Skin.String(HomeWidget.1.Target,episode)">$LOCALIZE[157] $LOCALIZE[31069]</value>
+		<value condition="Skin.String(HomeWidget.1.Display,landscape) + Skin.String(HomeWidget.1.Target,episode) + !Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[20359] $LOCALIZE[31068]</value>
+		<value condition="Skin.String(HomeWidget.1.Display,landscape) + Skin.String(HomeWidget.1.Target,episode) + Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[31067]</value>
+		<value condition="Skin.String(HomeWidget.1.Display,album) + Skin.String(HomeWidget.1.Target,music)">$LOCALIZE[31066]</value>
+		<value condition="Skin.String(HomeWidget.1.Display,album) + Skin.String(HomeWidget.1.Target,addons)">$LOCALIZE[31065]</value>
+		<value>$LOCALIZE[31064]</value>
+	</variable>
+	<variable name="WidgetTwoDisplay" type="text">
+		<value condition="Skin.String(HomeWidget.2.Display,poster) + Skin.String(HomeWidget.2.Target,tvshow)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.2.Display,poster) + Skin.String(HomeWidget.2.Target,episode)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.2.Display,poster) + !Skin.String(HomeWidget.2.Target,episode)">$LOCALIZE[157] $LOCALIZE[31069]</value>
+		<value condition="Skin.String(HomeWidget.2.Display,landscape) + Skin.String(HomeWidget.2.Target,episode) + !Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[20359] $LOCALIZE[31068]</value>
+		<value condition="Skin.String(HomeWidget.2.Display,landscape) + Skin.String(HomeWidget.2.Target,episode) + Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[31067]</value>
+		<value condition="Skin.String(HomeWidget.2.Display,album) + Skin.String(HomeWidget.2.Target,music)">$LOCALIZE[31066]</value>
+		<value condition="Skin.String(HomeWidget.2.Display,album) + Skin.String(HomeWidget.2.Target,addons)">$LOCALIZE[31065]</value>
+		<value>$LOCALIZE[31064]</value>
+	</variable>
+	<variable name="WidgetThreeDisplay" type="text">
+		<value condition="Skin.String(HomeWidget.3.Display,poster) + Skin.String(HomeWidget.3.Target,tvshow)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.3.Display,poster) + Skin.String(HomeWidget.3.Target,episode)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.3.Display,poster) + !Skin.String(HomeWidget.3.Target,episode)">$LOCALIZE[157] $LOCALIZE[31069]</value>
+		<value condition="Skin.String(HomeWidget.3.Display,landscape) + Skin.String(HomeWidget.3.Target,episode) + !Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[20359] $LOCALIZE[31068]</value>
+		<value condition="Skin.String(HomeWidget.3.Display,landscape) + Skin.String(HomeWidget.3.Target,episode) + Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[31067]</value>
+		<value condition="Skin.String(HomeWidget.3.Display,album) + Skin.String(HomeWidget.3.Target,music)">$LOCALIZE[31066]</value>
+		<value condition="Skin.String(HomeWidget.3.Display,album) + Skin.String(HomeWidget.3.Target,addons)">$LOCALIZE[31065]</value>
+		<value>$LOCALIZE[31064]</value>
+	</variable>
+	<variable name="WidgetFourDisplay" type="text">
+		<value condition="Skin.String(HomeWidget.4.Display,poster) + Skin.String(HomeWidget.4.Target,tvshow)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.4.Display,poster) + Skin.String(HomeWidget.4.Target,episode)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.4.Display,poster) + !Skin.String(HomeWidget.4.Target,episode)">$LOCALIZE[157] $LOCALIZE[31069]</value>
+		<value condition="Skin.String(HomeWidget.4.Display,landscape) + Skin.String(HomeWidget.4.Target,episode) + !Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[20359] $LOCALIZE[31068]</value>
+		<value condition="Skin.String(HomeWidget.4.Display,landscape) + Skin.String(HomeWidget.4.Target,episode) + Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[31067]</value>
+		<value condition="Skin.String(HomeWidget.4.Display,album) + Skin.String(HomeWidget.4.Target,music)">$LOCALIZE[31066]</value>
+		<value condition="Skin.String(HomeWidget.4.Display,album) + Skin.String(HomeWidget.4.Target,addons)">$LOCALIZE[31065]</value>
+		<value>$LOCALIZE[31064]</value>
+	</variable>
+	<variable name="WidgetFiveDisplay" type="text">
+		<value condition="Skin.String(HomeWidget.5.Display,poster) + Skin.String(HomeWidget.5.Target,tvshow)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.5.Display,poster) + Skin.String(HomeWidget.5.Target,episode)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.5.Display,poster) + !Skin.String(HomeWidget.5.Target,episode)">$LOCALIZE[157] $LOCALIZE[31069]</value>
+		<value condition="Skin.String(HomeWidget.5.Display,landscape) + Skin.String(HomeWidget.5.Target,episode) + !Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[20359] $LOCALIZE[31068]</value>
+		<value condition="Skin.String(HomeWidget.5.Display,landscape) + Skin.String(HomeWidget.5.Target,episode) + Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[31067]</value>
+		<value condition="Skin.String(HomeWidget.5.Display,album) + Skin.String(HomeWidget.5.Target,music)">$LOCALIZE[31066]</value>
+		<value condition="Skin.String(HomeWidget.5.Display,album) + Skin.String(HomeWidget.5.Target,addons)">$LOCALIZE[31065]</value>
+		<value>$LOCALIZE[31064]</value>
+	</variable>
+	<variable name="WidgetSixDisplay" type="text">
+		<value condition="Skin.String(HomeWidget.6.Display,poster) + Skin.String(HomeWidget.6.Target,tvshow)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.6.Display,poster) + Skin.String(HomeWidget.6.Target,episode)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.6.Display,poster) + !Skin.String(HomeWidget.6.Target,episode)">$LOCALIZE[157] $LOCALIZE[31069]</value>
+		<value condition="Skin.String(HomeWidget.6.Display,landscape) + Skin.String(HomeWidget.6.Target,episode) + !Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[20359] $LOCALIZE[31068]</value>
+		<value condition="Skin.String(HomeWidget.6.Display,landscape) + Skin.String(HomeWidget.6.Target,episode) + Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[31067]</value>
+		<value condition="Skin.String(HomeWidget.6.Display,album) + Skin.String(HomeWidget.6.Target,music)">$LOCALIZE[31066]</value>
+		<value condition="Skin.String(HomeWidget.6.Display,album) + Skin.String(HomeWidget.6.Target,addons)">$LOCALIZE[31065]</value>
+		<value>$LOCALIZE[31064]</value>
+	</variable>
+	<variable name="WidgetSevenDisplay" type="text">
+		<value condition="Skin.String(HomeWidget.7.Display,poster) + Skin.String(HomeWidget.7.Target,tvshow)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.7.Display,poster) + Skin.String(HomeWidget.7.Target,episode)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.7.Display,poster) + !Skin.String(HomeWidget.7.Target,episode)">$LOCALIZE[157] $LOCALIZE[31069]</value>
+		<value condition="Skin.String(HomeWidget.7.Display,landscape) + Skin.String(HomeWidget.7.Target,episode) + !Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[20359] $LOCALIZE[31068]</value>
+		<value condition="Skin.String(HomeWidget.7.Display,landscape) + Skin.String(HomeWidget.7.Target,episode) + Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[31067]</value>
+		<value condition="Skin.String(HomeWidget.7.Display,album) + Skin.String(HomeWidget.7.Target,music)">$LOCALIZE[31066]</value>
+		<value condition="Skin.String(HomeWidget.7.Display,album) + Skin.String(HomeWidget.7.Target,addons)">$LOCALIZE[31065]</value>
+		<value>$LOCALIZE[31064]</value>
+	</variable>
+	<variable name="WidgetEightDisplay" type="text">
+		<value condition="Skin.String(HomeWidget.8.Display,poster) + Skin.String(HomeWidget.8.Target,tvshow)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.8.Display,poster) + Skin.String(HomeWidget.8.Target,episode)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.8.Display,poster) + !Skin.String(HomeWidget.8.Target,episode)">$LOCALIZE[157] $LOCALIZE[31069]</value>
+		<value condition="Skin.String(HomeWidget.8.Display,landscape) + Skin.String(HomeWidget.8.Target,episode) + !Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[20359] $LOCALIZE[31068]</value>
+		<value condition="Skin.String(HomeWidget.8.Display,landscape) + Skin.String(HomeWidget.8.Target,episode) + Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[31067]</value>
+		<value condition="Skin.String(HomeWidget.8.Display,album) + Skin.String(HomeWidget.8.Target,music)">$LOCALIZE[31066]</value>
+		<value condition="Skin.String(HomeWidget.8.Display,album) + Skin.String(HomeWidget.8.Target,addons)">$LOCALIZE[31065]</value>
+		<value>$LOCALIZE[31064]</value>
+	</variable>
+	<variable name="WidgetNineDisplay" type="text">
+		<value condition="Skin.String(HomeWidget.9.Display,poster) + Skin.String(HomeWidget.9.Target,tvshow)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.9.Display,poster) + Skin.String(HomeWidget.9.Target,episode)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.9.Display,poster) + !Skin.String(HomeWidget.9.Target,episode)">$LOCALIZE[157] $LOCALIZE[31069]</value>
+		<value condition="Skin.String(HomeWidget.9.Display,landscape) + Skin.String(HomeWidget.9.Target,episode) + !Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[20359] $LOCALIZE[31068]</value>
+		<value condition="Skin.String(HomeWidget.9.Display,landscape) + Skin.String(HomeWidget.9.Target,episode) + Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[31067]</value>
+		<value condition="Skin.String(HomeWidget.9.Display,album) + Skin.String(HomeWidget.9.Target,music)">$LOCALIZE[31066]</value>
+		<value condition="Skin.String(HomeWidget.9.Display,album) + Skin.String(HomeWidget.9.Target,addons)">$LOCALIZE[31065]</value>
+		<value>$LOCALIZE[31064]</value>
+	</variable>
+	<variable name="WidgetTenDisplay" type="text">
+		<value condition="Skin.String(HomeWidget.10.Display,poster) + Skin.String(HomeWidget.10.Target,tvshow)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.10.Display,poster) + Skin.String(HomeWidget.10.Target,episode)">$LOCALIZE[31070]</value>
+		<value condition="Skin.String(HomeWidget.10.Display,poster) + !Skin.String(HomeWidget.10.Target,episode)">$LOCALIZE[157] $LOCALIZE[31069]</value>
+		<value condition="Skin.String(HomeWidget.10.Display,landscape) + Skin.String(HomeWidget.10.Target,episode) + !Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[20359] $LOCALIZE[31068]</value>
+		<value condition="Skin.String(HomeWidget.10.Display,landscape) + Skin.String(HomeWidget.10.Target,episode) + Skin.HasSetting(HideEpisodeWidgetThumbs)">$LOCALIZE[31067]</value>
+		<value condition="Skin.String(HomeWidget.10.Display,album) + Skin.String(HomeWidget.10.Target,music)">$LOCALIZE[31066]</value>
+		<value condition="Skin.String(HomeWidget.10.Display,album) + Skin.String(HomeWidget.10.Target,addons)">$LOCALIZE[31065]</value>
+		<value>$LOCALIZE[31064]</value>
+	</variable>
+	<variable name="HomeBackgroundLabel" type="text">
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(BackgroundType),Live)">$LOCALIZE[31214]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(BackgroundType),Theme)">$LOCALIZE[31215]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(BackgroundType),Database)">$LOCALIZE[31216]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Weather) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/weather.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Pictures) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/pictures.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Videos) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/videos.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Movies) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/videos.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),TVShows) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/videos.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Concerts) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/musicvideos.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),LiveTV) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/tv.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Radio) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/tv.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Music) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/music.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Programs) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/programs.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),AddOns) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/addons.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Streaming) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/musicvideos.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Settings) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/settings.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/playlist.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/musicvideos.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Holiday) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/extras/Holiday/xmastree.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),StartUp) + Skin.HasSetting(HideStartUpBackground)">$LOCALIZE[31217]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),StartUp) + String.IsEqual(Container(9004).ListItem.Thumb,special://skin/backgrounds/splash.jpg)">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Global) + String.IsEmpty(Skin.String(GlobalBackGroundPath))">$LOCALIZE[31215]</value>
+		<value condition="!String.IsEmpty(Container(9004).ListItem.Thumb)">$INFO[Container(9004).ListItem.Thumb]</value>
+		<value>$INFO[Container(9004).ListItem.Property(BackgroundType)]</value>
+	</variable>
+	<variable name="BackgroundSettingThumb" type="text">
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(BackgroundType),Theme)">$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(BackgroundType),Live)">LiveContentThumb.png</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Weather) + String.IsEqual(Container(9004).ListItem.Property(Background),Default)">$VAR[WeatherFanartPath]</value>
+		<!--value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Movies) + String.IsEqual(Container(9004).ListItem.Property(BackgroundType),Database)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</value-->
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Movies) + String.IsEqual(Container(9004).ListItem.Property(BackgroundType),Database)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),TVShows) + String.IsEqual(Container(9004).ListItem.Property(BackgroundType),Database)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),Music) + String.IsEqual(Container(9004).ListItem.Property(BackgroundType),Database)">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground)]</value>
+		<value condition="String.IsEqual(Container(9004).ListItem.Property(BackgroundType),Database)">$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground)]</value>
+		<value condition="Container(9004).Hasfocus(1) + Skin.String(HomeMenu.1.Display,Default) + !String.IsEmpty(Skin.String(HomeMenu.1.Fanart))">$INFO[Skin.String(HomeMenu.1.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(2) + Skin.String(StickyMenu.1.Display,Default) + !String.IsEmpty(Skin.String(StickyMenu.1.Fanart))">$INFO[Skin.String(StickyMenu.1.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(3) + Skin.String(StickyMenu.2.Display,Default) + !String.IsEmpty(Skin.String(StickyMenu.2.Fanart))">$INFO[Skin.String(StickyMenu.2.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(4) + Skin.String(StickyMenu.3.Display,Default) + !String.IsEmpty(Skin.String(StickyMenu.3.Fanart))">$INFO[Skin.String(StickyMenu.3.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(5) + Skin.String(StickyMenu.4.Display,Default) + !String.IsEmpty(Skin.String(StickyMenu.4.Fanart))">$INFO[Skin.String(StickyMenu.4.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(6) + Skin.String(StickyMenu.5.Display,Default) + !String.IsEmpty(Skin.String(StickyMenu.5.Fanart))">$INFO[Skin.String(StickyMenu.5.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(7) + Skin.String(StickyMenu.6.Display,Default) + !String.IsEmpty(Skin.String(StickyMenu.6.Fanart))">$INFO[Skin.String(StickyMenu.6.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(8) + Skin.String(HomeMenu.2.Display,Default) + !String.IsEmpty(Skin.String(HomeMenu.2.Fanart))">$INFO[Skin.String(HomeMenu.2.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(9) + Skin.String(HomeMenu.3.Display,Default) + !String.IsEmpty(Skin.String(HomeMenu.3.Fanart))">$INFO[Skin.String(HomeMenu.3.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(10) + Skin.String(HomeMenu.4.Display,Default) + !String.IsEmpty(Skin.String(HomeMenu.4.Fanart))">$INFO[Skin.String(HomeMenu.4.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(11) + Skin.String(HomeMenu.5.Display,Default) + !String.IsEmpty(Skin.String(HomeMenu.5.Fanart))">$INFO[Skin.String(HomeMenu.5.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(12) + Skin.String(HomeMenu.6.Display,Default) + !String.IsEmpty(Skin.String(HomeMenu.6.Fanart))">$INFO[Skin.String(HomeMenu.6.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(13) + Skin.String(HomeMenu.7.Display,Default) + !String.IsEmpty(Skin.String(HomeMenu.7.Fanart))">$INFO[Skin.String(HomeMenu.7.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(14) + Skin.String(HomeMenu.8.Display,Default) + !String.IsEmpty(Skin.String(HomeMenu.8.Fanart))">$INFO[Skin.String(HomeMenu.8.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(15) + Skin.String(HomeMenu.9.Display,Default) + !String.IsEmpty(Skin.String(HomeMenu.9.Fanart))">$INFO[Skin.String(HomeMenu.9.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(16) + Skin.String(HomeMenu.10.Display,Default) + !String.IsEmpty(Skin.String(HomeMenu.10.Fanart))">$INFO[Skin.String(HomeMenu.10.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(17) + Skin.String(SettingsMenu.Display,Default) + !String.IsEmpty(Skin.String(SettingsMenu.Fanart))">$INFO[Skin.String(SettingsMenu.Fanart)]</value>
+		<value condition="Container(9004).Hasfocus(18) + Skin.String(GlobalBackGroundPath)">$INFO[Skin.String(GlobalBackGroundPath)]</value>
+		<value condition="Container(9004).Hasfocus(19) + Skin.String(HolidayThemePath)">$INFO[Skin.String(HolidayThemePath)]</value>
+		<value condition="Container(9004).Hasfocus(19) + !Skin.String(HolidayThemePath)">special://skin/extras/Holiday/xmastree.jpg</value>
+		<value condition="Container(9004).Hasfocus(20) + !Skin.HasSetting(HideStartUpBackground) + Skin.String(StartUpBackgroundPath)">$INFO[Skin.String(StartUpBackgroundPath)]</value>
+		<value condition="Container(9004).Hasfocus(20) + Skin.HasSetting(HideStartUpBackground)">special://skin/backgrounds/media-overlay.jpg</value>
+		<value condition="!String.IsEmpty(Container(9004).ListItem.Thumb)">$INFO[Container(9004).ListItem.Thumb]</value>
+		<value>$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</value>
+	</variable>
+	<variable name="MenuPlaylistName" type="text">
+		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.1)">$INFO[Skin.String(HomeMenu.1.Label)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.2)">$INFO[Skin.String(HomeMenu.2.Label)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.3)">$INFO[Skin.String(HomeMenu.3.Label)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.4)">$INFO[Skin.String(HomeMenu.4.Label)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.5)">$INFO[Skin.String(HomeMenu.5.Label)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.6)">$INFO[Skin.String(HomeMenu.6.Label)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.7)">$INFO[Skin.String(HomeMenu.7.Label)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.8)">$INFO[Skin.String(HomeMenu.8.Label)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.9)">$INFO[Skin.String(HomeMenu.9.Label)]</value>
+		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.10)">$INFO[Skin.String(HomeMenu.10.Label)]</value>
+		<value>$LOCALIZE[31164]</value>
+	</variable>
+	<variable name="StickyItemOneAddOnLabel" type="text">
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.1.Label))">$INFO[Skin.String(UserSelectAddon.1.Label)]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetOne)">##$LOCALIZE[31230]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetTwo)">##$LOCALIZE[31231]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetThree)">##$LOCALIZE[31232]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetFour)">##$LOCALIZE[31233]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetFive)">##$LOCALIZE[31234]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetSix)">##$LOCALIZE[31235]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetSeven)">##$LOCALIZE[31236]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetEight)">##$LOCALIZE[31237]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetNine)">##$LOCALIZE[31238]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetTen)">##$LOCALIZE[31239]</value>
+		<value condition="Skin.String(StickyMenu.1.Addon,AddonSetEleven)">##$LOCALIZE[31241]</value>
+		<value>##$LOCALIZE[31254]</value>
+	</variable>
+	<variable name="StickyItemTwoAddOnLabel" type="text">
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetOne)">##$LOCALIZE[31230]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetTwo)">##$LOCALIZE[31231]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetThree)">##$LOCALIZE[31232]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetFour)">##$LOCALIZE[31233]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetFive)">##$LOCALIZE[31234]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetSix)">##$LOCALIZE[31235]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetSeven)">##$LOCALIZE[31236]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetEight)">##$LOCALIZE[31237]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetNine)">##$LOCALIZE[31238]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetTen)">##$LOCALIZE[31239]</value>
+		<value condition="Skin.String(StickyMenu.2.Addon,AddonSetEleven)">##$LOCALIZE[31241]</value>
+		<value>##$LOCALIZE[31254]</value>
+	</variable>
+	<variable name="StickyItemThreeAddOnLabel" type="text">
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetOne)">##$LOCALIZE[31230]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetTwo)">##$LOCALIZE[31231]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetThree)">##$LOCALIZE[31232]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetFour)">##$LOCALIZE[31233]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetFive)">##$LOCALIZE[31234]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetSix)">##$LOCALIZE[31235]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetSeven)">##$LOCALIZE[31236]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetEight)">##$LOCALIZE[31237]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetNine)">##$LOCALIZE[31238]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetTen)">##$LOCALIZE[31239]</value>
+		<value condition="Skin.String(StickyMenu.3.Addon,AddonSetEleven)">##$LOCALIZE[31241]</value>
+		<value>##$LOCALIZE[31254]</value>
+	</variable>
+	<variable name="StickyItemFourAddOnLabel" type="text">
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetOne)">##$LOCALIZE[31230]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetTwo)">##$LOCALIZE[31231]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetThree)">##$LOCALIZE[31232]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetFour)">##$LOCALIZE[31233]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetFive)">##$LOCALIZE[31234]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetSix)">##$LOCALIZE[31235]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetSeven)">##$LOCALIZE[31236]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetEight)">##$LOCALIZE[31237]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetNine)">##$LOCALIZE[31238]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetTen)">##$LOCALIZE[31239]</value>
+		<value condition="Skin.String(StickyMenu.4.Addon,AddonSetEleven)">##$LOCALIZE[31241]</value>
+		<value>##$LOCALIZE[31254]</value>
+	</variable>
+	<variable name="StickyItemFiveAddOnLabel" type="text">
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetOne)">##$LOCALIZE[31230]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetTwo)">##$LOCALIZE[31231]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetThree)">##$LOCALIZE[31232]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetFour)">##$LOCALIZE[31233]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetFive)">##$LOCALIZE[31234]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetSix)">##$LOCALIZE[31235]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetSeven)">##$LOCALIZE[31236]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetEight)">##$LOCALIZE[31237]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetNine)">##$LOCALIZE[31238]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetTen)">##$LOCALIZE[31239]</value>
+		<value condition="Skin.String(StickyMenu.5.Addon,AddonSetEleven)">##$LOCALIZE[31241]</value>
+		<value>##$LOCALIZE[31254]</value>
+	</variable>
+	<variable name="StickyItemSixAddOnLabel" type="text">
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetOne) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetTwo) + !String.IsEmpty(Skin.String(UserSelectAddon.2.Label))">$INFO[Skin.String(UserSelectAddon.2.Label)]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetThree) + !String.IsEmpty(Skin.String(UserSelectAddon.3.Label))">$INFO[Skin.String(UserSelectAddon.3.Label)]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetFour) + !String.IsEmpty(Skin.String(UserSelectAddon.4.Label))">$INFO[Skin.String(UserSelectAddon.4.Label)]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetFive) + !String.IsEmpty(Skin.String(UserSelectAddon.5.Label))">$INFO[Skin.String(UserSelectAddon.5.Label)]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetSix) + !String.IsEmpty(Skin.String(UserSelectAddon.6.Label))">$INFO[Skin.String(UserSelectAddon.6.Label)]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetSeven) + !String.IsEmpty(Skin.String(UserSelectAddon.7.Label))">$INFO[Skin.String(UserSelectAddon.7.Label)]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetEight) + !String.IsEmpty(Skin.String(UserSelectAddon.8.Label))">$INFO[Skin.String(UserSelectAddon.8.Label)]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetNine) + !String.IsEmpty(Skin.String(UserSelectAddon.9.Label))">$INFO[Skin.String(UserSelectAddon.9.Label)]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetTen) + !String.IsEmpty(Skin.String(UserSelectAddon.10.Label))">$INFO[Skin.String(UserSelectAddon.10.Label)]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetOne)">##$LOCALIZE[31230]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetTwo)">##$LOCALIZE[31231]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetThree)">##$LOCALIZE[31232]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetFour)">##$LOCALIZE[31233]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetFive)">##$LOCALIZE[31234]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetSix)">##$LOCALIZE[31235]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetSeven)">##$LOCALIZE[31236]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetEight)">##$LOCALIZE[31237]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetNine)">##$LOCALIZE[31238]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetTen)">##$LOCALIZE[31239]</value>
+		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetEleven)">##$LOCALIZE[31241]</value>
+		<value>##$LOCALIZE[31254]</value>
+	</variable>
+	
+	
+	
+	
+	
+	<variable name="MenuOneWidgetContent" type="text">
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,RecentMovies)">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window(Home).Property(recentmovies)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,RandomMovies)">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window(Home).Property(randommovies)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,UnWatchedMovies)">special://skin/extras/Playlists/UnwatchedMovies.xsp</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,SuggestedMovies)">plugin://script.skin.helper.service/?action=recommendedmovies&amp;limit=12&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,GenreMovies)">plugin://script.skin.helper.service/?action=moviesforgenre&amp;limit=12&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,SimilarMovies)">plugin://script.skin.helper.service/?action=similarmovies&amp;limit=12&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,RecentEpisodes)">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window(Home).Property(recentepisodes)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,ThumbRecentEpisodes)">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window(Home).Property(recentepisodes)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,RandomEpisodes)">plugin://service.library.data.provider?type=randomepisodes&amp;reload=$INFO[Window(Home).Property(randomepisodes)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,ThumbRandomEpisodes)">plugin://service.library.data.provider?type=randomepisodes&amp;reload=$INFO[Window(Home).Property(randomepisodes)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,SuggestedEpisodes)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window(Home).Property(recommendedepisodes)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,ThumbSuggestedEpisodes)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window(Home).Property(recommendedepisodes)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,NextUpEpisodes)">plugin://script.skin.helper.service/?action=nextepisodes&amp;limit=12&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,SimilarEpisodes)">plugin://script.skin.helper.service/?action=similarshows&amp;limit=12&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,GenreEpisodes)">plugin://script.skin.helper.service/?action=showsforgenre&amp;limit=12&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,NextAired)">plugin://script.skin.helper.service/?action=nextairedtvshows&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,RecentAlbums)">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window(Home).Property(recentalbums)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,RandomAlbums)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window(Home).Property(randomalbums)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,RandomSongs)">plugin://service.library.data.provider?type=randomsongs&amp;reload=$INFO[Window(Home).Property(randomsongs)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,SuggestedAlbums)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window(Home).Property(recommendedalbums)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,PlayedAlbums)">plugin://script.skin.helper.service/?action=recentplayedalbums&amp;limit=12&amp;reload=$INFO[Window(Home).Property(widgetreloadmusic)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,Favourites)">plugin://script.skin.helper.service/?action=favourites&amp;limit=12&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,MediaFavourites)">plugin://script.skin.helper.service/?action=favouritemedia&amp;limit=12&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,AndroidApps)">androidapp://sources/apps/</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,VideoPlayList)">$INFO[Skin.String(HomeMenu.1.Data)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,UPnPMovies)">$INFO[Skin.String(HomeMenu.1.Data)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,VideoNode)">$INFO[Skin.String(HomeMenu.1.Data)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,UPnPMusic)">$INFO[Skin.String(HomeMenu.1.Data)]</value>
+		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,MusicNode)">$INFO[Skin.String(HomeMenu.1.Data)]</value>
+		<value condition="!Window.IsVisible(1195) + [String.StartsWith(skin.string(HomeMenu.1.Widget),landscape) | String.StartsWith(skin.string(HomeMenu.1.Widget),poster) | String.StartsWith(skin.string(HomeMenu.1.Widget),album)]">$INFO[Skin.String(HomeMenu.1.WidgetPath)]</value>
+	</variable>
+	<variable name="VideoPosterContent" type="text">
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(1)">$INFO[Skin.String(HomeMenu.1.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(2)">$INFO[Skin.String(HomeMenu.2.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(3)">$INFO[Skin.String(HomeMenu.3.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(4)">$INFO[Skin.String(HomeMenu.4.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(5)">$INFO[Skin.String(HomeMenu.5.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(6)">$INFO[Skin.String(HomeMenu.6.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(7)">$INFO[Skin.String(HomeMenu.7.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(8)">$INFO[Skin.String(HomeMenu.8.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(9)">$INFO[Skin.String(HomeMenu.9.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(10)">$INFO[Skin.String(HomeMenu.10.WidgetPath)]</value>
+	</variable>
+	<variable name="TestWidgetContent" type="text">
+		<value condition="!Window.IsVisible(1195)">$INFO[Skin.String(HomeMenu.1.WidgetPath)]</value>
+		<!--	
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(2) + !String.IsEmpty(Skin.String(HomeMenu.2.WidgetPath))">$INFO[Skin.String(HomeMenu.2.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(3) + !String.IsEmpty(Skin.String(HomeMenu.3.WidgetPath))">$INFO[Skin.String(HomeMenu.3.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(4) + !String.IsEmpty(Skin.String(HomeMenu.4.WidgetPath))">$INFO[Skin.String(HomeMenu.4.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(5) + !String.IsEmpty(Skin.String(HomeMenu.5.WidgetPath))">$INFO[Skin.String(HomeMenu.5.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(6) + !String.IsEmpty(Skin.String(HomeMenu.6.WidgetPath))">$INFO[Skin.String(HomeMenu.6.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(7) + !String.IsEmpty(Skin.String(HomeMenu.7.WidgetPath))">$INFO[Skin.String(HomeMenu.7.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(8) + !String.IsEmpty(Skin.String(HomeMenu.8.WidgetPath))">$INFO[Skin.String(HomeMenu.8.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(9) + !String.IsEmpty(Skin.String(HomeMenu.9.WidgetPath))">$INFO[Skin.String(HomeMenu.9.WidgetPath)]</value>
+		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(10) + !String.IsEmpty(Skin.String(HomeMenu.10.WidgetPath))">$INFO[Skin.String(HomeMenu.10.WidgetPath)]</value>
+	-->
+	</variable>
+</includes>
