@@ -23,9 +23,9 @@
     <description lang="en_GB">CCM Phoenix runs on Krypton and is Mudislander's MOD enabling a greater degree of user customisation to the skin Confluence originally by Jezz_X.</description>
     <platform>all</platform>
     <license>GNU General Public License version 2</license>
-    <forum>http://forum.kodi.tv/forumdisplay.php?fid=125</forum>
+    <forum>http://forum.kodi.tv/showthread.php?tid=274321</forum>
     <website></website>
     <email></email>
-    <source>https://github.com/xbmc/skin.confluence</source>
+    <source>https://github.com/Mudislander/skin.ccm.phoenix</source>
   </extension>
 </addon>

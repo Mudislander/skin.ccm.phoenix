@@ -5,6 +5,7 @@
 	<include file="IncludesHomeMenuSys.xml" />
 	<include file="IncludesHomeAddOnSystem.xml" />
 	<include file="IncludesHomeWidgetSys.xml" />
+	<include file="IncludesMenuContentItems.xml" />
 	<include file="ViewsVideoLibrary.xml" />
 	<include file="ViewsMusicLibrary.xml" />
 	<include file="ViewsFileMode.xml" />
@@ -145,6 +146,29 @@
 		<value condition="ListItem.HasTimer">$LOCALIZE[31510]</value>
 	</variable>
 	<!-- INCLUDES -->
+	
+	<include name="ClearButtonChoice">
+		<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Label)</onclick>
+		<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Path)</onclick>
+		<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Fanart)</onclick>
+		<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Sub)</onclick>
+		<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Data)</onclick>
+		<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Addon)</onclick>
+		<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Type)</onclick>
+		<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Widget)</onclick>
+		<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName)</onclick>
+		<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+		<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Stats)</onclick>
+		<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Display)</onclick>
+	</include>
+	<include name="CloseMenuChoice">
+		<onclick condition="Window.IsVisible(1105)">Dialog.Close(1105)</onclick>
+		<onclick condition="Window.IsVisible(1110)">Dialog.Close(1110)</onclick>
+		<onclick condition="Window.IsVisible(1135)">Dialog.Close(1135)</onclick>
+		<onclick>Skin.Reset(UsrSelectAddon)</onclick>
+		<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
+	</include>
+	
 	<include name="MusicInfoPanel">
 		<control type="panel" id="50">
 			<left>$PARAM[panel-left]</left>

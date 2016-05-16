@@ -7274,9 +7274,7 @@
 						<onclick condition="Skin.String(HomeWidget.1.Display,album)">Skin.SetString(HomeWidget.1.Display,landscape)</onclick>
 						<onclick condition="Skin.String(HomeWidget.1.Display,poster)">Skin.SetString(HomeWidget.1.Display,landscape)</onclick>
 						<onclick condition="!String.IsEmpty(Skin.String(HomeWidget.1.Type))">Skin.SetString(HomeWidget.1.Type,$INFO[Skin.String(HomeWidget.1.Display)]$INFO[Skin.String(HomeWidget.1.Target)]$INFO[Skin.String(HomeWidget.1.Actual)])</onclick>
-						
 						<onclick condition="!String.IsEmpty(Skin.String(HomeWidget.1.Sort))">Skin.SetString(HomeWidget.1.Sort,none)</onclick>
-						
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<visible>String.IsEmpty(Skin.String(HomeWidget.1.Lock))</visible>
 					</control>

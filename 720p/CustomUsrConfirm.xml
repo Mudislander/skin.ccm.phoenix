@@ -33,7 +33,7 @@
 			<label>$LOCALIZE[31493] $LOCALIZE[14117]</label>
 			<align>center</align>
 			<aligny>center</aligny>
-			<textcolor>$VAR[SelectedColor]</textcolor>
+			<textcolor>selected</textcolor>
 			<shadowcolor>black</shadowcolor>
 		</control>
 		<control type="button">
@@ -45,7 +45,7 @@
 			<label>-</label>
 			<font>-</font>
 			<onclick>PreviousMenu</onclick>
-			<texturefocus colordiffuse="$VAR[MenuBarColor]">DialogClose.png</texturefocus>
+			<texturefocus>DialogClose.png</texturefocus>
 			<texturenofocus>DialogClose.png</texturenofocus>
 			<onleft>10</onleft>
 			<onright>10</onright>
@@ -81,8 +81,8 @@
 			<height>40</height>
 			<label>186</label>
 			<font>font12_title</font>
-			<textcolor>$VAR[MainColorTwo]</textcolor>
-			<focusedcolor>$VAR[MainColorTwo]</focusedcolor>
+			<textcolor>white</textcolor>
+			<focusedcolor>white</focusedcolor>
 			<align>center</align>
 			<onleft>10</onleft>
 			<onright>10</onright>

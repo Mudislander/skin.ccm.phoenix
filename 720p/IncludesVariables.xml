@@ -1019,7 +1019,7 @@
 		<value condition="!String.IsEmpty(Skin.String(HomeWidget.6.Path))">$INFO[Skin.String(HomeWidget.6.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
-	<variable name="WidgetSevenLabel" type="text">
+	<variable name="WidgetSevenContent" type="text">
 		<value condition="!String.IsEmpty(Skin.String(HomeWidget.7.Path))">$INFO[Skin.String(HomeWidget.7.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
@@ -1422,11 +1422,7 @@
 		<value condition="Skin.String(StickyMenu.6.Addon,AddonSetEleven)">##$LOCALIZE[31241]</value>
 		<value>##$LOCALIZE[31254]</value>
 	</variable>
-	
-	
-	
-	
-	
+	<!--
 	<variable name="MenuOneWidgetContent" type="text">
 		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,RecentMovies)">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window(Home).Property(recentmovies)]</value>
 		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,RandomMovies)">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window(Home).Property(randommovies)]</value>
@@ -1459,6 +1455,7 @@
 		<value condition="!Window.IsVisible(1195) + Skin.String(HomeMenu.1.Widget,MusicNode)">$INFO[Skin.String(HomeMenu.1.Data)]</value>
 		<value condition="!Window.IsVisible(1195) + [String.StartsWith(skin.string(HomeMenu.1.Widget),landscape) | String.StartsWith(skin.string(HomeMenu.1.Widget),poster) | String.StartsWith(skin.string(HomeMenu.1.Widget),album)]">$INFO[Skin.String(HomeMenu.1.WidgetPath)]</value>
 	</variable>
+	-->
 	<variable name="VideoPosterContent" type="text">
 		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(1)">$INFO[Skin.String(HomeMenu.1.WidgetPath)]</value>
 		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(2)">$INFO[Skin.String(HomeMenu.2.WidgetPath)]</value>
@@ -1470,19 +1467,5 @@
 		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(8)">$INFO[Skin.String(HomeMenu.8.WidgetPath)]</value>
 		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(9)">$INFO[Skin.String(HomeMenu.9.WidgetPath)]</value>
 		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(10)">$INFO[Skin.String(HomeMenu.10.WidgetPath)]</value>
-	</variable>
-	<variable name="TestWidgetContent" type="text">
-		<value condition="!Window.IsVisible(1195)">$INFO[Skin.String(HomeMenu.1.WidgetPath)]</value>
-		<!--	
-		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(2) + !String.IsEmpty(Skin.String(HomeMenu.2.WidgetPath))">$INFO[Skin.String(HomeMenu.2.WidgetPath)]</value>
-		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(3) + !String.IsEmpty(Skin.String(HomeMenu.3.WidgetPath))">$INFO[Skin.String(HomeMenu.3.WidgetPath)]</value>
-		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(4) + !String.IsEmpty(Skin.String(HomeMenu.4.WidgetPath))">$INFO[Skin.String(HomeMenu.4.WidgetPath)]</value>
-		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(5) + !String.IsEmpty(Skin.String(HomeMenu.5.WidgetPath))">$INFO[Skin.String(HomeMenu.5.WidgetPath)]</value>
-		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(6) + !String.IsEmpty(Skin.String(HomeMenu.6.WidgetPath))">$INFO[Skin.String(HomeMenu.6.WidgetPath)]</value>
-		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(7) + !String.IsEmpty(Skin.String(HomeMenu.7.WidgetPath))">$INFO[Skin.String(HomeMenu.7.WidgetPath)]</value>
-		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(8) + !String.IsEmpty(Skin.String(HomeMenu.8.WidgetPath))">$INFO[Skin.String(HomeMenu.8.WidgetPath)]</value>
-		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(9) + !String.IsEmpty(Skin.String(HomeMenu.9.WidgetPath))">$INFO[Skin.String(HomeMenu.9.WidgetPath)]</value>
-		<value condition="!Window.IsVisible(1195) + Container(9000).HasFocus(10) + !String.IsEmpty(Skin.String(HomeMenu.10.WidgetPath))">$INFO[Skin.String(HomeMenu.10.WidgetPath)]</value>
-	-->
 	</variable>
 </includes>
