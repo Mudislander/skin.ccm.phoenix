@@ -1,23 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="CommonBackground">
-		<control type="image">
-			<depth>DepthBackground</depth>
-			<description>Normal Default Background Image</description>
-			<include>BackgroundDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<texture fallback="special://skin/backgrounds/SKINDEFAULT.jpg">$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</texture>
-			<visible>![Skin.HasSetting(UseCustomBackground) + !String.IsEmpty(Skin.String(CustomBackgroundPath))]</visible>
-			<include>VisibleFadeEffect</include>
+		<control type="group">
+			<description>Global  Image Backgound</description>
+			<visible>!Skin.HasSetting(MultiImageBackground) + !Skin.HasSetting(EnableHolidayEffects)</visible>
+			<control type="image">
+				<description>Normal Default Background Image</description>
+				<depth>DepthBackground</depth>
+				<include>BackgroundDimensions</include>
+				<aspectratio>scale</aspectratio>
+				<include>VisibleFadeEffect</include>
+				<texture fallback="special://skin/backgrounds/SKINDEFAULT.jpg">$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</texture>
+				<visible>IsEmpty(Skin.String(GlobalBackGroundPath))</visible>
+			</control>
+			<control type="multiimage">
+				<depth>DepthBackground</depth>
+				<description>User Set Background Image</description>
+				<include>BackgroundDimensions</include>
+				<include>BackgroundTimePerImage</include>
+				<aspectratio>scale</aspectratio>
+				<randomize>true</randomize>
+				<include>VisibleFadeEffect</include>
+				<imagepath background="true">$INFO[Skin.String(GlobalBackGroundPath)]</imagepath>
+				<visible>!IsEmpty(Skin.String(GlobalBackGroundPath))</visible>
+			</control>
 		</control>
-		<control type="image">
-			<depth>DepthBackground</depth>
-			<description>User Set Background Image</description>
-			<include>BackgroundDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<texture>$INFO[Skin.String(CustomBackgroundPath)]</texture>
-			<visible>Skin.HasSetting(UseCustomBackground) + !String.IsEmpty(Skin.String(CustomBackgroundPath))</visible>
-			<include>VisibleFadeEffect</include>
+		<!--control type="group">
+			<description>Global	Holiday Effect</description>
+			<visible>Skin.HasSetting(EnableHolidayEffects)</visible>
+			<visible>!Player.HasVideo | Skin.HasSetting(HideNowPlayingFanart)</visible>
+			<control type="multiimage" id="5051">
+				<description>holiday Theme Images</description>
+				<depth>DepthBackground</depth>
+				<include>BackgroundDimensions</include>
+				<imagepath background="true">$INFO[Skin.String(HolidayThemePath)]</imagepath>
+				<include>BackgroundTimePerImage</include>
+				<randomize>true</randomize>
+				<fadetime>1000</fadetime>
+				<visible>!IsEmpty(Skin.String(HolidayThemePath))</visible>
+			</control>
+			<control type="image">
+				<description>holiday Theme Default Image</description>
+				<depth>DepthBackground</depth>
+				<include>BackgroundDimensions</include>
+				<include>VisibleFadeEffect</include>
+				<aspectratio>scale</aspectratio>
+				-->
+		<!--include>BackgroundFade</include-->
+		<!--fadetime>FanartCrossfadeTime</fadetime-->
+		<!--include>Window_OpenClose_Animation</include-->
+		<!--
+				<texture>special://skin/extras/Holiday/xmastree.jpg</texture>
+				<visible>IsEmpty(Skin.String(HolidayThemePath)) | IsEmpty(Control.GetLabel(5051))</visible>
+			</control>
+		</control-->
+		<control type="group">
+			<description>Multi Image Backgounds on Home</description>
+			<visible>Window.IsVisible(Home) + Skin.HasSetting(MultiImageBackground) + !Skin.HasSetting(EnableHolidayEffects)</visible>
+			<control type="multiimage">
+				<depth>DepthBackground</depth>
+				<include>BackgroundDimensions</include>
+				<aspectratio>scale</aspectratio>
+				<imagepath background="true">$VAR[HomeMenuItemBackground]</imagepath>
+				<include>BackgroundTimePerImage</include>
+				<randomize>true</randomize>
+				<fadetime>1000</fadetime>
+			</control>
+			<control type="group">
+				<include>BackgroundFade</include>
+				<fadetime>FanartCrossfadeTime</fadetime>
+				<include>Window_OpenClose_Animation</include>
+				<include>LiveContentBackgrounds</include>
+				<visible>StringCompare(Container(9000).ListItem.Property(Background),Live)</visible>
+				<visible>!Control.HasFocus(510) | !Skin.HasSetting(EnableWidgetFanArt) | StringCompare(Container(9000).ListItem.Property(510WidgetSet),Favourites)</visible>
+			</control>
 		</control>
 		<control type="image">
 			<depth>DepthBackground</depth>

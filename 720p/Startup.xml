@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<include condition="!Skin.HasSetting(InitialSetUpRun)">DefaultInitialSetup</include>
+	<onload condition="!Skin.HasSetting(DisableFanartScript) + !System.HasAddon(script.skin.helper.service)">Skin.Setbool(DisableFanartScript)</onload>
+	
 	<onload condition="!Skin.HasSetting(DisableWatchItLater) + !System.HasAddon(script.simpleplaylists)">Skin.Setbool(DisableWatchItLater)</onload>
 	<onload condition="Skin.HasSetting(DisableScriptFavourites) + System.HasAddon(script.favourites)">Skin.Reset(DisableScriptFavourites)</onload>
 	<onload condition="!Skin.HasSetting(DisableScriptFavourites) + !System.HasAddon(script.favourites)">Skin.Setbool(DisableScriptFavourites)</onload>

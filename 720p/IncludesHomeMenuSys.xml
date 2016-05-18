@@ -255,6 +255,11 @@
 				<property name="SubMenu">FullScreen</property>
 				<property name="HiLiteItem">FullScreen</property>
 				<property name="LibStats">FullScreen</property>
+				<property name="AddOnSet">None</property>
+				<property name="WidgetSet">None</property>
+				<property name="WidgetPath">None</property>
+				<property name="WidgetName">None</property>
+				<property name="PlayListType">None</property>
 				<property name="Background">FullScreen</property>
 				<visible>Player.HasMedia</visible>
 				<visible>false</visible>
@@ -283,6 +288,7 @@
 				<property name="WidgetSet">$INFO[Skin.String(SettingsMenu.Widget)]</property>
 				<property name="WidgetPath">$INFO[Skin.String(SettingsMenu.WidgetPath)]</property>
 				<property name="WidgetName">$INFO[Skin.String(SettingsMenu.WidgetName)]</property>
+				<property name="PlayListType">None</property>
 				<property name="Background">$INFO[Skin.String(SettingsMenu.Display)]</property>
 				<visible>!Skin.HasSetting(HideSytemMenuItem)</visible>
 			</item>
@@ -372,8 +378,6 @@
 		<onload>Skin.SetString(HolidayThemePath,special://skin/extras/Holiday/xmastree.jpg)</onload>
 		<onload>Skin.SetString(StartUpBackgroundPath,special://skin/backgrounds/splash.jpg)</onload>
 		<onload condition="System.Date(11-24,1-6) + !System.Platform.Linux.RaspberryPi">Skin.Setbool(EnableHolidayEffects)</onload>
-		<onload condition="System.HasAddon(script.skin.helper.service)">Skin.SetBool(EnableFanartScript)</onload>
-		<onload condition="System.HasAddon(script.skin.helper.service)">Skin.SetString(SkinHelper.RandomFanartDelay,10)</onload>
 		<onload>Skin.SetBool(EnableAutoSave)</onload>
 		<onload condition="System.HasAddon(script.randomandlastitems)">Skin.SetString(WidgetPlaylistScript,Random)</onload>
 		<onload condition="!System.HasAddon(script.randomandlastitems)">Skin.SetString(WidgetPlaylistScript,Disabled)</onload>
@@ -382,6 +386,7 @@
 		<onload condition="System.Platform.Linux.RaspberryPi">Skin.SetBool(DisableAutoScroll)</onload>
 		<onload condition="System.Platform.Linux.RaspberryPi">Skin.SetBool(HideNext5SongsInfo)</onload>
 		<onload condition="System.Platform.Linux.RaspberryPi">Skin.SetBool(NoAnimateVizFanart)</onload>
+		<onload>Skin.SetBool(DefaultMainMenu)</onload>
 		<onload>Skin.SetBool(InitialSetUpRun)</onload>
 	</include>
 	<include name="WrapHomeMainMenu">
@@ -405,8 +410,8 @@
 		<height>60</height>
 		<onleft>9000</onleft>
 		<onright>9000</onright>
-		<onup condition="!Skin.HasSetting(DisableGlobalSearch)">608</onup>
-		<onup condition="Skin.HasSetting(DisableGlobalSearch)">603</onup>
+		<onup condition="System.HasAddon(script.globalsearch)">608</onup>
+		<onup condition="!System.HasAddon(script.globalsearch)">603</onup>
 		<ondown>9001</ondown>
 		<pagecontrol>-</pagecontrol>
 		<scrolltime>300</scrolltime>

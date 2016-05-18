@@ -183,8 +183,9 @@ msgctxt "#31061"
 msgid "Current selected"
 msgstr ""
 
-#empty strings from id 31062 to 31062
-#Skin Settings labels
+msgctxt "#31062"
+msgid "Temperature Warning"
+msgstr ""
 
 msgctxt "#31063"
 msgid "Enable System Overheating Advice"
@@ -918,8 +919,64 @@ msgctxt "#31255"
 msgid "Select SubMenu Set"
 msgstr ""
 
+msgctxt "#31256"
+msgid "No Weather Fanart Selected"
+msgstr ""
+
+msgctxt "#31257"
+msgid "Weather Icons - Default"
+msgstr ""
+
+msgctxt "#31258"
+msgid "Multi Image"
+msgstr ""
+
+msgctxt "#31259"
+msgid "Script Skin Helper"
+msgstr ""
+
+msgctxt "#31260"
+msgid "Enable Home Screen Library Fanart"
+msgstr ""
+
+msgctxt "#31261"
+msgid "Alert Action"
+msgstr ""
+
+msgctxt "#31262"
+msgid "Notify Only"
+msgstr ""
+
+msgctxt "#31263"
+msgid "Stop Media Playing"
+msgstr ""
+
+msgctxt "#31264"
+msgid "Open CCM Settings"
+msgstr ""
+
+msgctxt "#31265"
+msgid "Audio Lyrics"
+msgstr ""
+
+msgctxt "#31266"
+msgid "Single Image"
+msgstr ""
+
+msgctxt "#31267"
+msgid "Save CCM Settings"
+msgstr ""
+
+msgctxt "#31268"
+msgid "ReLoad Now ?"
+msgstr ""
+
+msgctxt "#31269"
+msgid "Reloading skin will force Kodi to save settings "
+msgstr ""
+
 # New CCM Strings
-#empty strings from id 31256 to 31299
+#empty strings from id 31270 to 31299
 #Extra labels
 
 msgctxt "#31300"

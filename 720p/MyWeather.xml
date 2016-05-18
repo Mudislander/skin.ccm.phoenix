@@ -9,12 +9,13 @@
 			<depth>DepthBackground</depth>
 			<include>BackgroundDimensions</include>
 			<aspectratio>scale</aspectratio>
-			<imagepath background="true">resource://resource.images.weatherfanart.multi/$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+			<imagepath background="true">$VAR[WeatherFanartPath]</imagepath>
+			<!--imagepath background="true">resource://resource.images.weatherfanart.multi/$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath-->
 			<timeperimage>10000</timeperimage>
 			<randomize>true</randomize>
 			<fadetime>1000</fadetime>
 			<include>VisibleFadeEffect</include>
-			<visible>System.HasAddon(resource.images.weatherfanart.multi)</visible>
+			<!--visible>System.HasAddon(resource.images.weatherfanart.multi)</visible-->
 			<animation effect="fade" time="150">WindowClose</animation>
 		</control>
 		<include content="CommonWindowHeader">
@@ -161,8 +162,22 @@
 							<top>145</top>
 							<width>200</width>
 							<height>200</height>
-							<info>Window.Property(Current.ConditionIcon)</info>
+							<texture>$VAR[WeatherIconPath]$INFO[Window.Property(Current.OutlookIcon)]</texture>
 							<aspectratio>keep</aspectratio>
+							<visible>!Skin.HasSetting(resource.images.weathericons.multi) | IsEmpty(Skin.String(resource.images.weathericons.path))</visible>
+						</control>
+						<control type="multiimage">
+							<description>Animated Weather icon</description>
+							<left>260</left>
+							<top>145</top>
+							<width>200</width>
+							<height>200</height>
+							<aspectratio>keep</aspectratio>
+							<imagepath>$VAR[WeatherIconPath]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+							<timeperimage>100</timeperimage>
+							<randomize>false</randomize>
+							<fadetime>1</fadetime>
+							<visible>Skin.HasSetting(resource.images.weathericons.multi) + !IsEmpty(Skin.String(resource.images.weathericons.path))</visible>
 						</control>
 					</control>
 					<control type="label">

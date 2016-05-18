@@ -276,7 +276,7 @@
 						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
 						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
 						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
-						<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
+						<!--visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible-->
 						<visible>String.IsEqual(Window.Property(MenuItemType),MoviesMenu)</visible>
 					</item>
 					<item>
@@ -453,7 +453,7 @@
 						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
 						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
 						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
-						<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
+						<!--visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible-->
 						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
 					</item>
 					<item>
@@ -476,7 +476,7 @@
 						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
 						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
 						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
-						<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
+						<!--visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible-->
 						<visible>String.IsEqual(Window.Property(MenuItemType),TVShowsMenu)</visible>
 					</item>
 					<item>
@@ -654,7 +654,7 @@
 						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
 						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
 						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
-						<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
+						<!--visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible-->
 						<visible>String.IsEqual(Window.Property(MenuItemType),MusicMenu)</visible>
 					</item>
 					<item>
@@ -721,7 +721,7 @@
 						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.11.Lock))">Skin.Reset(HomeWidget.11.Lock)</onclick>
 						<onclick condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),Skin.String(HomeWidget.12.Lock))">Skin.Reset(HomeWidget.12.Lock)</onclick>
 						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
-						<visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
+						<!--visible>SubString(Window(Home).Property(SkinWidgets_Recommended),true)</visible-->
 						<visible>String.IsEqual(Window.Property(MenuItemType),ConcertsMenu)</visible>
 					</item>
 					<item>

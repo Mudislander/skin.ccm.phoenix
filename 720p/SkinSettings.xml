@@ -4,7 +4,7 @@
 	<include condition="!Skin.HasSetting(InitialSetUpRun)">DefaultInitialSetup</include>
 	<onload>SetProperty(MenuItemActive,Settings,Home)</onload>
 	<onload condition="!Skin.HasSetting(DisableScriptFavourites)">RunScript(script.favourites)</onload>
-	<onload condition="String.IsEqual(Container(9011).Position,0) + !String.IsEqual(Skin.String(InitialMenuPosi),0)">Control.Move(9011,$INFO[Skin.String(InitialMenuPosi)])</onload>
+	<onload condition="StringCompare(Container(9011).Position,0) + !StringCompare(Skin.String(InitialMenuPosi),0)">Control.Move(9011,$INFO[Skin.String(InitialMenuPosi)])</onload>
 	<controls>
 		<include>CommonBackground</include>
 		<control type="image">
@@ -285,28 +285,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>!Skin.HasSetting(DisableTVNextAired) + System.HasAddon(script.tv.show.next.aired)</selected>
 					</control>
-					<!--
-					msgctxt "#31358"
-					msgid "Enable Home Screen Background Fanart"
-					msgstr ""
-					-->
-					<!--control type="radiobutton" id="104">
-						<width>750</width>
-						<height>40</height>
-						<font>font13</font>
-						<label>$LOCALIZE[31358] $INFO[System.AddonVersion(script.skin.helper.service) ,[COLOR=grey3]($LOCALIZE[31197],)[/COLOR]]</label>
-						<textcolor>grey2</textcolor>
-						<focusedcolor>white</focusedcolor>
-						<texturefocus>MenuItemFO.png</texturefocus>
-						<texturenofocus>MenuItemNF.png</texturenofocus>
-						<onclick condition="Skin.HasSetting(EnableFanartScript)">Skin.Reset(SkinHelper.RandomFanartDelay)</onclick>
-						<onclick condition="Skin.HasSetting(EnableFanartScript)">Skin.Reset(EnableFanartScript)</onclick>
-						<onclick condition="!Skin.HasSetting(EnableFanartScript) + !IsEmpty(Skin.String(MultiImageTimer))">Skin.SetString(SkinHelper.RandomFanartDelay,$INFO[Skin.String(MultiImageTimer)])</onclick>
-						<onclick condition="!Skin.HasSetting(EnableFanartScript) + IsEmpty(Skin.String(MultiImageTimer))">Skin.SetString(SkinHelper.RandomFanartDelay,8)</onclick>
-						<onclick condition="!Skin.HasSetting(EnableFanartScript)">Skin.SetBool(EnableFanartScript)</onclick>
-						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<selected>Skin.HasSetting(EnableFanartScript) + System.HasAddon(script.skin.helper.service)</selected>
-					</control-->
+					
 					<control type="radiobutton" id="105">
 						<width>750</width>
 						<height>40</height>
@@ -380,7 +359,58 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>!Skin.HasSetting(DisableAutoComplete) + System.HasAddon(plugin.program.autocompletion)</selected>
 					</control>
-					<control type="button" id="120">
+					
+					
+					<control type="label" id="130">
+						<width>750</width>
+						<height>45</height>
+						<font>font13</font>
+						<label>[B]$LOCALIZE[31259][/B] $INFO[System.AddonVersion(script.skin.helper.service) ,[COLOR=grey3]($LOCALIZE[31197],)[/COLOR]]</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					
+					
+					
+					<control type="radiobutton" id="104">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[31260]</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+						
+						<onclick condition="!Skin.HasSetting(DisableFanartScript)">Skin.SetString(SkinHelper.RandomFanartDelay,0)</onclick>
+						<!--onclick condition="!Skin.HasSetting(DisableFanartScript)">Skin.Setbool(DisableFanartScript)</onclick-->
+						
+						<onclick condition="Skin.HasSetting(DisableFanartScript) + !String.IsEmpty(Skin.String(MultiImageTimer))">Skin.SetString(SkinHelper.RandomFanartDelay,$INFO[Skin.String(MultiImageTimer)])</onclick>
+						<onclick condition="Skin.HasSetting(DisableFanartScript) + String.IsEmpty(Skin.String(MultiImageTimer))">Skin.SetString(SkinHelper.RandomFanartDelay,8)</onclick>
+						<!--onclick condition="Skin.HasSetting(DisableFanartScript)">Skin.Reset(DisableFanartScript)</onclick-->
+						
+						
+						<onclick>Skin.ToggleSetting(DisableFanartScript)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<selected>!Skin.HasSetting(DisableFanartScript) + System.HasAddon(script.skin.helper.service)</selected>
+					</control>
+					
+			  <!--setting id="SkinHelper.RandomFanartDelay" type="string">8</setting-->
+					
+					<control type="label" id="147">
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>$LOCALIZE[31265]</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="button" id="148">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -393,7 +423,7 @@
 						<onclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 					</control>
-					<control type="button" id="121">
+					<control type="button" id="149">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -406,7 +436,8 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<enable>!String.IsEmpty(Skin.StringLyricScript_Path)</enable>
 					</control>
-					<control type="label" id="122">
+					
+					<control type="label" id="150">
 						<width>750</width>
 						<height>45</height>
 						<font>font13_title</font>
@@ -416,7 +447,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 					</control>
-					<control type="radiobutton" id="123">
+					<control type="radiobutton" id="151">
 						<description>Enable Widgets</description>
 						<width>750</width>
 						<height>40</height>
@@ -430,7 +461,7 @@
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 					</control>
-					<control type="radiobutton" id="124">
+					<control type="radiobutton" id="152">
 						<description>Enable Addons</description>
 						<width>750</width>
 						<height>40</height>
@@ -444,7 +475,7 @@
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 					</control>
-					<control type="radiobutton" id="125">
+					<control type="radiobutton" id="153">
 						<description>enable video info</description>
 						<width>750</width>
 						<height>40</height>
@@ -458,7 +489,7 @@
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 					</control>
-					<control type="radiobutton" id="126">
+					<control type="radiobutton" id="154">
 						<description>enable music info</description>
 						<width>750</width>
 						<height>40</height>
@@ -472,7 +503,7 @@
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 					</control>
-					<control type="radiobutton" id="127">
+					<control type="radiobutton" id="155">
 						<description>enable weather info</description>
 						<width>750</width>
 						<height>40</height>
@@ -487,7 +518,7 @@
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 						<visible>!String.IsEmpty(Weather.Plugin)</visible>
 					</control>
-					<control type="label" id="128">
+					<control type="label" id="156">
 						<width>750</width>
 						<height>45</height>
 						<font>font13_title</font>
@@ -497,7 +528,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 					</control>
-					<control type="radiobutton" id="129">
+					<control type="radiobutton" id="157">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -510,7 +541,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>Skin.HasSetting(AutoScroll)</selected>
 					</control>
-					<control type="radiobutton" id="130">
+					<control type="radiobutton" id="158">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -523,7 +554,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>!Skin.HasSetting(Show_SlideShow_Paused)</selected>
 					</control>
-					<control type="radiobutton" id="131">
+					<control type="radiobutton" id="159">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -536,7 +567,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>Skin.HasSetting(WindowedTrailer)</selected>
 					</control>
-					<control type="radiobutton" id="132">
+					<control type="radiobutton" id="160">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -549,7 +580,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>Skin.HasSetting(HideFilenameFlagging)</selected>
 					</control>
-					<control type="radiobutton" id="133">
+					<control type="radiobutton" id="161">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -562,7 +593,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>Skin.HasSetting(HideEPGwithRDS)</selected>
 					</control>
-					<control type="radiobutton" id="134">
+					<control type="radiobutton" id="162">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -575,7 +606,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>Skin.HasSetting(HideBackGroundFanart)</selected>
 					</control>
-					<control type="radiobutton" id="135">
+					<control type="radiobutton" id="163">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -588,7 +619,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>Skin.HasSetting(HideVisualizationFanart)</selected>
 					</control>
-					<control type="radiobutton" id="136">
+					<control type="radiobutton" id="164">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -601,7 +632,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>!Skin.HasSetting(ShowBackgroundVideo)</selected>
 					</control>
-					<control type="radiobutton" id="137">
+					<control type="radiobutton" id="165">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -2461,6 +2492,8 @@
 					<control type="group">
 						<left>576</left>
 						<top>170</top>
+						
+						
 						<control type="group">
 							<visible>Container(9004).HasFocus(1)</visible>
 							<control type="button" id="410">
@@ -2469,7 +2502,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2491,7 +2524,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2535,7 +2568,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2548,6 +2581,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<!--	Window(Home).Property(SkinHelper.AllMoviesBackground) | Random fanart of movies in video database		-->
 							<control type="button" id="414">
@@ -2556,7 +2590,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2569,6 +2603,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -2576,7 +2611,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2591,6 +2626,8 @@
 								<ondown>408</ondown>
 							</control>
 						</control>
+						
+						
 						<control type="group">
 							<visible>Container(9004).HasFocus(2)</visible>
 							<control type="button" id="410">
@@ -2599,7 +2636,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2623,7 +2660,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2671,7 +2708,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2685,6 +2722,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -2692,7 +2730,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2706,6 +2744,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -2713,7 +2752,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2737,7 +2776,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2761,7 +2800,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2809,7 +2848,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2823,6 +2862,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -2830,7 +2870,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2844,6 +2884,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -2851,7 +2892,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2875,7 +2916,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2899,7 +2940,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2947,7 +2988,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2961,6 +3002,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -2968,7 +3010,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -2982,6 +3024,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -2989,7 +3032,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3013,7 +3056,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3037,7 +3080,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3085,7 +3128,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3099,6 +3142,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -3106,7 +3150,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3120,6 +3164,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -3127,7 +3172,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3151,7 +3196,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3175,7 +3220,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3223,7 +3268,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3237,6 +3282,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -3244,7 +3290,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3258,6 +3304,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -3265,7 +3312,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3289,7 +3336,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3313,7 +3360,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3361,7 +3408,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3375,6 +3422,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -3382,7 +3430,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3396,6 +3444,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -3403,7 +3452,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3427,7 +3476,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3449,7 +3498,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3493,7 +3542,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3506,6 +3555,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -3513,7 +3563,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3526,6 +3576,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -3533,7 +3584,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3556,7 +3607,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3578,7 +3629,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3622,7 +3673,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3635,6 +3686,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -3642,7 +3694,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3655,6 +3707,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -3662,7 +3715,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3684,7 +3737,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3706,7 +3759,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3750,7 +3803,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3763,6 +3816,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -3770,7 +3824,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3783,6 +3837,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -3790,7 +3845,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3813,7 +3868,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3835,7 +3890,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3879,7 +3934,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3892,6 +3947,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -3899,7 +3955,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3912,6 +3968,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -3919,7 +3976,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3942,7 +3999,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -3964,7 +4021,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4008,7 +4065,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4021,6 +4078,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -4028,7 +4086,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4041,6 +4099,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -4048,7 +4107,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4071,7 +4130,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4093,7 +4152,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4137,7 +4196,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4150,6 +4209,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -4157,7 +4217,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4170,6 +4230,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -4177,7 +4238,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4200,7 +4261,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4222,7 +4283,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4266,7 +4327,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4279,6 +4340,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -4286,7 +4348,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4299,6 +4361,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -4306,7 +4369,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4329,7 +4392,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4351,7 +4414,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4395,7 +4458,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4408,6 +4471,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -4415,7 +4479,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4428,6 +4492,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -4435,7 +4500,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4458,7 +4523,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4480,7 +4545,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4524,7 +4589,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4537,6 +4602,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -4544,7 +4610,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4557,6 +4623,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -4564,7 +4631,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4587,7 +4654,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4609,7 +4676,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4653,7 +4720,7 @@
 								<top>126</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31418</label>
+								<label>31029</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4666,6 +4733,7 @@
 								<onright>800</onright>
 								<onup>412</onup>
 								<ondown>414</ondown>
+								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
 							<control type="button" id="414">
 								<description>Live Content Button</description>
@@ -4673,7 +4741,7 @@
 								<top>168</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31022</label>
+								<label>31214</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4686,6 +4754,7 @@
 								<onright>800</onright>
 								<onup>413</onup>
 								<ondown>415</ondown>
+								<enable>false</enable>
 							</control>
 							<control type="button" id="415">
 								<description>Theme Button</description>
@@ -4693,7 +4762,7 @@
 								<top>210</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31366</label>
+								<label>31215</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4716,7 +4785,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4737,7 +4806,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4781,7 +4850,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4802,7 +4871,7 @@
 								<top>42</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31312</label>
+								<label>31258</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -4846,7 +4915,7 @@
 								<top>0</top>
 								<width>160</width>
 								<height>40</height>
-								<label>31311</label>
+								<label>31266</label>
 								<font>font12_title</font>
 								<textcolor>grey2</textcolor>
 								<focusedcolor>white</focusedcolor>
@@ -8131,6 +8200,16 @@
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 					</control>
+					<control type="label" id="849">
+						<width>750</width>
+						<height>45</height>
+						<font>font13_title</font>
+						<label>$LOCALIZE[31062]</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
 					<control type="radiobutton" id="850">
 						<width>750</width>
 						<height>40</height>
@@ -8160,9 +8239,26 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<enable>Skin.HasSetting(EnableOverHeatAdvice)</enable>
 					</control-->
-					<!-- 463 Set Action for Warning -->
-					<!-- Skin.String(TempWarningAction) -->
-					<control type="label" id="860">
+						<control type="button" id="852">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[31261]</label>
+						<label2>[COLOR=selected]$VAR[OverHeatAction][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="String.IsEmpty(Skin.String(TempWarningAction))">Skin.SetString(TempWarningAction,ActivateWindow(SkinSettings))</onclick>
+						<onclick condition="Skin.String(TempWarningAction,ActivateWindow(SkinSettings))">Skin.SetString(TempWarningAction,PlayerControl(Stop))</onclick>
+						<onclick condition="Skin.String(TempWarningAction,PlayerControl(Stop)) + System.CanPowerDown">Skin.SetString(TempWarningAction,Powerdown)</onclick>
+						<onclick condition="Skin.String(TempWarningAction,PlayerControl(Stop)) + !System.CanPowerDown">Skin.Reset(TempWarningAction)</onclick>
+						<onclick condition="Skin.String(TempWarningAction,Powerdown)">Skin.Reset(TempWarningAction)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<visible>IntegerGreaterThan(System.CPUTemperature,0)</visible>
+					</control>
+					
+						<control type="label" id="860">
 						<width>750</width>
 						<height>45</height>
 						<font>font13_title</font>

@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">9000</defaultcontrol>
+	<menucontrol>9000</menucontrol>
+	<backgroundcolor>0</backgroundcolor>
 	<include condition="!Skin.HasSetting(InitialSetUpRun)">DefaultInitialSetup</include>
-	<onload condition="!Skin.HasSetting(DisableSlideShowArt) + String.IsEmpty(Window.Property(ArtistSlideshowRunning))">RunScript(script.artistslideshow, daemon=true)</onload>
 	<onload condition="!Skin.HasSetting(DisableWidgetRefresh)">SetProperty(RefreshList,1,Home)</onload>
-	<!--
-	<onunload condition="Container(9000).Hasfocus(10) | Container(9000).Hasfocus(11) | ControlGroup(9010).HasFocus | ControlGroup(9016).HasFocus | ControlGroup(9017).HasFocus">SetProperty(VideosDirectLink,True)</onunload>
-	<onunload condition="ControlGroup(9011).HasFocus">SetProperty(MusicDirectLink,True)</onunload>
-	<onunload condition="Control.HasFocus(9000) + Container(9000).Hasfocus(2)">ClearProperty(VideosDirectLink)</onunload>
-	<onunload condition="Control.HasFocus(9000) + Container(9000).Hasfocus(3)">ClearProperty(MusicDirectLink)</onunload>
-	-->
+	<onload condition="!IsEmpty(Window(Home).Property(MenuItemSelected))">ClearProperty(MenuItemSelected,Home)</onload>
+	<onload condition="!IsEmpty(Window(Home).Property(MenuItemActive))">ClearProperty(MenuItemActive,Home)</onload>
+	<onload condition="!IsEmpty(Window(Home).Property(SubMenuBackground))">ClearProperty(SubMenuBackground,Home)</onload>
+	<onload condition="!IsEmpty(Window(Home).Property(MenuBackground))">ClearProperty(MenuBackground,Home)</onload>
+	<onload condition="Skin.HasSetting(EnableHolidayEffects) + System.Date(1-6,11-23)">Skin.Reset(EnableHolidayEffects)</onload>
+	<!--onload condition="Skin.HasSetting(EnablePingWOL) + Skin.String(WOLPingTimer) + Skin.String(PingMacAddr)">AlarmClock(WOLPingAlarm,WakeOnLan($INFO[Skin.String(PingMacAddr)]),$INFO[Skin.String(WOLPingTimer)]:00,silent,loop)</onload-->
+	<onload condition="!Skin.HasSetting(DisableScriptFavourites)">RunScript(script.favourites)</onload>
+	<onload condition="!Skin.HasSetting(DisableSlideShowArt) + IsEmpty(Window.Property(ArtistSlideshowRunning))">RunScript(script.artistslideshow, daemon=true)</onload>
+	<onload condition="!IsEmpty(Weather.Plugin) + !Weather.IsFetched">Weather.Refresh</onload>
+	<onload condition="Window.Previous(Startup)">Control.Move(9000,$INFO[Skin.String(InitialMenuItem)])</onload>
+	<onload condition="Skin.HasSetting(EnableAutoSave) + !IsEmpty(Window(Home).Property(EnableReLoadSkin))">ActivateWindow(1125)</onload>
+
+	<onunload condition="Skin.HasSetting(DefaultMainMenu) + [Container(9000).Hasfocus(5) | Container(9000).Hasfocus(6) | ControlGroup(9012).HasFocus | ControlGroup(9013).HasFocus | ControlGroup(9014).HasFocus]">SetProperty(VideosDirectLink,True)</onunload>
+	<onunload condition="Skin.HasSetting(DefaultMainMenu) + ControlGroup(9015).HasFocus">SetProperty(MusicDirectLink,True)</onunload>
+	<onunload condition="Skin.HasSetting(DefaultMainMenu) + Control.HasFocus(9000) + Container(9000).Hasfocus(4)">ClearProperty(VideosDirectLink)</onunload>
+	<onunload condition="Skin.HasSetting(DefaultMainMenu) + Control.HasFocus(9000) + Container(9000).Hasfocus(9)">ClearProperty(MusicDirectLink)</onunload>
+	
 	<controls>
 		<include>CommonBackground</include>
 		<control type="image">
@@ -890,7 +902,7 @@
 				<top>0</top>
 				<visible>Skin.HasSetting(homepageWeatherinfo) + !String.IsEmpty(Weather.Plugin)</visible>
 				<include>Window_OpenClose_Animation</include>
-				<control type="image">
+				<!--control type="image">
 					<description>Weather image</description>
 					<left>0</left>
 					<top>0</top>
@@ -898,6 +910,29 @@
 					<height>60</height>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[Weather.Conditions]</texture>
+				</control-->
+				<control type="image">
+					<description>Weather image</description>
+					<left>0</left>
+					<top>0</top>
+					<width>60</width>
+					<height>60</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[WeatherIconPath]$INFO[Window(Weather).Property(Current.OutlookIcon)]</texture>
+					<visible>!Skin.HasSetting(resource.images.weathericons.multi) | IsEmpty(Skin.String(resource.images.weathericons.path))</visible>
+				</control>
+				<control type="multiimage">
+					<description>Animated Weather icon</description>
+					<left>0</left>
+					<top>0</top>
+					<width>60</width>
+					<height>60</height>
+					<aspectratio>keep</aspectratio>
+					<imagepath>$VAR[WeatherIconPath]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+					<timeperimage>100</timeperimage>
+					<randomize>false</randomize>
+					<fadetime>1</fadetime>
+					<visible>Skin.HasSetting(resource.images.weathericons.multi) + !IsEmpty(Skin.String(resource.images.weathericons.path))</visible>
 				</control>
 				<control type="label">
 					<description>Location label</description>
