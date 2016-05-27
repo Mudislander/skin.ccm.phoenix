@@ -160,7 +160,7 @@
 				<include>ClearButtonChoice</include>
 				<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Path,ActivateWindow(Programs,Androidapps,return))</onclick>
 				<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Label,$LOCALIZE[31162])</onclick>
-				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Type,Programs)</onclick>
+				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Type,Android)</onclick>
 				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Fanart,special://skin/backgrounds/launcher.jpg)</onclick>
 				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Display,Default)</onclick>
 				<onclick condition="Window.IsVisible(1110)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Sub,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>

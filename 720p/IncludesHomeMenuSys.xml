@@ -17,9 +17,9 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.1.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.1.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.1.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(HomeMenu.1.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(HomeMenu.1.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistOne.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.1.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.1.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListOne.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.1.Display)]</property>
 				<visible>!Skin.HasSetting(UseStickyHomeMenu) + !String.IsEqual(Skin.String(HomeMenu.1.Path),Hidden)</visible>
 			</item>
@@ -37,9 +37,9 @@
 				<property name="HiLiteItem">$INFO[Skin.String(StickyMenuSelect.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(StickyMenuSelect.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(StickyMenuSelect.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(StickyMenuSelect.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(StickyMenuSelect.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistOne.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(StickyMenuSelect.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(StickyMenuSelect.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListOne.Type)]</property>
 				<property name="Background">$INFO[Skin.String(StickyMenuSelect.Display)]</property>
 				<visible>Skin.HasSetting(UseStickyHomeMenu) + !String.IsEmpty(Skin.String(StickyMenuSelect.Path))</visible>
 			</item>
@@ -58,12 +58,12 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.2.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.2.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.2.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(HomeMenu.2.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(HomeMenu.2.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistTwo.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.2.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.2.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListTwo.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.2.Display)]</property>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.2.Path),Hidden)</visible>
-				<visible>[String.IsEmpty(Skin.String(HomeMenu.2.Path)) + !IsEmpty(Weather.Plugin)] | !String.IsEmpty(Skin.String(HomeMenu.2.Path))</visible>
+				<visible>[String.IsEmpty(Skin.String(HomeMenu.2.Path)) + !String.IsEmpty(Weather.Plugin)] | !String.IsEmpty(Skin.String(HomeMenu.2.Path))</visible>
 			</item>
 			<item id="3">
 				<description>Home Menu Item Three</description>
@@ -80,9 +80,9 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.3.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.3.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.3.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(HomeMenu.3.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(HomeMenu.3.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistThree.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.3.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.3.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListThree.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.3.Display)]</property>
 				<visible>[String.IsEmpty(Skin.String(HomeMenu.3.Path)) + PVR.HasTVChannels] | !String.IsEmpty(Skin.String(HomeMenu.3.Path))</visible>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.3.Path),Hidden)</visible>
@@ -103,9 +103,9 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.4.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.4.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.4.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(HomeMenu.4.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(HomeMenu.4.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistFour.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.4.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.4.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListFour.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.4.Display)]</property>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.4.Path),Hidden)</visible>
 			</item>
@@ -124,9 +124,9 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.5.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.5.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.5.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(HomeMenu.5.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(HomeMenu.5.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistFive.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.5.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.5.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListFive.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.5.Display)]</property>
 				<visible>[String.IsEmpty(Skin.String(HomeMenu.5.Path)) + Library.HasContent(Movies)] | !String.IsEmpty(Skin.String(HomeMenu.5.Path))</visible>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.5.Path),Hidden)</visible>
@@ -146,9 +146,9 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.6.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.6.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.6.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(HomeMenu.6.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(HomeMenu.6.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistSix.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.6.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.6.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListSix.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.6.Display)]</property>
 				<visible>[String.IsEmpty(Skin.String(HomeMenu.6.Path)) + Library.HasContent(TVShows)] | !String.IsEmpty(Skin.String(HomeMenu.6.Path))</visible>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.6.Path),Hidden)</visible>
@@ -170,9 +170,9 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.7.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.7.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.7.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(HomeMenu.7.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(HomeMenu.7.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistSeven.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.7.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.7.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListSeven.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.7.Display)]</property>
 				<visible>[String.IsEmpty(Skin.String(HomeMenu.7.Path)) + !Skin.HasSetting(DisableWatchItLater)] | !String.IsEmpty(Skin.String(HomeMenu.7.Path))</visible>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.7.Path),Hidden)</visible>
@@ -192,9 +192,9 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.8.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.8.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.8.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(HomeMenu.8.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(HomeMenu.8.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistEight.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.8.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.8.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListEight.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.8.Display)]</property>
 				<visible>[String.IsEmpty(Skin.String(HomeMenu.8.Path)) + Library.HasContent(MusicVideos)] | !String.IsEmpty(Skin.String(HomeMenu.8.Path))</visible>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.8.Path),Hidden)</visible>
@@ -215,9 +215,9 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.9.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.9.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.9.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(HomeMenu.9.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(HomeMenu.9.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistNine.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.9.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.9.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListNine.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.9.Display)]</property>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.9.Path),Hidden)</visible>
 			</item>
@@ -237,9 +237,9 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.10.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.10.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.10.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(HomeMenu.10.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(HomeMenu.10.WidgetName)]</property>
-				<property name="PlayListType">$INFO[Window(Home).Property(HomePlaylistTen.Type)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.10.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.10.WidgetName)]</property-->
+				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListTen.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.10.Display)]</property>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.10.Path),Hidden)</visible>
 			</item>
@@ -255,14 +255,15 @@
 				<property name="SubMenu">FullScreen</property>
 				<property name="HiLiteItem">FullScreen</property>
 				<property name="LibStats">FullScreen</property>
-				<property name="AddOnSet">None</property>
-				<property name="WidgetSet">None</property>
-				<property name="WidgetPath">None</property>
-				<property name="WidgetName">None</property>
-				<property name="PlayListType">None</property>
+				<property name="AddOnSet"></property>
+				<property name="WidgetSet"></property>
+				<!--property name="WidgetPath">None</property-->
+				<!--property name="WidgetName">None</property-->
+				<property name="PlayListType"></property>
 				<property name="Background">FullScreen</property>
 				<visible>Player.HasMedia</visible>
-				<visible>false</visible>
+				<visible>String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
+				<!--visible>false</visible-->
 			</item>
 			<item id="11">
 				<description>DVD Player</description>
@@ -271,6 +272,7 @@
 				<icon>$INFO[special://skin/backgrounds/media-overlay.jpg]</icon>
 				<thumb>$INFO[special://skin/backgrounds/media-overlay.jpg]</thumb>
 				<visible>System.HasMediaDVD</visible>
+				<visible>false</visible>
 			</item>
 			<item id="12">
 				<description>Home Menu Settings</description>
@@ -286,8 +288,8 @@
 				<property name="HiLiteItem">$INFO[Skin.String(SettingsMenu.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(SettingsMenu.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(SettingsMenu.Widget)]</property>
-				<property name="WidgetPath">$INFO[Skin.String(SettingsMenu.WidgetPath)]</property>
-				<property name="WidgetName">$INFO[Skin.String(SettingsMenu.WidgetName)]</property>
+				<!--property name="WidgetPath">$INFO[Skin.String(SettingsMenu.WidgetPath)]</property-->
+				<!--property name="WidgetName">$INFO[Skin.String(SettingsMenu.WidgetName)]</property-->
 				<property name="PlayListType">None</property>
 				<property name="Background">$INFO[Skin.String(SettingsMenu.Display)]</property>
 				<visible>!Skin.HasSetting(HideSytemMenuItem)</visible>
@@ -410,8 +412,12 @@
 		<height>60</height>
 		<onleft>9000</onleft>
 		<onright>9000</onright>
+		<onup condition="!String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">9003</onup>
+		<onup condition="String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">20</onup>
+		<!--
 		<onup condition="System.HasAddon(script.globalsearch)">608</onup>
 		<onup condition="!System.HasAddon(script.globalsearch)">603</onup>
+		-->
 		<ondown>9001</ondown>
 		<pagecontrol>-</pagecontrol>
 		<scrolltime>300</scrolltime>
@@ -442,7 +448,7 @@
 				<textcolor>grey3</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
-				<label>$INFO[ListItem.Label]</label>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 			</control>
 		</itemlayout>
 		<focusedlayout height="60" width="300">
@@ -469,7 +475,7 @@
 				<textcolor>grey3</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
-				<label>$INFO[ListItem.Label]</label>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 			</control>
 			<control type="label">
 				<left>5</left>
@@ -480,7 +486,7 @@
 				<textcolor>blue</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
-				<label>$INFO[ListItem.Label]</label>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 				<visible>Control.HasFocus(9000)</visible>
 				<include>VisibleFadeEffect</include>
 			</control>

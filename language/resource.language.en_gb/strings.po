@@ -390,11 +390,11 @@ msgstr ""
 #empty strings from id 31113 to 31115
 
 msgctxt "#31116"
-msgid "Enable Home Screen Add-Ons"
+msgid "Enable Home Screen Add-On Shortcuts"
 msgstr ""
 
 msgctxt "#31117"
-msgid "Enable Home Screen Widgets"
+msgid "Enable Home Screen Widgets Display"
 msgstr ""
 
 #. In main language strings its used as submenu
@@ -403,7 +403,7 @@ msgid "Home page programs submenu"
 msgstr ""
 
 msgctxt "#31119"
-msgid "Hide background fanart"
+msgid "Enable Background Fanart of List Items"
 msgstr ""
 
 #empty strings from id 31120 to 31121
@@ -417,11 +417,11 @@ msgstr ""
 #empty string with id 31123
 
 msgctxt "#31124"
-msgid "Show background \"Now playing\" video"
+msgid "Enable Background \"Now Playing\" Video"
 msgstr ""
 
 msgctxt "#31125"
-msgid "Show background \"Now playing\" visualisation"
+msgid "Enable Background \"Now Playing\" Visualisation"
 msgstr ""
 
 #empty strings from id 31126 to 31127
@@ -812,11 +812,11 @@ msgid "Similar Movies"
 msgstr ""
 
 msgctxt "#31229"
-msgid "Movies similar to"
+msgid "Titles similar to"
 msgstr ""
 
 msgctxt "#31230"
-msgid "Movies by Genre"
+msgid "Movies by Genre -"
 msgstr ""
 
 msgctxt "#31231"
@@ -840,7 +840,7 @@ msgid "Similar TVShows"
 msgstr ""
 
 msgctxt "#31236"
-msgid "TVShows by Genre"
+msgid "TVShows by Genre -"
 msgstr ""
 
 msgctxt "#31237"
@@ -975,8 +975,80 @@ msgctxt "#31269"
 msgid "Reloading skin will force Kodi to save settings "
 msgstr ""
 
+msgctxt "#31270"
+msgid "Enable Extra Fanart Search"
+msgstr ""
+
+msgctxt "#31271"
+msgid "Script RandomAndLastItems"
+msgstr ""
+
+msgctxt "#31272"
+msgid "Playlist Widgets"
+msgstr ""
+
+msgctxt "#31273"
+msgid "Enable Main Menu Playlist Widgets"
+msgstr ""
+
+msgctxt "#31274"
+msgid "Widget Sort Order"
+msgstr ""
+
+msgctxt "#31275"
+msgid "Random"
+msgstr ""
+
+msgctxt "#31276"
+msgid "Date Added"
+msgstr ""
+
+msgctxt "#31277"
+msgid "Playlist Order"
+msgstr ""
+
+msgctxt "#31278"
+msgid "Widget Plays Album Instead of Showing Songs"
+msgstr ""
+
+msgctxt "#31279"
+msgid "Use FanArt Style for Movie and Music Widgets"
+msgstr ""
+
+msgctxt "#31280"
+msgid "Configure Script Skin Widgets"
+msgstr ""
+
+msgctxt "#31281"
+msgid "Unfinished"
+msgstr ""
+
+msgctxt "#31282"
+msgid "Played"
+msgstr ""
+
+msgctxt "#31283"
+msgid "Enable Home Screen Video Now Playing Information"
+msgstr ""
+
+msgctxt "#31284"
+msgid "Enable Home Screen Audio Now Playing Information"
+msgstr ""
+
+msgctxt "#31285"
+msgid "Enable Home Screen Suggested Media Information"
+msgstr ""
+
+msgctxt "#31286"
+msgid "Enable Home Screen Weather Conditions Information"
+msgstr ""
+
+msgctxt "#31287"
+msgid "Global Options"
+msgstr ""
+
 # New CCM Strings
-#empty strings from id 31270 to 31299
+#empty strings from id 31288 to 31299
 #Extra labels
 
 msgctxt "#31300"

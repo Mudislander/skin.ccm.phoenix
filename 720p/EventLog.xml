@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+	<include condition="!Skin.HasSetting(InitialSetUpRun)">DefaultInitialSetup</include>
+	<onload>SetProperty(MenuItemActive,Settings,Home)</onload>
+	<onunload>ClearProperty(SideBladeOpen,Home)</onunload>
 	<defaultcontrol always="true">570</defaultcontrol>
 	<menucontrol>9000</menucontrol>
-	<onload condition="!Skin.HasSetting(FirstTimeRun)">ActivateWindow(1112)</onload>
 	<views>570</views>
 	<controls>
-		<include>CommonBackground</include>
+		<control type="image">
+			<depth>DepthBackground</depth>
+			<include>BackgroundDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<texture background="true">special://skin/backgrounds/settings.jpg</texture>
+			<include>BackgroundFade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<include>Window_OpenClose_Animation</include>
+			<visible>!Skin.HasSetting(InitialSetUpRun)</visible>
+		</control>
+		<include condition="Skin.HasSetting(InitialSetUpRun)">CommonBackground</include>
 		<include>ContentPanelBackgrounds</include>
 		<control type="group">
 			<depth>DepthFooter</depth>

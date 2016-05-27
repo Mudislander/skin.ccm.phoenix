@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="HomeWidgetDisplay">
+		<control type="group" id="9003">
+			<depth>DepthMenu</depth>
+			<left>0</left>
+			<top>0</top>
+			<onup>20</onup>
+			<ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
+			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown>
+			<visible>!Window.IsVisible(Favourites)</visible>
+			<include>VisibleFadeEffect</include>
+			<animation effect="fade" time="225" delay="750">WindowOpen</animation>
+			<animation effect="fade" time="150">WindowClose</animation>
+			<control type="group">
+				<visible>Container(9000).HasFocus(1) + !String.IsEmpty(Skin.String(HomeMenu.1.Widget))</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.1.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+					<include>WidgetPosterLayout</include>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),landscape)</visible>
+					<include>WidgetLandscapePanel</include>
+					<include>WidgetLandscapeLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.1.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)</visible>
+					<include>WidgetAlbumThumbPanel</include>
+					<include>WidgetAlbumThumbLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.1.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<include>WidgetAutoTypeScrollBtn</include>
+			</control>
+			<control type="group">
+				<visible>Container(9000).HasFocus(2) + !String.IsEmpty(Skin.String(HomeMenu.2.Widget))</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.2.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+					<include>WidgetPosterLayout</include>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),landscape)</visible>
+					<include>WidgetLandscapePanel</include>
+					<include>WidgetLandscapeLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.2.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)</visible>
+					<include>WidgetAlbumThumbPanel</include>
+					<include>WidgetAlbumThumbLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.2.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<include>WidgetAutoTypeScrollBtn</include>
+			</control>
+			<control type="group">
+				<visible>Container(9000).HasFocus(3) + !String.IsEmpty(Skin.String(HomeMenu.3.Widget))</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.3.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+					<include>WidgetPosterLayout</include>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),landscape)</visible>
+					<include>WidgetLandscapePanel</include>
+					<include>WidgetLandscapeLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.3.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)</visible>
+					<include>WidgetAlbumThumbPanel</include>
+					<include>WidgetAlbumThumbLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.3.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<include>WidgetAutoTypeScrollBtn</include>
+			</control>
+			<control type="group">
+				<visible>Container(9000).HasFocus(4) + !String.IsEmpty(Skin.String(HomeMenu.4.Widget))</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.4.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+					<include>WidgetPosterLayout</include>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),landscape)</visible>
+					<include>WidgetLandscapePanel</include>
+					<include>WidgetLandscapeLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.4.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)</visible>
+					<include>WidgetAlbumThumbPanel</include>
+					<include>WidgetAlbumThumbLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.4.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<include>WidgetAutoTypeScrollBtn</include>
+			</control>
+			<control type="group">
+				<visible>Container(9000).HasFocus(5) + !String.IsEmpty(Skin.String(HomeMenu.5.Widget))</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.5.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+					<include>WidgetPosterLayout</include>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),landscape)</visible>
+					<include>WidgetLandscapePanel</include>
+					<include>WidgetLandscapeLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.5.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)</visible>
+					<include>WidgetAlbumThumbPanel</include>
+					<include>WidgetAlbumThumbLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.5.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<include>WidgetAutoTypeScrollBtn</include>
+			</control>
+			<control type="group">
+				<visible>Container(9000).HasFocus(6) + !String.IsEmpty(Skin.String(HomeMenu.6.Widget))</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.6.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+					<include>WidgetPosterLayout</include>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),landscape)</visible>
+					<include>WidgetLandscapePanel</include>
+					<include>WidgetLandscapeLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.6.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)</visible>
+					<include>WidgetAlbumThumbPanel</include>
+					<include>WidgetAlbumThumbLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.6.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<include>WidgetAutoTypeScrollBtn</include>
+			</control>
+			<control type="group">
+				<visible>Container(9000).HasFocus(7) + !String.IsEmpty(Skin.String(HomeMenu.7.Widget))</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.7.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+					<include>WidgetPosterLayout</include>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),landscape)</visible>
+					<include>WidgetLandscapePanel</include>
+					<include>WidgetLandscapeLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.7.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)</visible>
+					<include>WidgetAlbumThumbPanel</include>
+					<include>WidgetAlbumThumbLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.7.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<include>WidgetAutoTypeScrollBtn</include>
+			</control>
+			<control type="group">
+				<visible>Container(9000).HasFocus(8) + !String.IsEmpty(Skin.String(HomeMenu.8.Widget))</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.8.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+					<include>WidgetPosterLayout</include>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),landscape)</visible>
+					<include>WidgetLandscapePanel</include>
+					<include>WidgetLandscapeLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.8.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)</visible>
+					<include>WidgetAlbumThumbPanel</include>
+					<include>WidgetAlbumThumbLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.8.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<include>WidgetAutoTypeScrollBtn</include>
+			</control>
+			<control type="group">
+				<visible>Container(9000).HasFocus(9) + !String.IsEmpty(Skin.String(HomeMenu.9.Widget))</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.9.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+					<include>WidgetPosterLayout</include>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),landscape)</visible>
+					<include>WidgetLandscapePanel</include>
+					<include>WidgetLandscapeLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.9.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)</visible>
+					<include>WidgetAlbumThumbPanel</include>
+					<include>WidgetAlbumThumbLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.9.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<include>WidgetAutoTypeScrollBtn</include>
+			</control>
+			<control type="group">
+				<visible>Container(9000).HasFocus(10) + !String.IsEmpty(Skin.String(HomeMenu.10.Widget))</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.10.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+					<include>WidgetPosterLayout</include>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),landscape)</visible>
+					<include>WidgetLandscapePanel</include>
+					<include>WidgetLandscapeLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.10.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)</visible>
+					<include>WidgetAlbumThumbPanel</include>
+					<include>WidgetAlbumThumbLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="$INFO[Skin.String(HomeWidget.10.Sort)]" limit="20">$VAR[UsrSelectWidgetContent]</content>
+				</control>
+				<include>WidgetAutoTypeScrollBtn</include>
+			</control>
+			<control type="group">
+				<visible>Library.HasContent(Movies)</visible>
+				<include>WidgetContentTitle</include>
+				<control type="list" id="510">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RecentMovies)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]&amp;limit=20</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RandomMovies)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window(Home).Property(randommovies)]&amp;limit=20</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),SuggestedMovies)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window(Home).Property(recommendedmovies)]&amp;limit=20</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),UnWatchedMovies)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]" sortby="random" limit="20">special://skin/extras/Playlists/UnwatchedMovies.xsp</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),SimilarMovies)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]">plugin://script.skin.helper.service/?action=similarmovies&amp;limit=20&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</content>
+				</control>
+				<control type="list" id="510">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),GenreMovies)</visible>
+					<include>WidgetPosterPanel</include>
+					<include>WidgetPosterLayout</include>
+					<content target="$VAR[ContentTarget]">plugin://script.skin.helper.service/?action=moviesforgenre&amp;limit=20&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</content>
+				</control>
+				<include>WidgetPosterScrollBtn</include>
+			</control>
+			<!-- Menu Items 2 - 10 -->
+		</control>
+	</include>
+	<include name="WidgetContentTitle">
+		<control type="label">
+			<description>Title label</description>
+			<left>370</left>
+			<top>280</top>
+			<height>20</height>
+			<width>540</width>
+			<label>### Auto Widget Namee ###</label>
+			<align>center</align>
+			<aligny>center</aligny>
+			<font>font12_title</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<visible>Control.IsVisible(510)</visible>
+			<visible>Integer.IsGreater(Container(510).NumItems,0)</visible>
+		</control>
+	</include>
+	<include name="WidgetPosterPanel">
+		<animation effect="slide" start="0,0" end="90,0" time="0" condition="String.IsEqual(Container(510).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="180,0" time="0" condition="String.IsEqual(Container(510).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="270,0" time="0" condition="String.IsEqual(Container(510).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(510).NumItems,1)">conditional</animation>
+		<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
+		<left>190</left>
+		<top>50</top>
+		<width>900</width>
+		<height>220</height>
+		<onleft>510</onleft>
+		<onright>510</onright>
+		<onup>20</onup>
+		<ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
+		<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown>
+		<viewtype label="535">list</viewtype>
+		<pagecontrol>-</pagecontrol>
+		<scrolltime>200</scrolltime>
+		<orientation>Horizontal</orientation>
+	</include>
+	<include name="WidgetPosterLayout">
+		<itemlayout height="220" width="180">
+			<control type="image">
+				<description>background</description>
+				<left>0</left>
+				<top>0</top>
+				<width>180</width>
+				<height>220</height>
+				<texture border="15">RecentAddedBack.png</texture>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>10</top>
+				<width>160</width>
+				<height>170</height>
+				<texture background="true">$VAR[PosterThumb]</texture>
+				<aspectratio>keep</aspectratio>
+				<bordertexture border="5">button-nofocus.png</bordertexture>
+				<bordersize>5</bordersize>
+			</control>
+			<control type="label">
+				<left>15</left>
+				<top>185</top>
+				<width>150</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout height="220" width="180">
+			<control type="image">
+				<description>background</description>
+				<left>0</left>
+				<top>0</top>
+				<width>180</width>
+				<height>220</height>
+				<texture border="15">RecentAddedBack.png</texture>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>10</top>
+				<width>160</width>
+				<height>170</height>
+				<texture background="true">$VAR[PosterThumb]</texture>
+				<aspectratio>keep</aspectratio>
+				<bordertexture border="5">folder-focus.png</bordertexture>
+				<bordersize>5</bordersize>
+				<visible>Control.HasFocus(510)</visible>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>10</top>
+				<width>160</width>
+				<height>170</height>
+				<texture background="true">$VAR[PosterThumb]</texture>
+				<aspectratio>keep</aspectratio>
+				<bordertexture border="5">button-nofocus.png</bordertexture>
+				<bordersize>5</bordersize>
+				<visible>!Control.HasFocus(510)</visible>
+			</control>
+			<control type="label">
+				<left>15</left>
+				<top>185</top>
+				<width>150</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!Control.HasFocus(510)</visible>
+			</control>
+			<control type="label">
+				<left>15</left>
+				<top>185</top>
+				<width>150</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>blue</textcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>Control.HasFocus(510)</visible>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="WidgetLandscapePanel">
+		<animation effect="slide" start="0,0" end="120,0" time="0" condition="String.IsEqual(Container(510).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="240,0" time="0" condition="String.IsEqual(Container(510).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(510).NumItems,1)">conditional</animation>
+		<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
+		<left>160</left>
+		<top>50</top>
+		<width>960</width>
+		<height>240</height>
+		<onleft>510</onleft>
+		<onright>510</onright>
+		<onup>20</onup>
+		<ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
+		<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown>
+		<viewtype label="535">list</viewtype>
+		<pagecontrol>-</pagecontrol>
+		<scrolltime>200</scrolltime>
+		<orientation>Horizontal</orientation>
+	</include>
+	<include name="WidgetLandscapeLayout">
+		<itemlayout height="220" width="240">
+			<control type="image">
+				<description>background</description>
+				<left>0</left>
+				<top>0</top>
+				<width>240</width>
+				<height>220</height>
+				<texture border="15">RecentAddedBack.png</texture>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>10</top>
+				<width>220</width>
+				<height>155</height>
+				<aspectratio>scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+				<bordertexture border="5">button-nofocus.png</bordertexture>
+				<bordersize>5</bordersize>
+			</control>
+			<control type="label">
+				<left>20</left>
+				<top>168</top>
+				<width>200</width>
+				<height>20</height>
+				<font>font10</font>
+				<textcolor>grey2</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+			<control type="label">
+				<left>20</left>
+				<top>185</top>
+				<width>200</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout height="220" width="240">
+			<control type="image">
+				<description>background</description>
+				<left>0</left>
+				<top>0</top>
+				<width>240</width>
+				<height>220</height>
+				<texture border="15">RecentAddedBack.png</texture>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>10</top>
+				<width>220</width>
+				<height>155</height>
+				<aspectratio>scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+				<bordertexture border="5">folder-focus.png</bordertexture>
+				<bordersize>5</bordersize>
+				<visible>Control.HasFocus(510)</visible>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>10</top>
+				<width>220</width>
+				<height>155</height>
+				<aspectratio>scale</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+				<bordertexture border="5">button-nofocus.png</bordertexture>
+				<bordersize>5</bordersize>
+				<visible>!Control.HasFocus(510)</visible>
+			</control>
+			<control type="label">
+				<left>20</left>
+				<top>168</top>
+				<width>200</width>
+				<height>20</height>
+				<font>font10</font>
+				<textcolor>grey2</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+			<control type="label">
+				<left>20</left>
+				<top>185</top>
+				<width>200</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!Control.HasFocus(510)</visible>
+			</control>
+			<control type="label">
+				<left>20</left>
+				<top>185</top>
+				<width>200</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>blue</textcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>Control.HasFocus(510)</visible>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="WidgetAlbumThumbPanel">
+		<animation effect="slide" start="0,0" end="100,0" time="0" condition="String.IsEqual(Container(510).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="200,0" time="0" condition="String.IsEqual(Container(510).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(510).NumItems,1)">conditional</animation>
+		<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
+		<left>240</left>
+		<top>50</top>
+		<width>800</width>
+		<height>240</height>
+		<onleft>510</onleft>
+		<onright>510</onright>
+		<onup>20</onup>
+		<ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
+		<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown>
+		<viewtype label="535">list</viewtype>
+		<pagecontrol>-</pagecontrol>
+		<scrolltime>200</scrolltime>
+		<orientation>Horizontal</orientation>
+	</include>
+	<include name="WidgetAlbumThumbLayout">
+		<itemlayout height="220" width="200">
+			<control type="image">
+				<description>background</description>
+				<left>0</left>
+				<top>0</top>
+				<width>200</width>
+				<height>220</height>
+				<texture border="15">RecentAddedBack.png</texture>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>10</top>
+				<width>180</width>
+				<height>155</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<bordertexture border="5">button-nofocus.png</bordertexture>
+				<bordersize>5</bordersize>
+			</control>
+			<control type="label">
+				<left>10</left>
+				<top>170</top>
+				<width>180</width>
+				<height>20</height>
+				<font>font10</font>
+				<textcolor>grey2</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+			<control type="label">
+				<left>10</left>
+				<top>190</top>
+				<width>180</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout height="220" width="200">
+			<control type="image">
+				<description>background</description>
+				<left>0</left>
+				<top>0</top>
+				<width>200</width>
+				<height>220</height>
+				<texture border="15">RecentAddedBack.png</texture>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>10</top>
+				<width>180</width>
+				<height>155</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<bordertexture border="5">folder-focus.png</bordertexture>
+				<bordersize>5</bordersize>
+				<visible>Control.HasFocus(510)</visible>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>10</top>
+				<width>180</width>
+				<height>155</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<bordertexture border="5">button-nofocus.png</bordertexture>
+				<bordersize>5</bordersize>
+				<visible>!Control.HasFocus(510)</visible>
+			</control>
+			<control type="label">
+				<left>10</left>
+				<top>170</top>
+				<width>180</width>
+				<height>20</height>
+				<font>font10</font>
+				<textcolor>grey2</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+			<control type="label">
+				<left>10</left>
+				<top>190</top>
+				<width>180</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!Control.HasFocus(510)</visible>
+			</control>
+			<control type="label">
+				<left>10</left>
+				<top>190</top>
+				<width>180</width>
+				<height>20</height>
+				<font>font12</font>
+				<textcolor>blue</textcolor>
+				<selectedcolor>selected</selectedcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>Control.HasFocus(510)</visible>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="WidgetAutoTypeScrollBtn">
+		<control type="button">
+			<description>Left Arrow</description>
+			<animation effect="slide" start="0,0" end="30,0" time="0" condition="String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)">conditional</animation>
+			<animation effect="slide" start="0,0" end="80,0" time="0" condition="String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)">conditional</animation>
+			<include>VisibleFadeEffect</include>
+			<left>120</left>
+			<top>140</top>
+			<width>30</width>
+			<height>40</height>
+			<texturefocus>arrow-big-left.png</texturefocus>
+			<texturenofocus>arrow-big-left.png</texturenofocus>
+			<onclick>Control.Move(510,-1)</onclick>
+			<visible>Control.IsVisible(510) + Container(510).HasPrevious</visible>
+			<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+		<control type="button">
+			<description>Right Arrow</description>
+			<animation effect="slide" start="0,0" end="-30,0" time="0" condition="String.StartsWith(Container(9000).ListItem.Property(WidgetSet),poster)">conditional</animation>
+			<animation effect="slide" start="0,0" end="-80,0" time="0" condition="String.StartsWith(Container(9000).ListItem.Property(WidgetSet),album)">conditional</animation>
+			<include>VisibleFadeEffect</include>
+			<left>1130</left>
+			<top>140</top>
+			<width>30</width>
+			<height>40</height>
+			<texturefocus>arrow-big-right.png</texturefocus>
+			<texturenofocus>arrow-big-right.png</texturenofocus>
+			<onclick>Control.Move(510,1)</onclick>
+			<visible>Control.IsVisible(510) + Container(510).HasNext</visible>
+			<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+	</include>
+	<include name="WidgetPosterScrollBtn">
+		<control type="button">
+			<description>Left Arrow</description>
+			<include>VisibleFadeEffect</include>
+			<left>150</left>
+			<top>140</top>
+			<width>30</width>
+			<height>40</height>
+			<texturefocus>arrow-big-left.png</texturefocus>
+			<texturenofocus>arrow-big-left.png</texturenofocus>
+			<onclick>Control.Move(510,-1)</onclick>
+			<visible>Control.IsVisible(510) + Container(510).HasPrevious</visible>
+			<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+		<control type="button">
+			<description>Right Arrow</description>
+			<include>VisibleFadeEffect</include>
+			<left>1100</left>
+			<top>140</top>
+			<width>30</width>
+			<height>40</height>
+			<texturefocus>arrow-big-right.png</texturefocus>
+			<texturenofocus>arrow-big-right.png</texturenofocus>
+			<onclick>Control.Move(510,1)</onclick>
+			<visible>Control.IsVisible(510) + Container(510).HasNext</visible>
+			<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+	</include>
+	<include name="WidgetLandscapeScrollBtn">
+		<control type="button">
+			<description>Left Arrow</description>
+			<include>VisibleFadeEffect</include>
+			<left>120</left>
+			<top>140</top>
+			<width>30</width>
+			<height>40</height>
+			<texturefocus>arrow-big-left.png</texturefocus>
+			<texturenofocus>arrow-big-left.png</texturenofocus>
+			<onclick>Control.Move(510,-1)</onclick>
+			<visible>Control.IsVisible(510) + Container(510).HasPrevious</visible>
+			<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+		<control type="button">
+			<description>Right Arrow</description>
+			<include>VisibleFadeEffect</include>
+			<left>1130</left>
+			<top>140</top>
+			<width>30</width>
+			<height>40</height>
+			<texturefocus>arrow-big-right.png</texturefocus>
+			<texturenofocus>arrow-big-right.png</texturenofocus>
+			<onclick>Control.Move(510,1)</onclick>
+			<visible>Control.IsVisible(510) + Container(510).HasNext</visible>
+			<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+	</include>
+	<include name="WidgetAlbumThumbScrollBtn">
+		<control type="button">
+			<description>Left Arrow</description>
+			<include>VisibleFadeEffect</include>
+			<left>200</left>
+			<top>140</top>
+			<width>30</width>
+			<height>40</height>
+			<texturefocus>arrow-big-left.png</texturefocus>
+			<texturenofocus>arrow-big-left.png</texturenofocus>
+			<onclick>Control.Move(510,-1)</onclick>
+			<visible>Control.IsVisible(510) + Container(510).HasPrevious</visible>
+			<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+		<control type="button">
+			<description>Right Arrow</description>
+			<include>VisibleFadeEffect</include>
+			<left>1050</left>
+			<top>140</top>
+			<width>30</width>
+			<height>40</height>
+			<texturefocus>arrow-big-right.png</texturefocus>
+			<texturenofocus>arrow-big-right.png</texturenofocus>
+			<onclick>Control.Move(510,1)</onclick>
+			<visible>Control.IsVisible(510) + Container(510).HasNext</visible>
+			<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+	</include>
+</includes>

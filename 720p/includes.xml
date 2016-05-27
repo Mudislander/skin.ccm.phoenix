@@ -5,6 +5,7 @@
 	<include file="IncludesHomeMenuSys.xml" />
 	<include file="IncludesHomeAddOnSystem.xml" />
 	<include file="IncludesHomeWidgetSys.xml" />
+	<include file="IncludesHomeNowPlaying.xml" />
 	<include file="IncludesMenuContentItems.xml" />
 	<include file="ViewsVideoLibrary.xml" />
 	<include file="ViewsMusicLibrary.xml" />
@@ -41,7 +42,6 @@
 	<constant name="DepthBackground">-0.80</constant>
 	<constant name="DepthFloor">-0.20</constant>
 	<constant name="DepthSideBlade">0.15</constant>
-	
 	<!-- INCLUDES -->
 	<include name="ClearButtonChoice">
 		<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Label)</onclick>
@@ -1612,5 +1612,75 @@
 				<content>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=8</content>
 			</control>
 		</control>
+	</include>
+	<include name="MenuMoviePlayListCheck">
+		<visible>
+			!String.IsEmpty(Skin.String(HomeMenu.1.Data)) + Skin.String(HomeMenu.1.Type,VideoPlayList) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.1) |
+			!String.IsEmpty(Skin.String(HomeMenu.2.Data)) + Skin.String(HomeMenu.2.Type,VideoPlayList) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.2) |
+			!String.IsEmpty(Skin.String(HomeMenu.3.Data)) + Skin.String(HomeMenu.3.Type,VideoPlayList) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.3) |
+			!String.IsEmpty(Skin.String(HomeMenu.4.Data)) + Skin.String(HomeMenu.4.Type,VideoPlayList) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.4) |
+			!String.IsEmpty(Skin.String(HomeMenu.5.Data)) + Skin.String(HomeMenu.5.Type,VideoPlayList) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.5) |
+			!String.IsEmpty(Skin.String(HomeMenu.6.Data)) + Skin.String(HomeMenu.6.Type,VideoPlayList) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.6) |
+			!String.IsEmpty(Skin.String(HomeMenu.7.Data)) + Skin.String(HomeMenu.7.Type,VideoPlayList) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.7) |
+			!String.IsEmpty(Skin.String(HomeMenu.8.Data)) + Skin.String(HomeMenu.8.Type,VideoPlayList) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.8) |
+			!String.IsEmpty(Skin.String(HomeMenu.9.Data)) + Skin.String(HomeMenu.9.Type,VideoPlayList) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.9) |
+			!String.IsEmpty(Skin.String(HomeMenu.10.Data)) + Skin.String(HomeMenu.10.Type,VideoPlayList) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.10)
+		</visible>
+	</include>
+	<include name="MenuMusicPlayListCheck">
+		<visible>
+			!String.IsEmpty(Skin.String(HomeMenu.1.Data)) + Skin.String(HomeMenu.1.Type,MusicPlaylist) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.1) |
+			!String.IsEmpty(Skin.String(HomeMenu.2.Data)) + Skin.String(HomeMenu.2.Type,MusicPlaylist) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.2) |
+			!String.IsEmpty(Skin.String(HomeMenu.3.Data)) + Skin.String(HomeMenu.3.Type,MusicPlaylist) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.3) |
+			!String.IsEmpty(Skin.String(HomeMenu.4.Data)) + Skin.String(HomeMenu.4.Type,MusicPlaylist) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.4) |
+			!String.IsEmpty(Skin.String(HomeMenu.5.Data)) + Skin.String(HomeMenu.5.Type,MusicPlaylist) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.5) |
+			!String.IsEmpty(Skin.String(HomeMenu.6.Data)) + Skin.String(HomeMenu.6.Type,MusicPlaylist) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.6) |
+			!String.IsEmpty(Skin.String(HomeMenu.7.Data)) + Skin.String(HomeMenu.7.Type,MusicPlaylist) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.7) |
+			!String.IsEmpty(Skin.String(HomeMenu.8.Data)) + Skin.String(HomeMenu.8.Type,MusicPlaylist) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.8) |
+			!String.IsEmpty(Skin.String(HomeMenu.9.Data)) + Skin.String(HomeMenu.9.Type,MusicPlaylist) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.9) |
+			!String.IsEmpty(Skin.String(HomeMenu.10.Data)) + Skin.String(HomeMenu.10.Type,MusicPlaylist) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.10)
+		</visible>
+	</include>
+	<include name="MenuVideoNodeListCheck">
+		<visible>
+			!String.IsEmpty(Skin.String(HomeMenu.1.Data)) + Skin.String(HomeMenu.1.Type,VideoNode) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.1) |
+			!String.IsEmpty(Skin.String(HomeMenu.2.Data)) + Skin.String(HomeMenu.2.Type,VideoNode) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.2) |
+			!String.IsEmpty(Skin.String(HomeMenu.3.Data)) + Skin.String(HomeMenu.3.Type,VideoNode) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.3) |
+			!String.IsEmpty(Skin.String(HomeMenu.4.Data)) + Skin.String(HomeMenu.4.Type,VideoNode) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.4) |
+			!String.IsEmpty(Skin.String(HomeMenu.5.Data)) + Skin.String(HomeMenu.5.Type,VideoNode) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.5) |
+			!String.IsEmpty(Skin.String(HomeMenu.6.Data)) + Skin.String(HomeMenu.6.Type,VideoNode) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.6) |
+			!String.IsEmpty(Skin.String(HomeMenu.7.Data)) + Skin.String(HomeMenu.7.Type,VideoNode) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.7) |
+			!String.IsEmpty(Skin.String(HomeMenu.8.Data)) + Skin.String(HomeMenu.8.Type,VideoNode) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.8) |
+			!String.IsEmpty(Skin.String(HomeMenu.9.Data)) + Skin.String(HomeMenu.9.Type,VideoNode) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.9) |
+			!String.IsEmpty(Skin.String(HomeMenu.10.Data)) + Skin.String(HomeMenu.10.Type,VideoNode) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.10)
+		</visible>
+	</include>
+	<include name="MenuUPnPMovieListCheck">
+		<visible>
+			!String.IsEmpty(Skin.String(HomeMenu.1.Data)) + Skin.String(HomeMenu.1.Type,UPnPMovies) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.1) |
+			!String.IsEmpty(Skin.String(HomeMenu.2.Data)) + Skin.String(HomeMenu.2.Type,UPnPMovies) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.2) |
+			!String.IsEmpty(Skin.String(HomeMenu.3.Data)) + Skin.String(HomeMenu.3.Type,UPnPMovies) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.3) |
+			!String.IsEmpty(Skin.String(HomeMenu.4.Data)) + Skin.String(HomeMenu.4.Type,UPnPMovies) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.4) |
+			!String.IsEmpty(Skin.String(HomeMenu.5.Data)) + Skin.String(HomeMenu.5.Type,UPnPMovies) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.5) |
+			!String.IsEmpty(Skin.String(HomeMenu.6.Data)) + Skin.String(HomeMenu.6.Type,UPnPMovies) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.6) |
+			!String.IsEmpty(Skin.String(HomeMenu.7.Data)) + Skin.String(HomeMenu.7.Type,UPnPMovies) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.7) |
+			!String.IsEmpty(Skin.String(HomeMenu.8.Data)) + Skin.String(HomeMenu.8.Type,UPnPMovies) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.8) |
+			!String.IsEmpty(Skin.String(HomeMenu.9.Data)) + Skin.String(HomeMenu.9.Type,UPnPMovies) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.9) |
+			!String.IsEmpty(Skin.String(HomeMenu.10.Data)) + Skin.String(HomeMenu.10.Type,UPnPMovies) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.10)
+		</visible>
+	</include>
+	<include name="MenuUPnPMusicListCheck">
+		<visible>
+			!String.IsEmpty(Skin.String(HomeMenu.1.Data)) + Skin.String(HomeMenu.1.Type,UPnPMusic) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.1) |
+			!String.IsEmpty(Skin.String(HomeMenu.2.Data)) + Skin.String(HomeMenu.2.Type,UPnPMusic) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.2) |
+			!String.IsEmpty(Skin.String(HomeMenu.3.Data)) + Skin.String(HomeMenu.3.Type,UPnPMusic) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.3) |
+			!String.IsEmpty(Skin.String(HomeMenu.4.Data)) + Skin.String(HomeMenu.4.Type,UPnPMusic) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.4) |
+			!String.IsEmpty(Skin.String(HomeMenu.5.Data)) + Skin.String(HomeMenu.5.Type,UPnPMusic) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.5) |
+			!String.IsEmpty(Skin.String(HomeMenu.6.Data)) + Skin.String(HomeMenu.6.Type,UPnPMusic) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.6) |
+			!String.IsEmpty(Skin.String(HomeMenu.7.Data)) + Skin.String(HomeMenu.7.Type,UPnPMusic) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.7) |
+			!String.IsEmpty(Skin.String(HomeMenu.8.Data)) + Skin.String(HomeMenu.8.Type,UPnPMusic) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.8) |
+			!String.IsEmpty(Skin.String(HomeMenu.9.Data)) + Skin.String(HomeMenu.9.Type,UPnPMusic) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.9) |
+			!String.IsEmpty(Skin.String(HomeMenu.10.Data)) + Skin.String(HomeMenu.10.Type,UPnPMusic) + String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.10)
+		</visible>
 	</include>
 </includes>

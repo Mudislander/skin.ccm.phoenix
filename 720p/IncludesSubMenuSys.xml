@@ -94,7 +94,6 @@
 			<top>0</top>
 			<onup>9000</onup>
 			<ondown>9002</ondown>
-			<!--###################################-->
 			<control type="group">
 				<!--Sticky Menu-->
 				<visible>String.IsEqual(Container(9000).ListItem.Property(SubMenu),StickyMenu) + IntegerGreaterThan(Container(9010).NumItems,0)</visible>
@@ -136,7 +135,47 @@
 					</content>
 				</control>
 			</control>
-			<!--##################################-->
+			<control type="group">
+				<!--FullScreen-->
+				<visible>StringCompare(Container(9000).ListItem.Property(SubMenu),FullScreen)</visible>
+				<include>SubMenuDisplay</include>
+				<animation effect="slide" start="0,-40" end="0,0" delay="200" time="200" tween="quadratic" easing="out">Visible</animation>
+				<animation effect="slide" start="0,0" end="96.5,0" time="0" condition="String.IsEqual(Container(9011).NumItems,5)">conditional</animation>
+				<animation effect="slide" start="0,0" end="193,0" time="0" condition="String.IsEqual(Container(9011).NumItems,4)">conditional</animation>
+				<animation effect="slide" start="0,0" end="289.5,0" time="0" condition="String.IsEqual(Container(9011).NumItems,3)">conditional</animation>
+				<animation effect="slide" start="0,0" end="386,0" time="0" condition="String.IsEqual(Container(9011).NumItems,2)">conditional</animation>
+				<animation effect="slide" start="0,0" end="482.5,0" time="0" condition="String.IsEqual(Container(9011).NumItems,1)">conditional</animation>
+				<control type="image">
+					<left>26</left>
+					<top>70</top>
+					<width>35</width>
+					<height>35</height>
+					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<visible>IntegerGreaterThan(Container(9011).NumItems,0)</visible>
+				</control>
+				<control type="image">
+					<left>1219</left>
+					<top>70</top>
+					<width>35</width>
+					<height>35</height>
+					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9011).NumItems,5)">conditional</animation>
+					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9011).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9011).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="-772,0" time="0" condition="String.IsEqual(Container(9011).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="-965,0" time="0" condition="String.IsEqual(Container(9011).NumItems,1)">conditional</animation>
+					<visible>IntegerGreaterThan(Container(9011).NumItems,0)</visible>
+				</control>
+				<control type="list" id="9011">
+					<include>SubMenuCommonValues</include>
+					<onleft>9011</onleft>
+					<onright>9011</onright>
+					<include>SubMenuCommonLayout</include>
+					<content>
+						<include>FullscreenContent</include>
+					</content>
+				</control>
+			</control>
 			<control type="group">
 				<!--SubSetOne Videos-->
 				<visible>String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetOne) + IntegerGreaterThan(Container(9012).NumItems,0)</visible>
@@ -596,7 +635,7 @@
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(SubSetOne.1.Path))">ActivateWindow(Videos,MovieTitles,return)</onclick>
 			<onclick condition="!String.IsEmpty(Skin.String(SubSetOne.1.Path))">$INFO[Skin.String(SubSetOne.1.Path)]</onclick>
-			<visible>Library.HasContent(Movies) | !IsEmpty(Skin.String(SubSetOne.1.Path))</visible>
+			<visible>Library.HasContent(Movies) | !String.IsEmpty(Skin.String(SubSetOne.1.Path))</visible>
 			<visible>!String.IsEqual(Skin.String(SubSetOne.1.Path),Hidden)</visible>
 		</item>
 		<item>
@@ -604,7 +643,7 @@
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(SubSetOne.2.Path))">ActivateWindow(Videos,TvShowTitles,return)</onclick>
 			<onclick condition="!String.IsEmpty(Skin.String(SubSetOne.2.Path))">$INFO[Skin.String(SubSetOne.2.Path)]</onclick>
-			<visible>Library.HasContent(TVShows)  | !IsEmpty(Skin.String(SubSetOne.2.Path))</visible>
+			<visible>Library.HasContent(TVShows)  | !String.IsEmpty(Skin.String(SubSetOne.2.Path))</visible>
 			<visible>!String.IsEqual(Skin.String(SubSetOne.2.Path),Hidden)</visible>
 		</item>
 		<item>
@@ -612,7 +651,7 @@
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(SubSetOne.3.Path))">ActivateWindow(Videos,MusicVideoTitles,return)</onclick>
 			<onclick condition="!String.IsEmpty(Skin.String(SubSetOne.3.Path))">$INFO[Skin.String(SubSetOne.3.Path)]</onclick>
-			<visible>Library.HasContent(MusicVideos) | !IsEmpty(Skin.String(SubSetOne.3.Path))</visible>
+			<visible>Library.HasContent(MusicVideos) | !String.IsEmpty(Skin.String(SubSetOne.3.Path))</visible>
 			<visible>!String.IsEqual(Skin.String(SubSetOne.3.Path),Hidden)</visible>
 		</item>
 		<item>
@@ -627,7 +666,7 @@
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(SubSetOne.5.Path))">ActivateWindow(Videos,Root)</onclick>
 			<onclick condition="!String.IsEmpty(Skin.String(SubSetOne.5.Path))">$INFO[Skin.String(SubSetOne.5.Path)]</onclick>
-			<visible>Library.HasContent(Video) | !IsEmpty(Skin.String(SubSetOne.5.Path))</visible>
+			<visible>Library.HasContent(Video) | !String.IsEmpty(Skin.String(SubSetOne.5.Path))</visible>
 			<visible>!String.IsEqual(Skin.String(SubSetOne.5.Path),Hidden)</visible>
 		</item>
 		<item>
@@ -651,7 +690,7 @@
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(SubSetTwo.2.Path))">ActivateWindow(Videos,MovieSets,return)</onclick>
 			<onclick condition="!String.IsEmpty(Skin.String(SubSetTwo.2.Path))">$INFO[Skin.String(SubSetTwo.2.Path)]</onclick>
-			<visible>Library.HasContent(MovieSets) | !IsEmpty(Skin.String(SubSetTwo.2.Path))</visible>
+			<visible>Library.HasContent(MovieSets) | !String.IsEmpty(Skin.String(SubSetTwo.2.Path))</visible>
 			<visible>!String.IsEqual(Skin.String(SubSetTwo.2.Path),Hidden)</visible>
 		</item>
 		<item>
@@ -733,7 +772,7 @@
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(SubSetFour.1.Path))">ActivateWindow(MusicLibrary,Artists,return)</onclick>
 			<onclick condition="!String.IsEmpty(Skin.String(SubSetFour.1.Path))">$INFO[Skin.String(SubSetFour.1.Path)]</onclick>
-			<visible>Library.HasContent(Music) | !IsEmpty(Skin.String(SubSetFour.1.Path))</visible>
+			<visible>Library.HasContent(Music) | !String.IsEmpty(Skin.String(SubSetFour.1.Path))</visible>
 			<visible>!String.IsEqual(Skin.String(SubSetFour.1.Path),Hidden)</visible>
 		</item>
 		<item>
@@ -741,7 +780,7 @@
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(SubSetFour.2.Path))">ActivateWindow(MusicLibrary,Albums,return)</onclick>
 			<onclick condition="!String.IsEmpty(Skin.String(SubSetFour.2.Path))">$INFO[Skin.String(SubSetFour.2.Path)]</onclick>
-			<visible>Library.HasContent(Music) | !IsEmpty(Skin.String(SubSetFour.2.Path))</visible>
+			<visible>Library.HasContent(Music) | !String.IsEmpty(Skin.String(SubSetFour.2.Path))</visible>
 			<visible>!String.IsEqual(Skin.String(SubSetFour.2.Path),Hidden)</visible>
 		</item>
 		<item>
@@ -749,7 +788,7 @@
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(SubSetFour.3.Path))">PlayerControl(PartyMode(music))</onclick>
 			<onclick condition="!String.IsEmpty(Skin.String(SubSetFour.3.Path))">$INFO[Skin.String(SubSetFour.3.Path)]</onclick>
-			<visible>Library.HasContent(Music) | !IsEmpty(Skin.String(SubSetFour.3.Path))</visible>
+			<visible>Library.HasContent(Music) | !String.IsEmpty(Skin.String(SubSetFour.3.Path))</visible>
 			<visible>!String.IsEqual(Skin.String(SubSetFour.3.Path),Hidden)</visible>
 		</item>
 		<item>
@@ -764,7 +803,7 @@
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(SubSetFour.5.Path))">ActivateWindow(MusicLibrary,root)</onclick>
 			<onclick condition="!String.IsEmpty(Skin.String(SubSetFour.5.Path))">$INFO[Skin.String(SubSetFour.5.Path)]</onclick>
-			<visible>Library.HasContent(Music) | !IsEmpty(Skin.String(SubSetFour.5.Path))</visible>
+			<visible>Library.HasContent(Music) | !String.IsEmpty(Skin.String(SubSetFour.5.Path))</visible>
 			<visible>!String.IsEqual(Skin.String(SubSetFour.5.Path),Hidden)</visible>
 		</item>
 		<item>
@@ -916,7 +955,7 @@
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
 			<onclick condition="String.IsEmpty(Skin.String(SubSetSeven.6.Path))">ActivateWindow(EventLog,events://,return)</onclick>
 			<onclick condition="!String.IsEmpty(Skin.String(SubSetSeven.6.Path))">$INFO[Skin.String(SubSetSeven.6.Path)]</onclick>
-			<visible>[!IsEmpty(Skin.String(SubSetSeven.6.Path))] | [IsEmpty(Skin.String(SubSetSeven.6.Path)) + system.getbool(eventlog.enabled)]</visible>
+			<visible>[!String.IsEmpty(Skin.String(SubSetSeven.6.Path))] | [IsEmpty(Skin.String(SubSetSeven.6.Path)) + system.getbool(eventlog.enabled)]</visible>
 			<visible>!String.IsEqual(Skin.String(SubSetSeven.6.Path),Hidden)</visible>
 		</item>
 	</include>
@@ -1194,6 +1233,53 @@
 			<visible>!Skin.String(StickyMenuSelect.Current,StickyMenu.6)</visible>
 			<onclick>Skin.SetString(StickyMenuSelect.Current,$INFO[Skin.String(StickyMenu.6.Sub)])</onclick>
 			<visible>!String.IsEmpty(Skin.String(StickyMenu.6.Path)) + !String.IsEqual(Skin.String(StickyMenu.6.Path),Hidden)</visible>
+		</item>
+	</include>
+	<include name="FullscreenContent">
+		<item>
+			<label>210</label>
+			<onclick>XBMC.PlayerControl(Previous)</onclick>
+		</item>
+		<item>
+			<label>31354</label>
+			<onclick>XBMC.PlayerControl(Next)</onclick>
+			<visible>VideoPlayer.Content(LiveTV)</visible>
+		</item>
+		<item>
+			<label>31354</label>
+			<onclick>XBMC.PlayerControl(Rewind)</onclick>
+			<visible>!VideoPlayer.Content(LiveTV)</visible>
+		</item>
+		<item>
+			<label>$VAR[SubMenuPlayBtn]</label>
+			<onclick>XBMC.PlayerControl(Play)</onclick>
+			<visible>!VideoPlayer.Content(LiveTV)</visible>
+		</item>
+		<item>
+			<label>$VAR[SubMenuPlayBtn]</label>
+			<onclick>XBMC.PlayerControl(Play)</onclick>
+			<enable>Player.PauseEnabled</enable>
+			<visible>VideoPlayer.Content(LiveTV)</visible>
+		</item>
+		<item>
+			<label>31352</label>
+			<onclick>up</onclick>
+			<onclick>XBMC.PlayerControl(Stop)</onclick>
+		</item>
+		<item>
+			<label>31353</label>
+			<onclick>XBMC.PlayerControl(Forward)</onclick>
+			<visible>!VideoPlayer.Content(LiveTV)</visible>
+		</item>
+		<item>
+			<label>209</label>
+			<onclick>XBMC.PlayerControl(Next)</onclick>
+			<visible>!VideoPlayer.Content(LiveTV)</visible>
+		</item>
+		<item>
+			<label>264</label>
+			<onclick>XBMC.PlayerControl(record)</onclick>
+			<visible>VideoPlayer.Content(LiveTV)</visible>
 		</item>
 	</include>
 </includes>

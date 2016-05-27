@@ -286,6 +286,7 @@
 			<depth>DepthOSD+</depth>
 			<left>0</left>
 			<top>50</top>
+			<visible>false</visible>
 			<visible>![Window.IsVisible(script-cu-lrclyrics-main.xml) | Window.IsVisible(VisualisationSettings) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVRRadioRDSInfo) | Window.IsVisible(OSDAudioDSPSettings) | Window.IsVisible(Addon)]</visible>
 			<animation effect="fade" time="150">VisibleChange</animation>
 			<control type="image">
