@@ -6,9 +6,9 @@
 		<top>0</top>
 	</coordinates>
 	<onload>SetProperty(MenuItemType,MainMenu)</onload>
-	<onunload>ClearProperty(UsrSelectBtn)</onunload>
+	<onunload>ClearProperty(UsrSelectBtn,Home)</onunload>
 	<onunload>ClearProperty(MenuItemType)</onunload>
-	<onunload>ClearProperty(UsrSelectPath,home)</onunload>
+	<onunload>ClearProperty(UsrSelectPath,Home)</onunload>
 	<controls>
 		<control type="group">
 			<depth>DepthSideBlade</depth>

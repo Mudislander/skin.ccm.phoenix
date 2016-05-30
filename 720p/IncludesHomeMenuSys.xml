@@ -407,7 +407,7 @@
 	</include>
 	<include name="HomeMainMenuSys">
 		<left>-110</left>
-		<top>5</top>
+		<top>35</top>
 		<width>1500</width>
 		<height>60</height>
 		<onleft>9000</onleft>

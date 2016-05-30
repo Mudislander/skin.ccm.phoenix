@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
+	<variable name="VizDiffuseValue">
+		<value condition="!String.IsEmpty(Skin.String(VizDiffuseAmnt))">$LOCALIZE[31296]</value>
+		<value>$LOCALIZE[31390]</value>
+	</variable>
 	<variable name="MusicInfoHeader">
 		<value condition="Container.Content(Artists)">$INFO[ListItem.Artist]</value>
 		<value condition="Container.Content(Albums)">$INFO[ListItem.Album]</value>
@@ -65,6 +69,13 @@
 		<value condition="!Player.DisplayAfterSeek + Player.Seeking">$LOCALIZE[31046]</value>
 		<value condition="Player.Forwarding">$LOCALIZE[31044]</value>
 		<value condition="Player.Rewinding">$LOCALIZE[31045]</value>
+	</variable>
+	<variable name="MusicHeaderLabel">
+		<value condition="MusicPartyMode.Enabled">[B]($LOCALIZE[589])[/B]</value>
+		<value condition="Playlist.IsRandom">[B]($LOCALIZE[31289])[/B] $INFO[musicplayer.playlistposition,$LOCALIZE[31040] $LOCALIZE[554] ]$INFO[musicplayer.playlistlength, $LOCALIZE[31288] ]</value>
+		<value condition="Playlist.IsRepeat">[B]($LOCALIZE[31290])[/B] $INFO[musicplayer.playlistposition,$LOCALIZE[31040] $LOCALIZE[554] ]$INFO[musicplayer.playlistlength, $LOCALIZE[31288] ]</value>
+		<value condition="Playlist.IsRepeatOne">[B]($LOCALIZE[31291])[/B] $INFO[musicplayer.playlistposition,$LOCALIZE[31040] $LOCALIZE[554] ]$INFO[musicplayer.playlistlength, $LOCALIZE[31288] ]</value>
+		<value>$INFO[musicplayer.playlistposition,$LOCALIZE[31040] $LOCALIZE[554] ]$INFO[musicplayer.playlistlength, $LOCALIZE[31288] ]</value>
 	</variable>
 	<variable name="SelectLabel">
 		<value condition="Control.IsVisible(3)">([COLOR=blue]$INFO[Container(3).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(3).CurrentPage]/$INFO[Container(3).NumPages][/COLOR])</value>
@@ -196,6 +207,12 @@
 	<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)</visible>
 	<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),MusicPlayList)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)</visible>
+			
+			
+		
+	<value>$INFO[Window(Home).Property(SkinHelper.AllMusicSongsBackground.Wall)]</value>
+		
+			
 	-->
 	<variable name="HomeMenuItemBackground" type="text">
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(Background),Theme)">$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</value>
@@ -245,7 +262,7 @@
 		<value condition="String.IsEqual(Window(Home).Property(MenuItemActive),ItemEight) + !String.IsEmpty(Skin.String(HomeMenu.8.Fanart))">$INFO[Skin.String(HomeMenu.8.Fanart)]</value>
 		<value condition="String.IsEqual(Window(Home).Property(MenuItemActive),ItemNine) + !String.IsEmpty(Skin.String(HomeMenu.9.Fanart))">$INFO[Skin.String(HomeMenu.9.Fanart)]</value>
 		<value condition="String.IsEqual(Window(Home).Property(MenuItemActive),ItemTen) + !String.IsEmpty(Skin.String(HomeMenu.10.Fanart))">$INFO[Skin.String(HomeMenu.10.Fanart)]</value>
-		<!--value condition="String.IsEqual(Window(Home).Property(MenuItemActive),ItemEleven)">special://skin/backgrounds/media-overlay.jpg</value-->
+		<value condition="String.IsEqual(Window(Home).Property(MenuItemActive),ItemEleven)">special://skin/backgrounds/media-overlay.jpg</value>
 		<value condition="String.IsEqual(Window(Home).Property(MenuItemActive),Settings) + !String.IsEmpty(Skin.String(SettingsMenu.Fanart))">$INFO[Skin.String(SettingsMenu.Fanart)]</value>
 		<value condition="!String.IsEmpty(Window(Home).Property(SubMenuBackground))">$INFO[Window(Home).Property(SubMenuBackground)]</value>
 		<value>$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</value>
@@ -272,6 +289,14 @@
 		<value condition="String.IsEmpty(Skin.String(MultiImageTimer)) | String.IsEqual(Skin.String(MultiImageTimer),8)">[COLOR=selected]$LOCALIZE[31390][/COLOR]</value>
 		<value>[COLOR=selected]$INFO[Skin.String(MultiImageTimer)][/COLOR] $LOCALIZE[31218]</value>
 	</variable>
+	<variable name="GlobalOSDDisplayTimer" type="text">
+		<value condition="String.IsEmpty(Skin.String(SkinHelper.ShowInfoAtPlaybackStart))">[COLOR=selected]$LOCALIZE[31302][/COLOR]</value>
+		<value>[COLOR=selected]$INFO[Skin.String(SkinHelper.ShowInfoAtPlaybackStart)][/COLOR] $LOCALIZE[31218]</value>
+	</variable>
+	<variable name="MusicOSDDisplayTimer" type="text">
+		<value condition="String.IsEmpty(Skin.String(SkinHelper.AutoCloseMusicOSD))">[COLOR=selected]$LOCALIZE[31302][/COLOR]</value>
+		<value>[COLOR=selected]$INFO[Skin.String(SkinHelper.AutoCloseMusicOSD)][/COLOR] $LOCALIZE[31218]</value>
+	</variable>
 	<variable name="StickyMenuLabel" type="text">
 		<value condition="Skin.String(StickyMenuSelect.Label)">$INFO[Skin.String(StickyMenuSelect.Label)]</value>
 		<value>$LOCALIZE[31163]</value>
@@ -279,6 +304,15 @@
 	<variable name="MenuItemOneLabel" type="text">
 		<value condition="Skin.HasSetting(UseStickyHomeMenu)">$LOCALIZE[31163]</value>
 		<value>$INFO[Skin.String(HomeMenu.1.Label)]</value>
+	</variable>
+	<variable name="OSSubMenuAction" type="text">
+	<value condition="!String.IsEmpty(Skin.String(SubSetSeven.1.Path))">$INFO[Skin.String(SubSetSeven.1.Path)]</value>
+	<value condition="System.Platform.Android">StartAndroidActivity("com.android.tv.settings")</value>
+	<value condition="System.HasAddon(service.libreelec.settings)">RunAddon(service.libreelec.settings)</value>
+	<value condition="System.HasAddon(os.openelec.settings)">RunAddon(os.openelec.settings)</value>
+	<value condition="System.HasAddon(service.openelec.settings)">RunAddon(service.openelec.settings)</value>
+	<value condition="System.HasAddon(script.raspbmc.settings)">RunAddon(script.raspbmc.settings)</value>
+	<value>ActivateWindow(SkinSettings)</value>
 	</variable>
 	<variable name="SubMenuItemBackground" type="text">
 		<value condition="Container(9000).Hasfocus(1) + !String.IsEmpty(Skin.String(HomeMenu.1.Fanart))">$INFO[Skin.String(HomeMenu.1.Fanart)]</value>
@@ -291,7 +325,7 @@
 		<value condition="Container(9000).Hasfocus(8) + !String.IsEmpty(Skin.String(HomeMenu.8.Fanart))">$INFO[Skin.String(HomeMenu.8.Fanart)]</value>
 		<value condition="Container(9000).Hasfocus(9) + !String.IsEmpty(Skin.String(HomeMenu.9.Fanart))">$INFO[Skin.String(HomeMenu.9.Fanart)]</value>
 		<value condition="Container(9000).Hasfocus(10) + !String.IsEmpty(Skin.String(HomeMenu.10.Fanart))">$INFO[Skin.String(HomeMenu.10.Fanart)]</value>
-		<!--value condition="Container(9000).Hasfocus(11)">special://skin/backgrounds/media-overlay.jpg</value-->
+		<value condition="Container(9000).Hasfocus(11)">special://skin/backgrounds/media-overlay.jpg</value>
 		<value condition="Container(9000).Hasfocus(12) + !String.IsEmpty(Skin.String(SettingsMenu.Fanart))">$INFO[Skin.String(SettingsMenu.Fanart)]</value>
 		<value>$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</value>
 	</variable>
@@ -482,6 +516,9 @@
 	<variable name="SubSetSevenItemOne" type="text">
 		<value condition="!String.IsEmpty(Skin.String(SubSetSeven.1.Label))">$INFO[Skin.String(SubSetSeven.1.Label)]</value>
 		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.Platform.Android">$LOCALIZE[31158]</value>
+		
+		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(service.libreelec.settings)">$LOCALIZE[31141]</value>
+		
 		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(script.raspbmc.settings)">$LOCALIZE[31160]</value>
 		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(os.openelec.settings)">$LOCALIZE[31159]</value>
 		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(service.openelec.settings)">$LOCALIZE[31159]</value>
@@ -987,7 +1024,7 @@
 	</variable>
 	<variable name="PlaylistWidgetName" type="text">
 		<value condition="Container(9000).Hasfocus(1)">$VAR[MenuOneWidgetName]</value>
-		<value condition="Container(9000).Hasfocus(2)">$VAR[MenutwoWidgetName]</value>
+		<value condition="Container(9000).Hasfocus(2)">$VAR[MenuTwoWidgetName]</value>
 		<value condition="Container(9000).Hasfocus(3)">$VAR[MenuThreeWidgetName]</value>
 		<value condition="Container(9000).Hasfocus(4)">$VAR[MenuFourWidgetName]</value>
 		<value condition="Container(9000).Hasfocus(5)">$VAR[MenuFiveWidgetName]</value>
@@ -1051,6 +1088,20 @@
 		<value condition="!String.IsEmpty(Skin.String(SettingsMenu.WidgetName)) + !String.IsEqual(Skin.String(SettingsMenu.WidgetName),None)">$INFO[Skin.String(SettingsMenu.WidgetName)]</value>
 		<value>$LOCALIZE[31170]</value>
 	</variable>
+	
+	
+	
+	<variable name="UsrWidgetOneSort" type="text">
+	
+	<value condition="String.IsEqual(Skin.String(Skin.String(HomeWidget.1.Sort)),Random)">$LOCALIZE[31275]</value>
+		<value>$LOCALIZE[31075]</value>
+
+		</variable>
+	
+	
+	
+	
+	
 	<variable name="UsrWidgetOneName" type="text">
 		<value condition="String.IsEmpty(Skin.String(HomeWidget.1.Lock))">$LOCALIZE[31074]</value>
 		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
@@ -1242,43 +1293,43 @@
 		<value condition="Skin.String(HomeWidget.10.Lock,StickyMenu.6)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(StickyMenu.6.Label)]</value>
 	</variable>
 	<variable name="WidgetOneContent" type="text">
-		<value condition="!String.IsEmpty(Skin.String(HomeWidget.1.Path))">$INFO[Skin.String(HomeWidget.1.Path]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.1.Path))">$INFO[Skin.String(HomeWidget.1.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
 	<variable name="WidgetTwoContent" type="text">
-		<value condition="!String.IsEmpty(Skin.String(HomeWidget.2.Path))">$INFO[Skin.String(HomeWidget.2.Path]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.2.Path))">$INFO[Skin.String(HomeWidget.2.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
 	<variable name="WidgetThreeContent" type="text">
-		<value condition="!String.IsEmpty(Skin.String(HomeWidget.3.Path))">$INFO[Skin.String(HomeWidget.3.Path]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.3.Path))">$INFO[Skin.String(HomeWidget.3.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
 	<variable name="WidgetFourContent" type="text">
-		<value condition="!String.IsEmpty(Skin.String(HomeWidget.4.Path))">$INFO[Skin.String(HomeWidget.4.Path]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.4.Path))">$INFO[Skin.String(HomeWidget.4.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
 	<variable name="WidgetFiveContent" type="text">
-		<value condition="!String.IsEmpty(Skin.String(HomeWidget.5.Path))">$INFO[Skin.String(HomeWidget.5.Path]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.5.Path))">$INFO[Skin.String(HomeWidget.5.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
 	<variable name="WidgetSixContent" type="text">
-		<value condition="!String.IsEmpty(Skin.String(HomeWidget.6.Path))">$INFO[Skin.String(HomeWidget.6.Path]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.6.Path))">$INFO[Skin.String(HomeWidget.6.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
 	<variable name="WidgetSevenContent" type="text">
-		<value condition="!String.IsEmpty(Skin.String(HomeWidget.7.Path))">$INFO[Skin.String(HomeWidget.7.Path]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.7.Path))">$INFO[Skin.String(HomeWidget.7.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
 	<variable name="WidgetEightContent" type="text">
-		<value condition="!String.IsEmpty(Skin.String(HomeWidget.8.Path))">$INFO[Skin.String(HomeWidget.8.Path]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.8.Path))">$INFO[Skin.String(HomeWidget.8.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
 	<variable name="WidgetNineContent" type="text">
-		<value condition="!String.IsEmpty(Skin.String(HomeWidget.9.Path))">$INFO[Skin.String(HomeWidget.9.Path]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.9.Path))">$INFO[Skin.String(HomeWidget.9.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
 	<variable name="WidgetTenContent" type="text">
-		<value condition="!String.IsEmpty(Skin.String(HomeWidget.10.Path))">$INFO[Skin.String(HomeWidget.10.Path]</value>
+		<value condition="!String.IsEmpty(Skin.String(HomeWidget.10.Path))">$INFO[Skin.String(HomeWidget.10.Path)]</value>
 		<value>$LOCALIZE[31075]</value>
 	</variable>
 	<variable name="WidgetOneTarget" type="text">
@@ -1611,6 +1662,19 @@
 		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.8)">$INFO[Skin.String(HomeMenu.8.Label)]</value>
 		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.9)">$INFO[Skin.String(HomeMenu.9.Label)]</value>
 		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.10)">$INFO[Skin.String(HomeMenu.10.Label)]</value>
-		<value>###$LOCALIZE[31290]###</value>
+		<value>$LOCALIZE[31164]</value>
 	</variable>
+	<variable name="InfoBarStats" type="text">
+	
+	<value>$INFO[Network.IPAddress,[B][COLOR=C0FFFFFF]IP: [/COLOR][/B]]     $INFO[system.memory(used.percent),[B][COLOR=C0FFFFFF]RAM: [/COLOR][/B]]     $INFO[System.UsedSpacePercent,[B][COLOR=C0FFFFFF]$LOCALIZE[155]: [/COLOR][/B]]</value>
+	
+	</variable>
+		<variable name="NextFiveSongScroller" type="text">
+		<value condition="!String.IsEmpty(MusicPlayer.offset(5).Artist) + Player.HasAudio">[COLOR=white][B]$LOCALIZE[31133][/B][/COLOR][COLOR=blue][B]   1:[/B][/COLOR]  $INFO[MusicPlayer.offset(1).Artist] - $INFO[MusicPlayer.offset(1).Title]    [COLOR=blue][B]2:[/B][/COLOR]  $INFO[MusicPlayer.offset(2).Artist] - $INFO[MusicPlayer.offset(2).Title]    [COLOR=blue][B]3:[/B][/COLOR]  $INFO[MusicPlayer.offset(3).Artist] - $INFO[MusicPlayer.offset(3).Title]    [COLOR=blue][B]4:[/B][/COLOR]  $INFO[MusicPlayer.offset(4).Artist] - $INFO[MusicPlayer.offset(4).Title]    [COLOR=blue][B]5:[/B][/COLOR]  $INFO[MusicPlayer.offset(5).Artist] - $INFO[MusicPlayer.offset(5).Title]</value>
+		<value condition="!String.IsEmpty(MusicPlayer.offset(4).Artist) + String.IsEmpty(MusicPlayer.offset(5).Artist) + Player.HasAudio">[COLOR=white][B]$LOCALIZE[31133][/B][/COLOR][COLOR=blue][B]   1:[/B][/COLOR]  $INFO[MusicPlayer.offset(1).Artist] - $INFO[MusicPlayer.offset(1).Title]    [COLOR=blue][B]2:[/B][/COLOR]  $INFO[MusicPlayer.offset(2).Artist] - $INFO[MusicPlayer.offset(2).Title]    [COLOR=blue][B]3:[/B][/COLOR]  $INFO[MusicPlayer.offset(3).Artist] - $INFO[MusicPlayer.offset(3).Title]    [COLOR=blue][B]4:[/B][/COLOR]  $INFO[MusicPlayer.offset(4).Artist] - $INFO[MusicPlayer.offset(4).Title]</value>
+		<value condition="!String.IsEmpty(MusicPlayer.offset(3).Artist) + String.IsEmpty(MusicPlayer.offset(4).Artist) + String.IsEmpty(MusicPlayer.offset(5).Artist) + Player.HasAudio">[COLOR=white][B]$LOCALIZE[31133][/B][/COLOR][COLOR=blue][B]   1:[/B][/COLOR]  $INFO[MusicPlayer.offset(1).Artist] - $INFO[MusicPlayer.offset(1).Title]    [COLOR=blue][B]2:[/B][/COLOR]  $INFO[MusicPlayer.offset(2).Artist] - $INFO[MusicPlayer.offset(2).Title]     [COLOR=blue][B]3:[/B][/COLOR]  $INFO[MusicPlayer.offset(3).Artist] - $INFO[MusicPlayer.offset(3).Title]</value>
+		<value condition="!String.IsEmpty(MusicPlayer.offset(2).Artist) + String.IsEmpty(MusicPlayer.offset(3).Artist) + String.IsEmpty(MusicPlayer.offset(4).Artist) + String.IsEmpty(MusicPlayer.offset(5).Artist) + Player.HasAudio">[COLOR=white][B]$LOCALIZE[31133][/B][/COLOR][COLOR=blue][B]   1:[/B][/COLOR]  $INFO[MusicPlayer.offset(1).Artist] - $INFO[MusicPlayer.offset(1).Title]    [COLOR=blue][B]2:[/B][/COLOR]  $INFO[MusicPlayer.offset(2).Artist] - $INFO[MusicPlayer.offset(2).Title]</value>
+		<value condition="!String.IsEmpty(MusicPlayer.offset(1).Artist) + String.IsEmpty(MusicPlayer.offset(2).Artist) + String.IsEmpty(MusicPlayer.offset(3).Artist) + String.IsEmpty(MusicPlayer.offset(4).Artist) + String.IsEmpty(MusicPlayer.offset(5).Artist) + Player.HasAudio">[COLOR=white][B]$LOCALIZE[31133][/B][/COLOR][COLOR=blue][B]   1:[/B][/COLOR]  $INFO[MusicPlayer.offset(1).Artist] - $INFO[MusicPlayer.offset(1).Title]</value>
+	</variable>
+
 </includes>

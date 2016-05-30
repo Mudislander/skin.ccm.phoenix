@@ -40,7 +40,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8001).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>190</left>
-					<top>50</top>
+					<top>5</top>
 					<width>900</width>
 					<height>220</height>
 					<onleft>8001</onleft>
@@ -48,7 +48,7 @@
 					<onup>20</onup>
 					<ondown>9000</ondown>
 					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
+					<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -154,7 +154,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8001).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>160</left>
-					<top>50</top>
+					<top>5</top>
 					<width>960</width>
 					<height>240</height>
 					<onleft>8001</onleft>
@@ -294,7 +294,7 @@
 					<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(8001).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>240</left>
-					<top>50</top>
+					<top>5</top>
 					<width>800</width>
 					<height>240</height>
 					<onleft>8001</onleft>
@@ -486,7 +486,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8002).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>190</left>
-					<top>50</top>
+					<top>5</top>
 					<width>900</width>
 					<height>220</height>
 					<onleft>8002</onleft>
@@ -600,7 +600,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8002).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>160</left>
-					<top>50</top>
+					<top>5</top>
 					<width>960</width>
 					<height>240</height>
 					<onleft>8002</onleft>
@@ -740,7 +740,7 @@
 					<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(8002).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>240</left>
-					<top>50</top>
+					<top>5</top>
 					<width>800</width>
 					<height>240</height>
 					<onleft>8002</onleft>
@@ -932,7 +932,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8003).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>190</left>
-					<top>50</top>
+					<top>5</top>
 					<width>900</width>
 					<height>220</height>
 					<onleft>8003</onleft>
@@ -1046,7 +1046,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8003).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>160</left>
-					<top>50</top>
+					<top>5</top>
 					<width>960</width>
 					<height>240</height>
 					<onleft>8003</onleft>
@@ -1186,7 +1186,7 @@
 					<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(8003).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>240</left>
-					<top>50</top>
+					<top>5</top>
 					<width>800</width>
 					<height>240</height>
 					<onleft>8003</onleft>
@@ -1378,7 +1378,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8004).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>190</left>
-					<top>50</top>
+					<top>5</top>
 					<width>900</width>
 					<height>220</height>
 					<onleft>8004</onleft>
@@ -1492,7 +1492,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8004).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>160</left>
-					<top>50</top>
+					<top>5</top>
 					<width>960</width>
 					<height>240</height>
 					<onleft>8004</onleft>
@@ -1632,7 +1632,7 @@
 					<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(8004).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>240</left>
-					<top>50</top>
+					<top>5</top>
 					<width>800</width>
 					<height>240</height>
 					<onleft>8004</onleft>
@@ -1824,7 +1824,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8005).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>190</left>
-					<top>50</top>
+					<top>5</top>
 					<width>900</width>
 					<height>220</height>
 					<onleft>8005</onleft>
@@ -1938,7 +1938,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8005).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>160</left>
-					<top>50</top>
+					<top>5</top>
 					<width>960</width>
 					<height>240</height>
 					<onleft>8005</onleft>
@@ -2078,7 +2078,7 @@
 					<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(8005).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>240</left>
-					<top>50</top>
+					<top>5</top>
 					<width>800</width>
 					<height>240</height>
 					<onleft>8005</onleft>
@@ -2270,7 +2270,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8006).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>190</left>
-					<top>50</top>
+					<top>5</top>
 					<width>900</width>
 					<height>220</height>
 					<onleft>8006</onleft>
@@ -2384,7 +2384,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8006).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>160</left>
-					<top>50</top>
+					<top>5</top>
 					<width>960</width>
 					<height>240</height>
 					<onleft>8006</onleft>
@@ -2524,7 +2524,7 @@
 					<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(8006).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>240</left>
-					<top>50</top>
+					<top>5</top>
 					<width>800</width>
 					<height>240</height>
 					<onleft>8006</onleft>
@@ -2716,7 +2716,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8007).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>190</left>
-					<top>50</top>
+					<top>5</top>
 					<width>900</width>
 					<height>220</height>
 					<onleft>8007</onleft>
@@ -2830,7 +2830,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8007).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>160</left>
-					<top>50</top>
+					<top>5</top>
 					<width>960</width>
 					<height>240</height>
 					<onleft>8007</onleft>
@@ -2970,7 +2970,7 @@
 					<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(8007).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>240</left>
-					<top>50</top>
+					<top>5</top>
 					<width>800</width>
 					<height>240</height>
 					<onleft>8007</onleft>
@@ -3162,7 +3162,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8008).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>190</left>
-					<top>50</top>
+					<top>5</top>
 					<width>900</width>
 					<height>220</height>
 					<onleft>8008</onleft>
@@ -3276,7 +3276,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8008).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>160</left>
-					<top>50</top>
+					<top>5</top>
 					<width>960</width>
 					<height>240</height>
 					<onleft>8008</onleft>
@@ -3416,7 +3416,7 @@
 					<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(8008).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>240</left>
-					<top>50</top>
+					<top>5</top>
 					<width>800</width>
 					<height>240</height>
 					<onleft>8008</onleft>
@@ -3608,7 +3608,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8009).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>190</left>
-					<top>50</top>
+					<top>5</top>
 					<width>900</width>
 					<height>220</height>
 					<onleft>8009</onleft>
@@ -3722,7 +3722,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8009).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>160</left>
-					<top>50</top>
+					<top>5</top>
 					<width>960</width>
 					<height>240</height>
 					<onleft>8009</onleft>
@@ -3862,7 +3862,7 @@
 					<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(8009).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>240</left>
-					<top>50</top>
+					<top>5</top>
 					<width>800</width>
 					<height>240</height>
 					<onleft>8009</onleft>
@@ -4054,7 +4054,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8010).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>190</left>
-					<top>50</top>
+					<top>5</top>
 					<width>900</width>
 					<height>220</height>
 					<onleft>8010</onleft>
@@ -4168,7 +4168,7 @@
 					<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container(8010).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>160</left>
-					<top>50</top>
+					<top>5</top>
 					<width>960</width>
 					<height>240</height>
 					<onleft>8010</onleft>
@@ -4308,7 +4308,7 @@
 					<animation effect="slide" start="0,0" end="300,0" time="0" condition="String.IsEqual(Container(8010).NumItems,1)">conditional</animation>
 					<animation effect="fade" reversible="true" time="300">VisibleChange</animation>
 					<left>240</left>
-					<top>50</top>
+					<top>5</top>
 					<width>800</width>
 					<height>240</height>
 					<onleft>8010</onleft>
@@ -4482,7 +4482,7 @@
 			<!-- Misc Widgets -->
 			<control type="group">
 				<left>190</left>
-				<top>50</top>
+				<top>5</top>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Favourites)</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="label">
@@ -4643,7 +4643,7 @@
 			</control>
 			<control type="group">
 				<left>190</left>
-				<top>50</top>
+				<top>5</top>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),MediaFavourites)</visible>
 				<include>VisibleFadeEffect</include>
 				<control type="label">
@@ -4809,7 +4809,7 @@
 		<!-- Script RandomAndLastItems -->
 		<control type="group">
 			<left>190</left>
-			<top>50</top>
+			<top>5</top>
 			<!-- Movies Playlist-->
 			<visible>!Skin.HasSetting(FanArtStyleWidget)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),VideoPlayList)</visible>
@@ -5136,7 +5136,7 @@
 		</control>
 		<control type="group">
 			<left>160</left>
-			<top>50</top>
+			<top>5</top>
 			<!-- Movies Playlist-->
 			<visible>Skin.HasSetting(FanArtStyleWidget)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),VideoPlayList)</visible>
@@ -5451,7 +5451,7 @@
 		</control>
 		<control type="group">
 			<left>190</left>
-			<top>50</top>
+			<top>5</top>
 			<!-- Episodes Playlist-->
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),VideoPlayList)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)</visible>
@@ -5788,7 +5788,7 @@
 		</control>
 		<control type="group">
 			<left>240</left>
-			<top>50</top>
+			<top>5</top>
 			<!-- Music Playlist-->
 			<visible>!Skin.HasSetting(FanArtStyleWidget)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),MusicPlayList)</visible>
@@ -6114,7 +6114,7 @@
 		</control>
 		<control type="group">
 			<left>160</left>
-			<top>50</top>
+			<top>5</top>
 			<!-- Music Playlist-->
 			<visible>Skin.HasSetting(FanArtStyleWidget)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),MusicPlayList)</visible>
@@ -6430,7 +6430,7 @@
 		<!-- Movie Widgets -->
 		<control type="group">
 			<left>190</left>
-			<top>50</top>
+			<top>5</top>
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RecentMovies)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RecentItems),true)</visible>
@@ -7395,7 +7395,7 @@
 		<control type="group">
 			<control type="group">
 				<left>190</left>
-				<top>50</top>
+				<top>5</top>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RecentEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RecentItems),true)</visible>
 				<include>VisibleFadeEffect</include>
@@ -7557,7 +7557,7 @@
 			</control>
 			<control type="group">
 				<left>190</left>
-				<top>50</top>
+				<top>5</top>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RandomEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)</visible>
 				<include>VisibleFadeEffect</include>
@@ -7719,7 +7719,7 @@
 			</control>
 			<control type="group">
 				<left>190</left>
-				<top>50</top>
+				<top>5</top>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),SuggestedEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
 				<include>VisibleFadeEffect</include>
@@ -7881,7 +7881,7 @@
 			</control>
 			<control type="group">
 				<left>160</left>
-				<top>50</top>
+				<top>5</top>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),ThumbRecentEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RecentItems),true)</visible>
 				<include>VisibleFadeEffect</include>
@@ -8068,7 +8068,7 @@
 			</control>
 			<control type="group">
 				<left>160</left>
-				<top>50</top>
+				<top>5</top>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),ThumbRandomEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)</visible>
 				<include>VisibleFadeEffect</include>
@@ -8255,7 +8255,7 @@
 			</control>
 			<control type="group">
 				<left>160</left>
-				<top>50</top>
+				<top>5</top>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),ThumbSuggestedEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
 				<include>VisibleFadeEffect</include>
@@ -8925,7 +8925,7 @@
 		<!-- Music Widgets -->
 		<control type="group">
 			<left>240</left>
-			<top>50</top>
+			<top>5</top>
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RecentAlbums)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RecentItems),true)</visible>
@@ -9681,7 +9681,7 @@
 	<include name="AndroidWidgets">
 		<control type="group">
 			<left>240</left>
-			<top>50</top>
+			<top>5</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),AndroidApps)</visible>
 			<include>VisibleFadeEffect</include>
 			<control type="label">
@@ -9869,7 +9869,10 @@
 	<include name="WeatherWidgets">
 		<control type="group">
 			<left>160</left>
-			<top>50</top>
+			<!--top>50</top-->
+			
+	<top>5</top>		
+			
 			<visible>Weather.IsFetched</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)</visible>
 			<include>VisibleFadeEffect</include>
@@ -10061,7 +10064,7 @@
 				<thumb>-</thumb>
 				<property name="MultiIcon">$VAR[WeatherIconPath]$INFO[Window(Weather).Property(Current.FanartCode)]</property>
 				<property name="Temperatures">[COLOR=grey2]$LOCALIZE[419] : [/COLOR]$INFO[Window(Weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits]     [COLOR=grey2]$LOCALIZE[418] : [/COLOR]$INFO[Window(Weather).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits]</property>
-				<visible>!Skin.HasSetting(homepageWeatherinfo)</visible>
+				<!--visible>!Skin.HasSetting(homepageWeatherinfo)</visible-->
 			</item>
 			<item>
 				<label>$INFO[Window(Weather).Property(Day1.Title)]</label>
@@ -10090,7 +10093,7 @@
 				<property name="MultiIcon">$VAR[WeatherIconPath]$INFO[Window(Weather).Property(Daily.3.FanartCode)]</property>
 				<property name="Temperatures">[COLOR=grey2]$LOCALIZE[419] : [/COLOR]$INFO[Window(Weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]     [COLOR=grey2]$LOCALIZE[418] : [/COLOR]$INFO[Window(Weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</property>
 			</item>
-			<item>
+			<!--item>
 				<label>$INFO[Window(Weather).Property(Day4.Title)]</label>
 				<label2>$INFO[Window(Weather).Property(Day4.Outlook)]</label2>
 				<onclick>Weather.Refresh</onclick>
@@ -10099,7 +10102,7 @@
 				<property name="MultiIcon">$VAR[WeatherIconPath]$INFO[Window(Weather).Property(Daily.4.FanartCode)]</property>
 				<property name="Temperatures">[COLOR=grey2]$LOCALIZE[419] : [/COLOR]$INFO[Window(Weather).Property(Day4.HighTemp)]$INFO[System.TemperatureUnits]     [COLOR=grey2]$LOCALIZE[418] : [/COLOR]$INFO[Window(Weather).Property(Day4.LowTemp)]$INFO[System.TemperatureUnits]</property>
 				<visible>Skin.HasSetting(homepageWeatherinfo)</visible>
-			</item>
+			</item-->
 		</content>
 	</include>
 	<include name="RecentMovieContent">

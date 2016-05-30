@@ -91,7 +91,7 @@
 		<control type="group" id="9001">
 			<depth>DepthMenu-</depth>
 			<left>0</left>
-			<top>0</top>
+			<top>30</top>
 			<onup>9000</onup>
 			<ondown>9002</ondown>
 			<control type="group">
@@ -137,7 +137,7 @@
 			</control>
 			<control type="group">
 				<!--FullScreen-->
-				<visible>StringCompare(Container(9000).ListItem.Property(SubMenu),FullScreen)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(SubMenu),FullScreen)</visible>
 				<include>SubMenuDisplay</include>
 				<animation effect="slide" start="0,-40" end="0,0" delay="200" time="200" tween="quadratic" easing="out">Visible</animation>
 				<animation effect="slide" start="0,0" end="96.5,0" time="0" condition="String.IsEqual(Container(9011).NumItems,5)">conditional</animation>
@@ -907,12 +907,7 @@
 		<item>
 			<label>$VAR[SubSetSevenItemOne]</label>
 			<onclick>SetProperty(SubMenuBackground,$VAR[SubMenuItemBackground],Home)</onclick>
-			<onclick condition="String.IsEmpty(Skin.String(SubSetSeven.1.path)) + System.Platform.Android">StartAndroidActivity("com.android.tv.settings")</onclick>
-			<onclick condition="String.IsEmpty(Skin.String(SubSetSeven.1.path)) + System.HasAddon(os.openelec.settings)">RunAddon(os.openelec.settings)</onclick>
-			<onclick condition="String.IsEmpty(Skin.String(SubSetSeven.1.path)) + System.HasAddon(service.openelec.settings)">RunAddon(service.openelec.settings)</onclick>
-			<onclick condition="String.IsEmpty(Skin.String(SubSetSeven.1.path)) + System.HasAddon(script.raspbmc.settings)">RunAddon(script.raspbmc.settings)</onclick>
-			<onclick condition="String.IsEmpty(Skin.String(SubSetSeven.1.path)) + !System.Platform.Android + !System.HasAddon(os.openelec.settings) + !System.HasAddon(service.openelec.settings) + !System.HasAddon(script.raspbmc.settings)">ActivateWindow(SkinSettings)</onclick>
-			<onclick condition="!String.IsEmpty(Skin.String(SubSetSeven.1.Path))">$INFO[Skin.String(SubSetSeven.1.Path)]</onclick>
+			<onclick>$VAR[OSSubMenuAction]</onclick>
 			<visible>!String.IsEqual(Skin.String(SubSetSeven.1.Path),Hidden)</visible>
 		</item>
 		<item>

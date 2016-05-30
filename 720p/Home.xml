@@ -10,10 +10,10 @@
 	<onload condition="!String.IsEmpty(Window(Home).Property(SubMenuBackground))">ClearProperty(SubMenuBackground,Home)</onload>
 	<onload condition="!String.IsEmpty(Window(Home).Property(MenuBackground))">ClearProperty(MenuBackground,Home)</onload>
 	<onload condition="Skin.HasSetting(EnableHolidayEffects) + System.Date(1-6,11-23)">Skin.Reset(EnableHolidayEffects)</onload>
-	<onload condition="String.IsEmpty(Window.Property(PingAlarmSet)) + Skin.HasSetting(EnablePingWOL) + Skin.String(WOLPingTimer) + Skin.String(PingMacAddr)">AlarmClock(WOLPingAlarm,WakeOnLan($INFO[Skin.String(PingMacAddr)]),$INFO[Skin.String(WOLPingTimer)]:00,silent,loop)</onload>
-	<onload condition="Skin.HasSetting(EnablePingWOL) + Skin.String(WOLPingTimer) + Skin.String(PingMacAddr)">SetProperty(PingAlarmSet,1)</onload>
+	<!--onload condition="String.IsEmpty(Window.Property(PingAlarmSet)) + Skin.HasSetting(EnablePingWOL) + Skin.String(WOLPingTimer) + Skin.String(PingMacAddr)">AlarmClock(WOLPingAlarm,WakeOnLan($INFO[Skin.String(PingMacAddr)]),$INFO[Skin.String(WOLPingTimer)]:00,silent,loop)</onload-->
+	<!--onload condition="Skin.HasSetting(EnablePingWOL) + Skin.String(WOLPingTimer) + Skin.String(PingMacAddr)">SetProperty(PingAlarmSet,1)</onload-->
 	<onload condition="!Skin.HasSetting(DisableScriptFavourites)">RunScript(script.favourites)</onload>
-	<onload condition="!Skin.HasSetting(DisableSlideShowArt) + IsEmpty(Window.Property(ArtistSlideshowRunning))">RunScript(script.artistslideshow, daemon=true)</onload>
+	<!--onload condition="!Skin.HasSetting(DisableSlideShowArt) + IsEmpty(Window.Property(ArtistSlideshowRunning))">RunScript(script.artistslideshow, daemon=true)</onload-->
 	<onload condition="!Skin.HasSetting(DisableScriptPlaylist) + Library.HasContent(Movies)">RunScript(script.randomandlastitems,type=Movie,limit=12,method=Random,playlist=special://skin/extras/Playlists/UnwatchedMovies.xsp,menu=UnWatched)</onload>
 	<onload condition="!Skin.HasSetting(DisableScriptPlaylist) + !String.IsEmpty(Skin.String(HomeMenu.1.Data))">RunScript(script.randomandlastitems,playlist=$INFO[Skin.String(HomeMenu.1.Data)],method=$VAR[PlaylistSortOrder],limit=12,unwatched=False,resume=False,property=HomePlayListOne)</onload>
 	<onload condition="!Skin.HasSetting(DisableScriptPlaylist) + !String.IsEmpty(Skin.String(HomeMenu.2.Data))">RunScript(script.randomandlastitems,playlist=$INFO[Skin.String(HomeMenu.2.Data)],method=$VAR[PlaylistSortOrder],limit=12,unwatched=False,resume=False,property=HomePlayListTwo)</onload>
@@ -53,7 +53,6 @@
 		<include condition="!Skin.HasSetting(DisableHomeVideoInfo)">ShowVideoNowPlaying</include>
 		<include condition="!Skin.HasSetting(DisableSuggestedMedia)">ShowSuggestedVideoInfo</include>
 		<include condition="!Skin.HasSetting(DisableHomeWidgets)">HomeWidgetDisplay</include>
-		
 		<control type="button" id="9003">
 			<description>Hidden Button to pass through navigation when recently added is disabled</description>
 			<left>-20</left>
@@ -379,9 +378,15 @@
 		
 		
 		
+		
+			
+			
+		
+		
+		
 		<control type="group">
 			<depth>DepthMenu</depth>
-			<top>460</top>
+		<top>480</top>			
 			<animation type="WindowOpen" reversible="false">
 				<effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="225" />
 				<effect type="fade" start="0" end="100" time="225" />
@@ -390,17 +395,18 @@
 				<effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="225" />
 				<effect type="fade" start="100" end="0" time="225" />
 			</animation>
+			<include>HomeStatsBar</include>
 			<include>HomeSubMenuControl</include>
 			<control type="image">
 				<left>-100</left>
-				<top>0</top>
+				<top>30</top>
 				<width>1480</width>
 				<height>75</height>
 				<texture border="0,6,0,6">HomeBack.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
-				<top>5</top>
+				<top>35</top>
 				<width>1280</width>
 				<height>6</height>
 				<texture>HomeOverlay1.png</texture>
@@ -409,14 +415,14 @@
 			<include condition="!Skin.HasSetting(WrapAroundHomeMenu)">FixedHomeMainMenu</include>
 			<control type="image">
 				<left>-10</left>
-				<top>6</top>
+				<top>36</top>
 				<width>138</width>
 				<height>63</height>
 				<texture>SideFade.png</texture>
 			</control>
 			<control type="image">
 				<left>128r</left>
-				<top>6</top>
+				<top>36</top>
 				<width>138</width>
 				<height>63</height>
 				<texture flipx="true">SideFade.png</texture>
@@ -428,35 +434,6 @@
 			<ondown>20</ondown>
 			<include condition="!Skin.HasSetting(DisableHomeAddOns)">HomeAddonSystem</include>
 		</control>
-		<control type="group">
-			<depth>DepthMenu-</depth>
-			<left>0</left>
-			<top>33r</top>
-			<visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
-			<include>Window_OpenClose_Animation</include>
-			<control type="rss">
-				<description>RSS feed</description>
-				<left>100</left>
-				<top>0</top>
-				<height>30</height>
-				<width>1145</width>
-				<font>font12</font>
-				<urlset>1</urlset>
-				<textcolor>blue</textcolor>
-				<titlecolor>blue</titlecolor>
-				<headlinecolor>white</headlinecolor>
-			</control>
-			<control type="image">
-				<description>RSS background</description>
-				<left>1250</left>
-				<top>2</top>
-				<width>24</width>
-				<height>24</height>
-				<texture>icon-rss.png</texture>
-			</control>
-		</control>
-		
-		
 		<control type="group" id="10">
 			<depth>DepthFooter</depth>
 			<left>20</left>
@@ -517,7 +494,7 @@
 		</control>
 		
 		
-		<control type="group">
+		<!--control type="group">
 			<depth>DepthHeader</depth>
 			<control type="image">
 				<description>LOGO</description>
@@ -630,6 +607,47 @@
 				<include>Window_OpenClose_Animation</include>
 				<animation effect="slide" start="0,0" end="-40,0" time="75" condition="Player.Muted">conditional</animation>
 			</control>
+		</control-->
+	
+	
+	
+	<control type="group">
+		<depth>DepthFooter</depth>
+		<include>OSDSeekInfo</include>
+	
+		<control type="label">
+			<description>time label</description>
+			<right>20</right>
+			<top>55r</top>			
+			<width>200</width>
+			<height>30</height>
+			<align>right</align>
+			<aligny>center</aligny>
+			<font>font28_title</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$INFO[System.Time]</label>
+			<animation effect="slide" start="0,0" end="-90,0" time="75" condition="Player.Seeking | Player.DisplayAfterSeek | Player.Playing | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowTime">conditional</animation>
 		</control>
-	</controls>
+		<control type="label">
+			<description>Date label</description>
+			<right>20</right>
+			<top>25r</top>			
+			<width>300</width>
+			<height>15</height>
+			<align>right</align>
+			<aligny>center</aligny>
+			<font>font10</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<label>$INFO[System.Date]</label>
+			<include>Window_OpenClose_Animation</include>
+			<visible>![Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Playing | Player.Forwarding | Player.Rewinding | Player.ShowTime]</visible>
+		</control>	
+		
+		<visible>!Skin.HasSetting(HideHomeOSDClock)</visible>
+		
+	</control>		
+		
+		</controls>
 </window>

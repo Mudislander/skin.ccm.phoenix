@@ -257,14 +257,14 @@
 			<onup>9001</onup>
 			<ondown>20</ondown>
 			<control type="group">
-				<visible>StringCompare(Container(9000).ListItem.Property(AddOnSet),AddonSetOne)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne)</visible>
 				<left>0</left>
 				<top>148r</top>
 				<control type="panel" id="700">
-					<animation effect="slide" start="0,0" end="56,0" time="0" condition="StringCompare(Container(700).NumItems,4)">conditional</animation>
-					<animation effect="slide" start="0,0" end="112,0" time="0" condition="StringCompare(Container(700).NumItems,3)">conditional</animation>
-					<animation effect="slide" start="0,0" end="168,0" time="0" condition="StringCompare(Container(700).NumItems,2)">conditional</animation>
-					<animation effect="slide" start="0,0" end="224,0" time="0" condition="StringCompare(Container(700).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="56,0" time="0" condition="String.IsEqual(Container(700).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="112,0" time="0" condition="String.IsEqual(Container(700).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(700).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(700).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
 					<ondown>20</ondown>
 					<onleft>700</onleft>
@@ -276,15 +276,15 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo)</visible>
 				<left>0</left>
 				<top>148r</top>
 				<include>VisibleFadeEffect</include>
 				<control type="panel" id="703">
-					<animation effect="slide" start="0,0" end="56,0" time="0" condition="StringCompare(Container(703).NumItems,4)">conditional</animation>
-					<animation effect="slide" start="0,0" end="112,0" time="0" condition="StringCompare(Container(703).NumItems,3)">conditional</animation>
-					<animation effect="slide" start="0,0" end="168,0" time="0" condition="StringCompare(Container(703).NumItems,2)">conditional</animation>
-					<animation effect="slide" start="0,0" end="224,0" time="0" condition="StringCompare(Container(703).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="56,0" time="0" condition="String.IsEqual(Container(703).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="112,0" time="0" condition="String.IsEqual(Container(703).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(703).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(703).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
 					<ondown>20</ondown>
 					<onleft>703</onleft>
@@ -296,15 +296,15 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Container(9000).ListItem.Property(AddOnSet),AddonSetThree)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree)</visible>
 				<left>0</left>
 				<top>148r</top>
 				<include>VisibleFadeEffect</include>
 				<control type="panel" id="704">
-					<animation effect="slide" start="0,0" end="56,0" time="0" condition="StringCompare(Container(704).NumItems,4)">conditional</animation>
-					<animation effect="slide" start="0,0" end="112,0" time="0" condition="StringCompare(Container(704).NumItems,3)">conditional</animation>
-					<animation effect="slide" start="0,0" end="168,0" time="0" condition="StringCompare(Container(704).NumItems,2)">conditional</animation>
-					<animation effect="slide" start="0,0" end="224,0" time="0" condition="StringCompare(Container(704).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="56,0" time="0" condition="String.IsEqual(Container(704).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="112,0" time="0" condition="String.IsEqual(Container(704).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(704).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(704).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
 					<ondown>20</ondown>
 					<onleft>704</onleft>
@@ -316,15 +316,15 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Container(9000).ListItem.Property(AddOnSet),AddonSetFour)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour)</visible>
 				<left>0</left>
 				<top>148r</top>
 				<include>VisibleFadeEffect</include>
 				<control type="panel" id="705">
-					<animation effect="slide" start="0,0" end="56,0" time="0" condition="StringCompare(Container(705).NumItems,4)">conditional</animation>
-					<animation effect="slide" start="0,0" end="112,0" time="0" condition="StringCompare(Container(705).NumItems,3)">conditional</animation>
-					<animation effect="slide" start="0,0" end="168,0" time="0" condition="StringCompare(Container(705).NumItems,2)">conditional</animation>
-					<animation effect="slide" start="0,0" end="224,0" time="0" condition="StringCompare(Container(705).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="56,0" time="0" condition="String.IsEqual(Container(705).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="112,0" time="0" condition="String.IsEqual(Container(705).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(705).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(705).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
 					<ondown>20</ondown>
 					<onleft>705</onleft>
@@ -336,15 +336,15 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Container(9000).ListItem.Property(AddOnSet),AddonSetFive)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive)</visible>
 				<left>0</left>
 				<top>148r</top>
 				<include>VisibleFadeEffect</include>
 				<control type="panel" id="706">
-					<animation effect="slide" start="0,0" end="56,0" time="0" condition="StringCompare(Container(706).NumItems,4)">conditional</animation>
-					<animation effect="slide" start="0,0" end="112,0" time="0" condition="StringCompare(Container(706).NumItems,3)">conditional</animation>
-					<animation effect="slide" start="0,0" end="168,0" time="0" condition="StringCompare(Container(706).NumItems,2)">conditional</animation>
-					<animation effect="slide" start="0,0" end="224,0" time="0" condition="StringCompare(Container(706).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="56,0" time="0" condition="String.IsEqual(Container(706).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="112,0" time="0" condition="String.IsEqual(Container(706).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(706).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(706).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
 					<ondown>20</ondown>
 					<onleft>706</onleft>
@@ -356,15 +356,15 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Container(9000).ListItem.Property(AddOnSet),AddonSetSix)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix)</visible>
 				<left>0</left>
 				<top>148r</top>
 				<include>VisibleFadeEffect</include>
 				<control type="panel" id="707">
-					<animation effect="slide" start="0,0" end="56,0" time="0" condition="StringCompare(Container(707).NumItems,4)">conditional</animation>
-					<animation effect="slide" start="0,0" end="112,0" time="0" condition="StringCompare(Container(707).NumItems,3)">conditional</animation>
-					<animation effect="slide" start="0,0" end="168,0" time="0" condition="StringCompare(Container(707).NumItems,2)">conditional</animation>
-					<animation effect="slide" start="0,0" end="224,0" time="0" condition="StringCompare(Container(707).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="56,0" time="0" condition="String.IsEqual(Container(707).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="112,0" time="0" condition="String.IsEqual(Container(707).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(707).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(707).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
 					<ondown>20</ondown>
 					<onleft>707</onleft>
@@ -376,15 +376,15 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven)</visible>
 				<left>0</left>
 				<top>148r</top>
 				<include>VisibleFadeEffect</include>
 				<control type="panel" id="708">
-					<animation effect="slide" start="0,0" end="56,0" time="0" condition="StringCompare(Container(708).NumItems,4)">conditional</animation>
-					<animation effect="slide" start="0,0" end="112,0" time="0" condition="StringCompare(Container(708).NumItems,3)">conditional</animation>
-					<animation effect="slide" start="0,0" end="168,0" time="0" condition="StringCompare(Container(708).NumItems,2)">conditional</animation>
-					<animation effect="slide" start="0,0" end="224,0" time="0" condition="StringCompare(Container(708).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="56,0" time="0" condition="String.IsEqual(Container(708).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="112,0" time="0" condition="String.IsEqual(Container(708).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(708).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(708).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
 					<ondown>20</ondown>
 					<onleft>708</onleft>
@@ -396,15 +396,15 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Container(9000).ListItem.Property(AddOnSet),AddonSetEight)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight)</visible>
 				<left>0</left>
 				<top>148r</top>
 				<include>VisibleFadeEffect</include>
 				<control type="panel" id="709">
-					<animation effect="slide" start="0,0" end="56,0" time="0" condition="StringCompare(Container(709).NumItems,4)">conditional</animation>
-					<animation effect="slide" start="0,0" end="112,0" time="0" condition="StringCompare(Container(709).NumItems,3)">conditional</animation>
-					<animation effect="slide" start="0,0" end="168,0" time="0" condition="StringCompare(Container(709).NumItems,2)">conditional</animation>
-					<animation effect="slide" start="0,0" end="224,0" time="0" condition="StringCompare(Container(709).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="56,0" time="0" condition="String.IsEqual(Container(709).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="112,0" time="0" condition="String.IsEqual(Container(709).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(709).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(709).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
 					<ondown>20</ondown>
 					<onleft>709</onleft>
@@ -416,15 +416,15 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Container(9000).ListItem.Property(AddOnSet),AddonSetNine)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine)</visible>
 				<left>0</left>
 				<top>148r</top>
 				<include>VisibleFadeEffect</include>
 				<control type="panel" id="710">
-					<animation effect="slide" start="0,0" end="56,0" time="0" condition="StringCompare(Container(710).NumItems,4)">conditional</animation>
-					<animation effect="slide" start="0,0" end="112,0" time="0" condition="StringCompare(Container(710).NumItems,3)">conditional</animation>
-					<animation effect="slide" start="0,0" end="168,0" time="0" condition="StringCompare(Container(710).NumItems,2)">conditional</animation>
-					<animation effect="slide" start="0,0" end="224,0" time="0" condition="StringCompare(Container(710).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="56,0" time="0" condition="String.IsEqual(Container(710).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="112,0" time="0" condition="String.IsEqual(Container(710).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(710).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(710).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
 					<ondown>20</ondown>
 					<onleft>710</onleft>
@@ -436,15 +436,15 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Container(9000).ListItem.Property(AddOnSet),AddonSetTen)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen)</visible>
 				<left>0</left>
 				<top>148r</top>
 				<include>VisibleFadeEffect</include>
 				<control type="panel" id="711">
-					<animation effect="slide" start="0,0" end="56,0" time="0" condition="StringCompare(Container(711).NumItems,4)">conditional</animation>
-					<animation effect="slide" start="0,0" end="112,0" time="0" condition="StringCompare(Container(711).NumItems,3)">conditional</animation>
-					<animation effect="slide" start="0,0" end="168,0" time="0" condition="StringCompare(Container(711).NumItems,2)">conditional</animation>
-					<animation effect="slide" start="0,0" end="224,0" time="0" condition="StringCompare(Container(711).NumItems,1)">conditional</animation>
+					<animation effect="slide" start="0,0" end="56,0" time="0" condition="String.IsEqual(Container(711).NumItems,4)">conditional</animation>
+					<animation effect="slide" start="0,0" end="112,0" time="0" condition="String.IsEqual(Container(711).NumItems,3)">conditional</animation>
+					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(711).NumItems,2)">conditional</animation>
+					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(711).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
 					<ondown>20</ondown>
 					<onleft>711</onleft>
@@ -463,7 +463,11 @@
 		<left>360</left>
 		<!--top>40</top-->
 		<!--top>190r</top-->
-		<top>150r</top>
+		<!--top>150r</top-->
+		
+		<top>108r</top>	
+		
+		
 		<width>560</width>
 		<height>130</height>
 		<pagecontrol>-</pagecontrol>
@@ -494,7 +498,7 @@
 				<height>100</height>
 				<aspectratio>stretch</aspectratio>
 				<texture diffuse="PosterDiffuse.png">black-back.png</texture>
-				<colordiffuse>AAFFFFFF</colordiffuse>
+				<colordiffuse>55FFFFFF</colordiffuse>
 			</control>
 		</itemlayout>
 		<focusedlayout height="110" width="112">
@@ -505,6 +509,8 @@
 				<width>100</width>
 				<height>100</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				
+					
 				<animation effect="zoom" start="5,5,100,100" end="0,0,110,110" time="200">focus</animation>
 			</control>
 			<control type="image">
@@ -514,19 +520,15 @@
 				<height>80</height>
 				<aspectratio aligny="bottom">keep</aspectratio>
 				<texture background="true" diffuse="PosterDiffuse.png">$INFO[ListItem.Icon]</texture>
+				
+				
+				<!--bordertexture border="10">folder-focus.png</bordertexture>
+				<bordersize>5</bordersize-->
+				
+				
 				<animation effect="zoom" start="15,15,80,80" end="10,10,90,90" time="200">focus</animation>
 			</control>
-			<!--control type="image">
-				<left>5</left>
-				<top>5</top>
-				<width>100</width>
-				<height>100</height>
-				<aspectratio>stretch</aspectratio>
-				<texture diffuse="PosterDiffuse.png">black-back.png</texture>
-				<colordiffuse>AAFFFFFF</colordiffuse>
-				<animation effect="zoom" start="5,5,100,100" end="0,0,110,110" time="200">focus</animation>
-				<visible>!ControlGroup(9003).HasFocus</visible>
-			</control-->
+			
 		</focusedlayout>
 	</include>
 	<include name="HomeAddonSetOne">

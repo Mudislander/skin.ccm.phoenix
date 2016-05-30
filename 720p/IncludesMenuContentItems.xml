@@ -1770,6 +1770,27 @@
 				<visible>String.IsEqual(Window.Property(MenuItemType),SystemMenu)</visible>
 			</item>
 			<item>
+				<description>service.libreelec.settings</description>
+				<label>$LOCALIZE[31141]</label>
+				<include>ClearButtonChoice</include>
+				<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Path,RunAddon(service.libreelec.settings),return)</onclick>
+				<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Label,$LOCALIZE[31141])</onclick>
+				<onclick condition="Window.IsVisible(1110)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Sub,$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
+				<onclick condition="Window.IsVisible(1105)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Sub,SubSetSeven)</onclick>
+				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Addon)</onclick>
+				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Widget)</onclick>
+				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetName)</onclick>
+				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].WidgetPath)</onclick>
+				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Type,Settings)</onclick>
+				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Display,Default)</onclick>
+				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Fanart,special://skin/backgrounds/settings.jpg)</onclick>
+				<onclick condition="Window.IsVisible(1105) | Window.IsVisible(1110)">Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Stats,Settings)</onclick>
+				<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Label)</onclick>
+				<include>CloseMenuChoice</include>
+				<visible>String.IsEqual(Window.Property(MenuItemType),SystemMenu)</visible>
+				<visible>System.HasAddon(service.libreelec.settings)</visible>
+			</item>
+			<item>
 				<description>os.openelec.settings</description>
 				<label>$LOCALIZE[31159]</label>
 				<include>ClearButtonChoice</include>

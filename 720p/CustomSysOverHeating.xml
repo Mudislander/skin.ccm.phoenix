@@ -2,6 +2,6 @@
 <window type="dialog" id="1102">
 	<onload>ActivateWindow(1104)</onload>
 	<visible>Skin.HasSetting(EnableOverHeatAdvice)</visible>
-	<visible>[String.Contains(System.TemperatureUnits,C,right) + IntegerGreaterThan(System.CPUTemperature,75)]|[String.Contains(System.TemperatureUnits,F,right) + IntegerGreaterThan(System.CPUTemperature,167)]</visible>
+	<visible>[String.Contains(System.TemperatureUnits,C) + IntegerGreaterThan(System.CPUTemperature,75)]|[String.Contains(System.TemperatureUnits,F) + IntegerGreaterThan(System.CPUTemperature,167)]</visible>
 	<controls></controls>
 </window>

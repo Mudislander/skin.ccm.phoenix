@@ -11,7 +11,7 @@
 				<aspectratio>scale</aspectratio>
 				<include>VisibleFadeEffect</include>
 				<texture fallback="special://skin/backgrounds/SKINDEFAULT.jpg">$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</texture>
-				<visible>IsEmpty(Skin.String(GlobalBackGroundPath))</visible>
+				<visible>String.IsEmpty(Skin.String(GlobalBackGroundPath))</visible>
 			</control>
 			<control type="multiimage">
 				<depth>DepthBackground</depth>
@@ -51,7 +51,7 @@
 		<!--include>Window_OpenClose_Animation</include-->
 		<!--
 				<texture>special://skin/extras/Holiday/xmastree.jpg</texture>
-				<visible>IsEmpty(Skin.String(HolidayThemePath)) | IsEmpty(Control.GetLabel(5051))</visible>
+				<visible>String.IsEmpty(Skin.String(HolidayThemePath)) | IsEmpty(Control.GetLabel(5051))</visible>
 			</control>
 		</control-->
 		<control type="group">
@@ -71,8 +71,8 @@
 				<fadetime>FanartCrossfadeTime</fadetime>
 				<include>Window_OpenClose_Animation</include>
 				<include>LiveContentBackgrounds</include>
-				<visible>StringCompare(Container(9000).ListItem.Property(Background),Live)</visible>
-				<visible>!Control.HasFocus(510) | !Skin.HasSetting(EnableWidgetFanArt) | StringCompare(Container(9000).ListItem.Property(510WidgetSet),Favourites)</visible>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(Background),Live)</visible>
+				<visible>!Control.HasFocus(510) | !Skin.HasSetting(EnableWidgetFanArt) | String.IsEqual(Container(9000).ListItem.Property(510WidgetSet),Favourites)</visible>
 			</control-->
 		</control>
 		<control type="group">
@@ -106,14 +106,14 @@
 			<visible>[Player.HasVideo + !Skin.HasSetting(DisableBackgroundVideo)] + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels)</visible>
 			<include>VisibleFadeEffect</include>
 		</control>
-		<control type="visualisation">
+		<!--control type="visualisation">
 			<left>0</left>
 			<top>0</top>
 			<width>1280</width>
 			<height>720</height>
 			<visible>Player.HasAudio + !Skin.HasSetting(DisableBackgroundVis)</visible>
 			<visible>String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
-		</control>
+		</control-->
 		<control type="videowindow">
 			<depth>DepthBackground</depth>
 			<left>0</left>
@@ -122,7 +122,7 @@
 			<height>720</height>
 			<visible>Player.HasVideo + !Skin.HasSetting(DisableBackgroundVideo) + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels)</visible>
 		</control>
-		<control type="image">
+		<!--control type="image">
 			<depth>DepthBackground</depth>
 			<left>-20</left>
 			<top>-40</top>
@@ -131,7 +131,7 @@
 			<texture flipy="true" border="1">HomeNowPlayingBack.png</texture>
 			<visible>[Player.HasVideo + !Skin.HasSetting(DisableBackgroundVideo)] | [Player.HasAudio + ![Skin.HasSetting(DisableBackgroundVis) | !String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))]] | [!Skin.HasSetting(DisableBackGroundFanart) + !String.IsEmpty(ListItem.Property(Fanart_Image))]</visible>
 			<include>VisibleFadeEffect</include>
-		</control>
+		</control-->
 	</include>
 	<include name="ContentPanelBackgrounds">
 		<control type="image">
@@ -143,8 +143,10 @@
 			<height>100</height>
 			<texture>floor.png</texture>
 			<animation effect="rotatex" end="45" time="0" center="620,0" condition="true">Conditional</animation>
-			<animation effect="slide" start="0,10" end="0,0" time="150" condition="Window.Previous(Home)">WindowOpen</animation>
-			<animation effect="slide" start="0,0" end="0,10" time="150" condition="Window.Next(Home)">WindowClose</animation>
+			
+			<animation effect="slide" start="0,35" end="0,0" time="150" condition="Window.Previous(Home)">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="0,35" time="150" condition="Window.Next(Home)">WindowClose</animation>
+			
 		</control>
 		<control type="group">
 			<include>Window_OpenClose_Animation</include>

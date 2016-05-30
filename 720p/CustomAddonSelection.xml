@@ -114,14 +114,14 @@
 						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Label)</onclick>
 						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Path)</onclick>
 						<onclick>Skin.Reset($INFO[Window(Home).Property(UsrSelectBtn)].Icon)</onclick>
-						<onclick>ClearProperty(UsrSelectBtn,home)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
 					</item>
 					<item>
 						<description>Favourites</description>
 						<label>$LOCALIZE[1036]</label>
 						<onclick>Dialog.Close(1150)</onclick>
 						<onclick>RunScript(script.favourites,changetitle=true&amp;property=$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
-						<onclick>ClearProperty(UsrSelectBtn,home)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
 						<visible>!Skin.HasSetting(DisableScriptFavourites)</visible>
 					</item>
 					<item>
@@ -129,7 +129,7 @@
 						<label>$LOCALIZE[31222] - $LOCALIZE[31223]</label>
 						<onclick>Dialog.Close(1150)</onclick>
 						<onclick>RunScript(special://home/addons/plugin.program.super.favourites/chooser.py,property=$INFO[Window(Home).Property(UsrSelectBtn)])</onclick>
-						<onclick>ClearProperty(UsrSelectBtn,home)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
 						<visible>System.HasAddon(plugin.program.super.favourites)</visible>
 					</item>
 					<item>
@@ -142,7 +142,7 @@
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].path,RunAddon($INFO[Skin.String(UsrSelectAddon)]))</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Icon,$INFO[system.addonicon(Skin.String(UsrSelectAddon))])</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Label)</onclick>
-						<onclick>ClearProperty(UsrSelectBtn,home)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
 					</item>
 					<item>
 						<description>Music addons</description>
@@ -154,7 +154,7 @@
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].path,RunAddon($INFO[Skin.String(UsrSelectAddon)]))</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Icon,$INFO[system.addonicon(Skin.String(UsrSelectAddon))])</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Label)</onclick>
-						<onclick>ClearProperty(UsrSelectBtn,home)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
 					</item>
 					<item>
 						<description>Picture addons</description>
@@ -166,7 +166,7 @@
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].path,RunAddon($INFO[Skin.String(UsrSelectAddon)]))</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Icon,$INFO[system.addonicon(Skin.String(UsrSelectAddon))])</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Label)</onclick>
-						<onclick>ClearProperty(UsrSelectBtn,home)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
 					</item>
 					<item>
 						<description>Programme addons</description>
@@ -178,7 +178,7 @@
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].path,RunAddon($INFO[Skin.String(UsrSelectAddon)]))</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Icon,$INFO[system.addonicon(Skin.String(UsrSelectAddon))])</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Label)</onclick>
-						<onclick>ClearProperty(UsrSelectBtn,home)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
 					</item>
 					<item>
 						<description>Playlist Music</description>
@@ -190,7 +190,7 @@
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Path,PlayMedia("$INFO[Skin.String(UsrSelectAddon)]"))</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Icon,DefaultMusicPlaylists.png)</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Label)</onclick>
-						<onclick>ClearProperty(UsrSelectBtn,home)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
 					</item>
 					<item>
 						<description>Playlist Video</description>
@@ -202,7 +202,7 @@
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Path,ActivateWindow(VideoLibrary,"$INFO[Skin.String(UsrSelectAddon)]",return))</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Icon,DefaultVideoPlaylists.png)</onclick>
 						<onclick>Skin.SetString($INFO[Window(Home).Property(UsrSelectBtn)].Label)</onclick>
-						<onclick>ClearProperty(UsrSelectBtn,home)</onclick>
+						<onclick>ClearProperty(UsrSelectBtn,Home)</onclick>
 					</item>
 				</content>
 			</control>

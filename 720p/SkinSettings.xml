@@ -4,7 +4,7 @@
 	<include condition="!Skin.HasSetting(InitialSetUpRun)">DefaultInitialSetup</include>
 	<onload>SetProperty(MenuItemActive,Settings,Home)</onload>
 	<onload condition="!Skin.HasSetting(DisableScriptFavourites)">RunScript(script.favourites)</onload>
-	<onload condition="StringCompare(Container(9011).Position,0) + !StringCompare(Skin.String(InitialMenuPosi),0)">Control.Move(9011,$INFO[Skin.String(InitialMenuPosi)])</onload>
+	<onload condition="String.IsEqual(Container(9011).Position,0) + !String.IsEqual(Skin.String(InitialMenuPosi),0)">Control.Move(9011,$INFO[Skin.String(InitialMenuPosi)])</onload>
 	<controls>
 		<control type="image">
 			<depth>DepthBackground</depth>
@@ -293,13 +293,6 @@
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 					</control>
-					
-					
-					
-					
-					
-					
-					
 					<control type="radiobutton" id="104">
 						<description>enable music info</description>
 						<width>750</width>
@@ -314,9 +307,6 @@
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 					</control>
-					
-					
-					
 					<control type="radiobutton" id="105">
 						<description>enable suggested info</description>
 						<width>750</width>
@@ -331,15 +321,7 @@
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 					</control>
-					
-					
-					
-					
-					
-					
-					
-					
-					<control type="radiobutton" id="106">
+					<!--control type="radiobutton" id="106">
 						<description>enable weather info</description>
 						<width>750</width>
 						<height>40</height>
@@ -353,14 +335,40 @@
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
 						<visible>!String.IsEmpty(Weather.Plugin)</visible>
+					</control-->
+					
+					
+				
+					
+					
+					<control type="radiobutton" id="106">
+						<description>enable stats bar</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>31332</label>
+						<onclick>Skin.ToggleSetting(HideHomeStats)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<selected>!Skin.HasSetting(HideHomeStats)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
 					</control>
-					
-					
-					
-					
-					
-					
-					
+					<control type="radiobutton" id="107">
+						<description>enable date and time</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>31333</label>
+						<onclick>Skin.ToggleSetting(HideHomeOSDClock)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<selected>!Skin.HasSetting(HideHomeOSDClock)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
 					
 					
 					<control type="label" id="120">
@@ -432,6 +440,7 @@
 						<onclick condition="Skin.HasSetting(DisableSlideShowArt)">Addon.OpenSettings(script.artistslideshow)</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>!Skin.HasSetting(DisableSlideShowArt) + System.HasAddon(script.artistslideshow)</selected>
+						<enable>!Skin.HasSetting(HideVisualizationFanart)</enable>
 					</control>
 					<!--control type="radiobutton" id="125">
 						<width>750</width>
@@ -494,6 +503,48 @@
 					</control>
 					<control type="label" id="129">
 						<width>750</width>
+						<height>45</height>
+						<font>font13</font>
+						<label>[B]$LOCALIZE[31259][/B] $INFO[System.AddonVersion(script.skin.helper.service) ,[COLOR=grey3]($LOCALIZE[31197],)[/COLOR]]</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="button" id="130">
+						<description>Script Skin Helper</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<label>$LOCALIZE[31307] $LOCALIZE[31259]</label>
+						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+						<onclick condition="System.HasAddon(script.skin.helper.service)">Addon.OpenSettings(script.skin.helper.service)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+					</control>
+					<control type="radiobutton" id="131">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[31260]</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+						<onclick condition="!Skin.HasSetting(DisableFanartScript)">Skin.SetString(SkinHelper.RandomFanartDelay,0)</onclick>
+						<onclick condition="Skin.HasSetting(DisableFanartScript) + !String.IsEmpty(Skin.String(MultiImageTimer))">Skin.SetString(SkinHelper.RandomFanartDelay,$INFO[Skin.String(MultiImageTimer)])</onclick>
+						<onclick condition="Skin.HasSetting(DisableFanartScript) + String.IsEmpty(Skin.String(MultiImageTimer))">Skin.SetString(SkinHelper.RandomFanartDelay,8)</onclick>
+						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.ToggleSetting(DisableFanartScript)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<selected>!Skin.HasSetting(DisableFanartScript) + System.HasAddon(script.skin.helper.service)</selected>
+						<enable>Skin.HasSetting(MultiImageBackground)</enable>
+					</control>
+					<control type="label" id="132">
+						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
 						<label>[B]$LOCALIZE[31271][/B] [COLOR=grey2]($LOCALIZE[31272])[/COLOR] $INFO[System.AddonVersion(script.randomandlastitems) ,[COLOR=grey3]($LOCALIZE[31197],)[/COLOR]]</label>
@@ -502,7 +553,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 					</control>
-					<control type="radiobutton" id="130">
+					<control type="radiobutton" id="133">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -517,7 +568,7 @@
 						<selected>!Skin.HasSetting(DisableScriptPlaylist) + System.HasAddon(script.randomandlastitems)</selected>
 						<enable>!Skin.HasSetting(DisableHomeWidgets)</enable>
 					</control>
-					<control type="button" id="131">
+					<control type="button" id="134">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -534,7 +585,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<enable>!Skin.HasSetting(DisableScriptPlaylist)</enable>
 					</control>
-					<control type="radiobutton" id="132">
+					<control type="radiobutton" id="135">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -548,7 +599,7 @@
 						<selected>Skin.HasSetting(WidgetPlayAlbum)</selected>
 						<enable>!Skin.HasSetting(DisableHomeWidgets)</enable>
 					</control>
-					<control type="radiobutton" id="133">
+					<control type="radiobutton" id="136">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -562,37 +613,7 @@
 						<selected>Skin.HasSetting(FanArtStyleWidget)</selected>
 						<enable>!Skin.HasSetting(DisableHomeWidgets)</enable>
 					</control>
-					<control type="label" id="134">
-						<width>750</width>
-						<height>45</height>
-						<font>font13</font>
-						<label>[B]$LOCALIZE[31259][/B] $INFO[System.AddonVersion(script.skin.helper.service) ,[COLOR=grey3]($LOCALIZE[31197],)[/COLOR]]</label>
-						<textcolor>blue</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<align>left</align>
-						<aligny>center</aligny>
-					</control>
-					<control type="radiobutton" id="135">
-						<width>750</width>
-						<height>40</height>
-						<font>font13</font>
-						<label>$LOCALIZE[31260]</label>
-						<textcolor>grey2</textcolor>
-						<focusedcolor>white</focusedcolor>
-						<texturefocus>MenuItemFO.png</texturefocus>
-						<texturenofocus>MenuItemNF.png</texturenofocus>
-						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
-						<onclick condition="!Skin.HasSetting(DisableFanartScript)">Skin.SetString(SkinHelper.RandomFanartDelay,0)</onclick>
-						<!--onclick condition="!Skin.HasSetting(DisableFanartScript)">Skin.Setbool(DisableFanartScript)</onclick-->
-						<onclick condition="Skin.HasSetting(DisableFanartScript) + !String.IsEmpty(Skin.String(MultiImageTimer))">Skin.SetString(SkinHelper.RandomFanartDelay,$INFO[Skin.String(MultiImageTimer)])</onclick>
-						<onclick condition="Skin.HasSetting(DisableFanartScript) + String.IsEmpty(Skin.String(MultiImageTimer))">Skin.SetString(SkinHelper.RandomFanartDelay,8)</onclick>
-						<!--onclick condition="Skin.HasSetting(DisableFanartScript)">Skin.Reset(DisableFanartScript)</onclick-->
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.ToggleSetting(DisableFanartScript)</onclick>
-						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<selected>!Skin.HasSetting(DisableFanartScript) + System.HasAddon(script.skin.helper.service)</selected>
-						<enable>Skin.HasSetting(MultiImageBackground)</enable>
-					</control>
-					<!--control type="radiobutton" id="136">
+					<!--control type="radiobutton" id="137">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -641,9 +662,6 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<enable>!String.IsEmpty(Skin.StringLyricScript_Path)</enable>
 					</control>
-					
-					
-					
 					<control type="label" id="155">
 						<width>750</width>
 						<height>45</height>
@@ -654,7 +672,24 @@
 						<align>left</align>
 						<aligny>center</aligny>
 					</control>
-					<control type="radiobutton" id="156">
+					<control type="button" id="156">
+						<description>OSD Start Display Timer</description>
+						<left>0</left>
+						<top>78</top>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[31304]</label>
+						<label2>$VAR[GlobalOSDDisplayTimer]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>SetProperty(UsrSelectBtn,SkinHelper.ShowInfoAtPlaybackStart,Home)</onclick>
+						<onclick>ActivateWindow(1198)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+					</control>
+					<control type="radiobutton" id="157">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -667,7 +702,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>!Skin.HasSetting(DisableBackgroundVideo)</selected>
 					</control>
-					<control type="radiobutton" id="157">
+					<control type="radiobutton" id="158">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -680,7 +715,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>!Skin.HasSetting(DisableBackgroundVis)</selected>
 					</control>
-					<control type="radiobutton" id="158">
+					<control type="radiobutton" id="159">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -693,21 +728,133 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>!Skin.HasSetting(DisableBackGroundFanart)</selected>
 					</control>
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
 					<control type="label" id="166">
+						<width>750</width>
+						<height>45</height>
+						<font>font13</font>
+						<label>[B]$LOCALIZE[31292][/B]</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="167">
+						<description>Auto Music Viz</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31297</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(HideAutoMusicViz)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<selected>!Skin.HasSetting(HideAutoMusicViz)</selected>
+					</control>
+					<control type="radiobutton" id="168">
+						<description>Turn off ScreenSaver</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31299</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(SkinHelper.DisableScreenSaverOnFullScreenMusic)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<selected>Skin.HasSetting(SkinHelper.DisableScreenSaverOnFullScreenMusic)</selected>
+					</control>
+					<control type="radiobutton" id="169">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31293</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(DisableMusicArt)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<selected>!Skin.HasSetting(DisableMusicArt)</selected>
+					</control>
+					<control type="radiobutton" id="170">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31129</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(HideVisualizationFanart)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<selected>!Skin.HasSetting(HideVisualizationFanart)</selected>
+					</control>
+					<control type="button" id="171">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[31295]</label>
+						<label2>[COLOR=selected]$INFO[Skin.String(VizDiffuseAmnt)]$VAR[VizDiffuseValue][/COLOR]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick condition="IsEmpty(Skin.String(VizDiffuseAmnt))">Skin.SetString(VizDiffuseAmnt,10)</onclick>
+						<onclick condition="Skin.String(VizDiffuseAmnt,10)">Skin.SetString(VizDiffuseAmnt,25)</onclick>
+						<onclick condition="Skin.String(VizDiffuseAmnt,25)">Skin.SetString(VizDiffuseAmnt,40)</onclick>
+						<onclick condition="Skin.String(VizDiffuseAmnt,40)">Skin.SetString(VizDiffuseAmnt,55)</onclick>
+						<onclick condition="Skin.String(VizDiffuseAmnt,55)">Skin.SetString(VizDiffuseAmnt,70)</onclick>
+						<onclick condition="Skin.String(VizDiffuseAmnt,70)">Skin.SetString(VizDiffuseAmnt,85)</onclick>
+						<onclick condition="Skin.String(VizDiffuseAmnt,85)">Skin.Reset(VizDiffuseAmnt)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+					</control>
+					<control type="radiobutton" id="172">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31130</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(NoAnimateVizFanart)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<selected>!Skin.HasSetting(NoAnimateVizFanart)</selected>
+					</control>
+					<control type="radiobutton" id="173">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31294</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(HideBackgroundCDWall)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+						<selected>!Skin.HasSetting(HideBackgroundCDWall)</selected>
+					</control>
+					<control type="button" id="174">
+						<description>OSD Info Display Timer</description>
+						<left>0</left>
+						<top>78</top>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[31306]</label>
+						<label2>$VAR[MusicOSDDisplayTimer]</label2>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>SetProperty(UsrSelectBtn,SkinHelper.AutoCloseMusicOSD,Home)</onclick>
+						<onclick>ActivateWindow(1198)</onclick>
+						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
+					</control>
+					<control type="label" id="186">
 						<width>750</width>
 						<height>45</height>
 						<font>font13</font>
@@ -717,7 +864,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 					</control>
-					<control type="radiobutton" id="167">
+					<control type="radiobutton" id="187">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -730,7 +877,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>Skin.HasSetting(AutoScroll)</selected>
 					</control>
-					<control type="radiobutton" id="168">
+					<control type="radiobutton" id="188">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -743,7 +890,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>!Skin.HasSetting(Show_SlideShow_Paused)</selected>
 					</control>
-					<control type="radiobutton" id="169">
+					<control type="radiobutton" id="189">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -756,7 +903,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>Skin.HasSetting(WindowedTrailer)</selected>
 					</control>
-					<control type="radiobutton" id="170">
+					<control type="radiobutton" id="190">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -769,7 +916,17 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>Skin.HasSetting(HideFilenameFlagging)</selected>
 					</control>
-					<control type="radiobutton" id="171">
+					<control type="label" id="195">
+						<width>750</width>
+						<height>45</height>
+						<font>font13</font>
+						<label>[B]$LOCALIZE[31311][/B]</label>
+						<textcolor>blue</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="196">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
@@ -782,25 +939,19 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<selected>Skin.HasSetting(HideEPGwithRDS)</selected>
 					</control>
-					
-					<control type="radiobutton" id="173">
+					<control type="radiobutton" id="197">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
-						<label>31129</label>
+						<label>31312</label>
 						<textcolor>grey2</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
-						<onclick>Skin.ToggleSetting(HideVisualizationFanart)</onclick>
+						<onclick>Skin.ToggleSetting(SkinHelper.EnablePVRThumbs)</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<selected>Skin.HasSetting(HideVisualizationFanart)</selected>
+						<selected>Skin.HasSetting(SkinHelper.EnablePVRThumbs)</selected>
 					</control>
-					
-					
-					
-					
-					
 				</control>
 				<control type="scrollbar" id="60">
 					<left>1060</left>
@@ -1973,7 +2124,7 @@
 						<onclick>ActivateWindow(1120)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.1)">Skin.SetString(StickyMenuSelect.Addon,$INFO[Skin.String(StickyMenu.1.Addon)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.1.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.1.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
+						<enable>!Skin.String(StickyMenu.1.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.1.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
 						<visible>!Skin.HasSetting(DisableHomeAddons)</visible>
 					</control>
 					<control type="button" id="302">
@@ -1990,7 +2141,7 @@
 						<onclick>ActivateWindow(1122)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.1)">Skin.SetString(StickyMenuSelect.Widget,$INFO[Skin.String(StickyMenu.1.Widget)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.1.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.1.Path))</enable>
+						<enable>!Skin.String(StickyMenu.1.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.1.Path))</enable>
 						<visible>!Skin.HasSetting(DisableHomeWidgets)</visible>
 					</control>
 					<control type="button" id="304">
@@ -2024,7 +2175,7 @@
 						<onclick>ActivateWindow(1120)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.2)">Skin.SetString(StickyMenuSelect.Addon,$INFO[Skin.String(StickyMenu.2.Addon)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.2.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.2.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
+						<enable>!Skin.String(StickyMenu.2.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.2.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
 						<visible>!Skin.HasSetting(DisableHomeAddons)</visible>
 					</control>
 					<control type="button" id="306">
@@ -2041,7 +2192,7 @@
 						<onclick>ActivateWindow(1122)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.2)">Skin.SetString(StickyMenuSelect.Widget,$INFO[Skin.String(StickyMenu.2.Widget)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.2.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.2.Path))</enable>
+						<enable>!Skin.String(StickyMenu.2.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.2.Path))</enable>
 						<visible>!Skin.HasSetting(DisableHomeWidgets)</visible>
 					</control>
 					<control type="button" id="308">
@@ -2075,7 +2226,7 @@
 						<onclick>ActivateWindow(1120)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.3)">Skin.SetString(StickyMenuSelect.Addon,$INFO[Skin.String(StickyMenu.3.Addon)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.3.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.3.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
+						<enable>!Skin.String(StickyMenu.3.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.3.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
 						<visible>!Skin.HasSetting(DisableHomeAddons)</visible>
 					</control>
 					<control type="button" id="310">
@@ -2092,7 +2243,7 @@
 						<onclick>ActivateWindow(1122)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.3)">Skin.SetString(StickyMenuSelect.Widget,$INFO[Skin.String(StickyMenu.3.Widget)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.3.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.3.Path))</enable>
+						<enable>!Skin.String(StickyMenu.3.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.3.Path))</enable>
 						<visible>!Skin.HasSetting(DisableHomeWidgets)</visible>
 					</control>
 					<control type="button" id="312">
@@ -2126,7 +2277,7 @@
 						<onclick>ActivateWindow(1120)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.4)">Skin.SetString(StickyMenuSelect.Addon,$INFO[Skin.String(StickyMenu.4.Addon)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.4.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.4.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
+						<enable>!Skin.String(StickyMenu.4.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.4.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
 						<visible>!Skin.HasSetting(DisableHomeAddons)</visible>
 					</control>
 					<control type="button" id="314">
@@ -2143,7 +2294,7 @@
 						<onclick>ActivateWindow(1122)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.4)">Skin.SetString(StickyMenuSelect.Widget,$INFO[Skin.String(StickyMenu.4.Widget)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.4.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.4.Path))</enable>
+						<enable>!Skin.String(StickyMenu.4.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.4.Path))</enable>
 						<visible>!Skin.HasSetting(DisableHomeWidgets)</visible>
 					</control>
 					<control type="button" id="316">
@@ -2177,7 +2328,7 @@
 						<onclick>ActivateWindow(1120)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.5)">Skin.SetString(StickyMenuSelect.Addon,$INFO[Skin.String(StickyMenu.5.Addon)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.5.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.5.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
+						<enable>!Skin.String(StickyMenu.5.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.5.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
 						<visible>!Skin.HasSetting(DisableHomeAddons)</visible>
 					</control>
 					<control type="button" id="318">
@@ -2194,7 +2345,7 @@
 						<onclick>ActivateWindow(1122)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.5)">Skin.SetString(StickyMenuSelect.Widget,$INFO[Skin.String(StickyMenu.5.Widget)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.5.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.5.Path))</enable>
+						<enable>!Skin.String(StickyMenu.5.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.5.Path))</enable>
 						<visible>!Skin.HasSetting(DisableHomeWidgets)</visible>
 					</control>
 					<control type="button" id="320">
@@ -2228,7 +2379,7 @@
 						<onclick>ActivateWindow(1120)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.6)">Skin.SetString(StickyMenuSelect.Addon,$INFO[Skin.String(StickyMenu.6.Addon)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.6.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.6.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
+						<enable>!Skin.String(StickyMenu.6.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.6.Path)) + [!Skin.HasSetting(UltraLowMenuBar) | Skin.HasSetting(EnableBladeAddons)]</enable>
 						<visible>!Skin.HasSetting(DisableHomeAddons)</visible>
 					</control>
 					<control type="button" id="322">
@@ -2245,7 +2396,7 @@
 						<onclick>ActivateWindow(1122)</onclick>
 						<onclick condition="Skin.String(StickyMenuSelect.Current,StickyMenu.6)">Skin.SetString(StickyMenuSelect.Widget,$INFO[Skin.String(StickyMenu.6.Widget)])</onclick>
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<enable>!Skin.String(StickyMenu.6.Path,Hidden) + !IsEmpty(Skin.String(StickyMenu.6.Path))</enable>
+						<enable>!Skin.String(StickyMenu.6.Path,Hidden) + !String.IsEmpty(Skin.String(StickyMenu.6.Path))</enable>
 						<visible>!Skin.HasSetting(DisableHomeWidgets)</visible>
 					</control>
 				</control>
@@ -2737,7 +2888,6 @@
 								<ondown>414</ondown>
 								<enable>!Skin.HasSetting(DisableFanartScript)</enable>
 							</control>
-							<!--	Window(Home).Property(SkinHelper.AllMoviesBackground) | Random fanart of movies in video database		-->
 							<control type="button" id="414">
 								<description>Live Content Button</description>
 								<left>0</left>
@@ -5149,7 +5299,6 @@
 						<label>$VAR[HomeBackgroundLabel]</label>
 						<textcolor>white</textcolor>
 					</control>
-					<!--################################################-->
 				</control>
 				<control type="grouplist" id="9005">
 					<visible>Container(9000).Hasfocus(5)</visible>
@@ -6369,16 +6518,6 @@
 					<onright>60</onright>
 					<onup>9006</onup>
 					<ondown>9006</ondown>
-					<control type="label" id="600">
-						<width>750</width>
-						<height>45</height>
-						<font>font13</font>
-						<label>[B]$LOCALIZE[31189][/B]</label>
-						<textcolor>blue</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<align>left</align>
-						<aligny>center</aligny>
-					</control>
 					<control type="label" id="601">
 						<width>750</width>
 						<height>45</height>
@@ -7452,30 +7591,33 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<visible>String.IsEmpty(Skin.String(HomeWidget.1.Lock))</visible>
 					</control>
-					<control type="button" id="743">
+					
+					
+					
+					
+					<!--control type="button" id="743">
 						<width>750</width>
 						<height>40</height>
 						<font>font13</font>
-						<!--label>$LOCALIZE[31077] $LOCALIZE[31076]</label-->
-						<label>Sorted By</label>
-						<!--label2>[COLOR=selected]$VAR[WidgetOneDisplay][/COLOR]</label2-->
-						<label2>[COLOR=selected]Random[/COLOR]</label2>
+						<label>$LOCALIZE[31321]</label>
+						<label2>[COLOR=selected]$VAR[UsrWidgetOneSort][/COLOR]</label2>
+						
+						
 						<textcolor>grey2</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
-						<!--onclick condition="String.IsEmpty(Skin.String(HomeWidget.1.Display))">Skin.SetString(HomeWidget.1.Display,landscape)</onclick>
-						<onclick condition="Skin.String(HomeWidget.1.Display,landscape)+ Skin.String(HomeWidget.1.Target,video)">Skin.SetString(HomeWidget.1.Display,poster)</onclick>
-						<onclick condition="Skin.String(HomeWidget.1.Display,landscape)+ Skin.String(HomeWidget.1.Target,tvshow)">Skin.SetString(HomeWidget.1.Display,poster)</onclick>
-						<onclick condition="Skin.String(HomeWidget.1.Display,landscape)+ Skin.String(HomeWidget.1.Target,episode)">Skin.SetString(HomeWidget.1.Display,poster)</onclick>
-						<onclick condition="Skin.String(HomeWidget.1.Display,landscape)+ Skin.String(HomeWidget.1.Target,music)">Skin.SetString(HomeWidget.1.Display,album)</onclick>
-						<onclick condition="Skin.String(HomeWidget.1.Display,landscape)+ Skin.String(HomeWidget.1.Target,addons)">Skin.SetString(HomeWidget.1.Display,album)</onclick>
-						<onclick condition="Skin.String(HomeWidget.1.Display,album)">Skin.SetString(HomeWidget.1.Display,landscape)</onclick>
-						<onclick condition="Skin.String(HomeWidget.1.Display,poster)">Skin.SetString(HomeWidget.1.Display,landscape)</onclick>
-						<onclick condition="!String.IsEmpty(Skin.String(HomeWidget.1.Type))">Skin.SetString(HomeWidget.1.Type,$INFO[Skin.String(HomeWidget.1.Display)]$INFO[Skin.String(HomeWidget.1.Target)]$INFO[Skin.String(HomeWidget.1.Actual)])</onclick-->
+						
+						
+						<onclick condition="String.IsEmpty(Skin.String(HomeWidget.1.Sort))">Skin.SetString(HomeWidget.1.Sort,Random)</onclick>
+						
+						
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
-						<!--visible>String.IsEmpty(Skin.String(HomeWidget.1.Lock))</visible-->
-					</control>
+						<visible>String.IsEmpty(Skin.String(HomeWidget.1.Lock))</visible>
+					</control-->
+					
+					
+					
 					<control type="button" id="744">
 						<width>750</width>
 						<height>40</height>
@@ -8274,7 +8416,7 @@
 					<onright>60</onright>
 					<onup>9008</onup>
 					<ondown>9008</ondown>
-					<control type="label" id="820">
+					<!--control type="label" id="820">
 						<width>750</width>
 						<height>45</height>
 						<font>font13</font>
@@ -8313,7 +8455,7 @@
 						<onclick>SetProperty(EnableReLoadSkin,1,Home)</onclick>
 						<texturefocus>MenuItemFO.png</texturefocus>
 						<texturenofocus>MenuItemNF.png</texturenofocus>
-					</control>
+					</control-->
 					<control type="label" id="825">
 						<width>750</width>
 						<height>45</height>

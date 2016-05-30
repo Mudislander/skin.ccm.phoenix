@@ -9,7 +9,7 @@
 		<top>0</top>
 	</coordinates>
 	<controls>
-		<control type="button">
+		<!--control type="button">
 			<description>Close Window button</description>
 			<left>84r</left>
 			<top>0</top>
@@ -24,7 +24,7 @@
 			<animation effect="fade" time="150">VisibleChange</animation>
 			<animation effect="slide" start="0,0" end="-30,0" time="0" condition="Player.Muted">conditional</animation>
 			<visible>system.getbool(input.enablemouse) + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVRRadioRDSInfo) | Window.IsVisible(OSDAudioDSPSettings) | Window.IsVisible(Addon)]</visible>
-		</control>
+		</control-->
 		<control type="slider" id="87">
 			<depth>DepthOSD+</depth>
 			<description>Seek Slider</description>
@@ -42,12 +42,33 @@
 			<visible>![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVRRadioRDSInfo) | Window.IsVisible(OSDAudioDSPSettings) | Window.IsVisible(Addon)]</visible>
 		</control>
 		<control type="grouplist" id="100">
-			<left>325</left>
+			<!--left>325</left-->
+			<left>110</left>
 			<top>60r</top>
 			<orientation>horizontal</orientation>
 			<itemgap>0</itemgap>
 			<animation effect="fade" time="150">VisibleChange</animation>
 			<visible>![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(PVRRadioRDSInfo) | Window.IsVisible(OSDAudioDSPSettings) | Window.IsVisible(Addon)]</visible>
+			<control type="button" id="298">
+				<width>55</width>
+				<height>55</height>
+				<label>210</label>
+				<font>-</font>
+				<texturefocus>OSDChannelUPFO.png</texturefocus>
+				<texturenofocus>OSDChannelUPNF.png</texturenofocus>
+				<onclick>Dialog.Close(MusicOSD,true)</onclick>
+				<onclick>ActivateWindow(home)</onclick>
+			</control>
+			<control type="button" id="299">
+				<width>55</width>
+				<height>55</height>
+				<label>210</label>
+				<font>-</font>
+				<texturefocus>OSDChannelUPFO.png</texturefocus>
+				<texturenofocus>OSDChannelUPNF.png</texturenofocus>
+				<onclick>Dialog.Close(MusicOSD,true)</onclick>
+				<onclick>ActivateWindow(musicplaylist)</onclick>
+			</control>
 			<control type="button" id="300">
 				<width>55</width>
 				<height>55</height>
@@ -252,6 +273,7 @@
 			</control>
 			<control type="image" id="2300">
 				<width>105</width>
+				<!--width>55</width-->
 				<texture>-</texture>
 			</control>
 			<control type="image" id="2400">

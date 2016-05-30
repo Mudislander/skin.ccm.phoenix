@@ -340,7 +340,7 @@ msgid "Widget source options"
 msgstr ""
 
 msgctxt "#31101"
-msgid "Home screen options"
+msgid "Home Screen Options"
 msgstr ""
 
 msgctxt "#31102"
@@ -431,16 +431,20 @@ msgid "Lyrics"
 msgstr ""
 
 msgctxt "#31129"
-msgid "Hide fanart in full screen visualisation"
+msgid "Enable Artist Fanart In Full Screen Visualisation"
 msgstr ""
 
-#empty strings from id 31130 to 31131
+msgctxt "#31130"
+msgid "Animate Artist Fanart In Full Screen Visualisation"
+msgstr ""
 
 msgctxt "#31132"
 msgid "Lyrics add-on"
 msgstr ""
 
-#empty string with id 31133
+msgctxt "#31133"
+msgid "Next Tracks"
+msgstr ""
 
 #. In main language strings its used as submenu
 msgctxt "#31134"
@@ -461,7 +465,9 @@ msgctxt "#31140"
 msgid "Music OSD"
 msgstr ""
 
-#empty string with id 31141
+msgctxt "#31141"
+msgid "LibreELEC"
+msgstr ""
 
 msgctxt "#31142"
 msgid "Settings level"
@@ -1047,9 +1053,53 @@ msgctxt "#31287"
 msgid "Global Options"
 msgstr ""
 
-# New CCM Strings
-#empty strings from id 31288 to 31299
-#Extra labels
+msgctxt "#31288"
+msgid "of"
+msgstr ""
+
+msgctxt "#31289"
+msgid "Shuffle On"
+msgstr ""
+
+msgctxt "#31290"
+msgid "Repeat All On"
+msgstr ""
+
+msgctxt "#31291"
+msgid "Repeat One On"
+msgstr ""
+
+msgctxt "#31292"
+msgid "Music Playback Options"
+msgstr ""
+
+msgctxt "#31293"
+msgid "Enable CD Case and Disc Art"
+msgstr ""
+
+msgctxt "#31294"
+msgid "Enable CD Wall as Fallback Artist Fanart"
+msgstr ""
+
+msgctxt "#31295"
+msgid "Diffusion Transparency of FanArt Over Visualisation"
+msgstr ""
+
+msgctxt "#31296"
+msgid "% Transparency"
+msgstr ""
+
+msgctxt "#31297"
+msgid "Enable Automatic Fullscreen Music Playback"
+msgstr ""
+
+msgctxt "#31298"
+msgid "Select Time"
+msgstr ""
+
+msgctxt "#31299"
+msgid "Temporarily Disable Kodi ScreenSaver During Fullscreen Music Playback"
+msgstr ""
 
 msgctxt "#31300"
 msgid "Current temperature"
@@ -1059,13 +1109,29 @@ msgctxt "#31301"
 msgid "Last updated"
 msgstr ""
 
-#empty string with id 31302
+msgctxt "#31302"
+msgid "Disabled"
+msgstr ""
 
 msgctxt "#31303"
 msgid "Data provider"
 msgstr ""
 
-#empty strings from id 31304 to 31307
+msgctxt "#31304"
+msgid "Show OSD Info Panel at Playback Start for"
+msgstr ""
+
+msgctxt "#31305"
+msgid "Clear Setting"
+msgstr ""
+
+msgctxt "#31306"
+msgid "Automatically Close OSD Menu Panel After Pressing \"M\" Button"
+msgstr "" 
+
+msgctxt "#31307"
+msgid "Configure"
+msgstr ""
 
 msgctxt "#31308"
 msgid "Movie details"
@@ -1079,7 +1145,15 @@ msgctxt "#31310"
 msgid "Track number"
 msgstr ""
 
-#empty strings from id 31311 to 31318
+msgctxt "#31311"
+msgid "PVR Options"
+msgstr ""
+
+msgctxt "#31312"
+msgid "Enable Scraper for PVR Images"
+msgstr ""
+
+#empty strings from id 31313 to 31318
 
 msgctxt "#31319"
 msgid "Selected profile"
@@ -1089,7 +1163,9 @@ msgctxt "#31320"
 msgid "Last logged in"
 msgstr ""
 
-#empty string with id 31321
+msgctxt "#31321"
+msgid "Sorted By"
+msgstr ""
 
 msgctxt "#31322"
 msgid "Aired"
@@ -1125,7 +1201,17 @@ msgctxt "#31331"
 msgid "Album details"
 msgstr ""
 
-#empty strings from id 31332 to 31350
+msgctxt "#31332"
+msgid "Enable Home Screen Stats Bar"
+msgstr ""
+
+msgctxt "#31333"
+msgid "Enable Home Screen Clock Display"
+msgstr ""
+
+# New CCM Strings
+
+#empty strings from id 31334 to 31350
 #Video and Music OSD Labels
 
 msgctxt "#31351"
