@@ -1,84 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="HomeStatsBar">
-<!--depth>DepthMenu-</depth-->
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>1280</width>
-				<height>40</height>
-				<aspectratio>stretch</aspectratio>
-				<texture>StatusBar.png</texture>
-				<visible>system.getbool(lookandfeel.enablerssfeeds) | !Skin.HasSetting(HideHomeStats) | [MusicPlayer.HasNext + !Skin.HasSetting(HideNext5SongsInfo)]</visible>
-			</control>
-			<control type="label">
-				<left>10</left>
-				<top>6</top>
-				
-			
-				
-				<height>30</height>
-				<width>1260</width>
-				<label>$VAR[InfoBarStats]</label>
-				<align>right</align>
-				<aligny>center</aligny>
-				<font>font12</font>
-				<textcolor>white</textcolor>
-				<shadowcolor>black</shadowcolor>
-				
-				<animation effect="slide" start="0,35" time="300" tween="quadratic" easing="out" condition="[system.getbool(lookandfeel.enablerssfeeds) + !String.IsEqual(Container(9000).ListItem.Property(LibStats),None) | ControlGroup(9003).HasFocus] | !MusicPlayer.HasNext">conditional</animation>
-				<animation effect="slide" end="0,35" time="300" tween="quadratic" easing="out" condition="[system.getbool(lookandfeel.enablerssfeeds) + String.IsEqual(Container(9000).ListItem.Property(LibStats),None) + !ControlGroup(9003).HasFocus] | [!Skin.HasSetting(HideNext5SongsInfo) + MusicPlayer.HasNext]">conditional</animation>
-				
-				<animation effect="fade" start="0" end="100" time="200" condition="[system.getbool(lookandfeel.enablerssfeeds) + !String.IsEqual(Container(9000).ListItem.Property(LibStats),None) | ControlGroup(9003).HasFocus] | !MusicPlayer.HasNext">conditional</animation>
-				<animation effect="fade" start="100" end="0" time="200" condition="[system.getbool(lookandfeel.enablerssfeeds) + String.IsEqual(Container(9000).ListItem.Property(LibStats),None) + !ControlGroup(9003).HasFocus] | [!Skin.HasSetting(HideNext5SongsInfo) + MusicPlayer.HasNext]">conditional</animation>
-				
-				<visible>!Skin.HasSetting(HideHomeStats)</visible>
-			</control>
-
-
-<control type="rss">
-				<description>RSS feed</description>
-				<left>0</left>
-				<top>8</top>
-				<height>30</height>
-				<width>1300</width>
-				<aligny>center</aligny>
-				
-				<font>font12</font>
-				<urlset>1</urlset>
-				<textcolor>blue</textcolor>
-				<titlecolor>blue</titlecolor>
-				<headlinecolor>white</headlinecolor>
-			
-		<animation effect="slide" end="0,35" time="300" tween="quadratic" easing="out" condition="[!Skin.HasSetting(HideHomeStats) + !String.IsEqual(Container(9000).ListItem.Property(LibStats),None)] | [!IsEmpty(MusicPlayer.offset(1).Artist) + !Skin.HasSetting(HideNext5SongsInfo)] | ControlGroup(9003).HasFocus">conditional</animation>
-		<animation effect="slide" start="0,35" time="300" tween="quadratic" easing="out" condition="!Skin.HasSetting(HideHomeStats) + String.IsEqual(Container(9000).ListItem.Property(LibStats),None) + IsEmpty(MusicPlayer.offset(1).Artist) + !Skin.HasSetting(HideNext5SongsInfo) + !ControlGroup(9003).HasFocus">conditional</animation>
-		
-		<animation effect="fade" start="100" end="0" time="200" condition="[!Skin.HasSetting(HideHomeStats) + !String.IsEqual(Container(9000).ListItem.Property(LibStats),None)] | [!IsEmpty(MusicPlayer.offset(1).Artist) + !Skin.HasSetting(HideNext5SongsInfo)] | ControlGroup(9003).HasFocus">conditional</animation>
-		<animation effect="fade" start="0" end="100" time="200" condition="!Skin.HasSetting(HideHomeStats) + String.IsEqual(Container(9000).ListItem.Property(LibStats),None) + IsEmpty(MusicPlayer.offset(1).Artist) + !Skin.HasSetting(HideNext5SongsInfo) + !ControlGroup(9003).HasFocus">conditional</animation>
-			
-				<visible>system.getbool(lookandfeel.enablerssfeeds) + [!Player.HasAudio | Skin.HasSetting(HideNext5SongsInfo)]</visible>
-			</control>
-			<control type="fadelabel" id="1">
-				<description>Next Five Songs</description>
-				<left>0</left>
-				<top>10</top>
-				<height>30</height>
-				<width>1280</width>
-				<align>center</align>
-				<scroll>true</scroll>
-				<scrollout>true</scrollout>
-				<scrollspeed>30</scrollspeed>
-				<pauseatend>400</pauseatend>
-				<label>$VAR[NextFiveSongScroller]</label>
-				<font>font12</font>
-				<textcolor>white</textcolor>
-				<shadowcolor>black</shadowcolor>
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<visible>MusicPlayer.HasNext + !Skin.HasSetting(HideNext5SongsInfo)</visible>
-			</control>
-			
-			
-			
-	
+		<!--depth>DepthMenu-</depth-->
+		<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>1280</width>
+			<height>40</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>StatusBar.png</texture>
+			<colordiffuse>blue</colordiffuse>
+			<visible>system.getbool(lookandfeel.enablerssfeeds) | !Skin.HasSetting(HideHomeStats) | [MusicPlayer.HasNext + !Skin.HasSetting(HideNext5SongsInfo)]</visible>
+		</control>
+		<control type="label">
+			<left>10</left>
+			<top>6</top>
+			<height>30</height>
+			<width>1260</width>
+			<label>$VAR[InfoBarStats]</label>
+			<align>right</align>
+			<aligny>center</aligny>
+			<font>font12</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<animation effect="slide" start="0,35" time="300" tween="quadratic" easing="out" condition="[system.getbool(lookandfeel.enablerssfeeds) + !String.IsEqual(Container(9000).ListItem.Property(LibStats),None) | ControlGroup(9003).HasFocus] | !MusicPlayer.HasNext">conditional</animation>
+			<animation effect="slide" end="0,35" time="300" tween="quadratic" easing="out" condition="[system.getbool(lookandfeel.enablerssfeeds) + String.IsEqual(Container(9000).ListItem.Property(LibStats),None) + !ControlGroup(9003).HasFocus] | [!Skin.HasSetting(HideNext5SongsInfo) + MusicPlayer.HasNext]">conditional</animation>
+			<animation effect="fade" start="0" end="100" time="200" condition="[system.getbool(lookandfeel.enablerssfeeds) + !String.IsEqual(Container(9000).ListItem.Property(LibStats),None) | ControlGroup(9003).HasFocus] | !MusicPlayer.HasNext">conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" condition="[system.getbool(lookandfeel.enablerssfeeds) + String.IsEqual(Container(9000).ListItem.Property(LibStats),None) + !ControlGroup(9003).HasFocus] | [!Skin.HasSetting(HideNext5SongsInfo) + MusicPlayer.HasNext]">conditional</animation>
+			<visible>!Skin.HasSetting(HideHomeStats)</visible>
+		</control>
+		<control type="rss">
+			<description>RSS feed</description>
+			<left>0</left>
+			<top>8</top>
+			<height>30</height>
+			<width>1300</width>
+			<aligny>center</aligny>
+			<font>font12</font>
+			<urlset>1</urlset>
+			<textcolor>blue</textcolor>
+			<titlecolor>blue</titlecolor>
+			<headlinecolor>white</headlinecolor>
+			<animation effect="slide" end="0,35" time="300" tween="quadratic" easing="out" condition="[!Skin.HasSetting(HideHomeStats) + !String.IsEqual(Container(9000).ListItem.Property(LibStats),None)] | [!IsEmpty(MusicPlayer.offset(1).Artist) + !Skin.HasSetting(HideNext5SongsInfo)] | ControlGroup(9003).HasFocus">conditional</animation>
+			<animation effect="slide" start="0,35" time="300" tween="quadratic" easing="out" condition="!Skin.HasSetting(HideHomeStats) + String.IsEqual(Container(9000).ListItem.Property(LibStats),None) + IsEmpty(MusicPlayer.offset(1).Artist) + !Skin.HasSetting(HideNext5SongsInfo) + !ControlGroup(9003).HasFocus">conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" condition="[!Skin.HasSetting(HideHomeStats) + !String.IsEqual(Container(9000).ListItem.Property(LibStats),None)] | [!IsEmpty(MusicPlayer.offset(1).Artist) + !Skin.HasSetting(HideNext5SongsInfo)] | ControlGroup(9003).HasFocus">conditional</animation>
+			<animation effect="fade" start="0" end="100" time="200" condition="!Skin.HasSetting(HideHomeStats) + String.IsEqual(Container(9000).ListItem.Property(LibStats),None) + IsEmpty(MusicPlayer.offset(1).Artist) + !Skin.HasSetting(HideNext5SongsInfo) + !ControlGroup(9003).HasFocus">conditional</animation>
+			<visible>system.getbool(lookandfeel.enablerssfeeds) + [!Player.HasAudio | Skin.HasSetting(HideNext5SongsInfo)]</visible>
+		</control>
+		<control type="fadelabel" id="1">
+			<description>Next Five Songs</description>
+			<left>0</left>
+			<top>10</top>
+			<height>30</height>
+			<width>1280</width>
+			<align>center</align>
+			<scroll>true</scroll>
+			<scrollout>true</scrollout>
+			<scrollspeed>30</scrollspeed>
+			<pauseatend>400</pauseatend>
+			<label>$VAR[NextFiveSongScroller]</label>
+			<font>font12</font>
+			<textcolor>white</textcolor>
+			<shadowcolor>black</shadowcolor>
+			<animation effect="fade" time="200">VisibleChange</animation>
+			<visible>MusicPlayer.HasNext + !Skin.HasSetting(HideNext5SongsInfo)</visible>
+		</control>
 	</include>
 </includes>

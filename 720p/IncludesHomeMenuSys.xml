@@ -17,8 +17,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.1.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.1.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.1.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.1.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.1.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListOne.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.1.Display)]</property>
 				<visible>!Skin.HasSetting(UseStickyHomeMenu) + !String.IsEqual(Skin.String(HomeMenu.1.Path),Hidden)</visible>
@@ -37,8 +35,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(StickyMenuSelect.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(StickyMenuSelect.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(StickyMenuSelect.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(StickyMenuSelect.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(StickyMenuSelect.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListOne.Type)]</property>
 				<property name="Background">$INFO[Skin.String(StickyMenuSelect.Display)]</property>
 				<visible>Skin.HasSetting(UseStickyHomeMenu) + !String.IsEmpty(Skin.String(StickyMenuSelect.Path))</visible>
@@ -58,8 +54,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.2.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.2.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.2.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.2.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.2.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListTwo.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.2.Display)]</property>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.2.Path),Hidden)</visible>
@@ -80,8 +74,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.3.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.3.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.3.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.3.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.3.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListThree.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.3.Display)]</property>
 				<visible>[String.IsEmpty(Skin.String(HomeMenu.3.Path)) + PVR.HasTVChannels] | !String.IsEmpty(Skin.String(HomeMenu.3.Path))</visible>
@@ -103,8 +95,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.4.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.4.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.4.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.4.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.4.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListFour.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.4.Display)]</property>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.4.Path),Hidden)</visible>
@@ -124,8 +114,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.5.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.5.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.5.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.5.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.5.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListFive.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.5.Display)]</property>
 				<visible>[String.IsEmpty(Skin.String(HomeMenu.5.Path)) + Library.HasContent(Movies)] | !String.IsEmpty(Skin.String(HomeMenu.5.Path))</visible>
@@ -146,8 +134,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.6.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.6.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.6.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.6.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.6.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListSix.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.6.Display)]</property>
 				<visible>[String.IsEmpty(Skin.String(HomeMenu.6.Path)) + Library.HasContent(TVShows)] | !String.IsEmpty(Skin.String(HomeMenu.6.Path))</visible>
@@ -170,8 +156,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.7.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.7.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.7.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.7.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.7.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListSeven.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.7.Display)]</property>
 				<visible>[String.IsEmpty(Skin.String(HomeMenu.7.Path)) + !Skin.HasSetting(DisableWatchItLater)] | !String.IsEmpty(Skin.String(HomeMenu.7.Path))</visible>
@@ -192,8 +176,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.8.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.8.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.8.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.8.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.8.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListEight.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.8.Display)]</property>
 				<visible>[String.IsEmpty(Skin.String(HomeMenu.8.Path)) + Library.HasContent(MusicVideos)] | !String.IsEmpty(Skin.String(HomeMenu.8.Path))</visible>
@@ -215,8 +197,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.9.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.9.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.9.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.9.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.9.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListNine.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.9.Display)]</property>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.9.Path),Hidden)</visible>
@@ -237,8 +217,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(HomeMenu.10.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(HomeMenu.10.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(HomeMenu.10.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(HomeMenu.10.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(HomeMenu.10.WidgetName)]</property-->
 				<property name="PlayListType">$INFO[Window(Home).Property(HomePlayListTen.Type)]</property>
 				<property name="Background">$INFO[Skin.String(HomeMenu.10.Display)]</property>
 				<visible>!String.IsEqual(Skin.String(HomeMenu.10.Path),Hidden)</visible>
@@ -257,22 +235,10 @@
 				<property name="LibStats">FullScreen</property>
 				<property name="AddOnSet"></property>
 				<property name="WidgetSet"></property>
-				<!--property name="WidgetPath">None</property-->
-				<!--property name="WidgetName">None</property-->
 				<property name="PlayListType"></property>
 				<property name="Background">FullScreen</property>
 				<visible>Player.HasMedia</visible>
 				<visible>String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
-				<!--visible>false</visible-->
-			</item>
-			<item id="11">
-				<description>DVD Player</description>
-				<label>$LOCALIZE[31958]</label>
-				<onclick>PlayDVD()</onclick>
-				<icon>$INFO[special://skin/backgrounds/media-overlay.jpg]</icon>
-				<thumb>$INFO[special://skin/backgrounds/media-overlay.jpg]</thumb>
-				<visible>System.HasMediaDVD</visible>
-				<visible>false</visible>
 			</item>
 			<item id="12">
 				<description>Home Menu Settings</description>
@@ -288,8 +254,6 @@
 				<property name="HiLiteItem">$INFO[Skin.String(SettingsMenu.Type)]</property>
 				<property name="AddOnSet">$INFO[Skin.String(SettingsMenu.Addon)]</property>
 				<property name="WidgetSet">$INFO[Skin.String(SettingsMenu.Widget)]</property>
-				<!--property name="WidgetPath">$INFO[Skin.String(SettingsMenu.WidgetPath)]</property-->
-				<!--property name="WidgetName">$INFO[Skin.String(SettingsMenu.WidgetName)]</property-->
 				<property name="PlayListType">None</property>
 				<property name="Background">$INFO[Skin.String(SettingsMenu.Display)]</property>
 				<visible>!Skin.HasSetting(HideSytemMenuItem)</visible>
@@ -300,7 +264,6 @@
 		<onload>Skin.SetString(HomeMenu.1.Path,ActivateWindow(Pictures))</onload>
 		<onload>Skin.SetString(HomeMenu.1.Label,$LOCALIZE[31951])</onload>
 		<onload>Skin.SetString(HomeMenu.1.Sub,SubSetEight)</onload>
-		<onload>Skin.SetString(HomeMenu.1.Addon,Pictures)</onload>
 		<onload>Skin.SetString(HomeMenu.1.Type,Pictures)</onload>
 		<onload>Skin.SetString(HomeMenu.1.Fanart,special://skin/backgrounds/pictures.jpg)</onload>
 		<onload>Skin.SetString(HomeMenu.1.Display,Default)</onload>
@@ -319,7 +282,6 @@
 		<onload>Skin.SetString(HomeMenu.3.Stats,LiveTV)</onload>
 		<onload>Skin.SetString(HomeMenu.4.Label,$LOCALIZE[31953])</onload>
 		<onload>Skin.SetString(HomeMenu.4.Sub,SubSetOne)</onload>
-		<onload>Skin.SetString(HomeMenu.4.Addon,Videos)</onload>
 		<onload>Skin.SetString(HomeMenu.4.Widget,UnwatchedMovies)</onload>
 		<onload>Skin.SetString(HomeMenu.4.WidgetName,$LOCALIZE[16101] $LOCALIZE[20342])</onload>
 		<onload>Skin.SetString(HomeMenu.4.Type,Videos)</onload>
@@ -328,7 +290,6 @@
 		<onload>Skin.SetString(HomeMenu.4.Stats,Videos)</onload>
 		<onload>Skin.SetString(HomeMenu.5.Label,$LOCALIZE[31954])</onload>
 		<onload>Skin.SetString(HomeMenu.5.Sub,SubSetTwo)</onload>
-		<onload>Skin.SetString(HomeMenu.5.Addon,Videos)</onload>
 		<onload>Skin.SetString(HomeMenu.5.Widget,RecentMovies)</onload>
 		<onload>Skin.SetString(HomeMenu.5.WidgetName,$LOCALIZE[31150])</onload>
 		<onload>Skin.SetString(HomeMenu.5.Type,Movies)</onload>
@@ -337,7 +298,6 @@
 		<onload>Skin.SetString(HomeMenu.5.Stats,Movies)</onload>
 		<onload>Skin.SetString(HomeMenu.6.Label,$LOCALIZE[31955])</onload>
 		<onload>Skin.SetString(HomeMenu.6.Sub,SubSetThree)</onload>
-		<onload>Skin.SetString(HomeMenu.6.Addon,Videos)</onload>
 		<onload>Skin.SetString(HomeMenu.6.Widget,RecentEpisodes)</onload>
 		<onload>Skin.SetString(HomeMenu.6.WidgetName,$LOCALIZE[31151])</onload>
 		<onload>Skin.SetString(HomeMenu.6.Type,TVShows)</onload>
@@ -358,7 +318,6 @@
 		<onload>Skin.SetString(HomeMenu.8.Display,Default)</onload>
 		<onload>Skin.SetString(HomeMenu.9.Label,$LOCALIZE[31956])</onload>
 		<onload>Skin.SetString(HomeMenu.9.Sub,SubSetFour)</onload>
-		<onload>Skin.SetString(HomeMenu.9.Addon,Music)</onload>
 		<onload>Skin.SetString(HomeMenu.9.Widget,RecentAlbums)</onload>
 		<onload>Skin.SetString(HomeMenu.9.WidgetName,$LOCALIZE[31154])</onload>
 		<onload>Skin.SetString(HomeMenu.9.Type,Music)</onload>
@@ -367,7 +326,6 @@
 		<onload>Skin.SetString(HomeMenu.9.Stats,Music)</onload>
 		<onload>Skin.SetString(HomeMenu.10.Label,$LOCALIZE[31957])</onload>
 		<onload>Skin.SetString(HomeMenu.10.Sub,SubSetNine)</onload>
-		<onload>Skin.SetString(HomeMenu.10.Addon,Programs)</onload>
 		<onload>Skin.SetString(HomeMenu.10.Type,Programs)</onload>
 		<onload>Skin.SetString(HomeMenu.10.Fanart,special://skin/backgrounds/programs.jpg)</onload>
 		<onload>Skin.SetString(HomeMenu.10.Display,Default)</onload>
@@ -406,26 +364,29 @@
 		</control>
 	</include>
 	<include name="HomeMainMenuSys">
+		<!--
 		<left>-110</left>
 		<top>35</top>
 		<width>1500</width>
 		<height>60</height>
+	-->
+		<left>-210</left>
+		<top>35</top>
+		<width>1700</width>
+		<height>60</height>
 		<onleft>9000</onleft>
 		<onright>9000</onright>
 		<onup condition="!String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">9003</onup>
-		<onup condition="String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">20</onup>
-		<!--
-		<onup condition="System.HasAddon(script.globalsearch)">608</onup>
-		<onup condition="!System.HasAddon(script.globalsearch)">603</onup>
-		-->
+		<onup condition="String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">10</onup>
 		<ondown>9001</ondown>
 		<pagecontrol>-</pagecontrol>
 		<scrolltime>300</scrolltime>
 		<focusposition>2</focusposition>
 		<movement>1</movement>
 		<orientation>Horizontal</orientation>
-		<itemlayout height="60" width="300">
-			<control type="image">
+		<!--itemlayout height="60" width="300"-->
+		<itemlayout height="60" width="340">
+			<!--control type="image">
 				<left>0</left>
 				<top>4</top>
 				<width>1</width>
@@ -449,10 +410,37 @@
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+			</control-->
+			<control type="image">
+				<left>0</left>
+				<top>4</top>
+				<width>1</width>
+				<height>52</height>
+				<texture>HomeSeperator.png</texture>
+			</control>
+			<control type="image">
+				<left>339</left>
+				<top>4</top>
+				<width>1</width>
+				<height>52</height>
+				<texture>HomeSeperator.png</texture>
+			</control>
+			<control type="label">
+				<left>0</left>
+				<top>0</top>
+				<width>340</width>
+				<height>60</height>
+				<font>font_MainMenu</font>
+				<textcolor>grey3</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 			</control>
 		</itemlayout>
-		<focusedlayout height="60" width="300">
-			<control type="image">
+		<!--focusedlayout height="60" width="300"-->
+		<focusedlayout height="60" width="340">
+			<include condition="!Skin.HasSetting(HiddenContentAdvice)">HomeSubMenuImage</include>
+			<!--control type="image">
 				<left>0</left>
 				<top>4</top>
 				<width>1</width>
@@ -489,7 +477,96 @@
 				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 				<visible>Control.HasFocus(9000)</visible>
 				<include>VisibleFadeEffect</include>
+			</control-->
+			<control type="image">
+				<left>0</left>
+				<top>4</top>
+				<width>1</width>
+				<height>52</height>
+				<texture>HomeSeperator.png</texture>
+			</control>
+			<control type="image">
+				<left>339</left>
+				<top>4</top>
+				<width>1</width>
+				<height>52</height>
+				<texture>HomeSeperator.png</texture>
+			</control>
+			<control type="label">
+				<left>5</left>
+				<top>0</top>
+				<width>330</width>
+				<height>60</height>
+				<font>font_MainMenu</font>
+				<textcolor>grey3</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<visible>!Control.HasFocus(9000)</visible>
+			</control>
+			<control type="label">
+				<left>5</left>
+				<top>0</top>
+				<width>330</width>
+				<height>60</height>
+				<font>font_MainMenu</font>
+				<textcolor>blue</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<visible>Control.HasFocus(9000)</visible>
 			</control>
 		</focusedlayout>
+	</include>
+	<include name="HomeSubMenuImage">
+		<control type="image">
+			<left>312</left>
+			<top>34</top>
+			<width>26</width>
+			<height>26</height>
+			<texture>Advice.png</texture>
+			<textcolor>blue</textcolor>
+			<animation effect="fade" start="0" end="100" time="200">Focus</animation>
+			<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+			<visible>Skin.HasSetting(AutoVisableSubMenu)</visible>
+			<visible>
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),StickyMenu) + Integer.IsGreater(Container(9010).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetOne) + Integer.IsGreater(Container(9012).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetTwo) + Integer.IsGreater(Container(9013).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetThree) + Integer.IsGreater(Container(9014).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetFour) + Integer.IsGreater(Container(9015).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetFive) + Integer.IsGreater(Container(9016).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetSix) + Integer.IsGreater(Container(9017).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetSeven) + Integer.IsGreater(Container(9018).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetEight) + Integer.IsGreater(Container(9019).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetNine) + Integer.IsGreater(Container(9020).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetTen) + Integer.IsGreater(Container(9021).NumItems,0)]|
+				[String.IsEqual(Container(9000).ListItem.Property(SubMenu),SubSetEleven) + Integer.IsGreater(Container(9022).NumItems,0)] |
+				String.IsEqual(Container(9000).ListItem.Property(SubMenu),FullScreen)
+			</visible>
+		</control>
+		<control type="image">
+			<left>5</left>
+			<top>5</top>
+			<width>26</width>
+			<height>26</height>
+			<texture>UserPreSet.png</texture>
+			<textcolor>blue</textcolor>
+			<animation effect="fade" start="0" end="100" time="200">Focus</animation>
+			<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+			<visible>Container(9000).Hasfocus(1) + Skin.HasSetting(UseStickyHomeMenu) + !String.IsEmpty(Skin.String(StickyMenuSelect.Path))</visible>
+		</control>
+		<control type="image">
+			<left>312</left>
+			<top>5</top>
+			<width>26</width>
+			<height>26</height>
+			<texture flipy="true">Advice.png</texture>
+			<textcolor>blue</textcolor>
+			<animation effect="fade" start="0" end="100" time="200">Focus</animation>
+			<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+			<visible>Skin.HasSetting(EnableCleanHome)</visible>
+			<visible>!IsEmpty(Container(9000).ListItem.Property(WidgetSet)) + !String.IsEqual(Container(9000).ListItem.Property(WidgetSet),None)</visible>
+		</control>
 	</include>
 </includes>

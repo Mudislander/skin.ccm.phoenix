@@ -6,6 +6,7 @@
 			<depth>DepthMenu</depth>
 			<left>0</left>
 			<top>150</top>
+			<animation effect="slide" start="0,0" end="0,46" time="0" condition="Skin.HasSetting(DisableHomeAddOns)">conditional</animation>
 			<visible>Player.HasAudio + String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
 			<include>VisibleFadeEffect</include>
 			<include>Window_OpenClose_Animation</include>
@@ -67,6 +68,7 @@
 			<depth>DepthMenu</depth>
 			<left>0</left>
 			<top>140</top>
+			<animation effect="slide" start="0,0" end="0,46" time="0" condition="Skin.HasSetting(DisableHomeAddOns)">conditional</animation>
 			<visible>Player.HasVideo + String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
 			<include>VisibleFadeEffect</include>
 			<include>Window_OpenClose_Animation</include>
@@ -298,8 +300,9 @@
 		<control type="group">
 			<depth>DepthMenu</depth>
 			<left>490r</left>
-			<top>160</top>
-			<visible>String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),LiveTV) + String.IsEmpty(Container(9000).ListItem.Property(WidgetSet)) + [PVR.IsRecording | PVR.HasNonRecordingTimer]</visible>
+			<top>290</top>
+			<animation effect="slide" start="0,0" end="0,46" time="0" condition="Skin.HasSetting(DisableHomeAddOns)">conditional</animation>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),LiveTV) + [PVR.IsRecording | PVR.HasNonRecordingTimer]</visible>
 			<include>VisibleFadeEffect</include>
 			<include>Window_OpenClose_Animation</include>
 			<animation effect="fade" start="100" end="0" time="150" condition="Window.IsActive(Favourites)">conditional</animation>
@@ -444,11 +447,8 @@
 		<control type="group">
 			<depth>DepthMenu</depth>
 			<left>0</left>
-			<!--top>110</top-->
-			
-	<top>144</top>		
-			
-			
+			<animation effect="slide" start="0,0" end="0,46" time="0" condition="Skin.HasSetting(DisableHomeAddOns)">conditional</animation>
+			<top>144</top>
 			<visible>!Player.HasMedia</visible>
 			<include>VisibleFadeEffect</include>
 			<include>Window_OpenClose_Animation</include>

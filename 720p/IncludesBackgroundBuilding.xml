@@ -25,7 +25,10 @@
 				<visible>!String.IsEmpty(Skin.String(GlobalBackGroundPath))</visible>
 			</control>
 		</control>
-		<!--control type="group">
+		
+		
+		
+		<control type="group">
 			<description>Global	Holiday Effect</description>
 			<visible>Skin.HasSetting(EnableHolidayEffects)</visible>
 			<visible>!Player.HasVideo | Skin.HasSetting(HideNowPlayingFanart)</visible>
@@ -45,15 +48,16 @@
 				<include>BackgroundDimensions</include>
 				<include>VisibleFadeEffect</include>
 				<aspectratio>scale</aspectratio>
-				-->
-		<!--include>BackgroundFade</include-->
-		<!--fadetime>FanartCrossfadeTime</fadetime-->
-		<!--include>Window_OpenClose_Animation</include-->
-		<!--
+				<include>BackgroundFade</include>
+				<fadetime>FanartCrossfadeTime</fadetime>
+				<include>Window_OpenClose_Animation</include>
 				<texture>special://skin/extras/Holiday/xmastree.jpg</texture>
 				<visible>String.IsEmpty(Skin.String(HolidayThemePath)) | IsEmpty(Control.GetLabel(5051))</visible>
 			</control>
-		</control-->
+		</control>
+		
+		
+		
 		<control type="group">
 			<description>Multi Image Backgounds on Home</description>
 			<visible>Window.IsVisible(Home) + Skin.HasSetting(MultiImageBackground) + !Skin.HasSetting(EnableHolidayEffects)</visible>
@@ -66,15 +70,18 @@
 				<randomize>true</randomize>
 				<fadetime>1000</fadetime>
 			</control>
-			<!--control type="group">
+			
+			<control type="group">
 				<include>BackgroundFade</include>
 				<fadetime>FanartCrossfadeTime</fadetime>
 				<include>Window_OpenClose_Animation</include>
 				<include>LiveContentBackgrounds</include>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(Background),Live)</visible>
 				<visible>!Control.HasFocus(510) | !Skin.HasSetting(EnableWidgetFanArt) | String.IsEqual(Container(9000).ListItem.Property(510WidgetSet),Favourites)</visible>
-			</control-->
+			</control>
 		</control>
+		
+		
 		<control type="group">
 			<!-- Multi Image Backgounds NOT on Home  -->
 			<visible>!Window.IsVisible(Home) + Skin.HasSetting(MultiImageBackground) + !Skin.HasSetting(EnableHolidayEffects)</visible>
@@ -89,50 +96,102 @@
 				<fadetime>1000</fadetime>
 			</control>
 		</control>
+		
+		
+		
+		
+		
 		<control type="image">
 			<depth>DepthBackground</depth>
 			<include>BackgroundDimensions</include>
 			<aspectratio>scale</aspectratio>
 			<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-			<include>backgroundfade</include>
+			<include>BackgroundFade</include>
 			<fadetime>FanartCrossfadeTime</fadetime>
-			<visible>!Skin.HasSetting(DisableBackGroundFanart) + !String.IsEmpty(ListItem.Property(Fanart_Image))</visible>
+			
 			<include>Window_OpenClose_Animation</include>
+			<visible>!Skin.HasSetting(DisableBackGroundFanart) + !String.IsEmpty(ListItem.Property(Fanart_Image))</visible>
+			<!--visible>String.IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath)) | !Skin.HasSetting(SkinHelper.EnableExtraFanart)</visible-->
+			<!--visible>!Control.IsVisible(508) + !Control.IsVisible(51)</visible-->
 			<visible>![Player.HasVideo + !Skin.HasSetting(DisableBackgroundVideo)]</visible>
+			
+			
+			
 		</control>
+		
+		
+		
+		<control type="multiimage">
+					<depth>DepthBackground</depth>
+					<include>BackgroundDimensions</include>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<imagepath background="true">$VAR[MovielistBackground]</imagepath>
+					<timeperimage>4000</timeperimage>
+					<randomize>true</randomize>
+					<include>BackgroundFade</include>
+					<fadetime>FanartCrossfadeTime</fadetime>
+					<visible>Skin.HasSetting(SkinHelper.EnableAnimatedPosters) | Skin.HasSetting(SkinHelper.EnableExtraFanart)</visible>
+					<visible>Control.IsVisible(508) | Control.IsVisible(51)</visible>
+					<visible>![Player.HasVideo + !Skin.HasSetting(DisableBackgroundVideo)]</visible>
+					<visible>!Window.IsVisible(Home) + [!String.IsEmpty(Window(Home).Property(SkinHelper.AnimatedFanArt)) |System.IdleTime(1)]</visible>
+				</control>
+				
+			<!--[!String.IsEmpty(Window(Home).Property(SkinHelper.AnimatedFanArt)) | -->	
+				
 		<control type="image">
 			<include>BackgroundDimensions</include>
 			<texture>special://skin/backgrounds/media-overlay.jpg</texture>
 			<visible>[Player.HasVideo + !Skin.HasSetting(DisableBackgroundVideo)] + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels)</visible>
 			<include>VisibleFadeEffect</include>
 		</control>
-		<!--control type="visualisation">
+		
+		<control type="group">
+		<visible>String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
+		<visible>Player.HasAudio + Window.IsVisible(Home) + [String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),FullScreen) | !Skin.HasSetting(DisableBackgroundVis)]</visible>
+		<include>MusicArtUnderVisualisation</include>
+		</control>
+		<control type="visualisation" id="2">
+			<description>visualisation</description>
+			<visible>Player.HasAudio + [Window.IsVisible(Home) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),FullScreen)] | !Skin.HasSetting(DisableBackgroundVis)</visible>
+			<visible>String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
 			<left>0</left>
 			<top>0</top>
 			<width>1280</width>
 			<height>720</height>
-			<visible>Player.HasAudio + !Skin.HasSetting(DisableBackgroundVis)</visible>
-			<visible>String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
-		</control-->
+		</control>
+		<control type="group">
+		<visible>String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))</visible>
+		<visible>Player.HasAudio + Window.IsVisible(Home) + [String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),FullScreen) | !Skin.HasSetting(DisableBackgroundVis)]</visible>
+		<include>MusicArtOverVisualisation</include>
+		</control>
+		
 		<control type="videowindow">
 			<depth>DepthBackground</depth>
 			<left>0</left>
 			<top>0</top>
 			<width>1280</width>
 			<height>720</height>
-			<visible>Player.HasVideo + !Skin.HasSetting(DisableBackgroundVideo) + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels)</visible>
+		<visible>Player.HasVideo + [Window.IsVisible(Home) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),FullScreen)] | [!Skin.HasSetting(DisableBackgroundVideo) + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels)]</visible>
+		
+		
 		</control>
-		<!--control type="image">
-			<depth>DepthBackground</depth>
-			<left>-20</left>
-			<top>-40</top>
-			<width>1320</width>
-			<height>120</height>
-			<texture flipy="true" border="1">HomeNowPlayingBack.png</texture>
-			<visible>[Player.HasVideo + !Skin.HasSetting(DisableBackgroundVideo)] | [Player.HasAudio + ![Skin.HasSetting(DisableBackgroundVis) | !String.IsEmpty(Window(videolibrary).Property(PlayingBackgroundMedia))]] | [!Skin.HasSetting(DisableBackGroundFanart) + !String.IsEmpty(ListItem.Property(Fanart_Image))]</visible>
-			<include>VisibleFadeEffect</include>
-		</control-->
 	</include>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<include name="ContentPanelBackgrounds">
 		<control type="image">
 			<depth>DepthFloor</depth>
@@ -142,11 +201,10 @@
 			<width>1320</width>
 			<height>100</height>
 			<texture>floor.png</texture>
+			<colordiffuse>blue</colordiffuse>
 			<animation effect="rotatex" end="45" time="0" center="620,0" condition="true">Conditional</animation>
-			
 			<animation effect="slide" start="0,35" end="0,0" time="150" condition="Window.Previous(Home)">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,35" time="150" condition="Window.Next(Home)">WindowClose</animation>
-			
 		</control>
 		<control type="group">
 			<include>Window_OpenClose_Animation</include>
@@ -158,7 +216,7 @@
 					<top>60</top>
 					<width>750</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>50</left>
@@ -176,7 +234,7 @@
 					<top>60</top>
 					<width>640</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>50</left>
@@ -190,7 +248,7 @@
 					<top>60</top>
 					<width>530</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>700</left>
@@ -208,7 +266,7 @@
 					<top>60</top>
 					<width>840</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>50</left>
@@ -222,7 +280,7 @@
 					<top>60</top>
 					<width>330</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>900</left>
@@ -240,7 +298,7 @@
 					<top>50</top>
 					<width>1180</width>
 					<height>610</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>50</left>
@@ -258,7 +316,7 @@
 					<top>230</top>
 					<width>640</width>
 					<height>430</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>50</left>
@@ -272,7 +330,7 @@
 					<top>230</top>
 					<width>550</width>
 					<height>430</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>700</left>
@@ -290,7 +348,7 @@
 					<top>60</top>
 					<width>1130</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>75</left>
@@ -308,7 +366,7 @@
 					<top>60</top>
 					<width>490</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>50</left>
@@ -322,7 +380,7 @@
 					<top>60</top>
 					<width>680</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>550</left>
@@ -340,7 +398,7 @@
 					<top>60</top>
 					<width>400</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>50</left>
@@ -354,7 +412,7 @@
 					<top>60</top>
 					<width>770</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>460</left>

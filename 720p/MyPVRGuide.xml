@@ -11,6 +11,7 @@
 			<width>1280</width>
 			<height>100</height>
 			<texture>floor.png</texture>
+			<colordiffuse>blue</colordiffuse>
 			<animation effect="fade" time="200" condition="Window.Previous(Home)">WindowOpen</animation>
 			<animation effect="fade" time="200" condition="Window.Next(Home)">WindowClose</animation>
 		</control>
@@ -21,6 +22,7 @@
 				<top>100r</top>
 				<width>1280</width>
 				<height>100</height>
+				<colordiffuse>blue</colordiffuse>
 				<texture>floor.png</texture>
 				<animation effect="fade" time="200" condition="Window.Previous(Home)">WindowOpen</animation>
 				<animation effect="fade" time="200" condition="Window.Next(Home)">WindowClose</animation>
@@ -34,7 +36,7 @@
 						<top>60</top>
 						<width>1170</width>
 						<height>600</height>
-						<texture border="15">ContentPanel.png</texture>
+						<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 					</control>
 					<control type="image">
 						<left>55</left>
@@ -57,7 +59,8 @@
 		</control>
 		<control type="group">
 			<depth>DepthFooter</depth>
-			<include>CommonNowPlaying</include>
+			<include>OSDSeekInfo</include>
+			<!--include>CommonNowPlaying</include-->
 		</control>
 		<include>BehindDialogFadeOut</include>
 		<include>ScrollOffsetLabel</include>

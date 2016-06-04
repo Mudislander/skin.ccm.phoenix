@@ -102,6 +102,7 @@
 			<width>1280</width>
 			<height>100</height>
 			<texture>floor.png</texture>
+			<colordiffuse>blue</colordiffuse>
 			<aspectratio>stretch</aspectratio>
 			<animation effect="slide" start="0,10" end="0,0" time="150" condition="Window.Previous(Home)">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,10" time="150" condition="Window.Next(Home)">WindowClose</animation>
@@ -151,7 +152,7 @@
 					<top>0</top>
 					<width>300</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -194,7 +195,7 @@
 					<top>0</top>
 					<width>300</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -237,7 +238,7 @@
 					<top>0</top>
 					<width>300</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -280,7 +281,7 @@
 					<top>0</top>
 					<width>300</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -323,7 +324,7 @@
 					<top>0</top>
 					<width>300</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -366,7 +367,7 @@
 					<top>0</top>
 					<width>300</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -409,7 +410,7 @@
 					<top>0</top>
 					<width>300</width>
 					<height>600</height>
-					<texture border="15">ContentPanel.png</texture>
+					<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -486,7 +487,8 @@
 				<include>VisibleFadeEffect</include>
 			</control>
 		</control>
-		<include>CommonNowPlaying</include>
+		<!--include>CommonNowPlaying</include-->
+		<include>OSDSeekInfo</include>
 		<include>MainWindowMouseButtons</include>
 		<include>BehindDialogFadeOut</include>
 		<control type="group">

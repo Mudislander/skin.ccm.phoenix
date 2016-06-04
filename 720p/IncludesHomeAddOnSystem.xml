@@ -6,7 +6,7 @@
 			<control type="fixedlist" id="700">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="String.IsEqual(Container(700).NumItems,2) | String.IsEqual(Container(700).NumItems,4)">conditional</animation>
 				<onup>9001</onup>
-				<ondown>20</ondown>
+				<ondown>10</ondown>
 				<onleft>700</onleft>
 				<onright>700</onright>
 				<include>HomeAddonsCommonLayout</include>
@@ -20,7 +20,7 @@
 			<control type="fixedlist" id="703">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="String.IsEqual(Container(703).NumItems,2) | String.IsEqual(Container(703).NumItems,4)">conditional</animation>
 				<onup>9001</onup>
-				<ondown>20</ondown>
+				<ondown>10</ondown>
 				<onleft>703</onleft>
 				<onright>703</onright>
 				<include>HomeAddonsCommonLayout</include>
@@ -34,7 +34,7 @@
 			<control type="fixedlist" id="704">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="String.IsEqual(Container(704).NumItems,2) | String.IsEqual(Container(704).NumItems,4)">conditional</animation>
 				<onup>9001</onup>
-				<ondown>20</ondown>
+				<ondown>10</ondown>
 				<onleft>704</onleft>
 				<onright>704</onright>
 				<include>HomeAddonsCommonLayout</include>
@@ -48,7 +48,7 @@
 			<control type="fixedlist" id="705">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="String.IsEqual(Container(705).NumItems,2) | String.IsEqual(Container(705).NumItems,4)">conditional</animation>
 				<onup>9001</onup>
-				<ondown>20</ondown>
+				<ondown>10</ondown>
 				<onleft>705</onleft>
 				<onright>705</onright>
 				<include>HomeAddonsCommonLayout</include>
@@ -62,7 +62,7 @@
 			<control type="fixedlist" id="706">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="String.IsEqual(Container(706).NumItems,2) | String.IsEqual(Container(706).NumItems,4)">conditional</animation>
 				<onup>9001</onup>
-				<ondown>20</ondown>
+				<ondown>10</ondown>
 				<onleft>706</onleft>
 				<onright>706</onright>
 				<include>HomeAddonsCommonLayout</include>
@@ -76,7 +76,7 @@
 			<control type="fixedlist" id="707">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="String.IsEqual(Container(707).NumItems,2) | String.IsEqual(Container(707).NumItems,4)">conditional</animation>
 				<onup>9001</onup>
-				<ondown>20</ondown>
+				<ondown>10</ondown>
 				<onleft>707</onleft>
 				<onright>707</onright>
 				<include>HomeAddonsCommonLayout</include>
@@ -90,7 +90,7 @@
 			<control type="fixedlist" id="708">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="String.IsEqual(Container(708).NumItems,2) | String.IsEqual(Container(708).NumItems,4)">conditional</animation>
 				<onup>9001</onup>
-				<ondown>20</ondown>
+				<ondown>10</ondown>
 				<onleft>708</onleft>
 				<onright>708</onright>
 				<include>HomeAddonsCommonLayout</include>
@@ -104,7 +104,7 @@
 			<control type="fixedlist" id="709">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="String.IsEqual(Container(709).NumItems,2) | String.IsEqual(Container(709).NumItems,4)">conditional</animation>
 				<onup>9001</onup>
-				<ondown>20</ondown>
+				<ondown>10</ondown>
 				<onleft>709</onleft>
 				<onright>709</onright>
 				<include>HomeAddonsCommonLayout</include>
@@ -118,7 +118,7 @@
 			<control type="fixedlist" id="710">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="String.IsEqual(Container(710).NumItems,2) | String.IsEqual(Container(710).NumItems,4)">conditional</animation>
 				<onup>9001</onup>
-				<ondown>20</ondown>
+				<ondown>10</ondown>
 				<onleft>710</onleft>
 				<onright>710</onright>
 				<include>HomeAddonsCommonLayout</include>
@@ -132,7 +132,7 @@
 			<control type="fixedlist" id="711">
 				<animation effect="slide" start="0,0" end="-91,0" time="0" condition="String.IsEqual(Container(711).NumItems,2) | String.IsEqual(Container(711).NumItems,4)">conditional</animation>
 				<onup>9001</onup>
-				<ondown>20</ondown>
+				<ondown>10</ondown>
 				<onleft>711</onleft>
 				<onright>711</onright>
 				<include>HomeAddonsCommonLayout</include>
@@ -255,7 +255,7 @@
 			<animation effect="fade" time="300" delay="1000">WindowOpen</animation>
 			<animation effect="fade" time="200">WindowClose</animation>
 			<onup>9001</onup>
-			<ondown>20</ondown>
+			<ondown>10</ondown>
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne)</visible>
 				<left>0</left>
@@ -266,7 +266,7 @@
 					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(700).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(700).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
-					<ondown>20</ondown>
+					<ondown>10</ondown>
 					<onleft>700</onleft>
 					<onright>700</onright>
 					<include>HomeAddonsCommonLayout</include>
@@ -286,7 +286,7 @@
 					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(703).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(703).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
-					<ondown>20</ondown>
+					<ondown>10</ondown>
 					<onleft>703</onleft>
 					<onright>703</onright>
 					<include>HomeAddonsCommonLayout</include>
@@ -306,7 +306,7 @@
 					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(704).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(704).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
-					<ondown>20</ondown>
+					<ondown>10</ondown>
 					<onleft>704</onleft>
 					<onright>704</onright>
 					<include>HomeAddonsCommonLayout</include>
@@ -326,7 +326,7 @@
 					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(705).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(705).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
-					<ondown>20</ondown>
+					<ondown>10</ondown>
 					<onleft>705</onleft>
 					<onright>705</onright>
 					<include>HomeAddonsCommonLayout</include>
@@ -346,7 +346,7 @@
 					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(706).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(706).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
-					<ondown>20</ondown>
+					<ondown>10</ondown>
 					<onleft>706</onleft>
 					<onright>706</onright>
 					<include>HomeAddonsCommonLayout</include>
@@ -366,7 +366,7 @@
 					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(707).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(707).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
-					<ondown>20</ondown>
+					<ondown>10</ondown>
 					<onleft>707</onleft>
 					<onright>707</onright>
 					<include>HomeAddonsCommonLayout</include>
@@ -386,7 +386,7 @@
 					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(708).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(708).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
-					<ondown>20</ondown>
+					<ondown>10</ondown>
 					<onleft>708</onleft>
 					<onright>708</onright>
 					<include>HomeAddonsCommonLayout</include>
@@ -406,7 +406,7 @@
 					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(709).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(709).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
-					<ondown>20</ondown>
+					<ondown>10</ondown>
 					<onleft>709</onleft>
 					<onright>709</onright>
 					<include>HomeAddonsCommonLayout</include>
@@ -426,7 +426,7 @@
 					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(710).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(710).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
-					<ondown>20</ondown>
+					<ondown>10</ondown>
 					<onleft>710</onleft>
 					<onright>710</onright>
 					<include>HomeAddonsCommonLayout</include>
@@ -446,7 +446,7 @@
 					<animation effect="slide" start="0,0" end="168,0" time="0" condition="String.IsEqual(Container(711).NumItems,2)">conditional</animation>
 					<animation effect="slide" start="0,0" end="224,0" time="0" condition="String.IsEqual(Container(711).NumItems,1)">conditional</animation>
 					<onup>9001</onup>
-					<ondown>20</ondown>
+					<ondown>10</ondown>
 					<onleft>711</onleft>
 					<onright>711</onright>
 					<include>HomeAddonsCommonLayout</include>
@@ -464,10 +464,7 @@
 		<!--top>40</top-->
 		<!--top>190r</top-->
 		<!--top>150r</top-->
-		
-		<top>108r</top>	
-		
-		
+		<top>108r</top>
 		<width>560</width>
 		<height>130</height>
 		<pagecontrol>-</pagecontrol>
@@ -509,8 +506,6 @@
 				<width>100</width>
 				<height>100</height>
 				<texture border="15">RecentAddedBack.png</texture>
-				
-					
 				<animation effect="zoom" start="5,5,100,100" end="0,0,110,110" time="200">focus</animation>
 			</control>
 			<control type="image">
@@ -520,15 +515,10 @@
 				<height>80</height>
 				<aspectratio aligny="bottom">keep</aspectratio>
 				<texture background="true" diffuse="PosterDiffuse.png">$INFO[ListItem.Icon]</texture>
-				
-				
 				<!--bordertexture border="10">folder-focus.png</bordertexture>
 				<bordersize>5</bordersize-->
-				
-				
 				<animation effect="zoom" start="15,15,80,80" end="10,10,90,90" time="200">focus</animation>
 			</control>
-			
 		</focusedlayout>
 	</include>
 	<include name="HomeAddonSetOne">

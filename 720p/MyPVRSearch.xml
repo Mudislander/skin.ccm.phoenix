@@ -11,6 +11,7 @@
 			<width>1280</width>
 			<height>100</height>
 			<texture>floor.png</texture>
+			<colordiffuse>blue</colordiffuse>
 			<animation effect="fade" time="200" condition="Window.Previous(Home)">WindowOpen</animation>
 			<animation effect="fade" time="200" condition="Window.Next(Home)">WindowClose</animation>
 		</control>
@@ -22,6 +23,7 @@
 				<width>1280</width>
 				<height>100</height>
 				<texture>floor.png</texture>
+				<colordiffuse>blue</colordiffuse>
 				<animation effect="fade" time="200" condition="Window.Previous(Home)">WindowOpen</animation>
 				<animation effect="fade" time="200" condition="Window.Next(Home)">WindowClose</animation>
 			</control>
@@ -34,7 +36,7 @@
 						<top>60</top>
 						<width>1170</width>
 						<height>600</height>
-						<texture border="15">ContentPanel.png</texture>
+						<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 					</control>
 					<control type="image">
 						<left>55</left>
@@ -415,7 +417,7 @@
 					</control>
 				</control>
 			</control>
-			<control type="label">
+			<!--control type="label">
 				<depth>DepthFooter</depth>
 				<animation effect="slide" start="0,0" end="-90,0" time="0" condition="system.getbool(input.enablemouse)">Conditional</animation>
 				<description>Page Count Label</description>
@@ -429,11 +431,12 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<label>([COLOR=blue]$INFO[Container(50).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(50).CurrentPage]/$INFO[Container(50).NumPages][/COLOR])</label>
-			</control>
+			</control-->
 		</control>
 		<control type="group">
 			<depth>DepthFooter</depth>
-			<include>CommonNowPlaying</include>
+			<include>OSDSeekInfo</include>
+			<!--include>CommonNowPlaying</include-->
 		</control>
 		<include>BehindDialogFadeOut</include>
 		<include>ScrollOffsetLabel</include>

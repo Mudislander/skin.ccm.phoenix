@@ -22,7 +22,7 @@
 			<top>0</top>
 			<width>880</width>
 			<height>680</height>
-			<texture border="40">DialogBack.png</texture>
+			<texture border="40">DialogBack.png</texture><colordiffuse>blue</colordiffuse>
 			<visible>![Window.IsVisible(FullscreenVideo) | Window.IsVisible(Visualisation)]</visible>
 		</control>
 		<control type="image">

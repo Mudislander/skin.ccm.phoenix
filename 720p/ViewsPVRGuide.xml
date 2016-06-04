@@ -435,7 +435,7 @@
 							<width>1100</width>
 							<height>98</height>
 							<colordiffuse>AAFFFFFF</colordiffuse>
-							<texture border="5">black-back2.png</texture>
+							<texture border="5">black-back2.png</texture><colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>0</left>
@@ -574,7 +574,7 @@
 					<orientation>vertical</orientation>
 				</control>
 			</control>
-			<control type="label">
+			<!--control type="label">
 				<depth>DepthFooter</depth>
 				<animation effect="slide" start="0,0" end="-90,0" time="0" condition="system.getbool(input.enablemouse)">Conditional</animation>
 				<description>Page Count Label</description>
@@ -588,7 +588,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<label>([COLOR=blue]$INFO[Container(11).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(11).CurrentPage]/$INFO[Container(11).NumPages][/COLOR])</label>
-			</control>
+			</control-->
 		</control>
 	</include>
 	<!-- ID: 12 -->
@@ -768,7 +768,7 @@
 							<width>1100</width>
 							<height>98</height>
 							<colordiffuse>AAFFFFFF</colordiffuse>
-							<texture border="5">black-back2.png</texture>
+							<texture border="5">black-back2.png</texture><colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>0</left>
@@ -907,7 +907,7 @@
 					<orientation>vertical</orientation>
 				</control>
 			</control>
-			<control type="label">
+			<!--control type="label">
 				<depth>DepthFooter</depth>
 				<animation effect="slide" start="0,0" end="-90,0" time="0" condition="system.getbool(input.enablemouse)">Conditional</animation>
 				<description>Page Count Label</description>
@@ -921,7 +921,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<label>([COLOR=blue]$INFO[Container(12).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(12).CurrentPage]/$INFO[Container(12).NumPages][/COLOR])</label>
-			</control>
+			</control-->
 		</control>
 	</include>
 	<!-- ID: 13 -->
@@ -1068,7 +1068,7 @@
 							<width>1100</width>
 							<height>98</height>
 							<colordiffuse>AAFFFFFF</colordiffuse>
-							<texture border="5">black-back2.png</texture>
+							<texture border="5">black-back2.png</texture><colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>0</left>
@@ -1187,7 +1187,7 @@
 					<orientation>vertical</orientation>
 				</control>
 			</control>
-			<control type="label">
+			<!--control type="label">
 				<depth>DepthFooter</depth>
 				<animation effect="slide" start="0,0" end="-90,0" time="0" condition="system.getbool(input.enablemouse)">Conditional</animation>
 				<description>Page Count Label</description>
@@ -1201,7 +1201,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<label>([COLOR=blue]$INFO[Container(13).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(13).CurrentPage]/$INFO[Container(13).NumPages][/COLOR])</label>
-			</control>
+			</control-->
 		</control>
 	</include>
 </includes>

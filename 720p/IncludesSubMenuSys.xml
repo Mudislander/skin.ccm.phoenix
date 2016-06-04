@@ -33,6 +33,7 @@
 				<width>193</width>
 				<height>35</height>
 				<texture border="5">HomeSubNF.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="label">
 				<left>5</left>
@@ -53,6 +54,7 @@
 				<width>193</width>
 				<height>35</height>
 				<texture border="5">HomeSubNF.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>0</left>
@@ -60,6 +62,7 @@
 				<width>193</width>
 				<height>35</height>
 				<texture border="5">HomeSubFO.png</texture>
+				<colordiffuse>blue</colordiffuse>
 				<visible>ControlGroup(9001).HasFocus</visible>
 			</control>
 			<control type="label">
@@ -110,6 +113,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">SubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9010).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -118,6 +122,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">SubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9010).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9010).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9010).NumItems,3)">conditional</animation>
@@ -151,6 +156,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9011).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -159,6 +165,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9011).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9011).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9011).NumItems,3)">conditional</animation>
@@ -192,6 +199,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9012).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -200,6 +208,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9012).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9012).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9012).NumItems,3)">conditional</animation>
@@ -233,6 +242,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9013).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -241,6 +251,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9013).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9013).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9013).NumItems,3)">conditional</animation>
@@ -274,6 +285,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9014).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -282,6 +294,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9014).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9014).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9014).NumItems,3)">conditional</animation>
@@ -315,6 +328,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9015).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -323,6 +337,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9015).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9015).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9015).NumItems,3)">conditional</animation>
@@ -356,6 +371,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9016).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -364,6 +380,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9016).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9016).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9016).NumItems,3)">conditional</animation>
@@ -397,6 +414,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9017).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -405,6 +423,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9017).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9017).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9017).NumItems,3)">conditional</animation>
@@ -438,6 +457,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9018).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -446,6 +466,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9018).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9018).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9018).NumItems,3)">conditional</animation>
@@ -479,6 +500,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9019).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -487,6 +509,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9019).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9019).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9019).NumItems,3)">conditional</animation>
@@ -520,6 +543,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9020).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -528,6 +552,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9020).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9020).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9020).NumItems,3)">conditional</animation>
@@ -561,6 +586,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9021).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -569,6 +595,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9021).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9021).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9021).NumItems,3)">conditional</animation>
@@ -602,6 +629,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<visible>IntegerGreaterThan(Container(9022).NumItems,0)</visible>
 				</control>
 				<control type="image">
@@ -610,6 +638,7 @@
 					<width>35</width>
 					<height>35</height>
 					<texture border="0,0,0,3">HomeSubEnd.png</texture>
+					<colordiffuse>blue</colordiffuse>
 					<animation effect="slide" start="0,0" end="-193,0" time="0" condition="String.IsEqual(Container(9022).NumItems,5)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-386,0" time="0" condition="String.IsEqual(Container(9022).NumItems,4)">conditional</animation>
 					<animation effect="slide" start="0,0" end="-579,0" time="0" condition="String.IsEqual(Container(9022).NumItems,3)">conditional</animation>

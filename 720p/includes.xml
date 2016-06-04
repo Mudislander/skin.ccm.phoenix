@@ -9,6 +9,7 @@
 	<include file="IncludesHomeNowPlaying.xml" />
 	<include file="IncludesMenuContentItems.xml" />
 	<include file="IncludesCommonRoutines.xml" />
+	<include file="IncludesOnScreenDisplay.xml" />
 	<include file="ViewsVideoLibrary.xml" />
 	<include file="ViewsMusicLibrary.xml" />
 	<include file="ViewsFileMode.xml" />
@@ -399,6 +400,7 @@
 		<control type="group">
 			<left>120r</left>
 			<top>55r</top>
+			<animation effect="slide" start="0,0" end="-80,0" time="0" condition="Player.HasMedia">Conditional</animation>
 			<animation effect="fade" time="200" condition="Window.Previous(Home)">WindowOpen</animation>
 			<animation effect="fade" time="200" condition="Window.Next(Home)">WindowClose</animation>
 			<visible>system.getbool(input.enablemouse)</visible>
@@ -567,6 +569,7 @@
 	<include name="CommonPageCount">
 		<control type="group">
 			<animation effect="slide" start="0,0" end="-90,0" time="0" condition="system.getbool(input.enablemouse)">Conditional</animation>
+			<!--animation effect="slide" start="0,0" end="-80,0" time="0" condition="Player.HasMedia">Conditional</animation-->
 			<control type="label">
 				<description>Page Count Label</description>
 				<right>40</right>
@@ -1248,7 +1251,7 @@
 			</control>
 		</focusedlayout>
 	</include>
-	<include name="backgroundfade">
+	<include name="BackgroundFade">
 		<animation effect="fade" time="450">Visible</animation>
 		<animation effect="fade" time="450">Hidden</animation>
 	</include>
@@ -2627,5 +2630,49 @@
 		<animation effect="fade" start="100" end="60" time="0" condition="String.Contains(skin.string(VizDiffuseAmnt),40)">Conditional</animation>
 		<animation effect="fade" start="100" end="75" time="0" condition="String.Contains(skin.string(VizDiffuseAmnt),25)">Conditional</animation>
 		<animation effect="fade" start="100" end="90" time="0" condition="String.Contains(skin.string(VizDiffuseAmnt),10)">Conditional</animation>
+	</include>
+	<include name="VideoBoxGlass">
+		<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>184</width>
+			<height>240</height>
+			<include>BackgroundFade</include>
+			<fadetime>800</fadetime>
+			<include>Window_OpenClose_Animation</include>
+			<texture background="true">ClearCase/ClearCase.png</texture>
+		</control>
+	</include>
+	<include name="CDBoxDimensions">
+		<left>36</left>
+		<top>11</top>
+		<width>201</width>
+		<height>201</height>
+		<aspectratio scalediffuse="false">scale</aspectratio>
+		<include>BackgroundFade</include>
+		<fadetime>FanartCrossfadeTime</fadetime>
+		<include>Window_OpenClose_Animation</include>
+	</include>
+	<include name="CDBoxGlass">
+		<control type="image">
+			<width>250</width>
+			<height>228</height>
+			<include>BackgroundFade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<include>Window_OpenClose_Animation</include>
+			<bordertexture>CDCase/cdshadow.png</bordertexture>
+			<texture background="true">CDCase/cdglass.png</texture>
+		</control>
+	</include>
+	<include name="VideoBoxDimensions">
+		<left>26</left>
+		<top>6</top>
+		<width>149</width>
+		<height>223</height>
+		<include>BackgroundFade</include>
+		<fadetime>FanartCrossfadeTime</fadetime>
+		<include>Window_OpenClose_Animation</include>
+		<align>center</align>
+		<aspectratio scalediffuse="false">scale</aspectratio>
 	</include>
 </includes>

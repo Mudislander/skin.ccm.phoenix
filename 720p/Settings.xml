@@ -21,6 +21,7 @@
 			<width>1280</width>
 			<height>100</height>
 			<texture>floor.png</texture>
+			<colordiffuse>blue</colordiffuse>
 			<animation effect="slide" start="0,10" end="0,0" time="150" condition="Window.Previous(Home)">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,10" time="150" condition="Window.Next(Home)">WindowClose</animation>
 		</control>
@@ -40,7 +41,7 @@
 				<top>5</top>
 				<width>1090</width>
 				<height>630</height>
-				<texture border="15">ContentPanel.png</texture>
+				<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>5</left>
@@ -128,46 +129,87 @@
 				</focusedlayout>
 				<content>
 					<item id="1">
+						<label>166</label>
+						<label2>31437</label2>
+						<onclick>ActivateWindow(SkinSettings)</onclick>
+						<icon>-</icon>
+					</item>
+					<item id="2">
 						<label>14200</label>
 						<label2>31430</label2>
 						<onclick>ActivateWindow(PlayerSettings)</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="2">
+					<item id="3">
 						<label>14202</label>
 						<label2>31431</label2>
 						<onclick>ActivateWindow(LibrarySettings)</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="3">
+					<item id="4">
 						<label>14204</label>
 						<label2>31432</label2>
 						<onclick>ActivateWindow(PVRSettings)</onclick>
 						<icon>special://skin/backgrounds/tv.jpg</icon>
 					</item>
-					<item id="4">
+					<item id="5">
 						<label>24001</label>
 						<label2>31433</label2>
 						<onclick>ActivateWindow(AddonBrowser)</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="5">
+					<item id="6">
 						<label>14036</label>
 						<label2>31434</label2>
 						<onclick>ActivateWindow(ServiceSettings)</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="6">
+					<item id="7">
 						<label>14206</label>
 						<label2>31436</label2>
 						<onclick>ActivateWindow(InterfaceSettings)</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="7">
+					<item id="8">
 						<label>13000</label>
 						<label2>31435</label2>
 						<onclick>ActivateWindow(SystemSettings)</onclick>
 						<icon>-</icon>
+					</item>
+					<item id="9">
+						<label>31158</label>
+						<label2>31438</label2>
+						<onclick>StartAndroidActivity("com.android.tv.settings")</onclick>
+						<icon>-</icon>
+						<visible>System.Platform.Android</visible>
+					</item>
+					<item id="10">
+						<label>31141</label>
+						<label2>31439</label2>
+						<onclick>RunAddon(service.libreelec.settings)</onclick>
+						<icon>-</icon>
+						<visible>System.HasAddon(service.libreelec.settings)</visible>
+					</item>
+					<item id="11">
+						<label>31159</label>
+						<label2>31440</label2>
+						<onclick>RunAddon(os.openelec.settings)</onclick>
+						<icon>-</icon>
+						<visible>System.HasAddon(os.openelec.settings)</visible>
+					</item>
+					<item id="12">
+						<label>31159</label>
+						<label2>31440</label2>
+						<onclick>RunAddon(service.openelec.settings)</onclick>
+						<icon>-</icon>
+						<visible>System.HasAddon(service.openelec.settings)</visible>
+					</item>
+					<item id="13">
+						<label>31160</label>
+						<label2>31441</label2>
+						<onclick>RunAddon(script.raspbmc.settings)</onclick>
+						<icon>-</icon>
+						<visible>System.HasAddon(script.raspbmc.settings)</visible>
 					</item>
 				</content>
 			</control>
@@ -176,7 +218,7 @@
 				<top>10</top>
 				<width>804</width>
 				<height>50</height>
-				<texture border="5">black-back2.png</texture>
+				<texture border="5">black-back2.png</texture><colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>268</left>
@@ -228,7 +270,7 @@
 				<top>510</top>
 				<width>804</width>
 				<height>118</height>
-				<texture border="5">black-back2.png</texture>
+				<texture border="5">black-back2.png</texture><colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="textbox">
 				<description>Appearance Description</description>
@@ -245,7 +287,8 @@
 		</control>
 		<control type="group">
 			<depth>DepthFooter</depth>
-			<include>CommonNowPlaying</include>
+			<include>OSDSeekInfo</include>
+			<!--include>CommonNowPlaying</include-->
 		</control>
 		<include>MainWindowMouseButtons</include>
 		<include>BehindDialogFadeOut</include>

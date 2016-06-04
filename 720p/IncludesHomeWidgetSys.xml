@@ -11,6 +11,10 @@
 			<include>VisibleFadeEffect</include>
 			<animation effect="fade" time="225" delay="750">WindowOpen</animation>
 			<animation effect="fade" time="150">WindowClose</animation>
+			<!--
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(9003) + !Control.HasFocus(601)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(9003)">Conditional</animation>
+			-->
 			<!-- User Design Widgets -->
 			<control type="group">
 				<left>0</left>
@@ -47,8 +51,6 @@
 					<onright>8001</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-					<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -61,13 +63,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -94,13 +97,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -111,7 +115,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -161,8 +165,6 @@
 					<onright>8001</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -175,6 +177,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -221,6 +224,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -301,8 +305,6 @@
 					<onright>8001</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -315,6 +317,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -361,6 +364,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -493,8 +497,6 @@
 					<onright>8002</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -507,6 +509,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -540,6 +543,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -607,8 +611,6 @@
 					<onright>8002</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -621,6 +623,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -667,6 +670,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -747,8 +751,6 @@
 					<onright>8002</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -761,6 +763,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -807,6 +810,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -939,8 +943,6 @@
 					<onright>8003</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -953,6 +955,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -986,6 +989,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1053,8 +1057,6 @@
 					<onright>8003</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -1067,6 +1069,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1113,6 +1116,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1193,8 +1197,6 @@
 					<onright>8003</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -1207,6 +1209,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1253,6 +1256,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1385,8 +1389,6 @@
 					<onright>8004</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -1399,6 +1401,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1432,6 +1435,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1499,8 +1503,6 @@
 					<onright>8004</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -1513,6 +1515,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1559,6 +1562,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1639,8 +1643,6 @@
 					<onright>8004</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -1653,6 +1655,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1699,6 +1702,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1831,8 +1835,6 @@
 					<onright>8005</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -1845,6 +1847,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1878,6 +1881,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1945,8 +1949,6 @@
 					<onright>8005</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -1959,6 +1961,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2005,6 +2008,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2085,8 +2089,6 @@
 					<onright>8005</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -2099,6 +2101,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2145,6 +2148,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2277,8 +2281,6 @@
 					<onright>8006</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -2291,6 +2293,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2324,6 +2327,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2391,8 +2395,6 @@
 					<onright>8006</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -2405,6 +2407,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2451,6 +2454,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2531,8 +2535,6 @@
 					<onright>8006</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -2545,6 +2547,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2591,6 +2594,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2723,8 +2727,6 @@
 					<onright>8007</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -2737,6 +2739,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2770,6 +2773,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2837,8 +2841,6 @@
 					<onright>8007</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -2851,6 +2853,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2897,6 +2900,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -2977,8 +2981,6 @@
 					<onright>8007</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -2991,6 +2993,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3037,6 +3040,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3169,8 +3173,6 @@
 					<onright>8008</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -3183,6 +3185,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3216,6 +3219,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3283,8 +3287,6 @@
 					<onright>8008</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -3297,6 +3299,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3343,6 +3346,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3423,8 +3427,6 @@
 					<onright>8008</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -3437,6 +3439,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3483,6 +3486,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3615,8 +3619,6 @@
 					<onright>8009</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -3629,6 +3631,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3662,6 +3665,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3729,8 +3733,6 @@
 					<onright>8009</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -3743,6 +3745,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3789,6 +3792,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3869,8 +3873,6 @@
 					<onright>8009</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -3883,6 +3885,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -3929,6 +3932,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -4061,8 +4065,6 @@
 					<onright>8010</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -4075,6 +4077,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -4108,6 +4111,7 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -4175,8 +4179,6 @@
 					<onright>8010</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -4189,6 +4191,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -4235,6 +4238,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -4315,8 +4319,6 @@
 					<onright>8010</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -4329,6 +4331,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -4375,6 +4378,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -4514,8 +4518,6 @@
 					<onright>8036</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -4528,13 +4530,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -4561,13 +4564,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -4578,7 +4582,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -4675,8 +4679,6 @@
 					<onright>8037</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -4689,13 +4691,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -4722,13 +4725,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -4739,7 +4743,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -4815,6 +4819,8 @@
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),VideoPlayList)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)</visible>
 			<include>VisibleFadeEffect</include>
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8011) + !Control.HasFocus(9004)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8011)">Conditional</animation>
 			<control type="label">
 				<description>Title label</description>
 				<left>180</left>
@@ -5142,6 +5148,8 @@
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),VideoPlayList)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)</visible>
 			<include>VisibleFadeEffect</include>
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8040) + !Control.HasFocus(9004)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8040)">Conditional</animation>
 			<control type="label">
 				<description>Title label</description>
 				<left>0</left>
@@ -5456,6 +5464,8 @@
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),VideoPlayList)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)</visible>
 			<include>VisibleFadeEffect</include>
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8012) + !Control.HasFocus(9004)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8012)">Conditional</animation>
 			<control type="label">
 				<description>Title label</description>
 				<left>180</left>
@@ -5794,6 +5804,8 @@
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),MusicPlayList)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)</visible>
 			<include>VisibleFadeEffect</include>
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8013) + !Control.HasFocus(9004)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8013)">Conditional</animation>
 			<control type="label">
 				<description>Title label</description>
 				<left>160</left>
@@ -6120,6 +6132,8 @@
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),MusicPlayList)</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)</visible>
 			<include>VisibleFadeEffect</include>
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8041) + !Control.HasFocus(9004)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8041)">Conditional</animation>
 			<control type="label">
 				<description>Title label</description>
 				<left>0</left>
@@ -6434,6 +6448,8 @@
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RecentMovies)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RecentItems),true)</visible>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8014) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8014)">Conditional</animation>
 				<include>VisibleFadeEffect</include>
 				<control type="label">
 					<description>Title label</description>
@@ -6464,8 +6480,6 @@
 					<onright>8014</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -6478,13 +6492,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -6511,13 +6526,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -6528,7 +6544,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -6594,6 +6610,8 @@
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RandomMovies)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)</visible>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8015) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8015)">Conditional</animation>
 				<include>VisibleFadeEffect</include>
 				<control type="label">
 					<description>Title label</description>
@@ -6624,8 +6642,6 @@
 					<onright>8015</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -6638,13 +6654,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -6671,13 +6688,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -6688,7 +6706,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -6755,6 +6773,8 @@
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),SuggestedMovies)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8016) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8016)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>180</left>
@@ -6784,8 +6804,6 @@
 					<onright>8016</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -6798,13 +6816,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -6831,13 +6850,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -6848,7 +6868,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -6914,6 +6934,8 @@
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),UnWatchedMovies)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8017) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8017)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>180</left>
@@ -6943,8 +6965,6 @@
 					<onright>8017</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -6957,13 +6977,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -6990,13 +7011,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7007,7 +7029,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7073,6 +7095,8 @@
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),SimilarMovies)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8018) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8018)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>180</left>
@@ -7102,8 +7126,6 @@
 					<onright>8018</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -7116,13 +7138,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7149,13 +7172,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7166,7 +7190,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7232,6 +7256,8 @@
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),GenreMovies)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8019) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8019)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>180</left>
@@ -7261,8 +7287,6 @@
 					<onright>8019</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -7275,13 +7299,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7308,13 +7333,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7325,7 +7351,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7399,6 +7425,8 @@
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RecentEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RecentItems),true)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8020) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8020)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>180</left>
@@ -7428,8 +7456,6 @@
 					<onright>8020</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -7442,13 +7468,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7475,13 +7502,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7492,7 +7520,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7561,6 +7589,8 @@
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RandomEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8021) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8021)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>180</left>
@@ -7590,8 +7620,6 @@
 					<onright>8021</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -7604,13 +7632,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7637,13 +7666,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7654,7 +7684,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7723,6 +7753,8 @@
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),SuggestedEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8022) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8022)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>180</left>
@@ -7752,8 +7784,6 @@
 					<onright>8022</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -7766,13 +7796,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7799,13 +7830,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7816,7 +7848,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -7885,6 +7917,8 @@
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),ThumbRecentEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RecentItems),true)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8023) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8023)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>240</left>
@@ -7913,8 +7947,6 @@
 					<onright>8023</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -7927,6 +7959,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -7973,6 +8006,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -8072,6 +8106,8 @@
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),ThumbRandomEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8024) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8024)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>240</left>
@@ -8100,8 +8136,6 @@
 					<onright>8024</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -8114,6 +8148,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -8160,6 +8195,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -8259,6 +8295,8 @@
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),ThumbSuggestedEpisodes)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8025) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8025)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>240</left>
@@ -8287,8 +8325,6 @@
 					<onright>8025</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -8301,6 +8337,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -8347,6 +8384,7 @@
 							<width>240</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -8443,6 +8481,8 @@
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),SimilarEpisodes)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8026) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8026)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>180</left>
@@ -8472,8 +8512,6 @@
 					<onright>8026</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -8486,13 +8524,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -8519,13 +8558,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -8536,7 +8576,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -8602,6 +8642,8 @@
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),GenreEpisodes)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8027) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8027)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>180</left>
@@ -8631,8 +8673,6 @@
 					<onright>8027</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -8645,13 +8685,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -8678,13 +8719,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -8695,7 +8737,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -8762,6 +8804,8 @@
 				<visible>!Skin.HasSetting(DisableTVNextAired)</visible>
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),NextAired)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8028) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8028)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>180</left>
@@ -8791,8 +8835,6 @@
 					<onright>8028</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -8805,13 +8847,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -8838,13 +8881,14 @@
 							<width>180</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">folder-focus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -8855,7 +8899,7 @@
 							<top>10</top>
 							<width>160</width>
 							<height>170</height>
-							<texture background="true">$VAR[PosterThumb]</texture>
+							<texture background="true">$VAR[SimplePosterThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<bordertexture border="5">button-nofocus.png</bordertexture>
 							<bordersize>5</bordersize>
@@ -8930,6 +8974,8 @@
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RecentAlbums)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RecentItems),true)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8029) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8029)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>160</left>
@@ -8958,8 +9004,6 @@
 					<onright>8029</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -8972,6 +9016,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -9018,6 +9063,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -9115,6 +9161,8 @@
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),RandomAlbums)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8030) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8030)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>160</left>
@@ -9143,8 +9191,6 @@
 					<onright>8030</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -9157,6 +9203,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -9203,6 +9250,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -9300,6 +9348,8 @@
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),SuggestedAlbums)</visible>
 				<visible>String.Contains(Window(Home).Property(SkinWidgets_Recommended),true)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8031) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8031)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>160</left>
@@ -9328,8 +9378,6 @@
 					<onright>8031</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -9342,6 +9390,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -9388,6 +9437,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -9484,6 +9534,8 @@
 			<control type="group">
 				<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),PlayedAlbums)</visible>
 				<include>VisibleFadeEffect</include>
+				<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8032) + !Control.HasFocus(9004)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8032)">Conditional</animation>
 				<control type="label">
 					<description>Title label</description>
 					<left>160</left>
@@ -9512,8 +9564,6 @@
 					<onright>8032</onright>
 					<onup>20</onup>
 					<ondown>9000</ondown>
-					<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
@@ -9526,6 +9576,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -9572,6 +9623,7 @@
 							<width>200</width>
 							<height>220</height>
 							<texture border="15">RecentAddedBack.png</texture>
+							<colordiffuse>blue</colordiffuse>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -9684,6 +9736,8 @@
 			<top>5</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),AndroidApps)</visible>
 			<include>VisibleFadeEffect</include>
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8038) + !Control.HasFocus(9004)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8038)">Conditional</animation>
 			<control type="label">
 				<description>Title label</description>
 				<left>160</left>
@@ -9712,8 +9766,6 @@
 				<onright>8038</onright>
 				<onup>20</onup>
 				<ondown>9000</ondown>
-				<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 				<viewtype label="535">list</viewtype>
 				<pagecontrol>-</pagecontrol>
 				<scrolltime>200</scrolltime>
@@ -9726,6 +9778,7 @@
 						<width>200</width>
 						<height>220</height>
 						<texture border="15">RecentAddedBack.png</texture>
+						<colordiffuse>blue</colordiffuse>
 					</control>
 					<control type="image">
 						<left>10</left>
@@ -9772,6 +9825,7 @@
 						<width>200</width>
 						<height>220</height>
 						<texture border="15">RecentAddedBack.png</texture>
+						<colordiffuse>blue</colordiffuse>
 					</control>
 					<control type="image">
 						<left>10</left>
@@ -9870,12 +9924,14 @@
 		<control type="group">
 			<left>160</left>
 			<!--top>50</top-->
-			
-	<top>5</top>		
-			
+			<top>5</top>
 			<visible>Weather.IsFetched</visible>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)</visible>
 			<include>VisibleFadeEffect</include>
+			<!--
+			<animation effect="fade" start="100" end="0" time="0" condition="Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8039) + !Control.HasFocus(9004)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-400" time="400" easing="out" tween="sine" condition="!Skin.HasSetting(DisableAnimations) + Skin.HasSetting(EnableCleanHome) + !Control.HasFocus(8039)">Conditional</animation>
+			-->
 			<control type="label">
 				<description>Title label</description>
 				<left>0</left>
@@ -9904,8 +9960,6 @@
 				<onright>8039</onright>
 				<onup>20</onup>
 				<ondown>9000</ondown>
-				<!--ondown condition="!Skin.HasSetting(DisableGlobalSearch)">608</ondown>
-			<ondown condition="Skin.HasSetting(DisableGlobalSearch)">603</ondown-->
 				<viewtype label="535">list</viewtype>
 				<pagecontrol>-</pagecontrol>
 				<scrolltime>200</scrolltime>
@@ -9918,6 +9972,8 @@
 						<width>240</width>
 						<height>220</height>
 						<texture border="15">RecentAddedBack.png</texture>
+						<colordiffuse>blue</colordiffuse>
+						<colordiffuse>blue</colordiffuse>
 					</control>
 					<control type="image">
 						<left>10</left>
@@ -9988,6 +10044,7 @@
 						<width>240</width>
 						<height>220</height>
 						<texture border="15">RecentAddedBack.png</texture>
+						<colordiffuse>blue</colordiffuse>
 					</control>
 					<control type="image">
 						<left>10</left>
@@ -16606,13 +16663,14 @@
 				<width>180</width>
 				<height>220</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>10</left>
 				<top>10</top>
 				<width>160</width>
 				<height>170</height>
-				<texture background="true">$VAR[PosterThumb]</texture>
+				<texture background="true">$VAR[SimplePosterThumb]</texture>
 				<aspectratio>keep</aspectratio>
 				<bordertexture border="5">button-nofocus.png</bordertexture>
 				<bordersize>5</bordersize>
@@ -16639,13 +16697,14 @@
 				<width>180</width>
 				<height>220</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>10</left>
 				<top>10</top>
 				<width>160</width>
 				<height>170</height>
-				<texture background="true">$VAR[PosterThumb]</texture>
+				<texture background="true">$VAR[SimplePosterThumb]</texture>
 				<aspectratio>keep</aspectratio>
 				<bordertexture border="5">folder-focus.png</bordertexture>
 				<bordersize>5</bordersize>
@@ -16656,7 +16715,7 @@
 				<top>10</top>
 				<width>160</width>
 				<height>170</height>
-				<texture background="true">$VAR[PosterThumb]</texture>
+				<texture background="true">$VAR[SimplePosterThumb]</texture>
 				<aspectratio>keep</aspectratio>
 				<bordertexture border="5">button-nofocus.png</bordertexture>
 				<bordersize>5</bordersize>
@@ -16700,6 +16759,7 @@
 				<width>240</width>
 				<height>220</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -16746,6 +16806,7 @@
 				<width>240</width>
 				<height>220</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -16820,6 +16881,7 @@
 				<width>240</width>
 				<height>220</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -16866,6 +16928,7 @@
 				<width>240</width>
 				<height>220</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -16940,6 +17003,7 @@
 				<width>240</width>
 				<height>220</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -16986,6 +17050,7 @@
 				<width>240</width>
 				<height>220</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -17060,6 +17125,7 @@
 				<width>200</width>
 				<height>220</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -17106,6 +17172,7 @@
 				<width>200</width>
 				<height>220</height>
 				<texture border="15">RecentAddedBack.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>10</left>

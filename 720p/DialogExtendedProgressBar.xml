@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol />
-	<animation effect="slide" start="0,-70" end="0,0" time="75">WindowOpen</animation>
-	<animation effect="slide" start="0,0" end="0,-70" delay="300" time="75">WindowClose</animation>
+	<onload condition="Library.IsScanningVideo + Skin.HasSetting(EnableAutoUpdateArt)">SetProperty(UpdateArt,1)</onload>
+	<onunload condition="!String.IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(EnableAutoUpdateArt)">RunScript(script.artwork.downloader,silent=true)</onunload>
+	<onunload condition="!String.IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(EnableAutoUpdateArt)">ClearProperty(UpdateArt)</onunload>
+	<animation effect="slide" start="0,0" end="0,-80" time="100" condition="!Skin.HasSetting(DisableAnimations)">WindowOpen</animation>
+	<animation effect="slide" start="0,-80" end="0,0" delay="400" time="100" condition="!Skin.HasSetting(DisableAnimations)">WindowClose</animation>
 	<controls>
 		<control type="group">
-			<depth>DepthHeader</depth>
-			<left>720</left>
-			<top>0</top>
-			<animation effect="slide" end="0,-80" time="150" condition="Window.IsVisible(FullscreenVideo) | Window.IsVisible(Visualisation)">conditional</animation>
+			<depth>DepthFooter</depth>
+			<left>-10</left>
+			<top>740</top>
+			<animation effect="slide" end="0,80" time="150" condition="Window.IsVisible(FullscreenVideo) | Window.IsVisible(Visualisation) | Window.IsVisible(infodialog)">conditional</animation>
 			<control type="image">
 				<left>0</left>
-				<top>-10</top>
-				<width>400</width>
+				<top>0</top>
+				<width>375</width>
 				<height>70</height>
-				<texture flipy="true" border="20,20,20,2">InfoMessagePanel.png</texture>
+				<texture>InfoMessagePanel.png</texture>
+				<colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="label" id="30">
 				<description>Header Label</description>
 				<left>15</left>
-				<top>4</top>
-				<width>370</width>
+				<top>6</top>
+				<width>350</width>
 				<height>18</height>
 				<font>font10_title</font>
 				<textcolor>selected</textcolor>
@@ -30,8 +34,8 @@
 			<control type="label" id="31">
 				<description>Title Label</description>
 				<left>15</left>
-				<top>20</top>
-				<width>370</width>
+				<top>22</top>
+				<width>350</width>
 				<height>20</height>
 				<font>font10</font>
 				<align>left</align>
@@ -40,8 +44,8 @@
 			<control type="progress" id="32">
 				<description>progress control</description>
 				<left>15</left>
-				<top>42</top>
-				<width>370</width>
+				<top>44</top>
+				<width>350</width>
 				<height>8</height>
 			</control>
 		</control>

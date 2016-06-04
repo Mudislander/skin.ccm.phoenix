@@ -2,7 +2,7 @@
 <includes>
 	<include name="OSDSeekInfo">
 		<control type="group">
-			<left>365r</left>
+			<left>360r</left>
 			<top>65r</top>
 			<control type="group">
 				<left>260</left>
@@ -130,7 +130,7 @@
 			</control>
 			<control type="label">
 				<description>Seekbar Label</description>
-				<left>15</left>		
+				<left>15</left>
 				<top>40</top>
 				<width>240</width>
 				<height>20</height>
@@ -140,10 +140,988 @@
 				<textcolor>white</textcolor>
 				<label>$VAR[SeekLabel]</label>
 				<visible>![Window.IsVisible(VideoOSD) | Window.IsVisible(MusicOSD)]</visible>
+				<!--visible>Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)</visible-->
+				<visible>Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)</visible>
+			</control>
+		</control>
+	</include>
+	<include name="HomeScreenFloorButtons">
+		<control type="group" id="10">
+			<depth>DepthFooter</depth>
+			<left>20</left>
+			<top>55r</top>
+			<include>Window_OpenClose_Animation</include>
+			<control type="button" id="20">
+				<description>Power push button</description>
+				<right>5</right>
+				<top>0</top>
+				<width>45</width>
+				<height>45</height>
+				<label>31003</label>
+				<font>-</font>
+				<onclick>$VAR[HomePowerBtnCommand]</onclick>
+				<texturefocus border="5">FloorButtons/FloorPowerFO.png</texturefocus>
+				<texturenofocus border="5">FloorButtons/FloorPowerNF.png</texturenofocus>
+				<onleft>21</onleft>
+				<onright>23</onright>
+				<onup>9002</onup>
+				<ondown condition="!String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">9003</ondown>
+				<ondown condition="String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">9000</ondown>
+				<visible>!Skin.HasSetting(HideHomePowerBtn)</visible>
+			</control>
+			<control type="button" id="21">
+				<description>Favourites push button</description>
+				<animation effect="slide" start="0,0" end="50,0" time="0" condition="Skin.HasSetting(HideHomePowerBtn)">conditional</animation>
+				<right>55</right>
+				<top>0</top>
+				<width>45</width>
+				<height>45</height>
+				<label>1036</label>
+				<font>-</font>
+				<onclick>ActivateWindow(Favourites)</onclick>
+				<texturefocus border="5">FloorButtons/FloorFavFO.png</texturefocus>
+				<texturenofocus border="5">FloorButtons/FloorFavNF.png</texturenofocus>
+				<onleft>22</onleft>
+				<onright>20</onright>
+				<onup>9002</onup>
+				<ondown condition="!String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">9003</ondown>
+				<ondown condition="String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">9000</ondown>
+				<visible>!Skin.HasSetting(HideHomeFavBtn)</visible>
+			</control>
+			<control type="button" id="22">
+				<description>DVD Disk push button</description>
+				<animation effect="slide" start="0,0" end="50,0" time="0" condition="Skin.HasSetting(HideHomePowerBtn)">conditional</animation>
+				<animation effect="slide" start="0,0" end="50,0" time="0" condition="Skin.HasSetting(HideHomeFavBtn)">conditional</animation>
+				<right>105</right>
+				<top>0</top>
+				<width>45</width>
+				<height>45</height>
+				<label>13276</label>
+				<font>-</font>
+				<onclick condition="System.HasMediaDVD">PlayDVD()</onclick>
+				<onclick condition="!System.HasMediaDVD">EjectTray()</onclick>
+				<texturefocus border="5">FloorButtons/FloorDiskFO.png</texturefocus>
+				<texturenofocus border="5">FloorButtons/FloorDiskNF.png</texturenofocus>
+				<onleft>23</onleft>
+				<onright>21</onright>
+				<onup>9002</onup>
+				<ondown condition="!String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">9003</ondown>
+				<ondown condition="String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">9000</ondown>
+				<visible>!Skin.HasSetting(HideHomeDVDBtn)</visible>
+			</control>
+			<control type="button" id="23">
+				<description>Search push button</description>
+				<animation effect="slide" start="0,0" end="50,0" time="0" condition="Skin.HasSetting(HideHomePowerBtn)">conditional</animation>
+				<animation effect="slide" start="0,0" end="50,0" time="0" condition="Skin.HasSetting(HideHomeFavBtn)">conditional</animation>
+				<animation effect="slide" start="0,0" end="50,0" time="0" condition="Skin.HasSetting(HideHomeDVDBtn)">conditional</animation>
+				<right>155</right>
+				<top>0</top>
+				<width>45</width>
+				<height>45</height>
+				<label>137</label>
+				<font>-</font>
+				<onclick>RunScript(script.globalsearch)</onclick>
+				<texturefocus border="5">FloorButtons/FloorSearchFO.png</texturefocus>
+				<texturenofocus border="5">FloorButtons/FloorSearchNF.png</texturenofocus>
+				<onleft>20</onleft>
+				<onright>22</onright>
+				<onup>9002</onup>
+				<ondown condition="!String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">9003</ondown>
+				<ondown condition="String.IsEqual(Container(9000).ListItem.Property(WidgetSet),Weather)">9000</ondown>
+				<visible>!Skin.HasSetting(DisableGlobalSearch)</visible>
+			</control>
+		</control>
+	</include>
+	<include name="HomePowerButtons">
+		<control type="button" id="21">
+			<description>Eject DVD Tray Button</description>
+			<left>200r</left>
+			<top>55r</top>
+			<width>45</width>
+			<height>45</height>
+			<onclick condition="Player.HasMedia">ActivateWindow(playercontrols)</onclick>
+			<onclick condition="!Player.HasMedia + System.HasMediaDVD">XBMC.PlayDVD()</onclick>
+			<onclick condition="!Player.HasMedia + !System.HasMediaDVD">EjectTray()</onclick>
+			<texturefocus border="5">FloorButtons/FloorDiskFO.png</texturefocus>
+			<texturenofocus border="5">FloorButtons/FloorDiskNF.png</texturenofocus>
+			<onleft condition="Skin.HasSetting(HideHomePowerBtn)">9000</onleft>
+			<onleft condition="!Skin.HasSetting(HideHomePowerBtn)">20</onleft>
+			<onright condition="Skin.HasSetting(HideHomePowerBtn)">9000</onright>
+			<onright condition="!Skin.HasSetting(HideHomePowerBtn)">20</onright>
+			<onup>9000</onup>
+			<ondown condition="IntegerGreaterThan(Window(home).Property(favourite.count),0) + !Skin.HasSetting(DisableScriptFavourites)">ActivateWindow(Favourites)</ondown>
+			<ondown condition="!IntegerGreaterThan(Window(home).Property(favourite.count),0) | Skin.HasSetting(DisableScriptFavourites)">9000</ondown>
+			<animation effect="slide" start="0,0" end="45,00" time="0" condition="Skin.HasSetting(HideHomePowerBtn)">conditional</animation>
+			<visible>!Skin.HasSetting(HideHomeDVDBtn)</visible>
+		</control>
+		<control type="button" id="20">
+			<description>Shutdown Button</description>
+			<left>150r</left>
+			<top>55r</top>
+			<width>45</width>
+			<height>45</height>
+			<onclick>$VAR[HomePowerBtnCommand]</onclick>
+			<texturefocus border="5">FloorButtons/FloorPowerFO.png</texturefocus>
+			<texturenofocus border="5">FloorButtons/FloorPowerNF.png</texturenofocus>
+			<onleft condition="Skin.HasSetting(HideHomeDVDBtn)">9000</onleft>
+			<onleft condition="!Skin.HasSetting(HideHomeDVDBtn)">21</onleft>
+			<onright condition="Skin.HasSetting(HideHomeDVDBtn)">9000</onright>
+			<onright condition="!Skin.HasSetting(HideHomeDVDBtn)">21</onright>
+			<onup>9000</onup>
+			<ondown condition="IntegerGreaterThan(Window(home).Property(favourite.count),0) + !Skin.HasSetting(DisableScriptFavourites)">ActivateWindow(Favourites)</ondown>
+			<ondown condition="!IntegerGreaterThan(Window(home).Property(favourite.count),0) | Skin.HasSetting(DisableScriptFavourites)">9000</ondown>
+			<visible>!Skin.HasSetting(HideHomePowerBtn)</visible>
+		</control>
+		<control type="button" id="19">
+			<description>Eject DVD Tray Button</description>
+			<left>100r</left>
+			<top>55r</top>
+			<width>45</width>
+			<height>45</height>
+			<onclick condition="Player.HasMedia">ActivateWindow(playercontrols)</onclick>
+			<onclick condition="!Player.HasMedia + System.HasMediaDVD">XBMC.PlayDVD()</onclick>
+			<onclick condition="!Player.HasMedia + !System.HasMediaDVD">EjectTray()</onclick>
+			<texturefocus border="5">FloorButtons/FloorDiskFO.png</texturefocus>
+			<texturenofocus border="5">FloorButtons/FloorDiskNF.png</texturenofocus>
+			<onleft condition="Skin.HasSetting(HideHomePowerBtn)">9000</onleft>
+			<onleft condition="!Skin.HasSetting(HideHomePowerBtn)">20</onleft>
+			<onright condition="Skin.HasSetting(HideHomePowerBtn)">9000</onright>
+			<onright condition="!Skin.HasSetting(HideHomePowerBtn)">20</onright>
+			<onup>9000</onup>
+			<ondown condition="IntegerGreaterThan(Window(home).Property(favourite.count),0) + !Skin.HasSetting(DisableScriptFavourites)">ActivateWindow(Favourites)</ondown>
+			<ondown condition="!IntegerGreaterThan(Window(home).Property(favourite.count),0) | Skin.HasSetting(DisableScriptFavourites)">9000</ondown>
+			<animation effect="slide" start="0,0" end="45,00" time="0" condition="Skin.HasSetting(HideHomePowerBtn)">conditional</animation>
+			<visible>!Skin.HasSetting(HideHomeDVDBtn)</visible>
+		</control>
+		<control type="button" id="18">
+			<description>Shutdown Button</description>
+			<left>50r</left>
+			<top>55r</top>
+			<width>45</width>
+			<height>45</height>
+			<onclick>$VAR[HomePowerBtnCommand]</onclick>
+			<texturefocus border="5">FloorButtons/FloorPowerFO.png</texturefocus>
+			<texturenofocus border="5">FloorButtons/FloorPowerNF.png</texturenofocus>
+			<onleft condition="Skin.HasSetting(HideHomeDVDBtn)">9000</onleft>
+			<onleft condition="!Skin.HasSetting(HideHomeDVDBtn)">21</onleft>
+			<onright condition="Skin.HasSetting(HideHomeDVDBtn)">9000</onright>
+			<onright condition="!Skin.HasSetting(HideHomeDVDBtn)">21</onright>
+			<onup>9000</onup>
+			<ondown condition="IntegerGreaterThan(Window(home).Property(favourite.count),0) + !Skin.HasSetting(DisableScriptFavourites)">ActivateWindow(Favourites)</ondown>
+			<ondown condition="!IntegerGreaterThan(Window(home).Property(favourite.count),0) | Skin.HasSetting(DisableScriptFavourites)">9000</ondown>
+			<visible>!Skin.HasSetting(HideHomePowerBtn)</visible>
+		</control>
+	</include>
+	<include name="HomeDateVizCond">
+		<!--1 button = 4 addons-->
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<!--2 button = 3 addons	with music-->
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,3)">conditional</animation>
+		<!--2 button = 4 addons	with no music-->
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<!--3 button = 2 addons no music-->
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,2)">conditional</animation>
+		<!--3 button = 3 addons no music-->
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeFavBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomePowerBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + Skin.HasSetting(HideHomeDVDBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,4)">conditional</animation>
+		<!--4 button = 1 addon with music-->
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,1)">conditional</animation>
+		<!--4 button = 3 addon no music-->
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetOne) + Integer.IsGreater(Container(700).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTwo) + Integer.IsGreater(Container(703).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetThree) + Integer.IsGreater(Container(704).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFour) + Integer.IsGreater(Container(705).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetFive) + Integer.IsGreater(Container(706).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSix) + Integer.IsGreater(Container(707).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetSeven) + Integer.IsGreater(Container(708).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetEight) + Integer.IsGreater(Container(709).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetNine) + Integer.IsGreater(Container(710).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,65" time="0" condition="!Player.HasMedia + !Skin.HasSetting(HideHomeDVDBtn) + !Skin.HasSetting(HideHomePowerBtn) + !Skin.HasSetting(HideHomeFavBtn) + !Skin.HasSetting(HideHomeSearchBtn) + String.IsEqual(Container(9000).ListItem.Property(AddOnSet),AddonSetTen) + Integer.IsGreater(Container(711).NumItems,3)">conditional</animation>
+	</include>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<include name="AnimatedBackgroundEffect">
+		<control type="group">
+			<visible>!Skin.HasSetting(EnableHolidayEffects) + !Skin.HasSetting(HideRainDropEffect) + !Player.HasVideo</visible>
+			<include>VisibleFadeEffect</include>
+			<control type="image">
+				<description>Raindrop 5 animation</description>
+				<left>200</left>
+				<top>150</top>
+				<width>128</width>
+				<height>128</height>
+				<texture background="true">BackgroundEffect/rain-drop.png</texture>
+				<visible>true</visible>
+				<colordiffuse>BBFFFFFF</colordiffuse>
+				<animation type="conditional" reversible="false" loop="true" condition="true">
+					<effect type="fade" delay="2000" start="0" end="100" time="200" />
+					<effect type="fade" delay="2500" start="100" end="0" time="500" />
+					<effect type="zoom" delay="2000" start="30" end="500" time="1000" center="auto" tween="quadratic" />
+				</animation>
+			</control>
+			<control type="image">
+				<description>Raindrop 1 animation</description>
+				<left>550</left>
+				<top>200</top>
+				<width>128</width>
+				<height>128</height>
+				<texture background="true">BackgroundEffect/rain-drop.png</texture>
+				<visible>true</visible>
+				<colordiffuse>55FFFFFF</colordiffuse>
+				<animation type="conditional" reversible="false" loop="true" condition="true">
+					<effect type="fade" start="0" end="100" time="200" />
+					<effect type="fade" start="100" end="0" delay="2500" time="1000" />
+					<effect type="zoom" center="auto" start="30" end="1500" delay="0" time="3500" tween="quadratic" />
+				</animation>
+			</control>
+			<control type="image">
+				<description>Raindrop 2 animation</description>
+				<left>900</left>
+				<top>130</top>
+				<width>128</width>
+				<height>128</height>
+				<texture background="true">BackgroundEffect/rain-drop.png</texture>
+				<visible>true</visible>
+				<animation type="conditional" reversible="false" loop="true" condition="true">
+					<effect type="fade" delay="400" start="0" end="100" time="200" />
+					<effect type="fade" delay="1000" start="100" end="0" time="1600" />
+					<effect type="zoom" delay="400" start="30" end="700" time="3000" center="auto" tween="quadratic" />
+				</animation>
+			</control>
+			<control type="image">
+				<description>Raindrop 3 animation</description>
+				<left>800</left>
+				<top>500</top>
+				<width>128</width>
+				<height>128</height>
+				<texture background="true">BackgroundEffect/rain-drop.png</texture>
+				<visible>true</visible>
+				<colordiffuse>$VAR[MenuBarColor]</colordiffuse>
+				<animation type="conditional" reversible="false" loop="true" condition="true">
+					<effect type="fade" delay="800" start="0" end="100" time="200" />
+					<effect type="fade" delay="2400" start="100" end="0" time="2000" />
+					<effect type="zoom" delay="800" start="30" end="1000" time="2500" center="auto" tween="quadratic" />
+				</animation>
+			</control>
+			<control type="image">
+				<description>Raindrop 4 animation</description>
+				<left>200</left>
+				<top>450</top>
+				<width>128</width>
+				<height>128</height>
+				<texture background="true">BackgroundEffect/rain-drop.png</texture>
+				<visible>true</visible>
+				<colordiffuse>66FFFFFF</colordiffuse>
+				<animation type="conditional" reversible="false" loop="true" condition="true">
+					<effect type="fade" delay="1500" start="0" end="100" time="200" />
+					<effect type="fade" delay="2100" start="100" end="0" time="400" />
+					<effect type="zoom" delay="1500" start="30" end="1200" time="2000" center="auto" tween="quadratic" />
+				</animation>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Skin.HasSetting(EnableHolidayEffects) + !Player.HasMedia</visible>
+			<control type="group">
+				<left>-100</left>
+				<animation effect="rotate" end="20" time="9000" delay="300" pulse="true" condition="true">Conditional</animation>
+				<control type="image">
+					<left>40</left>
+					<top>-180</top>
+					<width>9</width>
+					<height>9</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,820" time="11000" delay="1600" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="40,0" end="-40,0" time="5300" delay="300" reversible="false" pulse="true" condition="true">Conditional</animation>
+					<colordiffuse>C2FFFFFF</colordiffuse>
+				</control>
+				<control type="image">
+					<left>100</left>
+					<top>-100</top>
+					<width>18</width>
+					<height>18</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,920" time="7000" delay="0" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="40,0" end="-20,0" time="3200" delay="300" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>200</left>
+					<top>-40</top>
+					<width>12</width>
+					<height>12</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,1020" time="13000" delay="1300" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="50,0" end="-10,0" time="4300" delay="220" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>260</left>
+					<top>-80</top>
+					<width>15</width>
+					<height>15</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,920" time="15000" delay="2200" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="40,0" end="-30,0" time="4000" delay="200" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>390</left>
+					<top>-210</top>
+					<width>9</width>
+					<height>9</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,1020" time="13000" delay="600" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="20,0" end="-60,0" time="5300" delay="300" reversible="false" pulse="true" condition="true">Conditional</animation>
+					<colordiffuse>C2FFFFFF</colordiffuse>
+				</control>
+			</control>
+			<control type="group">
+				<left>100</left>
+				<animation effect="rotate" start="20" end="40" time="9000" delay="800" pulse="true" condition="true">Conditional</animation>
+				<control type="image">
+					<left>80</left>
+					<top>-100</top>
+					<width>20</width>
+					<height>20</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,820" time="7000" delay="1000" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="40,0" end="-20,0" time="3200" delay="300" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>240</left>
+					<top>-40</top>
+					<width>15</width>
+					<height>15</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,920" time="8000" delay="1800" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="40,0" end="-30,0" time="4000" delay="200" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>390</left>
+					<top>-210</top>
+					<width>10</width>
+					<height>10</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,1120" time="13000" delay="1500" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="20,0" end="-60,0" time="5300" delay="300" reversible="false" pulse="true" condition="true">Conditional</animation>
+					<colordiffuse>C2FFFFFF</colordiffuse>
+				</control>
+			</control>
+			<control type="group">
+				<left>600</left>
+				<top>-200</top>
+				<animation effect="rotate" end="15" time="7000" delay="500" pulse="true" condition="true">Conditional</animation>
+				<control type="image">
+					<left>20</left>
+					<top>-60</top>
+					<width>12</width>
+					<height>12</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,1020" time="13000" delay="1300" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="50,0" end="-10,0" time="4300" delay="220" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>100</left>
+					<top>-190</top>
+					<width>18</width>
+					<height>18</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,920" time="9000" delay="2000" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="40,0" end="-50,0" time="3200" delay="300" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>260</left>
+					<top>-80</top>
+					<width>15</width>
+					<height>15</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,1120" time="8000" delay="2300" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="40,0" end="-30,0" time="4000" delay="200" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>330</left>
+					<top>-110</top>
+					<width>9</width>
+					<height>9</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,920" time="11000" delay="1600" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="40,0" end="-40,0" time="5300" delay="300" reversible="false" pulse="true" condition="true">Conditional</animation>
+					<colordiffuse>C2FFFFFF</colordiffuse>
+				</control>
+				<control type="image">
+					<left>390</left>
+					<top>-110</top>
+					<width>10</width>
+					<height>10</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,820" time="12000" delay="2200" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="-20,0" end="50,0" time="3300" delay="300" reversible="false" pulse="true" condition="true">Conditional</animation>
+					<colordiffuse>C2FFFFFF</colordiffuse>
+				</control>
+			</control>
+			<control type="group">
+				<left>900</left>
+				<animation effect="rotate" start="15" end="30" time="12000" delay="300" pulse="true" condition="true">Conditional</animation>
+				<control type="image">
+					<left>100</left>
+					<top>-200</top>
+					<width>20</width>
+					<height>20</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,920" time="7000" delay="3000" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="40,0" end="-20,0" time="3200" delay="300" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>200</left>
+					<top>-40</top>
+					<width>12</width>
+					<height>12</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,1020" time="13000" delay="1300" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="50,0" end="-10,0" time="4300" delay="220" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>260</left>
+					<top>-80</top>
+					<width>15</width>
+					<height>15</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,820" time="8000" delay="3300" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="40,0" end="-30,0" time="4000" delay="200" reversible="false" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>390</left>
+					<top>-110</top>
+					<width>10</width>
+					<height>10</height>
+					<texture>BackgroundEffect/snow.png</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="slide" start="0,0" end="0,920" time="13000" delay="3500" reversible="false" loop="true" condition="true">Conditional</animation>
+					<animation effect="slide" start="20,0" end="-60,0" time="5300" delay="300" reversible="false" pulse="true" condition="true">Conditional</animation>
+					<colordiffuse>C2FFFFFF</colordiffuse>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="LiveContentBackgrounds">
+		<control type="group">
+			<animation effect="fade" time="800">VisibleChange</animation>
+			<include>Window_OpenClose_Animation</include>
+			<control type="group">
+				<left>-133</left>
+				<top>-25</top>
+				<control type="group">
+					<left>746</left>
+					<top>356</top>
+					<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="9" end="9" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>CDBoxDimensions</include>
+						<texture background="true" diffuse="CDCase/cdmask.png" fallback="CDCase/DefaultCDCover.png">$VAR[LiveContentOne]</texture>
+					</control>
+					<include>CDBoxGlass</include>
+				</control>
+				<control type="group">
+					<left>466</left>
+					<top>-106</top>
+					<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="65" end="65" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>CDBoxDimensions</include>
+						<texture background="true" diffuse="CDCase/cdmask.png" fallback="CDCase/DefaultCDCover.png">$VAR[LiveContentTwo]</texture>
+					</control>
+					<include>CDBoxGlass</include>
+				</control>
+				<control type="group">
+					<left>336</left>
+					<top>110</top>
+					<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="10" end="10" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>CDBoxDimensions</include>
+						<texture background="true" diffuse="CDCase/cdmask.png" fallback="CDCase/DefaultCDCover.png">$VAR[LiveContentThree]</texture>
+					</control>
+					<include>CDBoxGlass</include>
+				</control>
+				<control type="group">
+					<left>1026</left>
+					<top>188</top>
+					<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="-20" end="-20" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>CDBoxDimensions</include>
+						<texture background="true" diffuse="CDCase/cdmask.png" fallback="CDCase/DefaultCDCover.png">$VAR[LiveContentFour]</texture>
+					</control>
+					<include>CDBoxGlass</include>
+				</control>
+				<control type="group">
+					<left>606</left>
+					<top>26</top>
+					<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="25" end="25" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>CDBoxDimensions</include>
+						<texture background="true" diffuse="CDCase/cdmask.png" fallback="CDCase/DefaultCDCover.png">$VAR[LiveContentFive]</texture>
+					</control>
+					<include>CDBoxGlass</include>
+				</control>
+				<control type="group">
+					<left>1200</left>
+					<top>51</top>
+					<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="75" end="75" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>CDBoxDimensions</include>
+						<texture background="true" diffuse="CDCase/cdmask.png" fallback="CDCase/DefaultCDCover.png">$VAR[LiveContentSix]</texture>
+					</control>
+					<include>CDBoxGlass</include>
+				</control>
+				<control type="group">
+					<left>1113</left>
+					<top>423</top>
+					<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="45" end="45" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>CDBoxDimensions</include>
+						<texture background="true" diffuse="CDCase/cdmask.png" fallback="CDCase/DefaultCDCover.png">$VAR[LiveContentSeven]</texture>
+					</control>
+					<include>CDBoxGlass</include>
+				</control>
+				<control type="group">
+					<left>1130</left>
+					<top>340</top>
+					<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="-15" end="-15" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>CDBoxDimensions</include>
+						<texture background="true" diffuse="CDCase/cdmask.png" fallback="CDCase/DefaultCDCover.png">$VAR[LiveContentEight]</texture>
+					</control>
+					<include>CDBoxGlass</include>
+				</control>
+				<control type="group">
+					<left>700</left>
+					<top>186</top>
+					<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="-10" end="-10" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>CDBoxDimensions</include>
+						<texture background="true" diffuse="CDCase/cdmask.png" fallback="CDCase/DefaultCDCover.png">$VAR[LiveContentNine]</texture>
+					</control>
+					<include>CDBoxGlass</include>
+				</control>
+				<control type="group">
+					<left>500</left>
+					<top>366</top>
+					<animation effect="zoom" start="150" end="150" center="auto" time="0" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="3" end="3" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<left>36</left>
+						<top>11</top>
+						<width>201</width>
+						<height>201</height>
+						<texture background="true" diffuse="CDCase/cdmask.png" fallback="CDCase/DefaultCDCover.png">$VAR[LiveContentTen]</texture>
+						<fadetime>600</fadetime>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+					</control>
+					<include>CDBoxGlass</include>
+				</control>
+				<visible>[Library.HasContent(Music) + [String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)]]| String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)</visible>
+			</control>
+			<control type="group">
+				<left>-73</left>
+				<top>-25</top>
+				<control type="group">
+					<description>Case 1</description>
+					<left>747</left>
+					<top>422</top>
+					<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="-65" end="-65" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>VideoBoxDimensions</include>
+						<texture background="true" diffuse="ClearCase/EmptyCaseMask.png" fallback="DefaultVideoCover.png">$VAR[LiveContentOne]</texture>
+					</control>
+					<include>VideoBoxGlass</include>
+				</control>
+				<control type="group">
+					<description>Case 2</description>
+					<left>623</left>
+					<top>0</top>
+					<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="65" end="65" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>VideoBoxDimensions</include>
+						<texture background="true" diffuse="ClearCase/EmptyCaseMask.png" fallback="DefaultVideoCover.png">$VAR[LiveContentTwo]</texture>
+					</control>
+					<include>VideoBoxGlass</include>
+				</control>
+				<control type="group">
+					<description>Case 3</description>
+					<left>453</left>
+					<top>150</top>
+					<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="10" end="10" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>VideoBoxDimensions</include>
+						<texture background="true" diffuse="ClearCase/EmptyCaseMask.png" fallback="DefaultVideoCover.png">$VAR[LiveContentThree]</texture>
+					</control>
+					<include>VideoBoxGlass</include>
+				</control>
+				<control type="group">
+					<description>Case 4</description>
+					<left>1033</left>
+					<top>250</top>
+					<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="-20" end="-20" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>VideoBoxDimensions</include>
+						<texture background="true" diffuse="ClearCase/EmptyCaseMask.png" fallback="DefaultVideoCover.png">$VAR[LiveContentFour]</texture>
+					</control>
+					<include>VideoBoxGlass</include>
+				</control>
+				<control type="group">
+					<description>Case 5</description>
+					<left>667</left>
+					<top>113</top>
+					<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="25" end="25" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>VideoBoxDimensions</include>
+						<texture background="true" diffuse="ClearCase/EmptyCaseMask.png" fallback="DefaultVideoCover.png">$VAR[LiveContentFive]</texture>
+					</control>
+					<include>VideoBoxGlass</include>
+				</control>
+				<control type="group">
+					<description>Case 6</description>
+					<left>870</left>
+					<top>65</top>
+					<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="75" end="75" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>VideoBoxDimensions</include>
+						<texture background="true" diffuse="ClearCase/EmptyCaseMask.png" fallback="DefaultVideoCover.png">$VAR[LiveContentSix]</texture>
+					</control>
+					<include>VideoBoxGlass</include>
+				</control>
+				<control type="group">
+					<description>Case 7</description>
+					<left>1000</left>
+					<top>293</top>
+					<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="45" end="45" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>VideoBoxDimensions</include>
+						<texture background="true" diffuse="ClearCase/EmptyCaseMask.png" fallback="DefaultVideoCover.png">$VAR[LiveContentSeven]</texture>
+					</control>
+					<include>VideoBoxGlass</include>
+				</control>
+				<control type="group">
+					<description>Case 8</description>
+					<left>1137</left>
+					<top>373</top>
+					<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="-35" end="-35" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>VideoBoxDimensions</include>
+						<texture background="true" diffuse="ClearCase/EmptyCaseMask.png" fallback="DefaultVideoCover.png">$VAR[LiveContentEight]</texture>
+					</control>
+					<include>VideoBoxGlass</include>
+				</control>
+				<control type="group">
+					<description>Case 9</description>
+					<left>733</left>
+					<top>262</top>
+					<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="-10" end="-10" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>VideoBoxDimensions</include>
+						<texture background="true" diffuse="ClearCase/EmptyCaseMask.png" fallback="DefaultVideoCover.png">$VAR[LiveContentNine]</texture>
+					</control>
+					<include>VideoBoxGlass</include>
+				</control>
+				<control type="group">
+					<description>Case 10</description>
+					<left>407</left>
+					<top>297</top>
+					<animation effect="zoom" start="180" end="180" center="auto" time="0" tween="linear" condition="true">Conditional</animation>
+					<animation effect="rotate" center="auto" start="3" end="3" time="0" condition="true">Conditional</animation>
+					<control type="image">
+						<include>VideoBoxDimensions</include>
+						<texture background="true" diffuse="ClearCase/EmptyCaseMask.png" fallback="DefaultVideoCover.png">$VAR[LiveContentTen]</texture>
+					</control>
+					<include>VideoBoxGlass</include>
+				</control>
+				<visible>String.IsEqual(Container(9000).ListItem.Property(Background),Live)</visible>
+				<visible>!String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + !String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)   + !String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)</visible>
 			</control>
 		</control>
 	</include>
 
-
-
-</includes>
+	</includes>

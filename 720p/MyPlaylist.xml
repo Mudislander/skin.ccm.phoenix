@@ -17,8 +17,9 @@
 		</control>
 		<control type="group">
 			<depth>DepthFooter</depth>
-			<include>CommonPageCount</include>
-			<include>CommonNowPlaying</include>
+			<include>OSDSeekInfo</include>
+			<!--include>CommonPageCount</include-->
+			<!--include>CommonNowPlaying</include-->
 		</control>
 		<include>MainWindowMouseButtons</include>
 		<include>BehindDialogFadeOut</include>

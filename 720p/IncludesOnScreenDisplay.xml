@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="MusicArtUnderVisualisation">
+		<control type="group">
+			<visible>String.IsEmpty(Visualisation.Name) | String.Contains(Visualisation.Name,waveform) | String.Contains(Visualisation.Name,spectrum)</visible>
+			<control type="multiimage">
+				<description>Extra Fanart Image for Artist</description>
+				<left>0</left>
+				<top>0</top>
+				<width>1280</width>
+				<height>720</height>
+				<aspectratio>scale</aspectratio>
+				<timeperimage>10000</timeperimage>
+				<randomize>true</randomize>
+				<fadetime>600</fadetime>
+				<include condition="!Skin.HasSetting(NoAnimateVizFanart)">KBurnsAnimateFanart</include>
+				<imagepath background="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.ExtraFanArt)]</imagepath>
+				<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Music.ExtraFanArt))</visible>
+				<visible>!Skin.HasSetting(HideVisualizationFanart) + Skin.HasSetting(DisableSlideShowArt)</visible>
+			</control>
+			<control type="multiimage">
+				<left>0</left>
+				<top>0</top>
+				<width>1280</width>
+				<height>720</height>
+				<aspectratio>scale</aspectratio>
+				<timeperimage>10000</timeperimage>
+				<randomize>true</randomize>
+				<fadetime>600</fadetime>
+				<include condition="!Skin.HasSetting(NoAnimateVizFanart)">KBurnsAnimateFanart</include>
+				<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+				<visible>!Skin.HasSetting(HideVisualizationFanart) + !Skin.HasSetting(DisableSlideShowArt) + !IsEmpty(Window.Property(ArtworkReady))</visible>
+			</control>
+			<control type="group">
+				<include condition="!Skin.HasSetting(HideBackgroundCDWall)">CDWallBackground</include>
+				<control type="image">
+					<description>Fanart Image for Artist</description>
+					<left>0</left>
+					<top>0</top>
+					<width>1280</width>
+					<height>720</height>
+					<aspectratio>scale</aspectratio>
+					<include condition="!Skin.HasSetting(NoAnimateVizFanart)">KBurnsAnimateFanart</include>
+					<texture background="true">$INFO[Player.Art(fanart)]</texture>
+					<fadetime>600</fadetime>
+					<visible>!String.IsEmpty(Player.Art(fanart)) + !Skin.HasSetting(HideVisualizationFanart)</visible>
+				</control>
+				<visible>[!Skin.HasSetting(DisableSlideShowArt) + IsEmpty(Window.Property(ArtworkReady)) | String.Contains(Window(Visualisation).Property(ArtistSlideshow),transparent)] | [Skin.HasSetting(DisableSlideShowArt) + String.IsEmpty(Window(Home).Property(SkinHelper.Player.Music.ExtraFanArt))]</visible>
+			</control>
+		</control>
+	</include>
+	<include name="MusicArtOverVisualisation">
+		<control type="group">
+			<visible>!String.IsEmpty(Visualisation.Name) + !String.Contains(Visualisation.Name,waveform) + !String.Contains(Visualisation.Name,spectrum)</visible>
+			<control type="multiimage">
+			<description>Extra Fanart Image for Artist</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1280</width>
+			<height>720</height>
+			<aspectratio>scale</aspectratio>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>600</fadetime>
+			<include condition="!Skin.HasSetting(NoAnimateVizFanart)">KBurnsAnimateFanart</include>
+			<include>VizDiffusionEffect</include>
+			<imagepath background="true">$INFO[Window(Home).Property(SkinHelper.Player.Music.ExtraFanArt)]</imagepath>
+			<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Music.ExtraFanArt))</visible>
+			<visible>!Skin.HasSetting(HideVisualizationFanart) + Skin.HasSetting(DisableSlideShowArt)</visible>
+		</control>
+		<control type="multiimage">
+			<left>0</left>
+			<top>0</top>
+			<width>1280</width>
+			<height>720</height>
+			<aspectratio>scale</aspectratio>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>600</fadetime>
+			<include>VizDiffusionEffect</include>
+			<include condition="!Skin.HasSetting(NoAnimateVizFanart)">KBurnsAnimateFanart</include>
+			<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+			<visible>!Skin.HasSetting(HideVisualizationFanart) + !Skin.HasSetting(DisableSlideShowArt) + !IsEmpty(Window.Property(ArtworkReady))</visible>
+		</control>
+		<control type="group">
+			<include condition="!Skin.HasSetting(HideBackgroundCDWall)">CDWallBackground</include>
+			<control type="image">
+				<description>Fanart Image for Artist</description>
+				<left>0</left>
+				<top>0</top>
+				<width>1280</width>
+				<height>720</height>
+				<aspectratio>scale</aspectratio>
+				<include condition="!Skin.HasSetting(NoAnimateVizFanart)">KBurnsAnimateFanart</include>
+				<texture background="true">$INFO[Player.Art(fanart)]</texture>
+				<include>VizDiffusionEffect</include>
+				<fadetime>600</fadetime>
+				<visible>!String.IsEmpty(Player.Art(fanart)) + !Skin.HasSetting(HideVisualizationFanart)</visible>
+			</control>
+			<visible>[!Skin.HasSetting(DisableSlideShowArt)  + IsEmpty(Window.Property(ArtworkReady)) | String.Contains(Window(Visualisation).Property(ArtistSlideshow),transparent)] | [Skin.HasSetting(DisableSlideShowArt) + String.IsEmpty(Window(Home).Property(SkinHelper.Player.Music.ExtraFanArt))]</visible>
+		</control>
+		</control>
+	</include>
+</includes>

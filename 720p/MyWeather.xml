@@ -27,6 +27,7 @@
 			<width>1280</width>
 			<height>100</height>
 			<texture>floor.png</texture>
+			<colordiffuse>blue</colordiffuse>
 			<include>VisibleFadeEffect</include>
 			<animation effect="slide" start="0,10" end="0,0" time="150" condition="Window.Previous(Home)">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,10" time="150" condition="Window.Next(Home)">WindowClose</animation>
@@ -49,7 +50,7 @@
 					<top>0</top>
 					<width>500</width>
 					<height>620</height>
-					<texture border="20">ContentPanel.png</texture>
+					<texture border="20">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -423,7 +424,7 @@
 					<top>0</top>
 					<width>650</width>
 					<height>620</height>
-					<texture border="20">ContentPanel.png</texture>
+					<texture border="20">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -451,7 +452,8 @@
 		</control>
 		<control type="group">
 			<depth>DepthFooter</depth>
-			<include>CommonNowPlaying</include>
+			<include>OSDSeekInfo</include>
+			<!--include>CommonNowPlaying</include-->
 		</control>
 		<include>MainWindowMouseButtons</include>
 		<control type="group">

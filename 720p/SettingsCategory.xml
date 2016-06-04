@@ -21,6 +21,7 @@
 			<width>1280</width>
 			<height>100</height>
 			<texture>floor.png</texture>
+			<colordiffuse>blue</colordiffuse>
 			<include>VisibleFadeEffect</include>
 		</control>
 		<control type="group">
@@ -39,7 +40,7 @@
 				<top>5</top>
 				<width>1090</width>
 				<height>630</height>
-				<texture border="15">ContentPanel.png</texture>
+				<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>5</left>
@@ -126,7 +127,7 @@
 				<top>10</top>
 				<width>790</width>
 				<height>618</height>
-				<texture border="5">black-back2.png</texture>
+				<texture border="5">black-back2.png</texture><colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>268</left>
@@ -288,7 +289,8 @@
 		</control>
 		<control type="group">
 			<depth>DepthFooter</depth>
-			<include>CommonNowPlaying</include>
+			<include>OSDSeekInfo</include>
+			<!--include>CommonNowPlaying</include-->
 		</control>
 		<include>MainWindowMouseButtons</include>
 		<include content="CommonWindowHeader">

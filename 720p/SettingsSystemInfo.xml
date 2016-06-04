@@ -21,6 +21,7 @@
 			<width>1280</width>
 			<height>100</height>
 			<texture>floor.png</texture>
+			<colordiffuse>blue</colordiffuse>
 			<animation effect="slide" start="0,10" end="0,0" time="150" condition="Window.Previous(Home)">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,10" time="150" condition="Window.Next(Home)">WindowClose</animation>
 		</control>
@@ -40,7 +41,7 @@
 				<top>5</top>
 				<width>1090</width>
 				<height>630</height>
-				<texture border="15">ContentPanel.png</texture>
+				<texture border="15">ContentPanel.png</texture><colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>5</left>
@@ -179,7 +180,7 @@
 				<top>10</top>
 				<width>790</width>
 				<height>618</height>
-				<texture border="5">black-back2.png</texture>
+				<texture border="5">black-back2.png</texture><colordiffuse>blue</colordiffuse>
 			</control>
 			<control type="image">
 				<left>268</left>
@@ -378,7 +379,8 @@
 				</control>
 			</control>
 		</control>
-		<include>CommonNowPlaying</include>
+		<!--include>CommonNowPlaying</include-->
+		<include>OSDSeekInfo</include>
 		<include>MainWindowMouseButtons</include>
 		<include content="CommonWindowHeader">
 			<param name="Icon" value="icon_system" />

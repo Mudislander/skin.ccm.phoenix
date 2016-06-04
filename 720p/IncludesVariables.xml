@@ -127,10 +127,27 @@
 		<value condition="String.IsEmpty(Skin.String(resource.images.weathericons.path))">$LOCALIZE[31257]</value>
 		<value condition="!String.IsEmpty(Skin.String(resource.images.weathericons.path))">$INFO[Skin.String(resource.images.weathericons.name)]</value>
 	</variable>
-	<!--variable name="PosterThumb">
+	
+	<variable name="MovielistBackground">
+	
+	<value condition="String.IsEmpty(Window(Home).Property(SkinHelper.AnimatedFanArt)) + String.IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath))">$INFO[ListItem.Art(fanart)]</value>
+	
+	<value condition="Container.Content(Movies) + !Skin.HasSetting(DisableFanArtBeforeGIF) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(Window(Home).Property(SkinHelper.AnimatedFanArt))">$INFO[Window(Home).Property(SkinHelper.AnimatedFanArt)]</value>
+	<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath))">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</value>
+	<value condition="Container.Content(Movies) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(Window(Home).Property(SkinHelper.AnimatedFanArt))">$INFO[Window(Home).Property(SkinHelper.AnimatedFanArt)]</value>
+	<value condition="!String.IsEmpty(ListItem.Art(fanart)">$INFO[ListItem.Art(fanart)]</value>
+	<value condition="!String.IsEmpty(ListItem.Property(fanart))">$INFO[ListItem.Property(fanart)]</value>
+	<value>$INFO[ListItem.FolderPath]fanart.jpg</value>
+	</variable>
+	
+	<variable name="SimplePosterThumb">
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-		<value>$INFO[ListItem.Icon]</value>
-	</variable-->
+		<value condition="!String.IsEmpty(ListItem.Property(poster))">$INFO[ListItem.Property(poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+		<value>$INFO[ListItem.FolderPath]poster.jpg</value>
+	</variable>
+	
 	<variable name="PosterThumb">
 		<value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(Window(Home).Property(SkinHelper.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.AnimatedPoster)]</value>
 		<value condition="Container.Content(seasons) + String.StartsWith(ListItem.Label,*) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
@@ -200,20 +217,9 @@
 		<value condition="System.HasAddon(resource.images.studios.coloured) + Skin.HasSetting(PreferColorStudioLogos) + !String.IsEmpty(Window(home).Property(SkinHelper.ListItemStudioLogoColor))">$INFO[Window(home).Property(SkinHelper.ListItemStudioLogoColor)]</value>
 		<value>$INFO[Window(home).Property(SkinHelper.ListItemStudioLogo)]</value>
 	</variable>
-	<!--####################################################################-->
-	<!--
-	Type,VideoPlayList
-	<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)</visible>
-	<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)</visible>
-	<visible>String.IsEqual(Container(9000).ListItem.Property(WidgetSet),MusicPlayList)</visible>
-			<visible>String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)</visible>
-			
-			
-		
-	<value>$INFO[Window(Home).Property(SkinHelper.AllMusicSongsBackground.Wall)]</value>
-		
-			
-	-->
+	
+	
+	
 	<variable name="HomeMenuItemBackground" type="text">
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(Background),Theme)">$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</value>
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Weather) + String.IsEqual(Container(9000).ListItem.Property(Background),Default)">$VAR[WeatherFanartPath]</value>
@@ -285,6 +291,456 @@
 		<value condition="String.IsEqual(Container(9004).ListItem.Property(HiLiteItem),MusicPlayList)">special://skin/backgrounds/musicvideos.jpg</value>
 		<value>$INFO[Skin.CurrentTheme,special://skin/backgrounds/,.jpg]</value>
 	</variable>
+	<variable name="LiveContentOne">
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListOne.5.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTwo.5.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListThree.5.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFour.5.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFive.5.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSix.5.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSeven.5.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListEight.5.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListNine.5.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTen.5.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListOne.5.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTwo.5.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListThree.5.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFour.5.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFive.5.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSix.5.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSeven.5.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListEight.5.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListNine.5.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTen.5.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListOne.5.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTwo.5.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListThree.5.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFour.5.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFive.5.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSix.5.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSeven.5.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListEight.5.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListNine.5.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTen.5.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomMusicVideo.5.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestMusicVideo.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)">$INFO[Window(Home).Property(LatestMusicVideo.5.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomAlbum.5.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestAlbum.5.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music)">$INFO[Window(Home).Property(LatestAlbum.5.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)">CDCase/DefaultCDCover.png</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Movies)">$INFO[Window(Home).Property(RandomMovie.5.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(RandomEpisode.5.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(LatestEpisode.5.ShowThumb)]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(Movies)">$INFO[Window(Home).Property(RandomMovie.5.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(TVShows)">$INFO[Window(Home).Property(RandomEpisode.5.Art(tvshow.poster))]</value>
+		<value condition="Library.HasContent(Movies)">$INFO[Window(Home).Property(LatestMovie.5.Thumb)]</value>
+		<value condition="Library.HasContent(TVShows)">$INFO[Window(Home).Property(LatestEpisode.5.ShowThumb)]</value>
+		<value>DefaultVideoCover.png</value>
+	</variable>
+	<variable name="LiveContentTwo">
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListOne.9.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTwo.9.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListThree.9.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFour.9.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFive.9.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSix.9.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSeven.9.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListEight.9.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListNine.9.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTen.9.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListOne.9.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTwo.9.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListThree.9.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFour.9.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFive.9.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSix.9.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSeven.9.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListEight.9.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListNine.9.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTen.9.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListOne.9.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTwo.9.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListThree.9.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFour.9.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFive.9.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSix.9.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSeven.9.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListEight.9.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListNine.9.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTen.9.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomMusicVideo.9.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestMusicVideo.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)">$INFO[Window(Home).Property(LatestMusicVideo.9.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomAlbum.9.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestAlbum.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music)">$INFO[Window(Home).Property(LatestAlbum.9.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)">CDCase/DefaultCDCover.png</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Movies)">$INFO[Window(Home).Property(RandomMovie.9.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(RandomEpisode.9.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(LatestEpisode.9.ShowThumb)]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(TVShows)">$INFO[Window(Home).Property(RandomEpisode.9.Art(tvshow.poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(Movies)">$INFO[Window(Home).Property(RandomMovie.9.Art(poster))]</value>
+		<value condition="Library.HasContent(TVShows)">$INFO[Window(Home).Property(LatestEpisode.9.ShowThumb)]</value>
+		<value condition="Library.HasContent(Movies)">$INFO[Window(Home).Property(LatestMovie.9.Thumb)]</value>
+		<value>DefaultVideoCover.png</value>
+	</variable>
+	<variable name="LiveContentThree">
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListOne.8.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTwo.8.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListThree.8.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFour.8.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFive.8.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSix.8.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSeven.8.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListEight.8.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListNine.8.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTen.8.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListOne.8.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTwo.8.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListThree.8.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFour.8.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFive.8.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSix.8.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSeven.8.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListEight.8.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListNine.8.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTen.8.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListOne.8.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTwo.8.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListThree.8.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFour.8.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFive.8.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSix.8.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSeven.8.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListEight.8.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListNine.8.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTen.8.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomMusicVideo.8.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestMusicVideo.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)">$INFO[Window(Home).Property(LatestMusicVideo.8.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomAlbum.8.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestAlbum.8.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music)">$INFO[Window(Home).Property(LatestAlbum.8.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)">CDCase/DefaultCDCover.png</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Movies)">$INFO[Window(Home).Property(RandomMovie.8.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(RandomEpisode.8.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(LatestEpisode.8.ShowThumb)]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(Movies)">$INFO[Window(Home).Property(RandomMovie.8.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(TVShows)">$INFO[Window(Home).Property(RandomEpisode.8.Art(tvshow.poster))]</value>
+		<value condition="Library.HasContent(Movies)">$INFO[Window(Home).Property(LatestMovie.8.Thumb)]</value>
+		<value condition="Library.HasContent(TVShows)">$INFO[Window(Home).Property(LatestEpisode.8.ShowThumb)]</value>
+		<value>DefaultVideoCover.png</value>
+	</variable>
+	<variable name="LiveContentFour">
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListOne.7.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTwo.7.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListThree.7.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFour.7.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFive.7.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSix.7.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSeven.7.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListEight.7.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListNine.7.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTen.7.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListOne.7.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTwo.7.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListThree.7.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFour.7.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFive.7.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSix.7.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSeven.7.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListEight.7.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListNine.7.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTen.7.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListOne.7.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTwo.7.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListThree.7.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFour.7.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFive.7.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSix.7.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSeven.7.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListEight.7.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListNine.7.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTen.7.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomMusicVideo.7.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestMusicVideo.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)">$INFO[Window(Home).Property(LatestMusicVideo.7.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomAlbum.7.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestAlbum.7.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music)">$INFO[Window(Home).Property(LatestAlbum.7.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)">CDCase/DefaultCDCover.png</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Movies)">$INFO[Window(Home).Property(RandomMovie.7.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(RandomEpisode.7.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(LatestEpisode.7.ShowThumb)]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(TVShows)">$INFO[Window(Home).Property(RandomEpisode.7.Art(tvshow.poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(Movies)">$INFO[Window(Home).Property(RandomMovie.7.Art(poster))]</value>
+		<value condition="Library.HasContent(TVShows)">$INFO[Window(Home).Property(LatestEpisode.7.ShowThumb)]</value>
+		<value condition="Library.HasContent(Movies)">$INFO[Window(Home).Property(LatestMovie.7.Thumb)]</value>
+		<value>DefaultVideoCover.png</value>
+	</variable>
+	<variable name="LiveContentFive">
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListOne.4.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTwo.4.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListThree.4.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFour.4.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFive.4.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSix.4.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSeven.4.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListEight.4.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListNine.4.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTen.4.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListOne.4.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTwo.4.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListThree.4.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFour.4.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFive.4.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSix.4.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSeven.4.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListEight.4.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListNine.4.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTen.4.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListOne.4.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTwo.4.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListThree.4.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFour.4.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFive.4.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSix.4.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSeven.4.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListEight.4.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListNine.4.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTen.4.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomMusicVideo.4.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestMusicVideo.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)">$INFO[Window(Home).Property(LatestMusicVideo.4.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomAlbum.4.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestAlbum.4.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music)">$INFO[Window(Home).Property(LatestAlbum.4.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)">CDCase/DefaultCDCover.png</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Movies)">$INFO[Window(Home).Property(RandomMovie.4.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(RandomEpisode.4.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(LatestEpisode.4.ShowThumb)]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(Movies)">$INFO[Window(Home).Property(RandomMovie.4.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(TVShows)">$INFO[Window(Home).Property(RandomEpisode.4.Art(tvshow.poster))]</value>
+		<value condition="Library.HasContent(Movies)">$INFO[Window(Home).Property(LatestMovie.4.Thumb)]</value>
+		<value condition="Library.HasContent(TVShows)">$INFO[Window(Home).Property(LatestEpisode.4.ShowThumb)]</value>
+		<value>DefaultVideoCover.png</value>
+	</variable>
+	<variable name="LiveContentSix">
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListOne.6.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTwo.6.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListThree.6.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFour.6.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFive.6.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSix.6.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSeven.6.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListEight.6.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListNine.6.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTen.6.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListOne.6.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTwo.6.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListThree.6.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFour.6.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFive.6.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSix.6.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSeven.6.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListEight.6.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListNine.6.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTen.6.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListOne.6.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTwo.6.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListThree.6.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFour.6.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFive.6.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSix.6.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSeven.6.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListEight.6.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListNine.6.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTen.6.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomMusicVideo.6.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestMusicVideo.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)">$INFO[Window(Home).Property(LatestMusicVideo.6.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomAlbum.6.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestAlbum.6.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music)">$INFO[Window(Home).Property(LatestAlbum.6.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)">CDCase/DefaultCDCover.png</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Movies)">$INFO[Window(Home).Property(RandomMovie.6.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(RandomEpisode.6.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(LatestEpisode.6.ShowThumb)]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(TVShows)">$INFO[Window(Home).Property(RandomEpisode.6.Art(tvshow.poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(Movies)">$INFO[Window(Home).Property(RandomMovie.6.Art(poster))]</value>
+		<value condition="Library.HasContent(TVShows)">$INFO[Window(Home).Property(LatestEpisode.6.ShowThumb)]</value>
+		<value condition="Library.HasContent(Movies)">$INFO[Window(Home).Property(LatestMovie.6.Thumb)]</value>
+		<value>DefaultVideoCover.png</value>
+	</variable>
+	<variable name="LiveContentSeven">
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListOne.10.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTwo.10.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListThree.10.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFour.10.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFive.10.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSix.10.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSeven.10.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListEight.10.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListNine.10.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTen.10.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListOne.10.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTwo.10.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListThree.10.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFour.10.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFive.10.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSix.10.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSeven.10.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListEight.10.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListNine.10.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTen.10.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListOne.10.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTwo.10.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListThree.10.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFour.10.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFive.10.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSix.10.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSeven.10.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListEight.10.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListNine.10.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTen.10.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomMusicVideo.10.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestMusicVideo.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)">$INFO[Window(Home).Property(LatestMusicVideo.10.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomAlbum.10.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestAlbum.10.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music)">$INFO[Window(Home).Property(LatestAlbum.10.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)">CDCase/DefaultCDCover.png</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Movies)">$INFO[Window(Home).Property(RandomMovie.10.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(RandomEpisode.10.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(LatestEpisode.10.ShowThumb)]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(Movies)">$INFO[Window(Home).Property(RandomMovie.10.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(TVShows)">$INFO[Window(Home).Property(RandomEpisode.10.Art(tvshow.poster))]</value>
+		<value condition="Library.HasContent(Movies)">$INFO[Window(Home).Property(LatestMovie.10.Thumb)]</value>
+		<value condition="Library.HasContent(TVShows)">$INFO[Window(Home).Property(LatestEpisode.10.ShowThumb)]</value>
+		<value>DefaultVideoCover.png</value>
+	</variable>
+	<variable name="LiveContentEight">
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListOne.3.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTwo.3.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListThree.3.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFour.3.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFive.3.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSix.3.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSeven.3.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListEight.3.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListNine.3.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTen.3.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListOne.3.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTwo.3.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListThree.3.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFour.3.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFive.3.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSix.3.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSeven.3.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListEight.3.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListNine.3.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTen.3.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListOne.3.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTwo.3.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListThree.3.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFour.3.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFive.3.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSix.3.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSeven.3.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListEight.3.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListNine.3.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTen.3.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomMusicVideo.3.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestMusicVideo.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)">$INFO[Window(Home).Property(LatestMusicVideo.3.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomAlbum.3.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestAlbum.3.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music)">$INFO[Window(Home).Property(LatestAlbum.3.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)">CDCase/DefaultCDCover.png</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Movies)">$INFO[Window(Home).Property(RandomMovie.3.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(RandomEpisode.3.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(LatestEpisode.3.ShowThumb)]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(TVShows)">$INFO[Window(Home).Property(RandomEpisode.3.Art(tvshow.poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(Movies)">$INFO[Window(Home).Property(RandomMovie.3.Art(poster))]</value>
+		<value condition="Library.HasContent(TVShows)">$INFO[Window(Home).Property(LatestEpisode.3.ShowThumb)]</value>
+		<value condition="Library.HasContent(Movies)">$INFO[Window(Home).Property(LatestMovie.3.Thumb)]</value>
+		<value>DefaultVideoCover.png</value>
+	</variable>
+	<variable name="LiveContentNine">
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListOne.2.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTwo.2.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListThree.2.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFour.2.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFive.2.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSix.2.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSeven.2.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListEight.2.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListNine.2.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTen.2.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListOne.2.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTwo.2.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListThree.2.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFour.2.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFive.2.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSix.2.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSeven.2.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListEight.2.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListNine.2.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTen.2.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListOne.2.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTwo.2.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListThree.2.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFour.2.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFive.2.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSix.2.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSeven.2.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListEight.2.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListNine.2.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTen.2.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomMusicVideo.2.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestMusicVideo.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)">$INFO[Window(Home).Property(LatestMusicVideo.2.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomAlbum.2.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestAlbum.2.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music)">$INFO[Window(Home).Property(LatestAlbum.2.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)">CDCase/DefaultCDCover.png</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Movies)">$INFO[Window(Home).Property(RandomMovie.2.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(RandomEpisode.2.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(LatestEpisode.2.ShowThumb)]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(Movies)">$INFO[Window(Home).Property(RandomMovie.2.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(TVShows)">$INFO[Window(Home).Property(RandomEpisode.2.Art(tvshow.poster))]</value>
+		<value condition="Library.HasContent(Movies)">$INFO[Window(Home).Property(LatestMovie.2.Thumb)]</value>
+		<value condition="Library.HasContent(TVShows)">$INFO[Window(Home).Property(LatestEpisode.2.ShowThumb)]</value>
+		<value>DefaultVideoCover.png</value>
+	</variable>
+	<variable name="LiveContentTen">
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListOne.1.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTwo.1.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListThree.1.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFour.1.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListFive.1.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSix.1.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListSeven.1.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListEight.1.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListNine.1.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Music)">$INFO[Window(Home).Property(HomePlayListTen.1.Art(thumb))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListOne.1.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTwo.1.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListThree.1.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFour.1.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListFive.1.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSix.1.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListSeven.1.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListEight.1.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListNine.1.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Movie)">$INFO[Window(Home).Property(HomePlayListTen.1.Art(poster))]</value>
+		<value condition="Container(9000).HasFocus(1) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListOne.1.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(2) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTwo.1.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(3) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListThree.1.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(4) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFour.1.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(5) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListFive.1.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(6) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSix.1.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(7) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListSeven.1.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(8) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListEight.1.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(9) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListNine.1.Art(tvshow.poster))]</value>
+		<value condition="Container(9000).HasFocus(10) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),VideoPlayList) + String.IsEqual(Container(9000).ListItem.Property(PlayListType),Episode)">$INFO[Window(Home).Property(HomePlayListTen.1.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomMusicVideo.1.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestMusicVideo.9.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts)">$INFO[Window(Home).Property(LatestMusicVideo.1.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) + String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true)">$INFO[Window(Home).Property(RandomAlbum.1.Art(thumb))]</value>
+		<value condition="!IsEmpty(Window(Home).Property(LatestAlbum.1.Thumb)) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music)">$INFO[Window(Home).Property(LatestAlbum.1.Thumb)]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Music) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Concerts) | String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),MusicPlayList)">CDCase/DefaultCDCover.png</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),Movies)">$INFO[Window(Home).Property(RandomMovie.1.Art(poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(RandomEpisode.1.Art(tvshow.poster))]</value>
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(HiLiteItem),TVShows)">$INFO[Window(Home).Property(LatestEpisode.1.ShowThumb)]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(TVShows)">$INFO[Window(Home).Property(RandomEpisode.1.Art(tvshow.poster))]</value>
+		<value condition="String.Contains(Window(Home).Property(SkinWidgets_RandomItems),true) + Library.HasContent(Movies)">$INFO[Window(Home).Property(RandomMovie.1.Art(poster))]</value>
+		<value condition="Library.HasContent(TVShows)">$INFO[Window(Home).Property(LatestEpisode.1.ShowThumb)]</value>
+		<value condition="Library.HasContent(Movies)">$INFO[Window(Home).Property(LatestMovie.1.Thumb)]</value>
+		<value>DefaultVideoCover.png</value>
+	</variable>
 	<variable name="MultiImageTimerString" type="text">
 		<value condition="String.IsEmpty(Skin.String(MultiImageTimer)) | String.IsEqual(Skin.String(MultiImageTimer),8)">[COLOR=selected]$LOCALIZE[31390][/COLOR]</value>
 		<value>[COLOR=selected]$INFO[Skin.String(MultiImageTimer)][/COLOR] $LOCALIZE[31218]</value>
@@ -297,6 +753,10 @@
 		<value condition="String.IsEmpty(Skin.String(SkinHelper.AutoCloseMusicOSD))">[COLOR=selected]$LOCALIZE[31302][/COLOR]</value>
 		<value>[COLOR=selected]$INFO[Skin.String(SkinHelper.AutoCloseMusicOSD)][/COLOR] $LOCALIZE[31218]</value>
 	</variable>
+	<variable name="VideoOSDDisplayTimer" type="text">
+		<value condition="String.IsEmpty(Skin.String(SkinHelper.AutoCloseVideoOSD))">[COLOR=selected]$LOCALIZE[31302][/COLOR]</value>
+		<value>[COLOR=selected]$INFO[Skin.String(SkinHelper.AutoCloseVideoOSD)][/COLOR] $LOCALIZE[31218]</value>
+	</variable>
 	<variable name="StickyMenuLabel" type="text">
 		<value condition="Skin.String(StickyMenuSelect.Label)">$INFO[Skin.String(StickyMenuSelect.Label)]</value>
 		<value>$LOCALIZE[31163]</value>
@@ -306,13 +766,13 @@
 		<value>$INFO[Skin.String(HomeMenu.1.Label)]</value>
 	</variable>
 	<variable name="OSSubMenuAction" type="text">
-	<value condition="!String.IsEmpty(Skin.String(SubSetSeven.1.Path))">$INFO[Skin.String(SubSetSeven.1.Path)]</value>
-	<value condition="System.Platform.Android">StartAndroidActivity("com.android.tv.settings")</value>
-	<value condition="System.HasAddon(service.libreelec.settings)">RunAddon(service.libreelec.settings)</value>
-	<value condition="System.HasAddon(os.openelec.settings)">RunAddon(os.openelec.settings)</value>
-	<value condition="System.HasAddon(service.openelec.settings)">RunAddon(service.openelec.settings)</value>
-	<value condition="System.HasAddon(script.raspbmc.settings)">RunAddon(script.raspbmc.settings)</value>
-	<value>ActivateWindow(SkinSettings)</value>
+		<value condition="!String.IsEmpty(Skin.String(SubSetSeven.1.Path))">$INFO[Skin.String(SubSetSeven.1.Path)]</value>
+		<value condition="System.Platform.Android">StartAndroidActivity("com.android.tv.settings")</value>
+		<value condition="System.HasAddon(service.libreelec.settings)">RunAddon(service.libreelec.settings)</value>
+		<value condition="System.HasAddon(os.openelec.settings)">RunAddon(os.openelec.settings)</value>
+		<value condition="System.HasAddon(service.openelec.settings)">RunAddon(service.openelec.settings)</value>
+		<value condition="System.HasAddon(script.raspbmc.settings)">RunAddon(script.raspbmc.settings)</value>
+		<value>ActivateWindow(SkinSettings)</value>
 	</variable>
 	<variable name="SubMenuItemBackground" type="text">
 		<value condition="Container(9000).Hasfocus(1) + !String.IsEmpty(Skin.String(HomeMenu.1.Fanart))">$INFO[Skin.String(HomeMenu.1.Fanart)]</value>
@@ -516,9 +976,7 @@
 	<variable name="SubSetSevenItemOne" type="text">
 		<value condition="!String.IsEmpty(Skin.String(SubSetSeven.1.Label))">$INFO[Skin.String(SubSetSeven.1.Label)]</value>
 		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.Platform.Android">$LOCALIZE[31158]</value>
-		
 		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(service.libreelec.settings)">$LOCALIZE[31141]</value>
-		
 		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(script.raspbmc.settings)">$LOCALIZE[31160]</value>
 		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(os.openelec.settings)">$LOCALIZE[31159]</value>
 		<value condition="String.IsEmpty(Skin.String(SubSetSeven.1.Label)) + System.HasAddon(service.openelec.settings)">$LOCALIZE[31159]</value>
@@ -1088,20 +1546,10 @@
 		<value condition="!String.IsEmpty(Skin.String(SettingsMenu.WidgetName)) + !String.IsEqual(Skin.String(SettingsMenu.WidgetName),None)">$INFO[Skin.String(SettingsMenu.WidgetName)]</value>
 		<value>$LOCALIZE[31170]</value>
 	</variable>
-	
-	
-	
 	<variable name="UsrWidgetOneSort" type="text">
-	
-	<value condition="String.IsEqual(Skin.String(Skin.String(HomeWidget.1.Sort)),Random)">$LOCALIZE[31275]</value>
+		<value condition="String.IsEqual(Skin.String(Skin.String(HomeWidget.1.Sort)),Random)">$LOCALIZE[31275]</value>
 		<value>$LOCALIZE[31075]</value>
-
-		</variable>
-	
-	
-	
-	
-	
+	</variable>
 	<variable name="UsrWidgetOneName" type="text">
 		<value condition="String.IsEmpty(Skin.String(HomeWidget.1.Lock))">$LOCALIZE[31074]</value>
 		<value condition="Skin.String(HomeWidget.1.Lock,HomeMenu.1)">[COLOR=selected]$LOCALIZE[31073][/COLOR] $INFO[Skin.String(HomeMenu.1.Label)]</value>
@@ -1664,17 +2112,36 @@
 		<value condition="String.IsEqual(Window(Home).Property(UsrSelectBtn),HomeMenu.10)">$INFO[Skin.String(HomeMenu.10.Label)]</value>
 		<value>$LOCALIZE[31164]</value>
 	</variable>
-	<variable name="InfoBarStats" type="text">
-	
-	<value>$INFO[Network.IPAddress,[B][COLOR=C0FFFFFF]IP: [/COLOR][/B]]     $INFO[system.memory(used.percent),[B][COLOR=C0FFFFFF]RAM: [/COLOR][/B]]     $INFO[System.UsedSpacePercent,[B][COLOR=C0FFFFFF]$LOCALIZE[155]: [/COLOR][/B]]</value>
-	
+	<variable name="VideoPlayingDescription" type="text">
+		<value condition="!Skin.HasSetting(DisablePlotOutline) + !String.IsEmpty(VideoPlayer.PlotOutline)">$INFO[VideoPlayer.PlotOutline]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Plot )">$INFO[VideoPlayer.Plot]</value>
+		<value>$LOCALIZE[161]</value>
 	</variable>
-		<variable name="NextFiveSongScroller" type="text">
+	<variable name="InfoBarStats" type="text">
+		<value>$INFO[Network.IPAddress,[B][COLOR=C0FFFFFF]IP: [/COLOR][/B]]     $INFO[system.memory(used.percent),[B][COLOR=C0FFFFFF]RAM: [/COLOR][/B]]     $INFO[System.UsedSpacePercent,[B][COLOR=C0FFFFFF]$LOCALIZE[155]: [/COLOR][/B]]</value>
+	</variable>
+	<variable name="NextFiveSongScroller" type="text">
 		<value condition="!String.IsEmpty(MusicPlayer.offset(5).Artist) + Player.HasAudio">[COLOR=white][B]$LOCALIZE[31133][/B][/COLOR][COLOR=blue][B]   1:[/B][/COLOR]  $INFO[MusicPlayer.offset(1).Artist] - $INFO[MusicPlayer.offset(1).Title]    [COLOR=blue][B]2:[/B][/COLOR]  $INFO[MusicPlayer.offset(2).Artist] - $INFO[MusicPlayer.offset(2).Title]    [COLOR=blue][B]3:[/B][/COLOR]  $INFO[MusicPlayer.offset(3).Artist] - $INFO[MusicPlayer.offset(3).Title]    [COLOR=blue][B]4:[/B][/COLOR]  $INFO[MusicPlayer.offset(4).Artist] - $INFO[MusicPlayer.offset(4).Title]    [COLOR=blue][B]5:[/B][/COLOR]  $INFO[MusicPlayer.offset(5).Artist] - $INFO[MusicPlayer.offset(5).Title]</value>
 		<value condition="!String.IsEmpty(MusicPlayer.offset(4).Artist) + String.IsEmpty(MusicPlayer.offset(5).Artist) + Player.HasAudio">[COLOR=white][B]$LOCALIZE[31133][/B][/COLOR][COLOR=blue][B]   1:[/B][/COLOR]  $INFO[MusicPlayer.offset(1).Artist] - $INFO[MusicPlayer.offset(1).Title]    [COLOR=blue][B]2:[/B][/COLOR]  $INFO[MusicPlayer.offset(2).Artist] - $INFO[MusicPlayer.offset(2).Title]    [COLOR=blue][B]3:[/B][/COLOR]  $INFO[MusicPlayer.offset(3).Artist] - $INFO[MusicPlayer.offset(3).Title]    [COLOR=blue][B]4:[/B][/COLOR]  $INFO[MusicPlayer.offset(4).Artist] - $INFO[MusicPlayer.offset(4).Title]</value>
 		<value condition="!String.IsEmpty(MusicPlayer.offset(3).Artist) + String.IsEmpty(MusicPlayer.offset(4).Artist) + String.IsEmpty(MusicPlayer.offset(5).Artist) + Player.HasAudio">[COLOR=white][B]$LOCALIZE[31133][/B][/COLOR][COLOR=blue][B]   1:[/B][/COLOR]  $INFO[MusicPlayer.offset(1).Artist] - $INFO[MusicPlayer.offset(1).Title]    [COLOR=blue][B]2:[/B][/COLOR]  $INFO[MusicPlayer.offset(2).Artist] - $INFO[MusicPlayer.offset(2).Title]     [COLOR=blue][B]3:[/B][/COLOR]  $INFO[MusicPlayer.offset(3).Artist] - $INFO[MusicPlayer.offset(3).Title]</value>
 		<value condition="!String.IsEmpty(MusicPlayer.offset(2).Artist) + String.IsEmpty(MusicPlayer.offset(3).Artist) + String.IsEmpty(MusicPlayer.offset(4).Artist) + String.IsEmpty(MusicPlayer.offset(5).Artist) + Player.HasAudio">[COLOR=white][B]$LOCALIZE[31133][/B][/COLOR][COLOR=blue][B]   1:[/B][/COLOR]  $INFO[MusicPlayer.offset(1).Artist] - $INFO[MusicPlayer.offset(1).Title]    [COLOR=blue][B]2:[/B][/COLOR]  $INFO[MusicPlayer.offset(2).Artist] - $INFO[MusicPlayer.offset(2).Title]</value>
 		<value condition="!String.IsEmpty(MusicPlayer.offset(1).Artist) + String.IsEmpty(MusicPlayer.offset(2).Artist) + String.IsEmpty(MusicPlayer.offset(3).Artist) + String.IsEmpty(MusicPlayer.offset(4).Artist) + String.IsEmpty(MusicPlayer.offset(5).Artist) + Player.HasAudio">[COLOR=white][B]$LOCALIZE[31133][/B][/COLOR][COLOR=blue][B]   1:[/B][/COLOR]  $INFO[MusicPlayer.offset(1).Artist] - $INFO[MusicPlayer.offset(1).Title]</value>
 	</variable>
-
+	<variable name="VideoNowPlayingTitle" type="text">
+		<value condition="Player.ChapterCount + !VideoPlayer.Content(LiveTV)">$LOCALIZE[31040] - $LOCALIZE[21396]: $INFO[player.chapter]$INFO[player.chaptercount, $LOCALIZE[31288] ]</value>
+		<value condition="VideoPlayer.Content(LiveTV) + VideoPlayer.ChannelGroup + !Player.Recording">$LOCALIZE[31040] - $INFO[VideoPlayer.ChannelGroup,$LOCALIZE[31509]: ]</value>
+		<value>$LOCALIZE[31040]</value>
+	</variable>
+	<variable name="HomePowerBtnCommand">
+		<value condition="String.IsEqual(Skin.String(PowerBtnAction),Custom) + !String.IsEmpty(Skin.String(CustomShutdownCmd))">XBMC.RunScript($INFO[Skin.String(CustomShutdownCmd)],$INFO[Skin.String(CustomShutdownArg)])</value>
+		<value condition="String.IsEqual(Skin.String(PowerBtnAction),Menu)">ActivateWindow(ShutdownMenu)</value>
+		<value condition="String.IsEqual(Skin.String(PowerBtnAction),Settings)">ActivateWindow(SkinSettings)</value>
+		<value condition="String.IsEqual(Skin.String(PowerBtnAction),Exit) + System.ShowExitButton">Quit()</value>
+		<value condition="String.IsEqual(Skin.String(PowerBtnAction),PowerDown) + System.CanPowerDown">Powerdown()</value>
+		<value condition="String.IsEqual(Skin.String(PowerBtnAction),Suspend) + System.CanSuspend">Suspend()</value>
+		<value condition="String.IsEqual(Skin.String(PowerBtnAction),Hibernate) + System.CanHibernate">Hibernate()</value>
+		<value condition="String.IsEqual(Skin.String(PowerBtnAction),Reboot) + System.CanReboot">Reset()</value>
+		<value condition="String.IsEqual(Skin.String(PowerBtnAction),Logoff) + System.Loggedon">System.LogOff</value>
+		<value>ActivateWindow(ShutdownMenu)</value>
+	</variable>
 </includes>

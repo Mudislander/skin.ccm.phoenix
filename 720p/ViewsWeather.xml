@@ -373,7 +373,7 @@
 				<orientation>vertical</orientation>
 				<visible>Control.IsVisible(51)</visible>
 			</control>
-			<control type="label">
+			<!--control type="label">
 				<depth>DepthFooter</depth>
 				<animation effect="slide" start="0,0" end="-90,0" time="0" condition="system.getbool(input.enablemouse)">Conditional</animation>
 				<description>number of files/pages</description>
@@ -387,7 +387,7 @@
 				<shadowcolor>black</shadowcolor>
 				<label>([COLOR=blue]$INFO[Container(51).NumItems][/COLOR]) $LOCALIZE[12393] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(51).CurrentPage]/$INFO[Container(51).NumPages][/COLOR])</label>
 				<visible>Control.IsVisible(51)</visible>
-			</control>
+			</control-->
 		</control>
 	</include>
 	<include name="WeatherDefaultItem">
@@ -1098,7 +1098,7 @@
 				<include>VisibleFadeEffect</include>
 				<visible>Control.IsVisible(52)</visible>
 			</control>
-			<control type="label">
+			<!--control type="label">
 				<depth>DepthFooter</depth>
 				<animation effect="slide" start="0,0" end="-90,0" time="0" condition="system.getbool(input.enablemouse)">Conditional</animation>
 				<description>number of files/pages</description>
@@ -1113,7 +1113,7 @@
 				<label>([COLOR=blue]$INFO[Container(52).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(52).CurrentPage]/$INFO[Container(52).NumPages][/COLOR])</label>
 				<include>VisibleFadeEffect</include>
 				<visible>Control.IsVisible(52)</visible>
-			</control>
+			</control-->
 		</control>
 	</include>
 	<include name="WeatherMaps">

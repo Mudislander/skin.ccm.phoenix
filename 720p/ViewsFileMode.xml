@@ -341,7 +341,7 @@
 						<height>240</height>
 						<bordertexture border="5">button-nofocus.png</bordertexture>
 						<bordersize>5</bordersize>
-						<texture background="true">$VAR[PosterThumb]</texture>
+						<texture background="true">$VAR[SimplePosterThumb]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
@@ -373,7 +373,7 @@
 						<height>240</height>
 						<bordertexture border="5">folder-focus.png</bordertexture>
 						<bordersize>5</bordersize>
-						<texture background="true">$VAR[PosterThumb]</texture>
+						<texture background="true">$VAR[SimplePosterThumb]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
@@ -497,6 +497,21 @@
 		<control type="group">
 			<visible>Control.IsVisible(51)</visible>
 			<include>VisibleFadeEffect</include>
+			
+			
+			
+			
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			<control type="list" id="51">
 				<left>95</left>
 				<top>78</top>
